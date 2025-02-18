@@ -1,0 +1,120 @@
+## Ejercicio 1
+
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+6. ¿Qué comando se utiliza para hacer un commit? 
+7. En sus propias palabras, ¿qué es un commit?
+
+	Rta/ 
+	1. git init
+	2. git rm -r --cached nombre_del_directorio
+	3. git add nombre_archivo
+	4. git add nombre_archivo
+	5. git status
+	6. git commit -m "Mensaje descriptivo del cambio"
+	7. Un commit es como una vista previa del proyecto en un momento específico es decir guarda los cambios hechos hasta ese punto, 
+	   lo que permite ver el historial, saber quién hizo qué y volver atrás si es necesario.
+
+### 1.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` si no estaba creado previamente.
+2. Agregar a `sandwich.txt` condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.
+		
+  - EL primer ingrediente que agregue fue pan.
+		git status
+			Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+
+		Explicacion:  - se esta trabajando en la rama MAIN tiene un commit que hice un cambio local y lo guardé con git commit (ever_quenguan,txt), 
+	      pero todavía no lo subí con git push. Hay archivos modificados que Git detecta, pero que aún no están listos para ser guardados en el próximo commit.
+	      - Para agregar esos cambios al próximo commit, debo usar git add <nombre del archivo>
+	      - Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <nombre del archivo>.
+	      - "modified: 1.commit/sandwich.txt" Este es el archivo que tiene cambios sin agregar al commit.
+	      - "no changes added to commit (use 'git add' and/or 'git commit -a')"→ No he agregado ningún cambio al próximo commit. S
+	         Si quiero incluirlos, debo usar git add
+
+       - despues de darle git add -a y commit -m 
+									
+		On branch main
+		Your branch is ahead of 'origin/main' by 2 commits.
+ 		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+		Explicacion: Estoy en la rama main y tengo dos commits nuevos que aún no he subido al repositorio remoto, por lo que mi rama local está adelantada en 
+		comparación con origin/main. Git me sugiere usar git push para subir esos commits. Además, no hay cambios pendientes en los archivos, es decir, 
+		el directorio de trabajo está limpio y todo lo que hice ya está guardado en commits.
+
+
+
+
+	- EL segundo ingrediente que agregue fue jamon y queso:
+		git status
+			Changes not staged for commit:
+  		(use "git add <file>..." to update what will be committed)
+		  (use "git restore <file>..." to discard changes in working directory)
+        		modified:   1.commit/sandwich.txt
+		
+
+
+		- Hay cambios en el archivo 1.commit/sandwich.txt, pero aún no están preparados para ser guardados en el próximo commit.
+		- Si quiero incluir estos cambios en el próximo commit, debo usar git add <archivo>.
+		- Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <archivo>.
+
+
+
+	- despues de darle git add -a y commit -m
+		
+		On branch main
+		Your branch is ahead of 'origin/main' by 3 commits.
+  		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+	Explicacion: Estoy en la rama main y tengo tres commits nuevos que aún no he subido al repositorio remoto. Git me indica que use git push para publicarlos.
+	 No hay cambios pendientes en los archivos, todo está guardado y el directorio de trabajo está limpio.
+
+
+
+	- EL tercer ingrediente que agregue fue salsas y ensalada:
+		git status
+			Changes not staged for commit:
+  		(use "git add <file>..." to update what will be committed)
+		  (use "git restore <file>..." to discard changes in working directory)
+        		modified:   1.commit/sandwich.txt
+		
+
+
+		- Hay cambios en el archivo 1.commit/sandwich.txt, pero aún no están preparados para ser guardados en el próximo commit.
+		- Si quiero incluir estos cambios en el próximo commit, debo usar git add <archivo>.
+		- Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <archivo>.
+
+
+
+	- despues de darle git add -a y commit -m
+		
+		On branch main
+		Your branch is ahead of 'origin/main' by 4 commits.
+  		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+	Explicacion: Estoy en la rama main y tengo cuatro commits nuevos que aún no he subido al repositorio remoto. Git me indica que use git push para publicarlos.
+	 No hay cambios pendientes en los archivos, todo está guardado y el directorio de trabajo está limpio.
+
+
+
+
+	
