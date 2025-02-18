@@ -1,4 +1,8 @@
 pan
 queso
 medallón
+salsa de tomate
+pollo
+carne de res
+carne de cerdo
 pan

@@ -1,0 +1,26 @@
+EJERCICIO 1
+
+1. git init
+2. git rm -r --cache nombre_directorio
+3. si, pero no esta siendo versionado aun, necesita un commit
+4. git add
+5. git status
+6. git commit -m 'mensaje'
+7. un commit es un punto de guardado de un proyecto que permite acceder al estado del proyecto en ese punto de guardado
+
+EJERCICIO 3
+
+3. 
+    On branch danielVallejosCristianPaz
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/sandwich.txt
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            1.commit/daniel_vallejos_cristian_paz.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    primero dice 
