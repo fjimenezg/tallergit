@@ -1,4 +1,1 @@
-pan
-queso
-medallón
-pan
+agrego pan
