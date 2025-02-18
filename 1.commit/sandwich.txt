@@ -1,4 +1,8 @@
 pan
 queso
-medallón
+tomate 
+carne
+tocineta
+lechuga
+queso
 pan
