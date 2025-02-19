@@ -1,0 +1,13 @@
+pan
+queso
+medallón
+pan
+cebolla
+salsa de tomate
+jamón
+tocino
+--Salsas preferidas
+-Piña
+-Tomate
+-Ajo
+-Guacamole
