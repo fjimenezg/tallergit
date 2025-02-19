@@ -6,3 +6,9 @@ Pollo
 lechuga
 tomate
 pan
+
+Salsas:
+Mostaza y miel
+Queso crema y verdeo
+Pesto
+Mayonesa de chipotle
