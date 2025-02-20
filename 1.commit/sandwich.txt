@@ -1,4 +1,6 @@
 pan
+pollo
+helado
 queso
 medallón
 pan
