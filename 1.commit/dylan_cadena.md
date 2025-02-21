@@ -146,7 +146,7 @@ Date:   Mon Feb 17 23:17:02 2025 -0500
 Es como el git log inicial pero este es mas detallado indicando ramas, archivos editados, eliminados entre otras cosas
 
 
-11. revisar punto
+11. Es necesario instalar meld e insertar ciertos comandos en un archivo en la carpeta .git, luego de esto se puede ejecutar el comando y en si muestra las diferencias de los hash pero de una manera grafica
 
 
 14. git status
