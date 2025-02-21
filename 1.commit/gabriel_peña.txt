@@ -215,3 +215,20 @@ Date:   Tue Feb 18 12:20:04 2025 -0500
  1 file changed, 10 insertions(+)
     
     En este caso copio los ultimos 3 commits donde se ve que se a creado el archivo sandwich2 que se ha cambiodo el nombre a sandwich2_feo y como se ha eliminado el archivo
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+    Un conflicto en Git ocurre cuando dos o más cambios en el mismo archivo no pueden fusionarse automáticamente
+    Esto sucede porque Git no puede determinar qué versión del código debe ir
+
+    Ocurre cunado queremos hacer un Merge, Al hacer un pull que trae cambios remotos que entran en conflicto
+
+    Ni bueno ni malo Los conflictos son inevitables en proyectos colaborativos y nos indican un error, el cual se puede solucionar
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+    Se puede evitar actualizando frecuentemente, haciendo pull o creando ramas especificas para trabajar en ciertos archivos
+
+
+
+
+
+
