@@ -39,3 +39,104 @@
     Un commit es un estado que se guarda del proyecto en el que se está trabajando en un momento específico, cada vez
     que se realiza un commit significa que en el repositorio se almacena una versión del proyecto en el estado que se encontraba
     justo antes de hacerlo y de esta forma permite que sea posible volver a dichos estados en caso de ser necesario.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+1.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` si no estaba creado previamente.
+
+2. Agregar a `sandwich.txt` condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`.
+    Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`.
+    Explique que significa la salida del comando.
+
+    Cabe mencionar que con anterioridad el archivo gabriel_tovar.txt ya había sido añadido al repositorio.
+    El anterior status al que se presento en este punto fue:
+
+    On branch gabriel_tovar
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            1.commit/gabriel_tovar.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    Esto significa que dicho archivo no estaba siendo seguido por Git
+    y se utilizaron los comandos git add . y git commit -m "Mensaje" para agregarlo al repositorio.
+
+    Tiempo después se hicieron los cambios solicitados en este punto y el resultado del git status ahora es:
+
+    On branch gabriel_tovar
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/gabriel_tovar.txt
+            modified:   1.commit/sandwich.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    Este resultado significa que los archivos gabriel_tovar.txt y sandwich.txt han sido modificados y dichos cambios aún no han
+    sido agregados al repositorio local.
+
+4. Agregar el archivo `sandwich.txt` al repositorio local. Para esto, se debe ejecutar el comando `git add sandwich.txt`.
+
+    Al utilizar el comando
+
+    git add sandwich.txt
+
+    La consola de git bash muestra el siguiente error:
+
+    fatal: pathspec 'sandwich.txt' did not match any files
+    
+    El comando para agregar sandwich.txt al repositorio es en realidad:
+
+    git add 1.commit/sandwich.txt
+
+    Pues debe partirse desde los directorios de la carpeta raíz.
+
+5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+
+    Luego de agregar sandwich.txt al repositorio, el comando git status muestra lo siguiente:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            modified:   1.commit/sandwich.txt
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/gabriel_tovar.txt
+    
+    El archivo sandwich.txt está listo para ser agregado a un nuevo estado/versión del proyecto, pero el archivo presente que
+    también está siendo modificado, no lo está ya que el comando solo añadió el archivo especificado
+
+    Para ello se añadirán ambos archivos con el comando git add .
+
+    Al darle git status de nuevo, el resultado es:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            modified:   1.commit/gabriel_tovar.txt
+            modified:   1.commit/sandwich.txt
+
+6. Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+    
+
+7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
+9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+    10.1. `git log --oneline`
+    10.2. `git log --stat`
+11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+    11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+    11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
+12. Crear un nuevo archivo dentro de la carpeta `1.commit`, llamado `sandwich2.txt`, y agregarle los ingredientes de su sandwich.
+13. Agregar el archivo `sandwich2.txt` al repositorio local.
+14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
