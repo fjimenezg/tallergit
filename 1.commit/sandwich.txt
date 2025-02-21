@@ -1,4 +1,6 @@
 pan
 queso
 jamon
+mayonesa
+mostaza
 pan
