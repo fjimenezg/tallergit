@@ -1,0 +1,286 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+2. ¿Por qué pueden ser útiles los branches?
+3. ¿Cómo se crea una branch?
+4. ¿Cómo se cambia a una branch?
+5. ¿Cómo se elimina una branch?
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+7. ¿Qué es un merge? 
+8. ¿Cómo se realiza un merge? 
+9. ¿Que es un tag? 
+10. ¿Cómo se crea un tag?
+
+
+### 2.2. Ejercicio Práctico
+
+6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+Explicación: Lo que podemos ver en el resultado del comando git graph es el comportamiento de las ramas dentro
+             del proyecto podemos ver claramente que la rama luis_medina se origina a partir de la rama practica2025
+             y se bifurca a partir de ella con su propia sección de commits mientras que la rama experimento
+             que es la rama donde estamos ubicados actualmente se origina a partir de main y no se muestra como
+             una bifurcación evidente porque continúa directamente desde main          
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+$ git graph
+* 595f892 (HEAD -> experimento) Agregamos oregano a la pizza.txt
+* aa303b0 Agregamos albahca a la pizza.txt
+* aa303b0 Agregamos albahca a la pizza.txt
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1     
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1     
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+| * bffcae8 Agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+--------------------------------------------------------------------------------------------------------------
+
+10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+Explicación: Después de añadir la nueva rama anana, ahora la rama experimento se muestra como una bifurcación,
+             al igual que luis_medina. En cambio, la rama anana no muestra una bifurcación evidente porque
+             continúa directamente desde main.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (anana)
+$ git graph
+* 9fac85b (HEAD -> anana) Se añade el condimento anana al archivo pizza.txt
+| * 595f892 (experimento) Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+|/
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1     
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+| * bffcae8 Agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+--------------------------------------------------------------------------------------------------------------
+
+13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+Explicación: Debido a que realizamos un cambio en la rama main, que es el origen de las ramas experimento
+             y anana, ahora ambas se muestran como bifurcaciones de main, cada una con su propia línea
+             de commits. Esto ocurre porque main ha avanzado con nuevos cambios, lo que hace que las otras
+             ramas diverjan visualmente en el historial de Git.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+$ git graph
+* 8b24ec6 (HEAD -> main) Se agrega el condimento cebolla a la pizza.txt
+| * 9fac85b (anana) Se añade el condimento anana al archivo pizza.txt
+|/
+| * 595f892 (experimento) Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+|/
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1     
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+| * bffcae8 Agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+--------------------------------------------------------------------------------------------------------------
+
+
+
+15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+Explicación: Podemos ver que se ha realizado un merge entre la rama main y la rama anana, lo que ha generado
+             un nuevo merge commit (cad7196). Este commit une los cambios de anana en main, en uno solo. 
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git graph
+*   cad7196 (HEAD -> main) Merge branch 'anana' Hacemos merge entre la rama main y anana para visualizar los cambios con el comando git graph
+|\
+| * 9fac85b (anana) Se añade el condimento anana al archivo pizza.txt
+* | 8b24ec6 Se agrega el condimento cebolla a la pizza.txt
+|/
+| * 595f892 (experimento) Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+|/
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1     
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+| * bffcae8 Agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+--------------------------------------------------------------------------------------------------------------
+
+16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+Explicación: Podemos ver en el resultado del comando que las ramas anana y practica2025 han sido fusionadas
+             en main, lo que significa que todos sus cambios están ahora integrados en esta rama.
+
+
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git branch --merged 
+  anana
+* main
+  practica2025
+--------------------------------------------------------------------------------------------------------------
+
+18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+
+Explicación: De manera similar al merge anterior podemos evidenciar que se realizo un merge entre la rama main
+             y la rama experimento, lo que ha generado un nuevo commit (e0f910f), tambien podemos recalcar
+             que ahora Este merge incorpora los cambios de la rama experimento, además de los de anana, que
+             ya había sido fusionada previamente.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git graph
+*   e0f910f (HEAD -> main) Merge branch 'experimento' Se hace merge entre las ramas experimento y main
+|\  
+| * 595f892 (experimento) Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+* |   cad7196 Merge branch 'anana' Hacemos merge entre la rama main y anana para visualizar los cambios con el comando git graph       
+|\ \
+| * | 9fac85b (anana) Se añade el condimento anana al archivo pizza.txt
+| |/
+* / 8b24ec6 Se agrega el condimento cebolla a la pizza.txt
+|/
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+| * bffcae8 Agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+--------------------------------------------------------------------------------------------------------------
+
+19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+
+Explicación: Git realizó el merge de manera automática porque no hubo conflictos entre las modificaciones
+             realizadas en las diferentes ramas. Aunque se actualizó el mismo archivo, los cambios afectaron
+             líneas distintas, lo que permitió que Git fusionara los cambios sin intervención manual.   
+
+20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+Explicación: Podemos evidenciar en el resultado que se añadió la rama experimento a la lista de ramas fucionadas
+             con la rama main. Lo que significa que sus cambios se integraron correctacmente.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git branch --merged
+  anana
+  experimento
+* main
+  practica2025
+--------------------------------------------------------------------------------------------------------------
+
+23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+Explicación: Después de eliminar las ramas anana y experimento, podemos ver que ya no aparecen en la lista
+             de ramas fusionadas con main. Sin embargo, los cambios realizados en las fusiones se conservan.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git branch --merged
+* main
+  practica2025
+--------------------------------------------------------------------------------------------------------------
+
+24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+Explicación: Como podemos observar los commits de las ramas eliminadas (anana y experimento) siguen en el registro
+             y es posible acceder a ellos por medio de comandos como el git checkout para recuperar la información
+             en caso de ser necesaria más adelante. Pero las referencias directas a estas ramas han sido eliminadas
+             por lo que ya no es posible acceder a ellas directamente.
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git graph
+*   e0f910f (HEAD -> main) Merge branch 'experimento' Se hace merge entre las ramas experimento y main
+|\
+| * 595f892 Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+* |   cad7196 Merge branch 'anana' Hacemos merge entre la rama main y anana para visualizar los cambios con el comando git graph       
+*   e0f910f (HEAD -> main) Merge branch 'experimento' Se hace merge entre las ramas experimento y main
+|\
+| * 595f892 Agregamos oregano a la pizza.txt
+| * aa303b0 Agregamos albahca a la pizza.txt
+* |   cad7196 Merge branch 'anana' Hacemos merge entre la rama main y anana para visualizar los cambios con el comando git graph       
+|\ \
+| * | 9fac85b Se añade el condimento anana al archivo pizza.txt
+| |/
+* / 8b24ec6 Se agrega el condimento cebolla a la pizza.txt
+|/
+| * 3f7c024 (origin/luis_medina, luis_medina) subimos el archivo luis_medina.txt con la solución de la actividad numero 1
+| * e81edad Eliminando el archivo sandwich2_feo.txt
+| * cf4d90a Renombrado sandwich2.txt a sandwich2_feo.txt
+| * 7b627c7 Agregando archivo sandwich2.txt
+| * 3a999b8 Agrego salsas
+--------------------------------------------------------------------------------------------------------------
+
+
+27. Ver el tag `pizza`. (Puede usar el comando `git show pizza`).
+
+Explicación: El tag pizza es una etiqueta que permite marcar commits para acceder a ellos más fácilmente con el
+             comando git show <nombre-del-tag> en lugar de usar el hash o referencias relativas a HEAD. En él se
+             pueden ver el nombre de la etiqueta, el autor, la fecha y el comentario asociado.
+             
+             Debajo podemos encontrar el commit con información basica de los cambios realizados al archivo
+             adiciones en este caso de los ingredientes de las otras dos ramas (anana, experimento)
+
+Resultado comando
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git show pizza
+tag pizza
+Tagger: LuisMedina <luisalejandromedinab@gmail.com>
+Date:   Fri Feb 21 11:41:10 2025 -0500
+
+Receta de la pizza.
+
+commit e0f910f902d2342262cee70aa435f8b9cf8cff20 (HEAD -> main, tag: pizza)
+Merge: cad7196 595f892
+Author: LuisMedina <luisalejandromedinab@gmail.com>
+Date:   Thu Feb 20 19:51:52 2025 -0500
+
+    Merge branch 'experimento'
+    Se hace merge entre las ramas experimento y main
+
+diff --cc 2.branchs/pizza.txt
+index 961bd26,b523cb9..e605624
+--- a/2.branchs/pizza.txt
++++ b/2.branchs/pizza.txt
+@@@ -1,5 -1,5 +1,7 @@@
++ oregano
++ albahaca
+  queso
+ +anana
+  salsa de tomate
+ +cebolla
+  masa de pizza
+--------------------------------------------------------------------------------------------------------------
