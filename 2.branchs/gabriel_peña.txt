@@ -1,0 +1,24 @@
+
+1. ¿Qué es un branch?
+    Un branch o rama en git es una linea independiente del desarrollo que permite trabajar y experimentar sin afectar la rama principal
+2. ¿Por qué pueden ser útiles los branches?
+    Para trabajar en paralelo y asi poder experimentar con la tranquilidad de saber que no daña el programa como tranquilidad,
+    tener pruebas seguras del programa, ser organizado en cuanto a nuestro desarrollo 
+3. ¿Cómo se crea una branch?
+    con el comando git branch (el_nombre_de_la_rama) o git branch -b (el_nombre_de_la_rama)
+4. ¿Cómo se cambia a una branch?
+    con el comando git checkout (el_nombre_de_la_rama)
+5. ¿Cómo se elimina una branch?
+    con el comando git branch -d (el_nombre_de_la_rama)
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+    con el comando git branch -b (el_nombre_de_la_rama)
+7. ¿Qué es un merge? 
+    Merge es el proceso en el que se combinan dos ramas en una sola, mesclando los cambios de ambas
+8. ¿Cómo se realiza un merge? 
+    Pimero se cambia a la rama de destino (git branch checkout (rama_destino)) y luego se fusiona de la rama (git merge (el_nombre_de_la_rama)) 
+9. ¿Que es un tag? 
+    Tag o etiqueta es una referencia estatica a un commit especifico communmente usado para marcar los releases o lansamientos la 1.0.0 por ejemplo
+10. ¿Cómo se crea un tag?
+    Tag ligero (sin metadata): git tag v1.0.0 
+    Tag anotado (con mensaje y metadata): git tag -a v1.0.0 -m "Versión 1.0.0 estable" 
+    Subir tags al repositorio remoto: git push origin v1.0.0
