@@ -1,6 +1,4 @@
 pan
 queso
-jamon
-mayonesa
-mostaza
+medallón
 pan
