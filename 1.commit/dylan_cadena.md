@@ -258,7 +258,18 @@ Aqui se puede ver los cambios hechos en el repositorio de manera detallada.
 
 
 
-
+git log --oneline
+b323cfa (HEAD -> dylan_cadena) sandwich regreso al estado inicial
+a0088bd agrego archivo con solucion2
+a055f20 agrego archivo con solucion
+5256273 sandwich2 eliminado
+448a679 agrego sandwich2
+71386c4 agrego sandwich2
+2ee2b53 agrego salsas
+7278862 agrego mi sandwich
+fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
 
 
 
