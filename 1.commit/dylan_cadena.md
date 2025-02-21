@@ -269,7 +269,7 @@ a055f20 agrego archivo con solucion
 7278862 agrego mi sandwich
 fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
 5d6dc69 cambio de rama master a main en documentación
-3f74d4d primer commit
+3f74d4d primer commit.
 
 
 
