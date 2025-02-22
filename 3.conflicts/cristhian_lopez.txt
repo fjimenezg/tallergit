@@ -1,0 +1,60 @@
+# 3. Conflicts
+
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. ¿Qué es un conflicto en Git? ¿Cuándo ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos ramas tienen cambios que afectan la misma parte del mismo archivo de manera incompatible, y Git no sabe cuál de los dos cambios debe mantener. Esto generalmente sucede cuando:
+
+Dos personas (o dos ramas) editan la misma línea de código en un archivo diferente.
+Una persona elimina una línea o archivo que otra persona está modificando.
+
+* ¿Es bueno o malo?
+
+Un conflicto no es ni malo. Es una parte normal del trabajo colaborativo con Git, especialmente en proyectos con muchas personas. Sin embargo, un conflicto puede ser problemático si no se resuelve adecuadamente, ya que se necesita intervención manual para elegir qué versión del código mantener.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+Evitar un conflicto es complicado, ya que es una parte natural del flujo de trabajo en Git, pero hay algunas prácticas que ayudan a reducir la probabilidad de que ocurran:
+
+- Hacer commits pequeños y frecuentes: Esto facilita la integración y minimiza las posibilidades de conflictos graves.
+
+- Actualizar tu rama con frecuencia: Mantener tu rama actualizada con los últimos cambios de la rama principal (por ejemplo, main o develop) puede reducir los conflictos, ya que tienes los cambios de otros desarrolladores antes de que realices tus propios cambios. Puedes hacer esto con git pull o git rebase antes de hacer tu trabajo.
+
+- Trabajo en áreas específicas: Si el equipo trabaja en partes separadas del proyecto, es menos probable que haya conflictos, ya que no estarían tocando los mismos archivos o líneas de código.
+
+- Comunicarse y coordinarse: A veces, la clave está en una buena comunicación dentro del equipo. Si todos saben qué está trabajando el otro, pueden evitar trabajar en las mismas áreas del código.
+
+- Uso de ramas temáticas: Si cada desarrollador trabaja en una rama específica para una funcionalidad o tarea, puede reducir los conflictos, aunque en proyectos grandes siempre pueden surgir.
+
+### 3.2. Ejercicio Práctico
+
+2. git checkout -b suprema.
+
+3. git checkout suprema.
+
+5. git commit -am "Cambio de lomo a pollo"
+
+6. git checkout main.
+
+7. git checkout -b bife.
+
+8. git checkout bife.
+
+10. git diff main suprema
+\ No newline at end of file
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+(END)
+
+Se observa que en la linea donde estaba "lomo" se ha cambiado por "pollo".
+
+11. git diff main bife
