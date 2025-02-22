@@ -192,3 +192,143 @@ index cd48606..c7087a0 100644
  El comando que se utiliza para determinar que archivos fueron modificados es "git status".
 
 El comando permite identificar los archivos que se han modificado en el repositorio local, además se indica el archivo que se ha modificado y el cambio que ha ocurrido en el archivo.
+
+14.  git status
+On branch cristhian_lopez
+nothing to commit, working tree clean
+
+Los archivos estan en el repositorio local aceptado todos los cambios.
+
+     git log --oneline
+    4370862 (HEAD -> cristhian_lopez) Se renombró sandwich2.txt a sandwich2_feo.txt
+    b5d6cc3 Se agregó mi sandwich2.txt
+    bc11a7e Agrego mi salsas
+    12969b4 Agrego mi sandwich.txt
+    3040ffc Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+    (END)
+
+Muestra los commits que se han realizado mas recientemente, ordenados cronologicamente como se han realizado.
+
+15.  git status
+On branch cristhian_lopez     
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   cristhian_lopez.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+El comando muestra que los cambios realizados se han guardado correctamente en el repositorio local.
+
+     git log --oneline
+    93d0d3d (HEAD -> cristhian_lopez) Se borró el archivo sandwich2_feo.txt
+    4370862 Se renombró sandwich2.txt a sandwich2_feo.txt
+    b5d6cc3 Se agregó mi sandwich2.txt
+    bc11a7e Agrego mi salsas
+    12969b4 Agrego mi sandwich.txt
+    3040ffc Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+Se muestran todos los commits que se han realizado, con los has respectivos, se ordenan desde el mas reciente al mas antiguo.
+
+16.  git log --stat
+commit 93d0d3da30223476a967138ae492039e1f281246 (HEAD -> cristhian_lopez)
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 22:14:14 2025 -0500
+
+    Se borró el archivo sandwich2_feo.txt
+
+ 1.commit/sandwich2_feo.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
+commit 4370862829a2abb01ecdd87774cebdfe27af3b27
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 22:08:25 2025 -0500
+
+    Se renombró sandwich2.txt a sandwich2_feo.txt
+
+ 1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b5d6cc3fe164d36293ff6f34a5c61fae94eacda5
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 22:01:28 2025 -0500
+
+    Se agregó mi sandwich2.txt
+
+ 1.commit/cristhian_lopez.txt | 137 +++++++++++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich2.txt       |   6 ++
+ 2 files changed, 143 insertions(+)
+
+commit bc11a7eb775d668c98421e9cfd03f7d3e6b26b09
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:40:10 2025 -0500
+
+    Agrego mi salsas
+
+ 1.commit/cristhian_lopez.txt | 23 ++++++++++++++++++++++-
+ 1.commit/sandwich.txt        |  4 +++-
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+commit 12969b482041c0bf484b0212ddb1d4bb15f8c221
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:34:05 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/cristhian_lopez.txt | 18 +++++++++++++++---
+ 1.commit/sandwich.txt        |  4 ++++
+ 2 files changed, 19 insertions(+), 3 deletions(-)
+
+commit 3040ffc2df7eb07862a8927fa2c3b3520bc1dea4
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:17:57 2025 -0500
+
+    Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+
+ 1.commit/cristhian_lopez.txt | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+ 2.branchs/README.md   | 16 ++++++++--------
+ 3.conflicts/README.md | 10 +++++-----
+ README.md             |  7 +++++--
+ 3 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+ .gitignore               |  2 ++
+ 1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt    |  4 +++
+ 2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2.branchs/pizza.txt      |  3 ++
+ 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+ 3.conflicts/milanesa.txt |  2 ++
+ README.md                | 54 +++++++++++++++++++++++++++++++++
+ 8 files changed, 246 insertions(+)
+(END)
+
+Se aprecia a detalle los cambios realizados en cada uno de los archivos cunado se realizo el commit respectivo, en este caso se observa la cantidad de inserciones y borrados en cada uno de los archivos.
