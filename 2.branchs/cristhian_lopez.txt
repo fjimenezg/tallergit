@@ -82,4 +82,48 @@ practica2025
 
 Se puede observar la estructura de ramas y commits como se ramifican segun la respectiva rama a la cual corresponda el commit realizado, tambien muestra cada rama y sus commits con un color diferente.
 
-7. git checkout main
+7. git checkout main.
+
+8. git checkout anana.
+
+10. git graph
+Se observa que en la branch anana hay commits y se muestran las ramificaciones de cada rama de un color distinto.
+
+11. git checkout main.
+
+13. git graph
+Se observa que en la rama main se le ha hecho cambios a los archivos como pizza.txt y se les ha hecho los commits respectivos.
+
+14. git merge anana.
+
+15. git graph
+Se observa que en la rama main se han fusionado los commits de la rama anana.
+
+16. git branch --merged
+Las ramas mergeadas a main son: practica2025 y anana.
+
+17. git merge experimento.
+
+18. git graph
+Se observa que en la rama main se han fusionado los commits de la rama experimento.
+
+19. No, el merge fue automático ya que los cambios realizados en el archivo en las ramas fueron hechos en lineas distintas por ende Git no encuentra conflictos en las versiones de los archivos.
+
+20. git branch --merged
+Las ramas mergeadas a main son: practica2025, anana y experimento.
+
+21. git branch -d anana.
+
+22. git branch -d experimento.
+
+23. git branch --merged
+Las ramas mergeadas a main son: practica2025.
+
+24. git graph
+Se observa que las ramas anana y experimento ha desaparecido sin embargo los commits de las ramas se mantienen fusionados en la rama main.
+
+25. git tag -a pizza -m "Receta de la pizza."
+
+26. git tag
+
+27. git show pizza
