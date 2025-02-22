@@ -55,3 +55,140 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 El archivo sandwich.txt ha pasado del staging area al repositorio local confirmado los cambios.
 
+9.  git log
+commit bc11a7eb775d668c98421e9cfd03f7d3e6b26b09 (HEAD -> cristhian_lopez)
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:40:10 2025 -0500
+
+    Agrego mi salsas
+
+commit 12969b482041c0bf484b0212ddb1d4bb15f8c221
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:34:05 2025 -0500
+
+    Agrego mi sandwich.txt
+
+commit 3040ffc2df7eb07862a8927fa2c3b3520bc1dea4
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:17:57 2025 -0500
+
+    Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+(END)
+
+Esta salida especifica los commits que se han realizado con el respectivo hash, los commits se ordenan desde el mas reciente al mas antiguo, además se indica el autor del commit y la fecha de creación del commit y la rama en la que se encuentra el commit.
+
+10.  git log --oneline
+bc11a7e (HEAD -> cristhian_lopez) Agrego mi salsas
+12969b4 Agrego mi sandwich.txt
+3040ffc Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+Este comando muestra los comits en una sola linea de manera más compacta, además se indica el hash del commit en sus primeros 7 caracteres y la rama en la que se encuentra el commit.
+
+ git log --stat
+commit bc11a7eb775d668c98421e9cfd03f7d3e6b26b09 (HEAD -> cristhian_lopez)
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:40:10 2025 -0500
+
+    Agrego mi salsas
+
+ 1.commit/cristhian_lopez.txt | 23 ++++++++++++++++++++++-
+ 1.commit/sandwich.txt        |  4 +++-
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+commit 12969b482041c0bf484b0212ddb1d4bb15f8c221
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:34:05 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/cristhian_lopez.txt | 18 +++++++++++++++---
+ 1.commit/sandwich.txt        |  4 ++++
+ 2 files changed, 19 insertions(+), 3 deletions(-)
+
+commit 3040ffc2df7eb07862a8927fa2c3b3520bc1dea4
+Author: LopezCristhian <cristhianlopez@udenar.edu.co>
+Date:   Fri Feb 21 21:17:57 2025 -0500
+
+    Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+
+ 1.commit/cristhian_lopez.txt | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+ 2.branchs/README.md   | 16 ++++++++--------
+ 3.conflicts/README.md | 10 +++++-----
+ README.md             |  7 +++++--
+ 3 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+ .gitignore               |  2 ++
+ 1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt    |  4 +++
+ 2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2.branchs/pizza.txt      |  3 ++
+ 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+ 3.conflicts/milanesa.txt |  2 ++
+ README.md                | 54 +++++++++++++++++++++++++++++++++
+ 8 files changed, 246 insertions(+)
+(END)
+
+Este comando muestra los commits que se han realizado de una forma mucho mas detallas con respecto a los cambios realizados en cada uno de los archivos, por ejemplo la cantidad de insersiones y borrados que se han realizado en cada uno de los archivos.
+
+11.  git diff 3040ffc
+diff --git a/1.commit/cristhian_lopez.txt b/1.commit/cristhian_lopez.txt
+index cd48606..c7087a0 100644
+--- a/1.commit/cristhian_lopez.txt
++++ b/1.commit/cristhian_lopez.txt
+@@ -9,7 +9,7 @@ Un repositorio local se inicializa con el comando "git init".
+ Para que un directorio deje de ser controlado por git, se debe ejecutar el comando "rm -rf .git", que borra el directorio ".git" del directorio que se quiere controlar.
+
+ 3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+-Sí, el archivo está siendo controlado por git.
++No, debe agrgarse manualmente con el comando "git add" para que git lo siga.
+
+ 4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+ El comando que se utiliza para agregar un archivo al repositorio local es "git add".
+@@ -18,7 +18,160 @@ El comando que se utiliza para agregar un archivo al repositorio local es "git a
+ El comando que se utiliza para determinar que archivos fueron modificados es "git status".
+
+El comando permite identificar los archivos que se han modificado en el repositorio local, además se indica el archivo que se ha modificado y el cambio que ha ocurrido en el archivo.
