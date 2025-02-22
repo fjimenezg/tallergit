@@ -1,0 +1,24 @@
+## Ejercicio 1
+
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+Un repositorio local se inicializa con el comando "git init".
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+Para que un directorio deje de ser controlado por git, se debe ejecutar el comando "rm -rf .git", que borra el directorio ".git" del directorio que se quiere controlar.
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+Sí, el archivo está siendo controlado por git.
+
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+El comando que se utiliza para agregar un archivo al repositorio local es "git add".
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+El comando que se utiliza para determinar que archivos fueron modificados es "git status".
+
+6. ¿Qué comando se utiliza para hacer un commit? 
+El comando que se utiliza para hacer un commit es "git commit".
+
+7. En sus propias palabras, ¿qué es un commit?
+Un commit es un punto en la historia de un proyecto en el que se guardan los cambios realizados en los archivos del proyecto.
