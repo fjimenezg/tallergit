@@ -33,4 +33,25 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 
-Este comando muestra que el directorio actual no está controlado por git, por lo que se debe ejecutar el comando "git add -A" para que el directorio esté controlado por git y pase del working directory al staging area.
+Este comando muestra que el directorio actual no está controlado por git, por lo que se debe ejecutar el comando "git add -A" para que el directorio esté controlado por git y pase del working directory al staging area, los archivo estan de color verde actualemente.
+
+5.  git status
+On branch cristhian_lopez
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.commit/cristhian_lopez.txt   
+        modified:   1.commit/sandwich.txt
+
+El archivo sandwich.txt ha pasado del working directory al staging area y espera el comando "git commit -m" para que se guarde el archivo en el repositorio local, además los archivos se colocan en verde.
+
+7.  git status
+On branch cristhian_lopez
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/cristhian_lopez.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")   
+
+El archivo sandwich.txt ha pasado del staging area al repositorio local confirmado los cambios.
+
