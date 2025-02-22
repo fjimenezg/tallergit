@@ -58,3 +58,17 @@ index 5255304..1c57c4d 100644
 Se observa que en la linea donde estaba "lomo" se ha cambiado por "pollo".
 
 11. git diff main bife
+\ No newline at end of file
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1712737 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+\ No newline at end of file
+(END)
+
+Se observa que en la linea donde estaba "lomo" se ha cambiado por "bife".
