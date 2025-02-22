@@ -62,3 +62,24 @@ cristhian_lopez
 * experimento
 main
 practica2025
+
+6.  git graph
+* 637a99e (HEAD -> experimento) Se agrega el condimento oregano en el archivo pizza.txt
+* 309a9a4 Se agrega el condimento albahaca en el archivo pizza.txt y se resuelve el punto 2.1 Preguntas del Ejercicio 2
+| * 939b60a (origin/cristhian_lopez, cristhian_lopez) Ejercicio commits realizado 2
+| * d864f00 Ejercicio commits realizado
+| * 93d0d3d Se borró el archivo sandwich2_feo.txt
+| * 4370862 Se renombró sandwich2.txt a sandwich2_feo.txt
+| * b5d6cc3 Se agregó mi sandwich2.txt
+| * bc11a7e Agrego mi salsas
+| * 12969b4 Agrego mi sandwich.txt
+| * 3040ffc Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+(END)
+
+Se puede observar la estructura de ramas y commits como se ramifican segun la respectiva rama a la cual corresponda el commit realizado, tambien muestra cada rama y sus commits con un color diferente.
+
+7. git checkout main
