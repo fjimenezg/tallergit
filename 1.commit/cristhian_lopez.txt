@@ -188,7 +188,7 @@ index cd48606..c7087a0 100644
 
  4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
  El comando que se utiliza para agregar un archivo al repositorio local es "git add".
-@@ -18,7 +18,160 @@ El comando que se utiliza para agregar un archivo al repositorio local es "git a
+@@ -18,7 +18,160 @@ El comando que se utiliza para agregar un archivo al repositorio local es "git add"
  El comando que se utiliza para determinar que archivos fueron modificados es "git status".
 
 El comando permite identificar los archivos que se han modificado en el repositorio local, además se indica el archivo que se ha modificado y el cambio que ha ocurrido en el archivo.
