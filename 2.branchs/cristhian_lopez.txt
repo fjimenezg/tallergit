@@ -1,0 +1,85 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+Un branch (o rama) en Git es una versión independiente del código en el repositorio. Permite desarrollar características o realizar cambios sin afectar el código principal (generalmente la rama main o master). Las ramas permiten trabajar en paralelo en diferentes partes del proyecto.
+
+2. ¿Por qué pueden ser útiles los branches?
+Los branches son útiles porque permiten:
+
+Desarrollar nuevas características o corregir errores sin interferir con el código principal.
+Trabajar en equipo sin que los cambios de una persona afecten el trabajo de otra.
+Gestionar versiones del proyecto, como versiones experimentales o de prueba, de manera aislada.
+
+3. ¿Cómo se crea una branch?
+Para crear una nueva rama en Git, usa el comando:
+"git branch nombre-de-la-rama"
+
+4. ¿Cómo se cambia a una branch?
+Para cambiarte a una rama específica (hacer "checkout" de una rama), usa:
+"git checkout nombre-de-la-rama"
+
+5. ¿Cómo se elimina una branch?
+Para eliminar una rama local (en tu máquina):
+"git branch -d nombre-de-la-rama"
+Si la rama no se ha fusionado y quieres eliminarla forzosamente:
+"git branch -D nombre-de-la-rama"
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+Para crear una nueva rama y cambiarte a ella en un solo comando:
+"git checkout -b nombre-de-la-nueva-rama"
+
+7. ¿Qué es un merge?
+Un merge (fusión) en Git es el proceso de integrar los cambios de una rama en otra. Por lo general, se realiza para juntar una rama de trabajo con la rama principal (main o master) después de haber completado los cambios en esa rama.
+
+8. ¿Cómo se realiza un merge?
+Para hacer un merge, se sigue los siguientes pasos:
+
+Se cambia a la rama principal (o la rama donde deseas fusionar los cambios):
+"git checkout main"
+
+Hacer el merge de la rama que se desea fusionar:
+"git merge nombre-de-la-rama"
+
+9. ¿Qué es un tag?
+Un tag (etiqueta) en Git es un marcador o una referencia que se utiliza para señalar puntos específicos en la historia del repositorio, como versiones o lanzamientos. Es útil para identificar de manera permanente ciertos momentos del proyecto, por ejemplo, versiones de producción.
+
+10. ¿Cómo se crea un tag?
+Para crear un tag en Git, se usa:
+"git tag nombre-del-tag"
+Este comando crea un tag en el commit actual. Si se desea agregar un mensaje a ese tag, se puede hacer con la opción -a (etiqueta anotada):
+git tag -a nombre-del-tag -m "Mensaje del tag"
+
+### 2.2. Ejercicio Práctico
+
+1. git checkout -b experimento main
+
+2. git checkout experimento
+
+3.  git branch
+cristhian_lopez
+* experimento
+main
+practica2025
+
+6.  git graph
+* 637a99e (HEAD -> experimento) Se agrega el condimento oregano en el archivo pizza.txt
+* 309a9a4 Se agrega el condimento albahaca en el archivo pizza.txt y se resuelve el punto 2.1 Preguntas del Ejercicio 2
+| * 939b60a (origin/cristhian_lopez, cristhian_lopez) Ejercicio commits realizado 2
+| * d864f00 Ejercicio commits realizado
+| * 93d0d3d Se borró el archivo sandwich2_feo.txt
+| * 4370862 Se renombró sandwich2.txt a sandwich2_feo.txt
+| * b5d6cc3 Se agregó mi sandwich2.txt
+| * bc11a7e Agrego mi salsas
+| * 12969b4 Agrego mi sandwich.txt
+| * 3040ffc Del Ejercicio 1, el ejercicio 1.1. PreguntaS resuelto
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+(END)
+
+Se puede observar la estructura de ramas y commits como se ramifican segun la respectiva rama a la cual corresponda el commit realizado, tambien muestra cada rama y sus commits con un color diferente.
+
+7. git checkout main
