@@ -203,4 +203,4 @@ Commit de eliminación (51dad158) eliminó 8 líneas de sandwich2_feo.txt.
 Commit de adición (8770ba0) agregó el archivo sandwich2_feo.txt con 8 líneas.
 Otros commits muestran adiciones y modificaciones en archivos como sandwich.txt y README.md.
 
-Uso el comando git checkout fafdc7f  para regresar al sandwich sin cambios
+Uso el comando git checkout fafdc7f -- archivo  para regresar al sandwich sin cambios
