@@ -17,3 +17,66 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Se puede notar como el git ya hace un seguimiento de los archivos que se encuentran dentro de la carpeta
 con ello, esto nos dice que hay cambios que no han sido subidos al repo
+
+5- On branch yesidbolaños
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        "yesid_bola\303\261os.txt"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Aqui podemos notar que los cambios realizados en los dos archivos han sido detectados y se nos pide que dichos
+cambios sean agregados como nuevos estados
+
+7- On branch yesidbolaños
+nothing to commit, working tree clean
+
+Como se han agregado los cambios como git nos lo pide, entonces vemos que no hay adventencias
+
+9- commit 24f59db1706120cc97f562d1247ce89581bbfde2 (HEAD -> yesidbolaños)
+Author: YKESHTFR <ykshtfr@gmail.com>
+Date:   Sun Feb 23 17:13:48 2025 -0500
+
+    Agrego salsas
+
+commit ab379bd8ee3ae23d408cd6f4cb95b388ceaaf08a
+Author: YKESHTFR <ykshtfr@gmail.com>
+Date:   Sun Feb 23 17:09:25 2025 -0500
+
+    Agrego mi sandwich
+
+Esto es un historial de los cambios que se han realizado desde el mas reciente hasta el primero
+con el autor del commit y su identificador unico
+
+10- git log --oneline
+Nos permite ver los commits realizados de una manera mas corta, aqui aplican tambien los commits
+que vienen de otras ramas, incluida main
+
+git log --stat
+Nos permite ver los committs realizado con el detalle de saber en que archivo se hizo la modificacion
+y la cantidad de lineas que han sido afectadas
+
+11-
+
+14- Una vez hacemos el commit el status nos muestra que todo esta up to date, por otro lado, git log --oneline
+nos indica un nuevo commit con el cambio que hemos hecho y el mensaje
+
+15- On branch yesidbolaños
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    sandwich2_feo.txt
+
+Con git status se nos indica que se han borrado elemento y que aun no se ven reflejados esos cambios
+dentro de entorno git
+
+git log --oneline nos muestra el mensaje acerca del commit realizado
+
+16- git log --stat Aqui esta el historial detallado de los commit hechos con sus modificaciones en los
+diferentes archivos y de quien los hizo
+
+
