@@ -1,7 +1,5 @@
 pan
 queso
-mayonesa
-tomate
 jamon
 medallón
 pan
