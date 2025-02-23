@@ -124,10 +124,25 @@
 
 6. Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
 
-    
+    El resultado es:
+
+    [gabriel_tovar f81910e] Agrego mi sandwich.txt
+    2 files changed, 106 insertions(+), 1 deletion(-)
 
 7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+    La salida es:
+    
+    On branch gabriel_tovar
+    nothing to commit, working tree clean
+
+    Esto significa que no hay cambios nuevos en ningún archivo, por lo tanto de momento no existe la necesidad
+    de añadir nada al repositorio ni realizar commits.
+
 8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
+
+    
+
 9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
 10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
     10.1. `git log --oneline`
