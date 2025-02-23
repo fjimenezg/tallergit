@@ -50,6 +50,15 @@ Para subir el tag al repositorio remoto:
 git push origin v1.0
 
 //Practica 
+
+1. Creamos la branch experimento usando el comando git branch experimento main
+2. Cambiamos a la branch experimento con el comando git checkout experimento
+3. Verificamos que estamos en la branch experimento con el comando git branch
+o con el comando git status
+4. Agregamos albahaca al archivo pizza encima del queso para evitar conflictos 
+futuros y hacemos commit con el mensaje "pizza con albahaca"
+5. Agregamos oregano al archivo pizza encima de la albahaca para evitar conflictos
+futuros y hacemos commit con el mensaje "pizza con oregano"
 6. Git graph
 
 * 2dd034f (HEAD -> experimento) pizza con oregano
@@ -61,6 +70,12 @@ git push origin v1.0
 experimento avanzó con dos commits nuevos (albahaca y oregano) sobre main.
 Las ramas divergieron después de 686972e, creando dos líneas de desarrollo separadas.
 experimento tiene cambios que no están en main.
+
+7. Regresamos a la rama main con el comando git checkout main
+
+8. Creamos la rama anana con el comando git branch anana main
+
+9. Agregamos el ingrediente anana al archivo pizza debajo del queso para evitar conflictos futuros y hacemos commit con el mensaje "pizza con anana"
 
 10. Git graph en la rama anana
 * d8bfe7e (HEAD -> anana) pizza con anana
@@ -74,6 +89,10 @@ Rama anana y rama experimento partieron desde main pero evolucionaron de forma s
 anana tiene el commit pizza con anana.
 experimento tiene los commits pizza con albahaca y pizza con oregano.
 No hay conexión entre anana y experimento; ambas ramas divergieron desde el commit 686972e.
+
+11. Regresamos a la rama main con el comando git checkout main
+
+12. Agregamos cebolla al archivo pizza debajo de la salsa para evitar conflictos futuros y hacemos commit con el mensaje "pizza con cebolla"
 
 13. Rama main
 * 72ce181 (HEAD -> main) pizza con cebolla
@@ -93,7 +112,9 @@ anana con ananá. 🍍
 experimento con albahaca y orégano. 🌿
 Cada rama tiene modificaciones únicas sobre pizza.txt y aún no están combinadas.
 
-15. git merge anana
+14. Hacemos merge de la rama anana a la rama main con el comando git merge anana
+
+15. Git merge anana
 
 *   ec6da57 (HEAD -> main) pizza con cebolla
 |\
@@ -140,12 +161,22 @@ Commit de merge:
 
 El commit 37635a0 tiene múltiples padres, lo que indica que se hizo un merge.
 
+18. El comando git graph muestra el historial de commits en forma de grafo.
+Muestra las ramas y cómo se han fusionado a lo largo del tiempo.
+Es útil para visualizar la historia del proyecto y cómo se relacionan las ramas.
+
+
 19. El merged fue automatico, no hubo conflictos ya que la rama experimento no tenia cambios en las mismas lineas que la rama main y la rama anana no tenia conflictos con la rama main.
 
 20. El comando git branch --merged lista todas las ramas cuyos cambios ya han sido fusionados (merged) en la rama actual (main en este caso).
 
 anana y experimento aparecen en la lista, lo que significa que ambas ramas ya fueron completamente fusionadas en la rama main.
 * main indica que actualmente estás en la rama main.
+
+21. Eliminamos la branch anana con el comando git branch -D anana , usamos la D mayuscula para forzar la eliminacion de la rama.
+
+22. Eliminamos la branch experimento con el comando git branch -D experimento , usamos la D mayuscula para forzar la eliminacion de la rama.
+
 
 23. Despues de eliminar ambas ramas y ejecutar el comando git branch --merged, solo se muestra la rama main, lo que indica que las ramas anana y experimento ya no existen y sus cambios fueron fusionados en main.
 
@@ -174,6 +205,11 @@ anana y experimento aparecen en la lista, lo que significa que ambas ramas ya fu
 Las ramas han sido eliminadas y sus commits ahora están integrados en la rama main.
 El historial muestra los commits de anana y experimento fusionados en main.
 Main tiene todos los cambios de las ramas anana y experimento, además de sus propios commits.
+
+25. Creamos un tag anotado con el comando git tag -a pizza -m "Receta de la pizza."
+Esto crea un tag anotado llamado pizza con el mensaje "Receta de la pizza.".
+El tag se crea en el commit actual (HEAD).
+El tag se crea localmente, pero no se sube al repositorio remoto.
 
 26 .git tag -a pizza -m "Receta de la pizza."
 
