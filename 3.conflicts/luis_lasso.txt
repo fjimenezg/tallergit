@@ -16,3 +16,24 @@ Actualizar la rama frecuentemente usando git pull antes de realizar cambios impo
 Usar ramas pequeñas y enfocadas en una sola tarea o feature.
 
 //Taller practico 
+
+10.
+Al ejecutar los comandos git diff main suprema y git diff main bife, se observan las diferencias entre la rama main y las ramas suprema y bife, respectivamente.
+
+En git diff main suprema, se muestra que el archivo 3.conflicts/milanesa.txt tuvo un cambio en la línea donde decía "lomo", reemplazándola por "pollo" en la rama suprema.
+
+En git diff main bife, se observa que el mismo archivo también tuvo un cambio en la misma línea, reemplazando "lomo" por "bife" en la rama bife.
+
+
+Ambas ramas modifican la misma línea del archivo, pero con valores distintos. Este tipo de situación genera un conflicto al intentar hacer un merge, ya que Git no puede determinar cuál de los dos cambios debe conservarse de forma automática.
+
+11.
+Rama actual: Se está en la rama main.
+
+Commits locales: La rama main está adelantada respecto a origin/main por 18 commits que aún no se han enviado al repositorio remoto. Se sugiere usar git push para sincronizar los cambios.
+
+Cambios sin añadir:
+
+El archivo luis_lasso.txt fue modificado, pero esos cambios aún no están preparados para el commit.
+Se indica que se puede usar git add <file> para agregarlo al área de preparación (staging area) o git restore <file> para deshacer los cambios realizados en el archivo.
+Sin archivos preparados: No hay archivos actualmente en el área de preparación para realizar un commit.
