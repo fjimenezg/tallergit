@@ -81,19 +81,9 @@
 
 4. Agregar el archivo `sandwich.txt` al repositorio local. Para esto, se debe ejecutar el comando `git add sandwich.txt`.
 
-    Al utilizar el comando
-
-    git add sandwich.txt
-
-    La consola de git bash muestra el siguiente error:
-
-    fatal: pathspec 'sandwich.txt' did not match any files
-    
-    El comando para agregar sandwich.txt al repositorio es en realidad:
+    El comando para agregar sandwich.txt al repositorio fue:
 
     git add 1.commit/sandwich.txt
-
-    Pues debe partirse desde los directorios de la carpeta raíz.
 
 5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
 
@@ -372,4 +362,71 @@
     Y en git log muestra el mensaje del commit respectivo
 
 15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+
+    Comando utilizado:
+
+    git rm sandwich2_feo.txt
+
+    Salida:
+
+    rm '1.commit/sandwich2_feo.txt'
+
+    Resultado del git status:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            deleted:    sandwich2_feo.txt
+    
+    La palabra clave en este caso es "deleted", indica que se ha eliminado un archivo
+
+    Luego de hacer commit:
+
+    [gabriel_tovar bc7ee7a] Se elimina sandwich2_feo.txt
+    2 files changed, 39 insertions(+), 9 deletions(-)
+    delete mode 100644 1.commit/sandwich2_feo.txt
+
+    Y al utilizar git log --oneline:
+
+    bc7ee7a (HEAD -> gabriel_tovar) Se elimina sandwich2_feo.txt
+    cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    92845d4 Agregado sandwich 2.0
+    b60c4be Agrego salsas
+    f81910e Agrego mi sandwich.txt
+    beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
 16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
+
+    Los últimos 2 commits que se observan son:
+
+    commit bc7ee7acc26fdaa8ee7c4fb4d425f139b3d33874 (HEAD -> gabriel_tovar)
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 12:30:47 2025 -0500
+
+        Se elimina sandwich2_feo.txt
+
+    1.commit/gabriel_tovar.txt | 39 +++++++++++++++++++++++++++++++++++++++
+    1.commit/sandwich2_feo.txt |  9 ---------
+    2 files changed, 39 insertions(+), 9 deletions(-)
+
+    commit cea9dc14ed48aab84eb306f2ece6b23643d0d295
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 12:21:41 2025 -0500
+
+        Cambia sandwich2.txt a sandwich2_feo.txt
+
+    1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+    1 file changed, 0 insertions(+), 0 deletions(-)
+
+    Se pueden observar los cambios ocurridos al archivo sandwich2.txt:
+
+    Primero su cambio de nombre en la siguiente línea
+
+    1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+
+    Y posteriormente su eliminación en el último commit
+
+    1.commit/sandwich2_feo.txt |  9 ---------
