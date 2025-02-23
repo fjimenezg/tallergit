@@ -37,3 +37,33 @@ Cambios sin añadir:
 El archivo luis_lasso.txt fue modificado, pero esos cambios aún no están preparados para el commit.
 Se indica que se puede usar git add <file> para agregarlo al área de preparación (staging area) o git restore <file> para deshacer los cambios realizados en el archivo.
 Sin archivos preparados: No hay archivos actualmente en el área de preparación para realizar un commit.
+
+12. git merge bife funcionó:
+El merge de la rama bife a main fue exitoso porque bife y main no tenían cambios conflictivos. El archivo milanesa.txt en bife cambió "lomo" por "bife", mientras que main no tenía modificaciones en esa parte. Git pudo aplicar el cambio directamente.
+
+13. git merge suprema generó un conflicto:
+El merge falló porque tanto bife (ya fusionado) como suprema modificaron la misma línea en milanesa.txt pero de formas diferentes:
+
+bife cambió "lomo" por "bife".
+suprema cambió "lomo" por "pollo".
+Como Git no puede decidir cuál cambio es el correcto, genera un conflicto de fusión que debes resolver manualmente.
+
+14. git status muestra los archivos con conflictos:
+
+You have unmerged paths:
+Git detectó que el archivo milanesa.txt fue modificado en ambas ramas (main y suprema) y no pudo fusionarlas automáticamente.
+
+both modified:
+Indica que ambas ramas hicieron cambios en la misma parte del archivo milanesa.txt, generando el conflicto.
+
+15 .
+El contenido del archivo muestra un conflicto de fusión. Git utiliza estas marcas para señalar las diferencias entre las ramas al fusionar:
+
+<<<<<<< HEAD: indica el inicio de los cambios desde la rama actual (main), que tiene bife.
+=======: separa los cambios entre las ramas.
+>>>>>>> suprema: marca el final de los cambios provenientes de la rama suprema, que tiene pollo.
+¿Por qué ocurre esto?
+Ambas ramas modificaron la misma línea (lomo) en el archivo milanesa.txt, creando un conflicto que Git no puede resolver automáticamente.
+
+18. Para resolver manualmente el conflicto, editamos el archivo de milanesa
+y dejamos al pan rallado al bife y al pollo siendo una milanesa mixta
