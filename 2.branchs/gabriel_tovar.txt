@@ -1,0 +1,116 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+
+    También conocida como rama, es una versión separada del proyecto,
+    cuyo objetivo es permitir realizar cambios sin afectar al trabajo
+    original, funcionando como una copia del proyecto que puede 
+    fusionarse con la rama principal una vez el trabajo en la misma
+    haya concluido.
+
+2. ¿Por qué pueden ser útiles los branches?
+
+    Permiten el trabajo simultaneo de varios usuarios en diferentes áreas
+    de un mismo proyecto sin necesidad de interrumpir o dañar el trabajo de
+    otros, pues cada usuario puede y debería trabajar en una rama distinta.
+
+3. ¿Cómo se crea una branch?
+
+    Para crear una rama en git se usa el comando: git branch <nombre_de_la_branch>
+    O también con: git checkout -b <nombre_de_la_branch>
+
+4. ¿Cómo se cambia a una branch?
+
+    Puede usarse el comando: git switch <nombre_de_la_branch>
+    O también: git checkout <nombre_de_la_branch>
+
+5. ¿Cómo se elimina una branch?
+
+    Utilizando el comando: git branch -d <nombre-de-la-branch> (Cuando la rama ya se ha fusionado)
+    O también: git branch -D <nombre-de-la-branch> (Cuando la rama aún no se ha fusionado)
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+
+    Se usa el comando: git checkout -b <nombre_de_la_branch>
+
+7. ¿Qué es un merge?
+
+    Es una función de git que permite fusionar el contenido de la branch en la que nos encontremos con otra branch deseada
+
+8. ¿Cómo se realiza un merge?
+
+    Primero hay que dirigirse a la rama con la que se quiere fusionar el contenido,
+    por ejemplo si se quiere agregar los cambios hechos en la rama1 con la rama main entonces:
+
+    git branch main (Se cambia a la rama main)
+
+    git merge rama1 (Se fusiona el contenido)
+
+9. ¿Que es un tag?
+
+    Es una referencia que marca puntos específicos de la historia del proyecto, como una versión o un commit importante.
+
+10. ¿Cómo se crea un tag?
+
+    Se utiliza el comando: git tag <nombre-del-tag> (Crea un tag en el commit actual)
+    O también: git tag -a <nombre-del-tag> -m "Mensaje descriptivo" (Para añadir un tag con mensaje)
+
+### 2.2. Ejercicio Práctico
+
+Antes de continuar con el ejercicio, se debe agregar un alias para facilitar la visualización de los branches.
+
+```bash
+git config --global alias.graph "log --all --graph --decorate --oneline"
+
+# Pruebe el comando
+git graph
+```
+
+
+1. [] Crear una branch `experimento`. (Puede usar el comando `git branch experimento main`).
+2. Moverse a la branch `experimento`. (Puede usar el comando `git checkout`).
+3. Verificar que se encuentra en la branch `experimento`. (Puede usar el comando `git branch`). 
+4. Agregarle el condimento `albahaca` **arriba del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios. 
+5. Agregarle el condimento `oregano` **arriba de la albahaca** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+7. Vuelva a la branch `main`.
+8. Crear una branch `anana`. (Puede usar el comando `git checkout -b anana`).
+9. Agregarle el condimento `anana` **debajo del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+11. Vuelva a la branch `main`.
+12. Agregue el condimento `cebolla` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+14. Haga un merge de la branch `anana` a la branch `main`. (Puede usar el comando `git merge anana`).
+15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+17. Haga un merge de la branch `experimento` a la branch `main`. (Puede usar el comando `git merge experimento`).
+18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+21. Elimine la branch `anana`. (Puede usar el comando `git branch -d anana`).
+22. Elimine la branch `experimento`. (Puede usar el comando `git branch -d experimento`).
+23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+25. Crear un tag `pizza` en el último commit. (Puede usar el comando `git tag -a pizza -m "Receta de la pizza.""`).
+26. Ver los tags creados. (Puede usar el comando `git tag`).
+27. Ver el tag `pizza`. (Puede usar el comando `git show pizza`).
+
+
+## Finalizado
+
+Una vez finalizado el ejercicio, recuerde guardar sus cambios en `nombre_apellido.txt` y subirlos a **su** repositorio remoto. Este archivo (`README.md`) y `pizza.txt` tienen que mantenerse sin ningún cambio.
+
+Para volver a `sandwich.txt` a su estado original, debe buscar el commit que lo contiene y correr el comando:
+```bash
+git checkout [commit ID] -- 2.branchs/pizza.txt
+
+# ó
+
+git checkout [commit ID] -- pizza.txt
+
+# dependiendo de donde esté ubicado
+```
+
+
