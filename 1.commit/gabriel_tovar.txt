@@ -141,17 +141,196 @@
 
 8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
 
-    
+    [gabriel_tovar b60c4be] Agrego salsas
+    2 files changed, 17 insertions(+), 1 deletion(-)
 
 9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+
+    commit b60c4be0bf3068b3624afcb459797fb368d98f1e (HEAD -> gabriel_tovar)
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 10:44:00 2025 -0500
+
+        Agrego salsas
+
+    commit f81910e81c8ae7788fbd2a8925c4f7002ba05965
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Fri Feb 21 04:59:29 2025 -0500
+
+        Agrego mi sandwich.txt
+
+    commit beca42b16b46df865081fbab3199bf52a65a5116
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Fri Feb 21 04:28:08 2025 -0500
+
+        Añade gabriel_tovar.txt con punto teórico 1.1
+
+    commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main)
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:45:03 2025 -0500
+
+        cambio readme.md
+
+    commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:39:56 2025 -0500
+
+        cambio de rama master a main en documentación
+
+    commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:17:02 2025 -0500
+
+        primer commit
+
+    Este comando presenta el registro de commits realizados en el proyecto, estos se muestran en orden descendente,
+    es decir desde el último commit hacia el primero.
+
 10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+
     10.1. `git log --oneline`
+
+        La salida es:
+
+        b60c4be (HEAD -> gabriel_tovar) Agrego salsas
+        f81910e Agrego mi sandwich.txt
+        beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+        fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+        5d6dc69 cambio de rama master a main en documentación
+        3f74d4d primer commit
+
+        Esta variación del comando git log, muestra los commits realizados en una sola línea,
+        incluyendo el hash, en que parte del proyecto se encuentra cada rama y el mensaje de cada commit
+
     10.2. `git log --stat`
+
+        La salida es:
+
+        commit b60c4be0bf3068b3624afcb459797fb368d98f1e (HEAD -> gabriel_tovar)
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Sun Feb 23 10:44:00 2025 -0500
+
+            Agrego salsas
+
+        1.commit/gabriel_tovar.txt | 17 ++++++++++++++++-
+        1.commit/sandwich.txt      |  1 +
+        2 files changed, 17 insertions(+), 1 deletion(-)
+
+        commit f81910e81c8ae7788fbd2a8925c4f7002ba05965
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Fri Feb 21 04:59:29 2025 -0500
+
+            Agrego mi sandwich.txt
+
+        1.commit/gabriel_tovar.txt | 103 ++++++++++++++++++++++++++++++++++++++++++++-
+        1.commit/sandwich.txt      |   4 ++
+        2 files changed, 106 insertions(+), 1 deletion(-)
+
+        commit beca42b16b46df865081fbab3199bf52a65a5116
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Fri Feb 21 04:28:08 2025 -0500
+
+            Añade gabriel_tovar.txt con punto teórico 1.1
+
+        1.commit/gabriel_tovar.txt | 41 +++++++++++++++++++++++++++++++++++++++++
+        1 file changed, 41 insertions(+)
+
+        commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main)
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:45:03 2025 -0500
+
+            cambio readme.md
+
+        README.md | 4 ++--
+        1 file changed, 2 insertions(+), 2 deletions(-)
+
+        commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:39:56 2025 -0500
+
+            cambio de rama master a main en documentación
+
+        2.branchs/README.md   | 16 ++++++++--------
+        3.conflicts/README.md | 10 +++++-----
+        README.md             |  7 +++++--
+        3 files changed, 18 insertions(+), 15 deletions(-)
+
+        commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:17:02 2025 -0500
+
+            primer commit
+
+        .gitignore               |  2 ++
+        1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+        1.commit/sandwich.txt    |  4 +++
+        2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+        2.branchs/pizza.txt      |  3 ++
+        3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+        3.conflicts/milanesa.txt |  2 ++
+        README.md                | 54 +++++++++++++++++++++++++++++++++
+        8 files changed, 246 insertions(+)
+
+        Esta variación del comando git log, indica de manera más detallada, la información de cada uno de los commits realizados,
+        pues incluye información acerca de cuantas líneas se han insertado y eliminado en cada uno de los archivos que se hayan editado
+        además de cuantos archivos se han editado en el periodo que abarca dicho commit.
+
 11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+
+    Al usar el comando:
+
+    git diff b60c4be f81910e
+
+    La salida es:
+
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index fa3daf0..5ede0c4 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -1,7 +1,6 @@
+    pan
+    salsa de tomate
+    salsa de ajo
+    -mostaza
+    queso
+    jamón
+    lechuga
+
+    Esto quiere decir que entre el último y el penúltimo commit la diferencia es que se ha agregado una salsa (mostaza),
+    es decir que el penúltimo commit no se contaba con esto y por eso se marca con el signo negativo (-).
+
+    si en el comando se invierten el orden de los hash (ahora el penúltimo de primero):
+
+    git diff f81910e b60c4be
+
+    La salida muestra lo siguiente:
+
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index 5ede0c4..fa3daf0 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -1,6 +1,7 @@
+    pan
+    salsa de tomate
+    salsa de ajo
+    +mostaza
+    queso
+    jamón
+    lechuga
+
+    Lo cual indica la misma información (que se ha agregado la mostaza en el último commit), pero visto desde el punto de vista
+    del último commit, por eso se marca con el signo positivo (+).
+
     11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+
+        Muestra y resalta en una ventana de un programa llamado meld, las diferencias entre el último commit y el seleccionado en el hash
+
     11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
+
 12. Crear un nuevo archivo dentro de la carpeta `1.commit`, llamado `sandwich2.txt`, y agregarle los ingredientes de su sandwich.
 13. Agregar el archivo `sandwich2.txt` al repositorio local.
 14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+
+
+
 15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
 16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
