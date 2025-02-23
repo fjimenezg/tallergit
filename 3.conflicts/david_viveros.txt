@@ -1,0 +1,39 @@
+# PREGUNTAS TEORICAS
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+-> Un conflicto ocurre cuando git no puede unir 2 ramas porque en ambas se han modificado partes de un archivo, se podría decir que es malo porque es mas trabajo tener que resolverlo
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+-> Si se puede evitar si no se modifica el mismo archivo o al menos no las mismas partes del archivo en 2 ramas diferentes
+
+ ## PRACTICA
+10. Haga un `git diff main suprema` y un `git diff main bife`. ¿Qué observa? 
+-> Observo que se eliminó "lomo" y se añadió "pollo"
+
+11. Moverse a la branch `main`. Corra un `git status`, ¿qué observa?
+-> lo mismo de antes
+
+12. Ejecute `git merge bife`. Funcionó?
+-> dice "Ya está actualizado.", esto puede deberse a que no hice commit antes ya que las instrucciones no lo indicaban
+
+13. Ejecute `git merge suprema`. Funcionó?
+-> obtengo el siguiente mensaje de error:
+Actualizando b040631..c85b82c
+error: Los cambios locales de los siguientes archivos serán sobrescritos al fusionar:
+        3.conflicts/milanesa.txt
+Por favor, confirma tus cambios o aguárdalos antes de fusionar.
+Abortand
+
+14. Ejecute `git status`. Que observa?
+-> Observo que milanesa.txt fue modificado pero no está siendo rastreado
+
+15. Vea el contenido del archivo `3.conflicts/milanesa.txt`. ¿Qué observa?
+-> Tiene el siguiente contenido:
+pan rallado
+bife
+
+16. Aborte el merge. (Puede usar el comando `git merge --abort`).
+-> Obtengo el siguiente mensaje de error:
+fatal: No hay una fusión para abortar (falta MERGE_HEAD
+
+17. Vuelva a ejecutar `git merge suprema`.
+-> Ahora hago un commit con los cambios para poder hacer merge porque sino no me deja
