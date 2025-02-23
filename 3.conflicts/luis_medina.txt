@@ -90,35 +90,102 @@ Already up to date.
 
 13. Ejecute `git merge suprema`. Funcionó?
 
-Explicación
+Explicación: No funciona, esto se debe a que como no realizamos los commits con los cambios traidos desde la rama bife
+             y por eso no se puede hacer un merge con la rama suprema, entonces haremos un commit para guardar los cambios
+             y posteriormente haremos un merge 
 
 Resultado comando:
 --------------------------------------------------------------------------------------------------------------
+admin@Home MINGW64 /e/Modelamiento/Git/tallergit (main) 
 
+$ git merge suprema 
+
+Updating e0f910f..00d9773 
+
+error: Your local changes to the following files would be overwritten by merge: 
+
+        3.conflicts/milanesa.txt 
+
+Please commit your changes or stash them before you merge. 
+
+Aborting 
 --------------------------------------------------------------------------------------------------------------
-Explicación
+
+13.1
+
+ Explicación Una vez guardados los cambios en el archivo podemos ver que el merge no funciona debido a que hay conflictos
+             en el archivo milanesa txt esto se debe a que la rama suprema realiza cambios en el mismo archivo y en las
+             mismas líneas de código por lo que git no sabe cómo proseguir.
 
 Resultado comando:
 --------------------------------------------------------------------------------------------------------------
+admin@Home MINGW64 /e/Modelamiento/Git/tallergit (main) 
 
+$ git merge suprema 
+
+Auto-merging 3.conflicts/milanesa.txt 
+
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt 
+
+Automatic merge failed; fix conflicts and then commit the result. 
 --------------------------------------------------------------------------------------------------------------
-Explicación
+
+14. Ejecute `git status`. Que observa?
+
+Explicación Al ejecutar git status, se observa que hay un conflicto de fusión en el archivo 3.conflicts/milanesa.txt,
+            lo que indica que ha sido modificado en ambas ramas y Git no puede resolverlo automáticamente.
 
 Resultado comando:
 --------------------------------------------------------------------------------------------------------------
+admin@Home MINGW64 /e/Modelamiento/Git/tallergit (main|MERGING) 
 
+$ git status 
+
+On branch main 
+
+Your branch is ahead of 'origin/main' by 7 commits. 
+
+  (use "git push" to publish your local commits) 
+
+  
+
+You have unmerged paths. 
+
+  (fix conflicts and run "git commit") 
+
+  (use "git merge --abort" to abort the merge) 
+
+  
+
+Unmerged paths: 
+
+  (use "git add <file>..." to mark resolution) 
+
+        both modified:   3.conflicts/milanesa.txt 
+
+  
+
+no changes added to commit (use "git add" and/or "git commit -a") 
 --------------------------------------------------------------------------------------------------------------
-Explicación
+
+15. Vea el contenido del archivo `3.conflicts/milanesa.txt`. ¿Qué observa?
+
+Explicación: El archivo podemos observar los diferentes cambios que se pueden aceptar por un lado tenemos los
+             cambios actuales del archivo y por otro los cambios que vienen de la rama suprema.
 
 Resultado comando:
 --------------------------------------------------------------------------------------------------------------
+pan rallado 
 
---------------------------------------------------------------------------------------------------------------
-Explicación
+<<<<<<< HEAD 
 
-Resultado comando:
---------------------------------------------------------------------------------------------------------------
+bife 
 
+======= 
+
+pollo 
+
+>>>>>>> suprema 
 --------------------------------------------------------------------------------------------------------------
 
 
