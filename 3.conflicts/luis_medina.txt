@@ -1,0 +1,127 @@
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+    Un conflicto es una incompatibilidad que se da cuando se realiza un merge entre dos ramas que han modificado 
+    el mismo archivo en las mismas lineas de código. Debido a esto, Git no está seguro de cómo debe proceder por 
+    eso le pide ayuda al usuario para que el pueda decidir que cambios adoptar y cuales descartar. En sí, los conflictos
+    no son malos, ya que son situaciones que pueden ocurrir en el desarrollo colaborativo,pero si es mejor evitarlos. 
+
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+   Sí, es posible evitar conflictos, Para ello, es fundamental contar con una estructura de trabajo clara,
+   en la que se asignen tareas específicas a cada miembro del equipo. Esto evita que varias personas modifiquen
+   simultáneamente el mismo archivo o las mismas líneas de código, reduciendo así la posibilidad de que se produzcan
+   conflictos al realizar un merge.
+
+
+### 3.2. Ejercicio Práctico
+
+10. Haga un `git diff main suprema` y un `git diff main bife`. ¿Qué observa? 
+
+Explicación: Utilizando el comando git diff main suprema podemos ver que se realizó un cambio dentro del archivo
+             milanesa.txt donde se añadió el ingrediente pollo y se removió el ingrediente lomo.
+
+             En el segundo comando git diff main bife no vemos ningún cambio puesto que los cambios al archivo 
+             milanesa.txt no se añadieron con el comando add ni se realizo un commit entonces ambas ramas estan 
+             apuntando al mismo archivo
+
+Resultado Comando:
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (bife)
+$ git diff main suprema
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+
+admin@Home MSYS /e/Modelamiento/Git/tallergit (bife)
+$ git diff main bife
+
+--------------------------------------------------------------------------------------------------------------
+
+11. Moverse a la branch `main`. Corra un `git status`, ¿qué observa?
+
+Explicación: Debido a que no agregamos los cambios al repositorio local, los cambios realizados por bife permanecen
+             en el directorio de trabajo. Por ello, cuando cambiamos de rama de bife a main los cambios realizados en
+             la rama bife se aplican ahora a la rama main, podemos ver esto en el comando porque nos dice que el archivo
+             milanesa.txt ha sido modificado; si vemos el archivo en efecto tiene bife en lugar de lomo.
+
+Resultado Comando:
+--------------------------------------------------------------------------------------------------------------
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   3.conflicts/milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.conflicts/luis_medina.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+--------------------------------------------------------------------------------------------------------------
+
+
+12. Ejecute `git merge bife`. Funcionó?
+
+Explicación Si, funcionó esto se debe a que el archivo milanesa.txt es identico en ambas ramas por lo que el 
+            comando git merge no tiene que hacer nada y nos muestra el mensaje "Already up to date" para confirmar
+            que las dos ramas ya están al día y no tienen nada que agregar.
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+admin@Home MSYS /e/Modelamiento/Git/tallergit (main)
+$ git merge bife
+Already up to date.
+--------------------------------------------------------------------------------------------------------------
+
+13. Ejecute `git merge suprema`. Funcionó?
+
+Explicación
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+Explicación
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+Explicación
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+Explicación
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+Explicación
+
+Resultado comando:
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+
+
