@@ -430,3 +430,18 @@
     Y posteriormente su eliminación en el último commit
 
     1.commit/sandwich2_feo.txt |  9 ---------
+
+
+## Finalizado
+
+Una vez finalizado el ejercicio, recuerde guardar sus cambios en `nombre_apellido.txt` y subirlos a **su** repositorio remoto. Este archivo (`README.md`) y `sandwitch.txt` tienen que mantenerse sin ningún cambio.
+
+Para volver a `sandwich.txt` a su estado original, debe buscar el commit que lo contiene y correr el comando:
+```bash
+git checkout [commit ID] -- 1.commit/sandwich.txt
+
+# ó
+
+git checkout [commit ID] -- sandwich.txt
+
+# dependiendo de donde esté ubicado
