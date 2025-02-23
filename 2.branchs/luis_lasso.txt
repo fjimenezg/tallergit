@@ -91,4 +91,26 @@ Tienes tres líneas de desarrollo paralelas:
 main con cebolla. 🧅
 anana con ananá. 🍍
 experimento con albahaca y orégano. 🌿
-Cada rama tiene modificaciones únicas sobre pizza.txt y aún no están combinadas.'
+Cada rama tiene modificaciones únicas sobre pizza.txt y aún no están combinadas.
+
+15. git merge anana
+
+*   ec6da57 (HEAD -> main) pizza con cebolla
+|\
+| * d8bfe7e (anana) pizza con anana
+* | 72ce181 pizza con cebolla
+|/
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+
+En el git graph se observa un merge con commit de fusión. Esto significa que no hubo conflictos y Git creó un commit especial para combinar ambas ramas.
+
+ec6da57 es el commit de merge en main.
+La estructura en forma de Y invertida muestra cómo main y anana se unieron en este punto.
+pizza con cebolla y pizza con anana ahora están integrados en la historia de main.
+
+16. 
+ git branch --merged
+  anana
+* main
