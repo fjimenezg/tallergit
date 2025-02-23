@@ -1,0 +1,93 @@
+1.1 Preguntas
+
+1. Para inicializar un repositorio local, se debe ejecutar el siguiente comando dentro del directorio donde se quiere crear el repositorio:  
+   
+   git init
+   
+
+2. Para que un directorio deje de ser controlado por Git, se debe eliminar la carpeta oculta `.git` con el siguiente comando:  
+   
+   rm -rf .git
+     
+   Esto elimina todo el historial y la configuración del repositorio git en ese directorio.
+
+3. Si se agrega un archivo a un directorio que ya está siendo controlado por git (no estará siendo controlado automáticamente) git solo rastrea archivos que han sido agregados explícitamente con `git add` hasta que lo agreguemos y hagagamos un commit, el archivo será considerado como "no rastreado"
+
+4. Para agregar un archivo al repositorio local, se usa el comando:  
+   
+   git add nombre_archivo
+     
+   Si se quiere agregar todos los archivos nuevos y modificados se puede usar:  
+   
+   git add .
+   
+
+5. Para determinar qué archivos fueron modificados se usa el comando:  
+   
+   git status
+     
+   Esto muestra los archivos modificados, nuevos y eliminados en el repositorio
+
+6. Para hacer un commit se usa el comando:  
+   
+   git commit -m "descripciôn del cambio"
+   
+
+7. Un commit es un registro de los cambios realizados en el repositorio, es como un "punto de guardado" que almacena una versión específica del proyecto en el historial de git, donde cada commit tiene un mensaje descriptivo que explica qué cambios se hicieron, permitiendo llevar un control detallado del desarrollo del proyecto
+
+
+
+
+1.2
+
+Antes de hacer el primer commit:
+
+git status
+On branch practica2025
+Your branch is up to date with 'origin/practica2025'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/andres_ponce.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Despues de hacer git add sandwich:
+
+git status
+On branch practica2025
+Your branch is up to date with 'origin/practica2025'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        andres_ponce.txt
+
+5. Luego de hacer git add y git status, ahora obtuvimos el mensaje que nos indica que 
+sandwich.txt está en el área de espera o intermedio, listo para ser confirmado
+
+6. git status
+On branch practica2025
+Your branch is ahead of 'origin/practica2025' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        andres_ponce.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+7. Después de realizar el commit:
+git status muestra que no hay cambios pendientes y que la
+rama está actualizada con el último commit
+
+8.

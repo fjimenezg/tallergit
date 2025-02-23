@@ -1,4 +1,7 @@
 pan
 queso
+sal
+pimienta
+mostasa
 medallón
 pan
