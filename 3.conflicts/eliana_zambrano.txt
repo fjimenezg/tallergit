@@ -1,0 +1,37 @@
+
+3.1. Preguntas
+
+1. Un conflicto ocurre cuando dos ramas o commits tienen cambios diferentes en la misma parte de un archivo y git no puede determinar automaticamente cual cambio debe permanencer.
+
+    Ocurre cuando se realiza: un merge, un rebase o un pull.
+
+    Los conflictos en git son buenos ya que nos indican que hay cambios superpuestos que deben revisarse manualmente, lo cual es una oportunidad para asegurar que los cambios sean correctos y coherentes. 
+
+2. Si se pueden reducir las posibilidades de conflictos mediante:
+
+    -Trabajar en archivos o secciones diferentes.
+    -Hacer commits pequeños y frecuentes.
+    -Sincronizarse frecuentemente con el repositorio remoto.
+    -Usar ramas especificass para cada funcionalidad.
+
+3.2. Ejercicio Práctico
+
+10. git diff main suprema
+    Se observa que en la rama suprema la palabra lomo en el archivo milanesa.txt fue reemplazada por pollo esto indica que suprema tiene cambios que no están en main.
+
+    git diff main bife
+    Se observa que en la rama bife no muestra diferencias porque los cambios de bife no se encuntran en staging sino en el working directory .
+
+11. Se observo que los cambios locales en milanesa.txt no están listos para ser confirmados (commit). Además, se tiene commits locales que no han sido enviados al repositorio remoto.
+
+12. Si funciono ya que las modificaciones que se hicieron en el bife en el archivo milanesa.txt no están registrados en ningún commit.Git solo compara los commits entre ramas, no los cambios no confirmados en el working directory.
+
+13. No funciono ya que tienes cambios sin confirmar en el archivo milanesa.txt en el working directory. Git no puede hacer merge a la rama suprema en la rama actual (main) porque esos cambios locales podrían sobrescribirse durante el proceso de fusión.
+
+14. Se observa que archivo milanesa.txt ha sido modificado, pero esos cambios no están en el staging.
+
+15. Los resultados son 
+    pan rallado 
+    bife
+    
+    Esto indica que el archivo ha sido modificado y que la palabra lomo fue reemplazada por bife.
