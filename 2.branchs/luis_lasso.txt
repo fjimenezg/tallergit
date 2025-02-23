@@ -50,3 +50,45 @@ Para subir el tag al repositorio remoto:
 git push origin v1.0
 
 //Practica 
+6. Git graph
+
+* 2dd034f (HEAD -> experimento) pizza con oregano
+* f430c74 pizza con albahaca
+| * 686972e (main) parte 2 branchs
+|/
+* bca656a sandwich en su estado original
+
+experimento avanzó con dos commits nuevos (albahaca y oregano) sobre main.
+Las ramas divergieron después de 686972e, creando dos líneas de desarrollo separadas.
+experimento tiene cambios que no están en main.
+
+10. Git graph en la rama anana
+* d8bfe7e (HEAD -> anana) pizza con anana
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+* 686972e (main) parte 2 branchs
+...
+
+Rama anana y rama experimento partieron desde main pero evolucionaron de forma separada.
+anana tiene el commit pizza con anana.
+experimento tiene los commits pizza con albahaca y pizza con oregano.
+No hay conexión entre anana y experimento; ambas ramas divergieron desde el commit 686972e.
+
+13. Rama main
+* 72ce181 (HEAD -> main) pizza con cebolla
+| * d8bfe7e (anana) pizza con anana
+|/
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+* 686972e parte 2 branchs
+...
+
+Ahora main tiene un nuevo commit: pizza con cebolla.
+Las ramas anana y experimento siguen separadas y no han sido fusionadas a main.
+Tienes tres líneas de desarrollo paralelas:
+main con cebolla. 🧅
+anana con ananá. 🍍
+experimento con albahaca y orégano. 🌿
+Cada rama tiene modificaciones únicas sobre pizza.txt y aún no están combinadas.'
