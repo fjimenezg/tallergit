@@ -1,0 +1,54 @@
+2.1. Preguntas
+
+1. Es una una linea independiente de desarrollo dentro de un repositorio de git
+
+2. Los branches son útiles porque me permiten trabajar en diferentes caracteristicas o correcciones de manera aislada, sin afectar el codigo principal. 
+
+3. git branch nombre_rama
+
+4. git checkout nombre_rama
+   git switch nombre_rama
+
+5. git branch -d nombre_rama
+   git branch -D nombre_rama
+
+6. git checkout -b nombre_rama
+    git switch -c nombre_rama
+
+7. Es un proceso en cual se puede combinar los cambios de una rama con otra
+
+8. Para realizar un merge, primero me cambio a la rama que recibira los cambios 
+    git checkout nombre_rama
+   
+   Luego, fusiono la otra rama 
+    git merge nombre_rama2
+
+9. Es una marca que yo puedo crear en un punto específico del historial de git generalmente usado para identificar versiones de un proyecto.
+
+10.  git tag nombre_tag
+
+2.2. Ejercicio Práctico
+
+6. Se observa que en la rama experimento tiene dos commits propios, mientras que eliana_zambrano tiene varios commits relacionados con el primer ejercicio.
+Ambas ramas parten de main, pero aún no están fusionadas.
+
+10. Se observa que en la rama anana tiene un commit, mientras que experimento y eliana_zambrano tienen sus propios cambios.
+
+13.  Se observa que en la rama main tiene un nuevo commit ("Se agrego cebolla a pizza.txt"), mientras que las ramas anana, experimento y eliana_zambrano tienen sus propios cambios. 
+Todas estas ramas parten de main pero aun no estan fusionadas.
+
+15. Se observo que la union de anana en main se realizo correctamente y el historial refleja todos los cambios realizados en las diferentes ramas.
+Adenas lo mas notorio es en el archivo pizza.txt en el cual se visualiza que la informacion de ambas ramas se unifico.
+
+16. Las ramas que estan mergeadas con main son: anana, practica2025
+
+18.  Se observo que la union de experimento en main se realizo correctamente tambien el archivo pizza.txt en el cual se visualiza que la informacion de ambas ramas se unifico.
+
+19. El merge fue automatico, ya que no hubo conflictos.
+
+20. Las ramas que estan mergeadas con main son: anana, experimento, practica2025
+
+23. Las ramas que estan mergeadas con main son: practica2025
+
+24. Se observa que ya no se muestra el nombre de las ramas (anana, experimento) pero si siguen estando los commits realizados por estos.
+
