@@ -1,0 +1,19 @@
+Preguntas
+1- Para iniciar un respositorio se hace uso del comando git init
+2-
+3- Si, este hace parte del directorio y detectara los cambios en el mismo
+4- Para agregar archivos al repositorio se hace uso del comando git add . o git add -A
+5- Se hace uso del comando git status
+6- El comando es git commit -m "mensaje acerca del commit"
+7- Es una especie de actualización hacia los archivos que es encuentran dentro de un entorno controlado por versiones
+
+Ejercicio parctico
+3- On branch yesidbolaños
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        "1.commit/yesid_bola\303\261os.txt"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Se puede notar como el git ya hace un seguimiento de los archivos que se encuentran dentro de la carpeta
+con ello, esto nos dice que hay cambios que no han sido subidos al repo
