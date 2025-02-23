@@ -26,7 +26,15 @@ Un commit es un punto de control en Git que registra cambios en los archivos, pe
 
 Ejercicio Practico
 
-1. Resultado de ejecutar el comando git status
+1. Se crea el archivo luis_lasso.txt con el contenido de este taller 
+
+
+2. En el archivo sandwich.txt se agrega los ingredientes del sandwich
+y se hace un commit
+
+3.Agregamos el archivo luis_lasso.txt al repositorio local y hacemos un commit
+
+Resultado de ejecutar el comando git status
 
 On branch master
 
@@ -48,13 +56,14 @@ El resultado indica lo siguiente:
 
 "nothing added to commit but untracked files present" → No hay archivos en el área de preparación, solo archivos no rastreados.
 
-2. El sandwich ya tiene los ingredientes.
+4. El sandwich ya tiene los ingredientes.
 
-Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`. Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`. Explique que significa la salida del comando.
+5. El git status despues de ejecutar el comando git add sandwich.txt
+muestra que el archivo sandwich.txt fue agregado al área de preparación y está listo para ser confirmado en el próximo commit.
 
-despues de agregar el archivo sandwich.txt con git add sandwich.txt
+6. Despues de ejecutar el comando git commit -m "agrego mi sandwich" hace que el archivo sandwich.txt sea confirmado en el historial de cambios con el mensaje "agrego mi sandwich".
 
-7. el comando git status muestra lo siguiente:
+7. El comando git status muestra lo siguiente:
 
 git status          
 On branch main
@@ -74,6 +83,8 @@ Changes to be committed:" → Hay archivos en el área de preparación que está
 "Untracked files:" → Hay archivos que Git detectó pero aún no está rastreando.
 
 "lasso_luis&lopez_cristhian.txt" → Este archivo no ha sido agregado a Git, por lo que no será incluido en el próximo commit.
+
+8. Se agrega en sandwich.txt las salsas del sandwich y se hace un commit con el mensaje "agrego mi salsas".
 
 9.Salida del comando git log
 El comando git log muestra el historial de commits en el repositorio. Cada commit incluye información clave:
@@ -168,6 +179,10 @@ fafdc7f (origin/main, origin/HEAD) cambio readme.md
 
 El nuevo commit 8770ba0 refleja el cambio con el mensaje "sandwich feo agregado".
 El commit aparece en la parte superior ya que git log muestra los commits en orden cronológico inverso (el más reciente primero).
+
+13. Creamos el archivo sandwich2.txt y hacemos un commit con el mensaje "agrego sandwich2"
+
+14. Reenombramos el archivo sandwich2.txt a sandwich2_feo.txt y hacemos un commit
 
 15. Explicacion despues de borrar el archivo sandwich2_feo.txt
 git status:
