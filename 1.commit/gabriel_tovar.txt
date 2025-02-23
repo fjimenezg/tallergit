@@ -330,7 +330,46 @@
 13. Agregar el archivo `sandwich2.txt` al repositorio local.
 14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
 
+    Comando utilizado:
 
+    git mv 1.commit/sandwich2.txt 1.commit/sandwich2_feo.txt
+
+    Salida al usar git status:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            renamed:    1.commit/sandwich2.txt -> 1.commit/sandwich2_feo.txt
+
+    En esta salida el cambio es la palabra rename, pues esto indica que se ha cambiado de nombre un archivo
+
+    Se hace el commit:
+
+    git commit -m "Cambia sandwich2.txt a sandwich2_feo.txt"
+
+    Salida obtenida:
+
+    [gabriel_tovar cea9dc1] Cambia sandwich2.txt a sandwich2_feo.txt
+    1 file changed, 0 insertions(+), 0 deletions(-)
+    rename 1.commit/{sandwich2.txt => sandwich2_feo.txt} (100%)
+
+    Salida con git status luego del commit:
+
+    On branch gabriel_tovar
+    nothing to commit, working tree clean
+
+    Salida con git log --oneline:
+
+    cea9dc1 (HEAD -> gabriel_tovar) Cambia sandwich2.txt a sandwich2_feo.txt
+    92845d4 Agregado sandwich 2.0
+    b60c4be Agrego salsas
+    f81910e Agrego mi sandwich.txt
+    beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+    Y en git log muestra el mensaje del commit respectivo
 
 15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
 16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
