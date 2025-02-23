@@ -139,3 +139,48 @@ main tiene ahora todos los cambios combinados de anana, experimento y sus propio
 Commit de merge:
 
 El commit 37635a0 tiene múltiples padres, lo que indica que se hizo un merge.
+
+19. El merged fue automatico, no hubo conflictos ya que la rama experimento no tenia cambios en las mismas lineas que la rama main y la rama anana no tenia conflictos con la rama main.
+
+20. El comando git branch --merged lista todas las ramas cuyos cambios ya han sido fusionados (merged) en la rama actual (main en este caso).
+
+anana y experimento aparecen en la lista, lo que significa que ambas ramas ya fueron completamente fusionadas en la rama main.
+* main indica que actualmente estás en la rama main.
+
+23. Despues de eliminar ambas ramas y ejecutar el comando git branch --merged, solo se muestra la rama main, lo que indica que las ramas anana y experimento ya no existen y sus cambios fueron fusionados en main.
+
+24. Git graph después de eliminar las ramas anana y experimento:
+➜  git graph
+* 2d387b9 (HEAD -> main) pizza full merged
+*   37635a0 pizza mixed anana main
+|\
+| * 2dd034f pizza con oregano
+| * f430c74 pizza con albahaca
+* |   ec6da57 pizza con cebolla
+|\ \
+| * | d8bfe7e pizza con anana
+| |/
+* / 72ce181 pizza con cebolla
+|/
+* 686972e parte 2 branchs
+* bca656a sandwich en su estado original
+* 06c2252 primer punto listo
+* 005e79e sandwich feo ha abandonado el chat
+* 67efe0a el sandwich ahora se llama feo
+* 8a4888d sandwich feo se ha unido al chat
+* bffadf9 sandwich ahora tiene salsas
+* 9c504da agrego mi sandwich
+
+Las ramas han sido eliminadas y sus commits ahora están integrados en la rama main.
+El historial muestra los commits de anana y experimento fusionados en main.
+Main tiene todos los cambios de las ramas anana y experimento, además de sus propios commits.
+
+26 .git tag -a pizza -m "Receta de la pizza."
+
+Este comando crea un tag anotado llamado pizza con el mensaje "Receta de la pizza.".
+El tag se crea en el commit actual (HEAD).
+El tag se crea localmente, pero no se sube al repositorio remoto.
+
+27. git tag solo muestra los tags locales.
+Para ver los tags remotos, se necesita el comando git ls-remote --tags origin.
+
