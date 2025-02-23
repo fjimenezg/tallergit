@@ -17,8 +17,25 @@ Usar ramas pequeñas y enfocadas en una sola tarea o feature.
 
 //Taller practico 
 
-10.
-Al ejecutar los comandos git diff main suprema y git diff main bife, se observan las diferencias entre la rama main y las ramas suprema y bife, respectivamente.
+1. Creamos el archivo luis_lasso en la rama main y hacemos un commit
+
+2. Creamos la rama suprema usando el comando git checkout -b suprema 
+
+3. Nos movemos a la rama suprema usando el comando git checkout suprema
+
+4. Cambiamos la linea del archivo milanesa.txt de lomo a pollo 
+
+5. Hacemos un commit en la rama suprema despues de hacer el cambio
+
+6. Regresamos a la rama main usando el comando git checkout main
+
+7. Creamos la rama bife usando el comando git checkout -b bife 
+
+8. Nos movemos a la rama bife usando el comando git checkout bife
+
+9. Cambiamos la linea del archivo milanesa.txt de lomo a bife
+
+10. Al ejecutar los comandos git diff main suprema y git diff main bife, se observan las diferencias entre la rama main y las ramas suprema y bife, respectivamente.
 
 En git diff main suprema, se muestra que el archivo 3.conflicts/milanesa.txt tuvo un cambio en la línea donde decía "lomo", reemplazándola por "pollo" en la rama suprema.
 
@@ -64,6 +81,10 @@ El contenido del archivo muestra un conflicto de fusión. Git utiliza estas marc
 >>>>>>> suprema: marca el final de los cambios provenientes de la rama suprema, que tiene pollo.
 ¿Por qué ocurre esto?
 Ambas ramas modificaron la misma línea (lomo) en el archivo milanesa.txt, creando un conflicto que Git no puede resolver automáticamente.
+
+16. Abortamos el merge con git merge --abort para volver al estado anterior al intento de fusión.
+
+17. Volvemos a intentar el merge con git merge suprema para resolver manualmente el conflicto.
 
 18. Para resolver manualmente el conflicto, editamos el archivo de milanesa
 y dejamos al pan rallado al bife y al pollo siendo una milanesa mixta
