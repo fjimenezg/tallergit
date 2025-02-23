@@ -63,14 +63,30 @@ Date:   Tue Feb 18 10:43:47 2025 -0500
 
     Primer punto
 
-La salida muestra el historial de commits, con el más reciente primero.
+La salida muestra el historial de commits, con el más reciente primero
 
 10. 
-    10.1. git log --oneline: Muestra cada commit en una sola línea.
+    10.1. git log --oneline: Muestra cada commit en una sola línea
 
-    10.2. git log --stat: Muestra un resumen de los cambios en cada commit.
+    10.2. git log --stat: Muestra un resumen de los cambios en cada commi
 
 11. 
+    $ git diff 9849ce0 81b6ec5
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index 8b31213..a2c65b1 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -4,6 +4,5 @@ salsa de tomate
+     lechuga
+     tomate
+     papa frita
+    -salsa BBQ
+     salsa de mayonesa
+     pan
+    \ No newline at end of file
+    Al ejecutar el comando git diff 9849ce0 81b6ec5 se observo que se elimino la linea salsa BBQ del archivo 1.commit/sandwich.txt en el commit más reciente (81b6ec5)
+    Esto significa que comparando el commit antiguo (9849ce0) con el más reciente (81b6ec5), el archivo perdió esa línea específica
+
     $ git diff 81b6ec5 9849ce0 
     diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
     index a2c65b1..8b31213 100644
@@ -85,6 +101,19 @@ La salida muestra el historial de commits, con el más reciente primero.
      pan
     \ No newline at end of file
 
+    Al ejecutar git diff 81b6ec5 9849ce0 se visualiza que la linea salsa BBQ fue añadida en el commit mas reciente (9849ce0). Esto me dice que desde la perspectiva del commit 81b6ec5, el archivo gano esa linea en 9849ce0
+
     11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
 
-    11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
+    $ git difftool --tool=meld 81b6ec5 9849ce0
+    Al ejecutra el comando se ejecuto la herramienta Meld en el cual se visualiza las diferencias entre los dos commits de manera gráfica
+
+14.  Al ejecutar git status la salida indica que no hay cambios pendientes en el area de trabajo
+    Al ejecutar git log --oneline se visualiza ell historial de commits en una linea en donde el commit mas reciente aparece de primero
+
+15. 
+    Al ejecutar git status despues de hacer el commit muestra que ya no hay cambios pendientes en el area de trabajo
+    Al ejecutar git log --oneline se visualiza el historial de commits en una linea en donde el commit mas reciente es el de eliminar
+
+16. 
+    Al ejecutar git log --stat se visualiza el historial de los commits en forma resumida y ordenada desde el mas reciente al mas antiguo. Tambien nos muestra los archivos modificados.
