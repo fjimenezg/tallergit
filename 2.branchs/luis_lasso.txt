@@ -114,3 +114,28 @@ pizza con cebolla y pizza con anana ahora están integrados en la historia de ma
  git branch --merged
   anana
 * main
+
+17. Merge de experimento
+
+➜  git graph
+*   37635a0 (HEAD -> main) pizza mixed anana main
+|\  
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+* |   ec6da57 pizza con cebolla
+|\ \  
+| * | d8bfe7e (anana) pizza con anana
+| |/  
+* / 72ce181 pizza con cebolla
+
+Merge de experimento a main:
+
+El commit 37635a0 representa el merge de la rama experimento a main.
+Los commits 2dd034f (pizza con orégano) y f430c74 (pizza con albahaca) de experimento se integran a main.
+Historial ramificado:
+
+Se ven múltiples líneas representando los merges desde las ramas anana y experimento.
+main tiene ahora todos los cambios combinados de anana, experimento y sus propios commits.
+Commit de merge:
+
+El commit 37635a0 tiene múltiples padres, lo que indica que se hizo un merge.
