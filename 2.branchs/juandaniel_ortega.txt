@@ -1,0 +1,125 @@
+Ejercicio 2
+
+ 2.1. Preguntas
+¿Qué es un branch?
+Un branch es una rama en Git que representa una línea independiente de desarrollo. Permite trabajar en nuevas características o correcciones sin afectar la rama principal.
+
+¿Por qué pueden ser útiles los branches?
+Los branches son útiles para organizar el trabajo, permitiendo desarrollar nuevas funcionalidades, arreglar errores o experimentar sin afectar el código principal.
+
+¿Cómo se crea una branch?
+Con el comando: git branch nombre_branch
+
+¿Cómo se cambia a una branch?
+Con el comando: git checkout nombre_branch o git switch nombre_branch
+
+¿Cómo se elimina una branch?
+Con el comando: git branch -d nombre_branch para eliminar una rama que ya fue fusionada, o git branch -D nombre_branch para forzar la eliminación.
+
+¿Cómo se crea una branch y se cambia a ella en un solo paso?
+Con el comando: git checkout -b nombre_branch o git switch -c nombre_branch
+
+¿Qué es un merge?
+Un merge es la acción de combinar los cambios de una rama en otra. Se usa para integrar el trabajo realizado en una rama secundaria a la principal.
+
+¿Cómo se realiza un merge?
+Con el comando: git merge nombre_branch
+
+¿Qué es un tag?
+Un tag es una etiqueta que marca un punto específico en la historia del proyecto, generalmente para indicar versiones o hitos importantes.
+
+¿Cómo se crea un tag?
+Con el comando: git tag -a nombre_tag -m "Mensaje del tag"
+
+2.2 ejercicio practico 
+
+6. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git commit -m "Agrego orégano arriba de la albahaca en pizza.txt"
+[experimento 4eb1230] Agrego orégano arriba de la albahaca en pizza.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph 
+* 4eb1230 (HEAD -> experimento) Agrego orégano arriba de la albahaca en pizza.txt
+* 9ab9c32 Agrego albahaca arriba del queso en pizza.txt
+| * 09969fa (origin/practica2025, practica2025) Finalizo el ejercicio práctico de Git
+| * bf0543e Elimino sandwich2_feo.txt
+| * 55946d1 Renombro sandwich2 a sandwich2_feo
+
+Explicación: Después de los commits en la rama experimento:
+ se verá dos commits nuevos: uno para la albahaca y otro para el orégano, en una rama separada (experimento)
+
+ 8 al 10
+
+ PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph
+* 56615c4 (HEAD -> anana) agrego anana debajo del queso
+| * 2508c06 (experimento) Guardo cambios en pizza.txt antes de cambiar a main
+| * 4eb1230 Agrego orégano arriba de la albahaca en pizza.txt
+| * 9ab9c32 Agrego albahaca arriba del queso en pizza.txt
+
+Explicación: Significa que las ramas anana y experimento han evolucionado de forma independiente y los commits en las ramas son diferentes 
+
+13. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph
+* 8581ece (HEAD -> main) agrego cebolla debajo de la salsa
+| * 56615c4 (anana) agrego anana debajo del queso
+|/
+| * 2508c06 (experimento) Guardo cambios en pizza.txt antes de cambiar a main
+| * 4eb1230 Agrego orégano arriba de la albahaca en pizza.txt
+
+main tiene el commit con cebolla.
+anana tiene el commit con ananá debajo del queso.
+experimento tiene los commits con albahaca y orégano.
+
+15. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph
+*   06e6c8c (HEAD -> main) Merge branch 'anana'
+|\
+| * 56615c4 (anana) agrego anana debajo del queso
+* | 8581ece agrego cebolla debajo de la salsa
+|/
+
+Explicación:
+git graph muestra que se hizo un merge de la rama anana en main. Los commits se ven así:
+
+06e6c8c (HEAD -> main) → Es el commit de merge que une anana con main.
+56615c4 (anana) → Último commit en la rama anana, donde agregaste ananá.
+8581ece → Commit previo en main, donde agregaste cebolla.
+
+16. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git branch --merged 
+  anana
+  juan_ortega
+* main
+Explicación: Esto significa que las ramas anana y juan_ortega ya fueron mergeadas en la rama main.
+* indica la rama en la que estás actualmente (main).
+
+18. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph
+*   84fd618 (HEAD -> main) resuelvo conflictos
+|\
+| * 2508c06 (experimento) Guardo cambios en pizza.txt antes de cambiar a main
+| * 4eb1230 Agrego orégano arriba de la albahaca en pizza.txt
+| * 9ab9c32 Agrego albahaca arriba del queso en pizza.txt
+
+Explicación:
+muestra que hiciste un merge en la rama main, resolviendo conflictos al integrar los cambios de la rama experimento. Esta rama incluía commits que agregaban ingredientes a pizza.txt, como albahaca y orégano. Después de resolver los conflictos, hiciste un commit que deja el historial limpio, con ambas ramas integradas correctamente
+
+19. Hubo que hacer un merge manual porque hubo conflictos en el archivo pizza.txt. Git intentó hacer la fusión automática, pero como ambos branches modificaban la misma sección del archivo, fue necesario resolver los conflictos manualmente editando el archivo, agregándolo con `git add` y finalizando con un commit para completar el merge.
+20.PS C:\Users\Daniel Ortega\tallergit\2.branchs> git branch --merged
+  anana
+  experimento
+  juan_ortega
+* main
+Explicación:
+significa que todas esas ramas ya se fusionaron con main, es decir, sus cambios están integrados y no tienen commits pendientes por agregar.
+23. son juan_ortega y la propia rama main. Esto significa que todos los cambios de la rama juan_ortega ya se integraron en main y se puede eliminar si ya no se usa
+24. PS C:\Users\Daniel Ortega\tallergit\2.branchs> git graph                
+*   84fd618 (HEAD -> main) resuelvo conflictos
+|\
+| * 2508c06 Guardo cambios en pizza.txt antes de cambiar a main
+| * 4eb1230 Agrego orégano arriba de la albahaca en pizza.txt
+| * 9ab9c32 Agrego albahaca arriba del queso en pizza.txt
+
+Explicación: indica que estás en la rama main y que hiciste un merge para resolver conflictos. Antes del merge, en la rama experimento, hiciste tres commits: agregaste albahaca y luego orégano a pizza.txt, y guardaste los cambios antes de volver a main. Esto significa que integraste los cambios de experimento a main después de resolver los conflictos
+
+27.PS C:\Users\Daniel Ortega\tallergit\2.branchs> git show pizza
+tag pizza
+Tagger: Juan Daniel Ortega Rojas <dannyortega0627@gmail.com>
+Date:   Sun Feb 23 20:12:23 2025 -0500
+
+Receta de la pizza.
+ 3f74d4d primer

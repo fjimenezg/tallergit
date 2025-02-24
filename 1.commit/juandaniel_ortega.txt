@@ -1,0 +1,58 @@
+3. Conflictos en Git
+
+3.1. Preguntas
+
+¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos ramas han modificado la misma línea de un archivo o cuando un archivo ha sido eliminado en una rama pero modificado en otra. No es necesariamente malo; es una señal de que hay cambios concurrentes que necesitan ser resueltos manualmente para asegurar que los aportes de ambos lados se integren correctamente.
+
+¿Se puede evitar un conflicto? ¿Cómo?
+Aunque no siempre es posible evitarlos, se pueden reducir con buenas prácticas como:
+
+-Sincronizar frecuentemente con la rama principal (pull o fetch).
+-Dividir las tareas para que varios desarrolladores no trabajen sobre los mismos archivos.
+-Hacer commits pequeños y específicos para facilitar la resolución en caso de conflicto.
+
+3.2 ejercicio practico
+
+10. git diff main suprema
+ Resultado esperado:
+Verás que la diferencia indica que en la rama suprema, milanesa.txt dice "pollo".
+git diff main bife
+ Resultado esperado:
+Verás que en la rama bife, milanesa.txt dice "bife".
+11.On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+    both modified:   milanesa.txt
+Esto indica que hay un conflicto pendiente de resolver
+
+12. El merge con la rama bife funcionó sin problemas! Eso es porque no había cambios conflictivos, solo se aplicaron los cambios directamente (por eso dice "Fast-forward").
+13. no, hay un conflicto 
+warning: Cannot merge binary files: 3.conflicts/milanesa.txt (HEAD vs. suprema)
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+14. PS C:\Users\Daniel Ortega\tallergit\3.conflicts> git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../1.commit/juandaniel_ortega.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+explicacion: hay un conflicto
