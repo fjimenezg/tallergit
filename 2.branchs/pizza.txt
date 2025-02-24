@@ -1,3 +1,5 @@
+oregano
+albahaca
 queso
 salsa de tomat
 cebolla 
