@@ -1,7 +1,9 @@
 pan
 tocino
 carne 250 gr 
-salsa
+salsa rosada
+salsa tartara
+salsa de Willien Colón
 queso
 medallón
 pan
