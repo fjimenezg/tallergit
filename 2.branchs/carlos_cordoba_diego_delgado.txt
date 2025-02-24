@@ -1,0 +1,298 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+
+    Un branch es una bifurcación de la rama principal, en la cual se pueden 
+    hacer acciones de manera independiente.
+
+2. ¿Por qué pueden ser útiles los branches?
+
+    Pueden ser útiles ya que permiten desarollar diferentes funciones de un 
+    proyecto de manera independiente, facilitando de esta manera la 
+    colaboración dentro de un proyecto.
+    Creo que sus puntos más fuertes son la posibilidad del desarrollo en paralelo, y 
+    el poder hacer pruebas sin afectar el código de los demás.
+
+3. ¿Cómo se crea una branch?
+
+    Se puede utilizar el comando git branch <nombre> ó git checkout -b <nombre> 
+    (mueve automáticamente a la rama creada )
+
+4. ¿Cómo se cambia a una branch?
+
+    Para cambiarse a una branch se puede utilizar:
+        - git switch <nombre_rama>
+        - git checkout <nombre_rama>
+
+5. ¿Cómo se elimina una branch?
+
+    Para eliminar una rama se usa el comando 
+    git checkout -d <nombre_rama>
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+
+    Se utiliza el comando 
+    git checkout -b <nombre> 
+
+7. ¿Qué es un merge?
+    
+    Un merge es unificar los cambios hechos en una branch en otra, 
+    integrando el trabajo de diferentes branches.
+
+8. ¿Cómo se realiza un merge? 
+
+    Lo primero es ir a la rama en la que queremos integrar los cambios, 
+    por ejemplo si queremos integrar los cambios hechos en la rama boton_azul 
+    a la rama botones, debemos estar en la rama botones y ejecutar:
+    git merge <nombre_de_la_rama_a_integrar>
+
+9. ¿Que es un tag?
+
+    Un tag es una referencia que apunta a un commit específico. 
+    Se utiliza para marcar puntos importantes en el historial, como 
+    versiones de lanzamiento.
+
+10. ¿Cómo se crea un tag?
+
+    Se puede utilizar el comando
+    git tag <nombre_del_tag> 
+    ó
+    git tag -a <nombre_del_tag> -m "Mensaje del tag" (añade un mensaje al tag)
+
+### 2.2. Ejercicio Práctico
+
+1. [] Crear una branch `experimento`. (Puede usar el comando `git branch experimento main`).
+2. Moverse a la branch `experimento`. (Puede usar el comando `git checkout`).
+3. Verificar que se encuentra en la branch `experimento`. (Puede usar el comando `git branch`). 
+
+    $ git branch
+    carlos_cordoba_diego_delgado
+    * experimento
+    main
+    practica2025
+
+4. Agregarle el condimento `albahaca` **arriba del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios. 
+
+    $ git log --oneline
+    3723df6 (HEAD -> experimento) Agregado albahaca
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) 
+    cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+5. Agregarle el condimento `oregano` **arriba de la albahaca** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+
+    $ git log --oneline
+    6603485 (HEAD -> experimento) Agregado oregano
+    3723df6 Agregado albahaca
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) 
+    cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    $ git graph
+    * 6603485 (HEAD -> experimento) Agregado oregano
+    * 3723df6 Agregado albahaca
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+    | * 3943f1a Restaurado estado inicial sandwich.txt
+    | * 3677d98 Eliminado sandwich2_feo.txt
+    | * 95f7459 Añadir sandwich feo
+    | * 2ff1879 Agrego salsa
+    | * f5763c3 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Podemos observar el historial completo del repositorio, además podemos observar la bifurcación perteneciente
+    a la rama carlos_cordoba_diego_delgado, experimento no se muestra como bifurcación porque no se ha hecho ningún 
+    commit en la rama main después de crear la rama experimento.
+
+7. Vuelva a la branch `main`.
+8. Crear una branch `anana`. (Puede usar el comando `git checkout -b anana`).
+9. Agregarle el condimento `anana` **debajo del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    $ git graph
+    * f308333 (HEAD -> anana) Añadido anana
+    | * 6603485 (experimento) Agregado oregano
+    | * 3723df6 Agregado albahaca
+    |/
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+    | * 3943f1a Restaurado estado inicial sandwich.txt
+    | * 3677d98 Eliminado sandwich2_feo.txt
+    | * 95f7459 Añadir sandwich feo
+    | * 2ff1879 Agrego salsa
+    | * f5763c3 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Ahora experimento ya se puede ver cómo una bifurcación, esto debido a que la rama main 
+    ha sufrido cambios.
+
+11. Vuelva a la branch `main`.
+12. Agregue el condimento `cebolla` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    * 5abc846 (HEAD -> main) Añadido cebolla
+    | * f308333 (anana) Añadido anana
+    |/
+    | * 6603485 (experimento) Agregado oregano
+    | * 3723df6 Agregado albahaca
+    |/
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+    | * 3943f1a Restaurado estado inicial sandwich.txt
+    | * 3677d98 Eliminado sandwich2_feo.txt
+    | * 95f7459 Añadir sandwich feo
+    | * 2ff1879 Agrego salsa
+    | * f5763c3 Agrego mi sandwich.txt
+    |/
+
+    Podemos observar que debido a que realizamos otro cambio en main, la rama anana también se muestra 
+    como una bifurcación.
+
+14. Haga un merge de la branch `anana` a la branch `main`. (Puede usar el comando `git merge anana`).
+15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    *   c74ee34 (HEAD -> main) Merge branch 'anana', unimos la rama anana con la rama main
+    |\
+    | * f308333 (anana) Añadido anana
+    * | 5abc846 Añadido cebolla
+    |/
+    | * 6603485 (experimento) Agregado oregano
+    | * 3723df6 Agregado albahaca
+    |/
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+    | * 3943f1a Restaurado estado inicial sandwich.txt
+    | * 3677d98 Eliminado sandwich2_feo.txt
+    | * 95f7459 Añadir sandwich feo
+    | * 2ff1879 Agrego salsa
+    | * f5763c3 Agrego mi sandwich.txt
+
+    Los cambios hechos en la rama anana se han fusionado con los cambios hechos en la rama main,
+    se ha realizado un commit que junta los dos cambios, por lo tanto, nuestra pizza ahora tiene 
+    cebolla y anana al mismo tiempo.
+
+16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    $ git branch --merged
+    anana
+    * main
+    practica2025
+
+    Las ramas "mergeadas" son anana y practica2025
+
+17. Haga un merge de la branch `experimento` a la branch `main`. (Puede usar el comando `git merge experimento`).
+18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+$ git graph
+
+    *   11fcfac (HEAD -> main) Merge branch 'experimento', unimos la rama experimento con la rama main
+    |\
+    | * 6603485 (experimento) Agregado oregano
+    | * 3723df6 Agregado albahaca
+    * |   c74ee34 Merge branch 'anana', unimos la rama anana con la rama main
+    |\ \
+    | * | f308333 (anana) Añadido anana
+    | |/
+    * / 5abc846 Añadido cebolla
+    |/
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+
+    Los cambios hechos en la rama experimento se han fusionado con los cambios hechos en la rama main,
+    se ha realizado un commit que junta los dos cambios, por lo tanto, nuestra pizza ahora tiene 
+    cebolla, anana, oregano y albahaca al mismo tiempo.
+
+19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+
+    El merge se realizó de manera automática debido a que no existió un conflicto entre las líneas modificadas:
+    oregano
+    albahaca
+    queso
+    anana
+    salsa de tomate
+    cebolla
+    masa de pizza
+    El ordén en el que se agregó los diferentes condimentos no generó un conflicto
+
+20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    $ git branch --merged
+    anana
+    experimento
+    * main
+    practica2025
+
+    La rama experimento ahora aparece en las ramas "mergeadas"
+
+21. Elimine la branch `anana`. (Puede usar el comando `git branch -d anana`).
+22. Elimine la branch `experimento`. (Puede usar el comando `git branch -d experimento`).
+23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    $ git branch --merged
+    * main
+    practica2025
+
+    Podemos observar que las ramas eliminadas ya no aparecen en la salida del comando.
+
+24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    *   11fcfac (HEAD -> main) Merge branch 'experimento', unimos la rama experimento con la rama main
+    |\
+    | * 6603485 Agregado oregano
+    | * 3723df6 Agregado albahaca
+    * |   c74ee34 Merge branch 'anana', unimos la rama anana con la rama main
+    |\ \
+    | * | f308333 Añadido anana
+    | |/  
+    * / 5abc846 Añadido cebolla
+    |/
+    | * 6a358d4 (origin/carlos_cordoba_diego_delgado, carlos_cordoba_diego_delgado) 1. Terminado
+    | * 3943f1a Restaurado estado inicial sandwich.txt
+    | * 3677d98 Eliminado sandwich2_feo.txt
+    | * 95f7459 Añadir sandwich feo
+
+    Podemos observar que el histrial de commits y bifurcaciones de las ramas aún se muestra y sigue siendo
+    accesible mediante el hash, sin embargo no aparece el nombre de estas ramas de manera directa (solo en 
+    los mensajes de commit del merge), por lo tanto, estas ya no son accesibles.
+
+25. Crear un tag `pizza` en el último commit. (Puede usar el comando `git tag -a pizza -m "Receta de la pizza."`).
+26. Ver los tags creados. (Puede usar el comando `git tag`).
+27. Ver el tag `pizza`. (Puede usar el comando `git show pizza`).
+
+    $ git show pizza
+    tag pizza
+    Tagger: Carlos <carlos.cg170404@gmail.com>
+    Date:   Sun Feb 23 21:25:49 2025 -0500
+
+    Receta de la pizza.
+
+    commit 11fcfac6a805c5ba4a813b3a10628e2fe8c5dda4 (HEAD -> main, tag: pizza)
+    Merge: c74ee34 6603485
+    Author: Carlos <carlos.cg170404@gmail.com>
+    Date:   Sun Feb 23 21:01:32 2025 -0500
+
+        Merge branch 'experimento', unimos la rama experimento con la rama main
+
+    diff --cc 2.branchs/pizza.txt
+    index 961bd26,b523cb9..e605624
+    --- a/2.branchs/pizza.txt
+    +++ b/2.branchs/pizza.txt
+    @@@ -1,5 -1,5 +1,7 @@@
+    + oregano
+    + albahaca
+    queso
+    +anana
+    salsa de tomate
+    +cebolla
+    masa de pizza
+
+    El tag se añade como un identificador para el commit, permitiendonos acceder a ellos de una manera 
+    más familiar (sin necesidad del hash), muestra la información de su creación y un resumen de los cambios 
+    hechos en el archivo "tageado" hasta el momento del tag.
