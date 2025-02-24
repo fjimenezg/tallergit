@@ -1,0 +1,293 @@
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+
+    Se inicializa utilizando el comando git init, el cual crea una carpeta oculta con nombre .git, en la 
+    cual se manejará toda la información relacionada a Git
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+
+    Podríamos hacerlo borrando la carpeta .git, de esta manera nuestro directorio no
+    tendrá nada relacionado con git, el comando a utilizar para esto, no es de Git, 
+    es: rm -rf .git
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+
+    Si, al agregar un archivo nuevo este aparece aparece como un documento con cambios 
+    pendientes por guardar.
+
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+
+    El comando que se utiliza es git add + nombre del archivo ó + -A para agregar todos.
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+
+    El comando a utilizar es git status, este nos muestra los archivos presentes 
+    en el stagin area.
+
+6. ¿Qué comando se utiliza para hacer un commit? 
+
+    Se utiliza el comando: git commit -m "Mensaje que describa los cambios"
+
+7. En sus propias palabras, ¿qué es un commit?
+
+    Un commit es "guardar" los cambios realizados. Sería como hacer una 
+    copia de seguridad del estado actual del repositorio.
+
+### 1.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` si no estaba creado previamente.
+2. Agregar a `sandwich.txt` condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`. 
+Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`. Explique que
+significa la salida del comando.
+
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   sandwich.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    La salida nos muestra que hay dos archivos con modificaciones en el working directory, pendientes 
+    de ser agregados al repositorio
+
+4. Agregar el archivo `sandwich.txt` al repositorio local. Para esto, se debe ejecutar el comando `git add sandwich.txt`.
+5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            modified:   sandwich.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    El cambio que se puede observar es que el archivo sandwich.txt ahora se encuentra en el stagin area, 
+    pendiente de un commit.
+
+6. Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git commit -m "Agrego mi sandwich.txt"
+    [carlos_cordoba_diego_delgado f5763c3] Agrego mi sandwich.txt
+    1 file changed, 2 insertions(+)
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    Al hacer commit "guardamos" los cambios del archivo sandwich.txt que estaba en el stagin area en el repositorio, por lo tanto,
+    los cambios de este ya no aparecen como pendientes de commit
+
+8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
+9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+
+    $ git log
+    commit 2ff1879d8c1b62c4fdcf54c08b414cf31027bd20 (HEAD -> carlos_cordoba_diego_delgado)
+    Author: Carlos <carlos.cg170404@gmail.com>
+    Date:   Thu Feb 20 17:50:28 2025 -0500
+
+        Agrego salsa
+
+    commit f5763c35847d48b49f0675947f8169f419e19332
+    Author: Carlos <carlos.cg170404@gmail.com>
+    Date:   Thu Feb 20 17:46:38 2025 -0500
+
+        Agrego mi sandwich.txt
+
+    commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:45:03 2025 -0500
+
+        cambio readme.md
+    
+    Al ejecutar el comando git log podemos ver el historial de comits realizados, el orden es inverso (tipo pila), el primero 
+    que aparece es el último commit realizado 
+
+10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+    10.1. `git log --oneline`
+
+        Este comando nos permite ver el historial de commits de una manera más resumida, también el hash se 
+        encuentra reusimido, es ideal para trabajar en repositorios con muchos commits
+
+    10.2. `git log --stat`
+
+        Este comando nos permite ver el historial de commits añadiendo la información sobre que archivos 
+        fueron cambiandos y la cantidad de lineas insertadas o eliminadas en estos.
+
+11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+
+    git diff 2ff1879 f5763c3
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index 1683ac6..2511102 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -1,4 +1,3 @@
+    -salsa de pollo (en rojo)
+    pan
+    pollo
+    helado
+
+    Este comando nos muestra la diferencia entre dos commits, en este caso la salsa añadida (salsa de pollo) aparece
+    de color rojo, siendo esta linea la diferencia entre los dos commits
+
+    11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+
+        Para poder ejecutar este comando se hizo necesario instalar meld, el comando abre una interfaz 
+        similar a un editor de texto, donde se muestra el contenido de cada commit, el agregado, en este caso
+        salsa de pollo aparece en color verde.
+
+12. Crear un nuevo archivo dentro de la carpeta `1.commit`, llamado `sandwich2.txt`, y agregarle los ingredientes de su sandwich.
+
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+            sandwich2.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+13. Agregar el archivo `sandwich2.txt` al repositorio local.
+
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            new file:   sandwich2.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe 
+ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt. 
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git mv sandwich2.txt sandwich2_feo.txt
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            new file:   sandwich2_feo.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+Explique que cambio en la salida del comando `git status` luego de hacer 
+un commit con esos cambios y de `git log --oneline`.
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git commit -m "Añadir sandwich feo"
+    [carlos_cordoba_diego_delgado 95f7459] Añadir sandwich feo
+    1 file changed, 5 insertions(+)
+    create mode 100644 1.commit/sandwich2_feo.txt
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git log --oneline
+    95f7459 (HEAD -> carlos_cordoba_diego_delgado) Añadir sandwich feo
+    2ff1879 Agrego salsa
+    f5763c3 Agrego mi sandwich.txt
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+    En la salida de git status podemos observar que sandwich2_feo.txt ya fue movido al repositorio, por lo tanto,
+    ya no aparece en el stagin area, sus cambios fueron guardados, en cuestión al git log --oneline, se observa 
+    que el commit "Añadir sandwich feo" ya fue añadido al repositorio, y es el commit más reciente.
+
+15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. 
+Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de 
+`git log --oneline`.
+
+    ######################## Antes de hacer commit ###########################################
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git rm sandwich2_feo.txt
+    rm '1.commit/sandwich2_feo.txt'
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            deleted:    sandwich2_feo.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    Podemos observar que el archivo sandwich2_feo.txt fue eliminado del directorio y se 
+    encuentra en el stagin area esperando el commit para confirmar su eliminación
+
+    ######################## Después de hacer commit ###########################################
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git commit -m "Eliminado sandwich2_feo.txt"
+    [carlos_cordoba_diego_delgado 3677d98] Eliminado sandwich2_feo.txt
+    1 file changed, 5 deletions(-)
+    delete mode 100644 1.commit/sandwich2_feo.txt
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git status
+    On branch carlos_cordoba_diego_delgado
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    carlo@LAPTOP-4BCEI6U5 MINGW64 /d/practica/tallergit/1.commit (carlos_cordoba_diego_delgado)
+    $ git log --oneline
+    3677d98 (HEAD -> carlos_cordoba_diego_delgado) Eliminado sandwich2_feo.txt
+    95f7459 Añadir sandwich feo
+    2ff1879 Agrego salsa
+    f5763c3 Agrego mi sandwich.txt
+    fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+    Después de hacer el commit el archivo ya no se encuentra en el stagin area, este fue eliminado,
+    podemos confirmarlo en git log --oneline, donde podemos ver el commit de eliminación.
+
+16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
+    git log --stat
+    commit 3677d98088f5ac7b154d482a5b63ca165378de6b (HEAD -> carlos_cordoba_diego_delgado)
+    Author: Carlos <carlos.cg170404@gmail.com>
+    Date:   Thu Feb 20 18:52:21 2025 -0500
+
+        Eliminado sandwich2_feo.txt
+
+    1.commit/sandwich2_feo.txt | 5 -----
+    1 file changed, 5 deletions(-)
+
+    Podemos observar la eliminación de sandwich2_feo.txt y las 5 líneas que este tenía 
+    "pan - pollo frito - pollo asado - pollo cocinado - pan"
+
