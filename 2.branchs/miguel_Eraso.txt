@@ -1,0 +1,70 @@
+Ejercicio 2
+
+2.1. Preguntas
+
+¿Qué es un branch?
+--es una línea de desarrollo independiente dentro de un repositorio Git. Permite trabajar en nuevas características o correcciones sin afectar la rama principal
+
+¿Por qué pueden ser útiles los branches?
+--Facilitan el desarrollo paralelo permiten probar nuevas características sin alterar la versión estable y organizan mejor el trabajo en equipo.
+
+
+¿Cómo se crea una branch?
+-- git branch <nombre_branch> 
+
+¿Cómo se cambia a una branch?
+--git checkout <nombre_branch>
+
+¿Cómo se elimina una branch?
+--git branch -d <nombre_branch>
+
+¿Cómo se crea una branch y se cambia a ella en un solo paso?
+--git checkout -b <nombre_branch>
+
+¿Qué es un merge?
+--combinar los cambios de una branch con otra 
+
+¿Cómo se realiza un merge?
+--git merge nombre_de_la_branch
+
+¿Que es un tag?
+--Una etiqueta es una marca en un commit específico, generalmente usado para versiones (por ejemplo, v1.0.0)
+
+¿Cómo se crea un tag?
+-- git tag -a nombre_del_tag -m "Mensaje del tag"
+
+2.2. Ejercicio Práctico
+--migueleraso@Miguels-MacBook-Pro 2.branchs % git config --global alias.graph "log --all --graph --decorate --oneline"
+migueleraso@Miguels-MacBook-Pro 2.branchs % git graph
+
+
+Crear una branch experimento. (Puede usar el comando git branch experimento main).
+--git branch experimento main
+
+Moverse a la branch experimento. (Puede usar el comando git checkout).
+--
+Verificar que se encuentra en la branch experimento. (Puede usar el comando git branch).
+Agregarle el condimento albahaca arriba del queso al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+Agregarle el condimento oregano arriba de la albahaca al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+Vuelva a la branch main.
+Crear una branch anana. (Puede usar el comando git checkout -b anana).
+Agregarle el condimento anana debajo del queso al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+Vuelva a la branch main.
+Agregue el condimento cebolla debajo de la salsa al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+Haga un merge de la branch anana a la branch main. (Puede usar el comando git merge anana).
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
+Haga un merge de la branch experimento a la branch main. (Puede usar el comando git merge experimento).
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
+Elimine la branch anana. (Puede usar el comando git branch -d anana).
+Elimine la branch experimento. (Puede usar el comando git branch -d experimento).
+¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
+Correr el comando git graph y observar el resultado. ¿Qué observa?
+Crear un tag pizza en el último commit. (Puede usar el comando git tag -a pizza -m "Receta de la pizza."").
+Ver los tags creados. (Puede usar el comando git tag).
+Ver el tag pizza. (Puede usar el comando git show pizza).
