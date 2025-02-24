@@ -155,6 +155,58 @@ EJERCICIO 3
     11.1 meld es una herramienta grafica que permite visualizar los cambios hechos en un archivo}
     respecto a el ultimo commit
 
-12.  
+12. se crea el archivo sandwich2.txt con sus ingredientes
+13. se hace un commit con el nuevo archivo
+14. se renombre y ejecuta git estatus
 
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    1.commit/sandwich2.txt -> 1.commit/sandwich2_feo.txt
 
+  me dice que un archivo a sido renombredo y que el archivo esta 
+  listo para un commit
+
+15. se borra el archivo sandwich2_feo.txt
+
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    1.commit/sandwich2.txt
+
+  ahora me dice que un archivo a sido eliminado
+
+  2748538 (HEAD -> danielVallejosCristianPaz) se elimino sandwich2_feo.txt
+  2a6e0cd agregamos sandwich 2
+  e6dae73 agrego salsas
+  a14b576 agrego mi sandwich.txt
+
+16.
+    commit 2748538f5b8968d15320292453c818ca7fc80513 (HEAD -> danielVallejosCristiaz)
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 14:18:23 2025 -0500
+
+        se elimino sandwich2_feo.txt
+
+     1.commit/daniel_vallejos_cristian_paz.txt | 146 ++++++++++++++++++++++++++++
+     1.commit/sandwich2.txt                    |   7 --
+     2 files changed, 140 insertions(+), 13 deletions(-)
+
+    commit 2a6e0cd00bd5d4728dba8695af1a539a99257b18
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 14:09:49 2025 -0500
+
+        agregamos sandwich 2
+
+     1.commit/sandwich2.txt | 7 +++++++
+     1 file changed, 7 insertions(+)
+
+    commit e6dae73a60998b1664c852bebe96362c3a7e4b55
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 11:46:26 2025 -0500
+
+        agrego salsas
+
+     1.commit/sandwich.txt | 2 ++
+     1 file changed, 2 insertions(+) 
+
+  simplemete se agregaron los ultimos commit mostrando las lineas que se eliminaron
+  y las que se agregaron como toda la informacion del commit
