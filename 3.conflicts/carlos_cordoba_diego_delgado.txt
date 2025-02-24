@@ -1,0 +1,139 @@
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+
+    Un conflicto ocurre cuando se modifica la misma línea de un archivo en diferentes ramas, en este caso 
+    Git no puede elegir entre las dos modificaciones y le presenta el conflicto al usuario para que este 
+    lo resuelva manualmente.
+    Considero que es bueno, ya que advierte a los autores de los commits en conflicto para que se comuniquen 
+    y tomen la mejor decisión entre ambos.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+
+    Lo ideal sería no trabajar en los mismos archivos al mismo tiempo, además de mantener cada repositorio local 
+    actualizado de manera frecuente.
+
+### 3.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` dentro de la carpeta `3.conflicts`.
+2. Crear una nueva branch `suprema` a partir de la branch `main`. (Puede usar el comando `git checkout -b suprema`).
+3. Moverse a la branch `suprema`. (Puede usar el comando `git checkout`).
+4. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `pollo`.
+5. "Commitear" los cambios. (Puede usar el comando `git commit -am "Cambio de lomo a pollo"`).
+6. Moverse a la branch `main`. (Puede usar el comando `git checkout`).
+7. Crear una nueva branch `bife` a partir de la branch `main`. (Puede usar el comando `git checkout -b bife`).
+8. Moverse a la branch `bife`. (Puede usar el comando `git checkout`).
+9. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `bife`. 
+10. Haga un `git diff main suprema` y un `git diff main bife`. ¿Qué observa? 
+$ git diff main suprema
+
+    diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+    index 5255304..1c57c4d 100644
+    --- a/3.conflicts/milanesa.txt
+    +++ b/3.conflicts/milanesa.txt
+    @@ -1,2 +1,2 @@
+    pan rallado
+    -lomo
+    \ No newline at end of file
+    +pollo
+    \ No newline at end of file
+
+    git diff main bife
+
+    Podemos observar las diferencias entre las ramas main y suprema, en este caso los cambios realizados en el archivo milanesa.txt
+    , estas diferencias son las que causarán un conflicto cuando se intente fusionar ambas ramas con main, ya que ambas ramas han modificado 
+    la misma línea de código de manera diferente.
+
+
+11. Moverse a la branch `main`. Corra un `git status`, ¿qué observa?
+
+    $ git status
+    On branch main
+    Your branch is ahead of 'origin/main' by 7 commits.
+    (use "git push" to publish your local commits)
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   milanesa.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    El cambio realizado en la rama bife no fue guardado en el repositorio, por lo tanto, los cambios realizados se 
+    transladan a la rama a la cual nos cambiamos (en este caso main), ya que estos estan presentes en el working directory.
+
+12. Ejecute `git merge bife`. Funcionó?
+
+    Si funciona, debido a lo explicado en el punto anterior, en la rama bife y en la rama main el archivo milanesa.txt es el mismo:
+    pan rallado
+    bife
+    Por lo tanto, no existen conflictos, el mensaje "already up to date" nos indica que no hay nada que agregar.
+
+13. Ejecute `git merge suprema`. Funcionó?
+
+    $ git merge suprema
+    Updating c8cb49e..ff61809
+    error: Your local changes to the following files would be overwritten by merge:
+            3.conflicts/milanesa.txt
+    Please commit your changes or stash them before you merge.
+    Aborting
+
+    No, debido a que en nuestra rama main tenemos cambios sin guardar en el repositorio local, por lo tanto, debemos 
+    guardarlos antes de intentar el merge.
+
+    $ git merge suprema
+    Auto-merging 3.conflicts/milanesa.txt
+    CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+
+    Al volver a ejecutar el comando podemos observar la existencia de conflictos entre la misma linea de los archivos 
+    de las dos ramas (bife en main y pollo en suprema), por lo tanto, git no pudo realizar el merge de manera exitosa 
+    y necesita que solucionemos los conflictos manualmente.
+
+14. Ejecute `git status`. Que observa?
+
+    $ git status
+    On branch main
+    Your branch is ahead of 'origin/main' by 8 commits.
+    (use "git push" to publish your local commits)
+
+    You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
+
+    Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+            both modified:   milanesa.txt
+
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            carlos_cordoba_diego_delgado.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+
+    La salida del comando nos confirma el conflicto existente entre los archivos de las ramas.
+
+15. Vea el contenido del archivo `3.conflicts/milanesa.txt`. ¿Qué observa?
+
+    pan rallado
+    <<<<<<< HEAD
+    bife
+    =======
+    pollo
+    >>>>>>> suprema
+
+    El archivo nos muestra las lineas en conflicto, en este caso bife es del archivo actual (main) y pollo 
+    viene desde la rama suprema
+
+16. Aborte el merge. (Puede usar el comando `git merge --abort`).
+17. Vuelva a ejecutar `git merge suprema`.
+18. Resuelva el conflicto manualmente.
+
+    Realizado
