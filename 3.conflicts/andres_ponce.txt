@@ -1,0 +1,33 @@
+3.1
+
+1. Un conflicto es cuando ocurre que git no puede combinar automáticamente los cambios de diferentes ramas porque afecta la misma parte de un archivo de manera incompatible, es decir que git no sabe cuál versión mantener y requiere intervención de nuestra parte
+
+2. Si se puede y para evitar conflictos en git se pueden hacer las siguientes cosas:
+
+-Hacer git pull con frecuencia para trabajar con la versión más reciente del código
+-Dividir el trabajo en archivos separados para minimizar cambios en las mismas líneas
+-Coordinar con el equipo para evitar modificar las mismas partes del código
+-Hacer commits pequeños y frecuentes para facilitar la fusión de cambios
+-Usar git rebase en lugar de merge cuando sea posible para evitar conflictos grandes
+-Utilizar herramientas de resolución de conflictos como VS Code o GitKraken para facilitar el proceso
+
+3.2
+
+10. Cuando uso git diff main suprema se observa que se cambio la palabra lomo por pollo a través de:
+	-Lomo
+	+Pollo
+    De igual forma con git diff main bife se observa el cambio de:
+	-Lomo
+	+Bife
+
+12. Al usar el git merge bife se mergea la rama bife con main sin problema
+13. Al usar git merge suprema se obtiene un mensaje de conflicto en el archivo milanesa.txt
+
+14. Se observa que el archivo que está en conflicto por las dos modificaciones:
+	Unmerged paths:
+  	(use "git add <file>..." to mark resolution)
+        both modified:   milanesa.txt
+
+15. Aparecen dos colores resaltando los cambios que se han hecho y los que están próximos a hacerse de colores
+verde y purpura respectivamente indicando el conflicto, además se señala el error con un texto color rojo en 
+el nombre del archivo milanesa.txt

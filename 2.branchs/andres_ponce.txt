@@ -1,0 +1,124 @@
+
+2.1.
+
+
+1.
+Un branch en git es una rama o línea de desarrollo separada del código principal 
+que permite trabajar en nuevas características o correcciones sin afectar la rama 
+principal (generalmente 'main' o 'master')
+
+2.  
+Los branches son útiles porque permiten:  
+- Desarrollar nuevas características sin alterar el código estable  
+- Trabajar en paralelo en diferentes funcionalidades
+- Facilitar la colaboración entre varios desarrolladores  
+- Probar cambios antes de fusionarlos con la rama principal  
+
+3.   
+Se puede crear una nueva branch con el siguiente comando:  
+
+    git branch nombre-de-la-rama
+
+Esto solo crea la branch, pero no cambia a ella
+
+4.   
+Para cambiar a una branch existente, se usa:  
+
+    git checkout nombre-de-la-rama ò
+    git switch nombre-de-la-rama
+
+
+5.   
+Para eliminar una branch localmente:  
+
+    git branch -d nombre-de-la-rama
+
+Si la branch no ha sido fusionada y aún así quieres eliminarla, usa:  
+
+    git branch -D nombre-de-la-rama
+
+Para eliminar una branch en el repositorio remoto:  
+
+    git push origin --delete nombre-de-la-rama
+
+
+6.   
+Puedes crear y cambiar a una nueva branch con:  
+
+    git checkout -b nombre_rama ò
+    git switch -c nombre_rama
+
+7. 
+Un merge es la operación que combina los cambios de una branch con otra. 
+Se usa para integrar nuevas características o correcciones en la rama principal
+
+8. 
+    1. Primero, se cambia a la rama donde se quiere fusionar los cambios, por ejemplo, `main`:  
+   
+        git checkout main
+
+    2. Luego, se hace el merge con la otra rama:  
+   
+        git merge nombre-de-la-rama
+
+    3. Si hay conflictos, git pedirá que se resuelvan antes de completar el merge
+
+9.  
+Un tag en git es una etiqueta que se usa para marcar puntos importantes 
+en la historia del repositorio, como versiones de software
+a diferencia de los branches los tags son inmutables
+
+10. 
+Para crear un tag ligero:  
+
+    git tag nombre-del-tag
+
+Para crear un tag anotado con descripción:  
+
+    git tag -a nombre-del-tag -m "Mensaje del tag"
+
+Para subir un tag al repositorio remoto:  
+
+    git push origin nombre-del-tag
+
+Para subir todos los tags:  
+    git push --tags
+
+
+
+2.2
+
+6. Con el git graph se observa que se dibuja la linea de la nueva rama de donde se generan los cambios 
+a la nueva rama "experimento" a traves de lineas y asteriscos, de la otra rama de experimento
+en donde se agrego la albahaca, el oregano y para este caso la anana
+
+10. Se observa que se ha creado la nueva rama "anana" con el nuevo commit "agrego anana"
+
+13. Al usar este comando puede verse como en la rama principal se agrega el ultimo commit que 
+añade la cebolla a la pizza sin tener que hacer uso de ramas pero ignorando los añadidos de las 
+otras ramas porque aun no se hace merge
+
+15. Se observa como la rama anana se fusiona con la rama main a traves de lineas verdes 
+indicando que el merge se ha realizado correctamente 
+
+16. La única rama mergeadas a main es anana
+
+18. Al correr el git graph podemos ver que la rama experimento ahora esta mergeada con main
+
+19. Se hizo un merge automatico ya que no hubo conflicto entre las ramas y fueron añadidas 
+por separado 
+
+20. Ahora aparecen mergeadas experimento y anana
+
+23. Al usar este comando aparece que ninguna Branch esta mergeada porque las borramos 
+
+24. si bien aun queda rastro de las ramas anteriores ya no se describen las ramas 
+es decir ya no se menciona sus nombres ni lo que se hizo en ellas
+
+26.
+	tag pizza
+	Tagger: Andres Ponce <ccp7.5ponceandres@gmail.com>
+	Date:   Sun Feb 23 02:27:13 2025 -0500
+
+	Receta de la pizza
+	commit 0a5a9ccaa1b7e34068e3bb9611c6602bea9feec8 (HEAD -> main, tag: pizza)

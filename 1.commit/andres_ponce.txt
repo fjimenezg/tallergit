@@ -1,0 +1,170 @@
+1.1 Preguntas
+
+1. Para inicializar un repositorio local, se debe ejecutar el siguiente comando dentro del directorio donde se quiere crear el repositorio:  
+   
+   git init
+   
+
+2. Para que un directorio deje de ser controlado por Git, se debe eliminar la carpeta oculta `.git` con el siguiente comando:  
+   
+   rm -rf .git
+     
+   Esto elimina todo el historial y la configuración del repositorio git en ese directorio.
+
+3. Si se agrega un archivo a un directorio que ya está siendo controlado por git (no estará siendo controlado automáticamente) git solo rastrea archivos que han sido agregados explícitamente con `git add` hasta que lo agreguemos y hagagamos un commit, el archivo será considerado como "no rastreado"
+
+4. Para agregar un archivo al repositorio local, se usa el comando:  
+   
+   git add nombre_archivo
+     
+   Si se quiere agregar todos los archivos nuevos y modificados se puede usar:  
+   
+   git add .
+   
+
+5. Para determinar qué archivos fueron modificados se usa el comando:  
+   
+   git status
+     
+   Esto muestra los archivos modificados, nuevos y eliminados en el repositorio
+
+6. Para hacer un commit se usa el comando:  
+   
+   git commit -m "descripciôn del cambio"
+   
+
+7. Un commit es un registro de los cambios realizados en el repositorio, es como un "punto de guardado" que almacena una versión específica del proyecto en el historial de git, donde cada commit tiene un mensaje descriptivo que explica qué cambios se hicieron, permitiendo llevar un control detallado del desarrollo del proyecto
+
+
+
+
+1.2
+
+Antes de hacer el primer commit:
+
+git status
+On branch practica2025
+Your branch is up to date with 'origin/practica2025'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/andres_ponce.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+3. Esto significa que el archivo tiene cambios y està esperando a ser comiteado
+
+Despues de hacer git add sandwich:
+
+git status
+On branch practica2025
+Your branch is up to date with 'origin/practica2025'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        andres_ponce.txt
+
+5. Luego de hacer git add y git status, ahora obtuvimos el mensaje que nos indica que 
+sandwich.txt está en el área de espera o intermedio, listo para ser confirmado
+
+6. git status
+On branch practica2025
+Your branch is ahead of 'origin/practica2025' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        andres_ponce.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+7. Después de realizar el commit:
+git status muestra que no hay cambios pendientes y que la rama está actualizada 
+con el último commit
+
+8.
+    git commit -m "Agrego salsas"
+    [practica2025 1d2a121] Agrego salsas
+    1 file changed, 3 insertions(+)
+
+9. 
+    git log 
+    commit 1d2a12113191a5684acd0ff420037d08dbce8664 (HEAD -> practica2025)
+    Author: Andres Ponce <ccp7.5ponceandres@gmail.com>
+    Date:   Sun Feb 23 00:52:14 2025 -0500
+
+    Agrego salsas
+
+    commit 41502881ec1d92de0d9a5ae4235149a0526770fc
+    Author: Andres Ponce <ccp7.5ponceandres@gmail.com>
+    Date:   Sun Feb 23 00:49:31 2025 -0500
+
+    Agrego mi sandwich.txt
+
+    En el archivo se nos muestra que el ultimo commit realizado fue agregar salsas y antes de ese
+    hay otro commit donde se agrega el sandwich
+
+10.
+
+    10.1. Este comando nos muestra todos los commits pero de una forma lineal y mas organizada:
+            git log --oneline
+            1d2a121 (HEAD -> practica2025) Agrego salsas
+            4150288 Agrego mi sandwich.txt
+            fafdc7f (origin/practica2025, origin/main, origin/HEAD, main) cambio readme.md
+
+    10.2. Este comando nos muestra los commit pero con mas detalles como fecha, autor, rama
+            git log --stat
+            commit 1d2a12113191a5684acd0ff420037d08dbce8664 (HEAD -> practica2025)
+            Author: Andres Ponce <ccp7.5ponceandres@gmail.com>
+            Date:   Sun Feb 23 00:52:14 2025 -0500
+            Agrego salsas
+
+    
+11. Cuando reemplazo hash por los còdigos de cada commit se pueden ver las diferencias que
+existen entre cada commit realizado mediante ++ y --, es decir lo nuevo o lo eliminado
+
+    11.1. Nos muestra las diferencias del commit con borbujas de colores en una interfaz grafica 
+    usando la herramienta medl 
+    11.2. Al igual que la anterior nos muestra una interfaz grafica para ver las diferencias entre
+    los ultimos commits pero usando la herramienta oppendif aunque en linux no me funciono, tuve que 
+    usar un simulador mac
+
+14. el comando git status antes del commit nos muestra el cambio de nombre realizado anteriormente e inclsuo
+    nos da la posibilidad de restaurar el nombre anterior
+
+        Changes to be committed:
+        (use "git restore --staged <file>..." to unstage)
+        renamed:    sandwich2.txt -> sandwich_feo.txt
+
+    Luego de añadirlo a un commit y hacer un git log --oneline: obtenemos el commit encabezando
+    la lista de commits y si hacemos un git status nos muestra que no hay cambios pendientes
+
+15. si hacemos git status antes de hacer commit al eliminado obtenemos que podemos recuperar el
+archivo borrado:
+
+        Changes to be committed:
+        (use "git restore --staged <file>..." to unstage)
+        deleted:    sandwich_feo.txt
+
+Luego de hacer el commit obtenemos que con el log oneline el eliminado se encabeza en la lista
+de commits realizados
+
+            6ec4abb (HEAD -> practica2025) Eliminamos sandwich feo
+            372e662 Agrego sandwich feo
+            eac368a Agrego sandwich 2
+
+16. La bitacora nos muestra el proceso de creacion del primer sandwich, posteriormente como se
+agregan las salsas insertando las lineas nuevas mediante signos (+), la creacion del sandwich 2, 
+posteriormente agregando el sandwich_feo cambiando el nombre, para finalmente elimanrlo eliminando 
+sus lineas de còdigo mostradas con el signo (-), cada accion representada por el autor del cambio,
+la fecha, el commit, y la descripciôn
+
