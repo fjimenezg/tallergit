@@ -1,4 +1,7 @@
 pan
+tocino
+carne 250 gr 
+salsa
 queso
 medallón
 pan
