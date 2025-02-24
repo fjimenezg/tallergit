@@ -1,0 +1,63 @@
+# PREGUNTAS TEORICAS
+1. ¿Qué es un branch?
+-> Un branch es una rama
+
+2. ¿Por qué pueden ser útiles los branches?
+-> Pueden ser utiles para trabajar en paralelo sin tener que afectar el trabajo de los demas
+
+3. ¿Cómo se crea una branch?
+-> git branch <nombre>
+
+4. ¿Cómo se cambia a una branch?
+-> git checkout <nombre>
+
+5. ¿Cómo se elimina una branch?
+-> git branch -d <nombre>
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+git checkout -b <nombre>
+
+7. ¿Qué es un merge? 
+-> El proceso de unir los cambios de una rama con otra
+
+8. ¿Cómo se realiza un merge? 
+-> git merge <nombre_rama> # combina una rama con la rama actual
+
+9. ¿Que es un tag? 
+-> Un tag es una etiqueta que apunta a un commit especifico, por ejemplo se usa para mantener versiones de software como "v1.0", "v2.0", etc.
+
+10. ¿Cómo se crea un tag?
+-> git tag <nombre_etiqueta> # Crea una etiqueta simple en el commit actual
+-> git tag -a <nombre_etiqueta> - m "Mensaje descriptivo" # Etiqueta con mensaje
+-> git tag <nombre_etiqueta> <hash_commit> # Etiqueta de un commit especifico
+
+# PRACTICA
+6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> observo los commits que hice, y que indica que son de la rama experimento
+
+10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> ahora veo que el cambio de anana sale de la rama main y la de experimento esta en una diferente
+
+13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> Ahora puedo ver las 3 ramas y como salen en un punto de main
+
+15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> por algun motivo tuvo conflicto pero luego de solucionarlo, al usar git graph veo el commit con el que se solucionó el conflicto
+
+16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+-> Muestra que la rama anana esta merged
+
+18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> Observo que se unieron las ramas y tambien el commit para solucionar un merge conflict que hubo de nuevo
+
+19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+-> Tuve que hacer merge manual, probablemente porque estoy en linux y le añade una linea vacia al final de archivo cuando lo guardo
+
+20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+-> ahora parecen las ramas de anana y experimento
+
+23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+-> Ninguna, solo muestra a la rama main
+
+24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+-> Sigo viendo los commits como antes pero ya no tienen rama

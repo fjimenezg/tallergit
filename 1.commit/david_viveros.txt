@@ -1,0 +1,99 @@
+# RESPUESTAS PREGUNTAS
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+-> git init
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+-> rm -rf .git/ # eliminar carpeta de git
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+-> No, es necesario añadirlo primero
+
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+-> git add <archivo>
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+-> git status
+
+6. ¿Qué comando se utiliza para hacer un commit? 
+-> git commit -m "<mensaje>"
+
+7. En sus propias palabras, ¿qué es un commit?
+-> Un commit es como una snapshot de los cambios que se realizana los archivos
+
+## EJERCICIO PRACTICO
+
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`. Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`. Explique que significa la salida del comando.
+
+En la rama main
+Tu rama está actualizada con 'origin/main'.
+
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	modificados:     1.commit/sandwich.txt
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que será confirmado)
+	1.commit/david_viveros.txt
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+
+
+5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+-> sandwich.txt ahora aparece como cambio esperando a ser confirmado
+
+7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+-> Ahora ya no aparece el archivo sandwich.txt
+
+9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+
+commit 315cd01759bae90b2a468c5a18ba8379719c5c5d
+Author: David Viveros <zapeexp@gmail.com>
+Date:   Sun Feb 23 12:44:57 2025 -0500
+
+    Agrego salsas
+
+commit 9604bb79885935aaa71166ba12e12e2b22811886
+Author: David Viveros <zapeexp@gmail.com>
+Date:   Sun Feb 23 12:43:41 2025 -0500
+
+    Agrego mi sandwich.txt
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+-> Este comando muestra los commits reaizados en el orden de mas reciente a mas antiguo
+
+10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+    10.1. `git log --oneline`
+      -> Muestra los commits en una forma compacta (Solo una linea por commit)
+    10.2. `git log --stat`
+      -> Muestra los archivos cambiados en cada commit
+
+11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+-> muestra entre dos commits que archvios se cambiaron y que se cambió en cada archivo
+
+14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+-> Cuando se usa status muestra que el archivo fue renombrado, en el git log solo aparece el  hash y nombre del commit con --oneline
+
+15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+-> git log muestra que el archivo se elimino, luego git log muestra oslo el hash y nombre del commit como antes
+
+16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
+-> Este comando muestra los cambios que se realizaron, como fue renombrar y luego borrar el archivo
+
