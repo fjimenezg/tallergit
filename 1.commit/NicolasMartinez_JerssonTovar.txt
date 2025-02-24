@@ -168,3 +168,41 @@ Untracked files:
         1.commit/NicolasMartinez_JerssonTovar.txt
 
 se removio el archivo
+
+15. git status 
+
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+nothing to commit, working tree clean
+
+como se agrego el nombres.txt ya no sale nada
+
+git log --oneline
+e9f45a0 (HEAD -> nicolasmartinez_jerssontovar) agregar nombres
+0a85c93 agrego sandwich2 feo
+5e9f769 agrego salsas
+1ad0676 agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+se agrego el nuevo commit
+
+16. 
+git log --stat
+commit e9f45a063052fd02e77f49473b1d109ddcd31033 (HEAD -> nicolasmartinez_jerssontovar)
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 20:11:48 2025 -0500
+
+    agregar nombres
+
+ 1.commit/NicolasMartinez_JerssonTovar.txt | 170 ++++++++++++++++++++++++++++++
+ 1.commit/sandwich2_feo.txt                |   9 --
+ 2 files changed, 170 insertions(+), 9 deletions(-)
+
+commit 0a85c930a593466c40a1f1b1ea3188d2a5409535
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 19:59:24 2025 -0500
+
+se ve los cambios que se añadieron de nombre.txt
+y como se elimino de sandwich2_feo.txt
