@@ -1,0 +1,18 @@
+1. Se inicializa un repositorio local con el comando:
+   git init
+
+2. Para dejar de controlar un directorio con Git, se usa:
+   rm -rf .git
+
+3. No, el archivo no está siendo controlado hasta que se agregue con `git add`.
+
+4. Para agregar un archivo al repositorio local se usa:
+   git add nombre_archivo
+
+5. Para ver qué archivos fueron modificados se usa:
+   git status
+
+6. Para hacer un commit se usa:
+   git commit -m "Mensaje del commit"
+
+7. Un commit es un registro de cambios en el repositorio. Permite guardar el estado actual del proyecto con un mensaje descriptivo.
