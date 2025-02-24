@@ -1,0 +1,41 @@
+## Ejercicio 3
+
+### 3.1 Solución Preguntas
+
+1.1 ¿Qué es un conflicto?
+     Rta/Un conflicto en Git ocurre cuando dos ramas tienen cambios incompatibles en la misma parte de un archivo, y Git no puede fusionarlos automáticamente. Esto sucede cuando:
+     Dos personas modifican la misma línea de código en archivos diferentes,
+     Una persona elimina un archivo mientras otra lo modifica o se hacen cambios en la misma línea de código en dos ramas diferentes.
+
+1.2 ¿Cuándo ocurre?
+     Rta/Los conflictos ocurren durante operaciones que intentan combinar cambios,en operaciones como Merge o Pull
+
+1.3 ¿Es bueno o malo?
+     Rta/No es ni bueno ni malo se puede decir que es una situación manejable y normal en el desarrollo colaborativo. 
+     Los conflictos son una señal de que dos personas han trabajado en la misma parte del código,
+     lo cual es común en equipos.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+     Rta/Aunque los conflictos son inevitables en proyectos colaborativos, hay estrategias para minimizarlos entre las cuales tenemos:
+     a.Comunicación en el equipo
+     b.Trabajar en ramas pequeñas y específicas
+     c.Actualizar tu rama con frecuencia
+
+### 3.2. Solución ejercicio Práctico
+10.
+     Rta/Al ejecutar `git diff main suprema` Haga un `git diff main suprema` la salida muestra que la línea lomo fue reemplazada por pollo en el archivo milanesa.txt.
+      y al ejecutar `git diff main bife` no muestra resultados.
+11.
+     Rta/Al ejecutar el comando git status, se puede ver que se han hecho cambios en milaneza.txt pero que estos aun no se han agregado al area de stagin 
+
+12.
+     Rta/Al hacer un merge de la rama main con la rama bife funciona correctamente y todo se hace automaticamente.
+
+13.
+     Rta/Al hacer un merge de la rama main con la rama suprema sale un error debido a que hay conflictos    
+
+14.
+     Rta/Al ejecutar el comando git status se puede ver que el archivo milanesa.txt se han hecho cambios y que el archivo Jose_Delgado.txt no esta siendo rastreado
+
+15.
+     Rta/al entrar al archivo milanesa.txt se observa que cuenta con 2 lineas pan rallado y bife.

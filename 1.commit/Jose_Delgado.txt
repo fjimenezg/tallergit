@@ -1,0 +1,129 @@
+## Ejercicio 1
+
+1.1. Solución Preguntas
+
+1. Para inicializar un repositorio local se debe ejecutar el comando "git init"
+2. Para que un directorio deje de ser controlado por git se debe eliminar la carpeta .git la cual está oculta. Esto se hace con el comando rm -rf .git
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, este archivo no esta siendo controlado por git hasta que no se agregue con el comando git add . o git add "nombre del archivo"
+4. El comando que se utiliza para agregar un archivo al repositorio local es git add "nombre del archivo"
+5. Para determinar que archivos fueron modificados se debe ejecutar el comando git status
+6. Para hacer un commit se utiliza el comando git commit -m "descripción del commit" 
+7. Un commit es como un momento importante en la historia de un proyecto. Es el punto exacto donde se guardan y documentan los cambios que se han hecho, como si fuera una foto del proyecto en ese instante. 
+   Cada commit permite saber qué se modificó, quién lo hizo y por qué.
+
+### 1.2. Solución Ejercicio Práctico
+
+3.salida inicial del estado
+     $ git status
+     On branch Jose_Delgado
+     nothing to commit, working tree clean
+     Rta/El estado quiere decir que se está trabajando en la rama Jose_Delgado y que no hay cambios que 
+     se deban hacer en el directorio de trabajo o en staging área.
+
+5.Salida despues de agregar sandwich.txt 
+     $ git status
+     On branch Jose_Delgado
+     Changes to be committed:
+     (use "git restore --staged <file>..." to unstage)
+          modified:   1.commit/sandwich.txt
+
+     Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+          1.commit/Jose_Delgado.txt
+     Rta/Lo que cambió con respecto a la anterior salida es que ahora ya hay archivos en el área de staging en este caso sandwich.txt, ademas que el Archivo jose_Delgado.txt 
+     está en el directorio de trabajo pero no está en el área de staging, es decir no están siendo seguidos por git.   
+
+7.Salida luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.    
+     $ git status
+     On branch Jose_Delgado
+     Untracked files:(use "git add <file>..." to include in what will be committed)
+     1.commit/Jose_Delgado.txt
+
+     nothing added to commit but untracked files present (use "git add" to track)
+
+     Rta/lo que cambió con respecto a la anterior salida es que ya no hay archivos con cambios en el área de staging.
+
+9 .Salida del comando `git log`
+     $ git log
+     commit ea1d476393e9f2feb62377788a834178ce867522 (HEAD -> Jose_Delgado)
+     Author: Jose Delgado <jluidroma@udenar.edu.co>
+     Date:   Sat Feb 22 22:23:02 2025 -0500
+
+     Agrego salsas
+
+     commit 929b07ba3f71b283bc225af50dd43309c6b190a5
+     Author: Jose Delgado <jluidroma@udenar.edu.co>
+     Date:   Sat Feb 22 22:07:43 2025 -0500
+
+     Agrego mi sandwich.txt
+
+     commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+     Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+     Date:   Mon Feb 17 23:45:03 2025 -0500
+
+     cambio readme.md
+
+     commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+     Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+     Date:   Mon Feb 17 23:39:56 2025 -0500
+
+     cambio de rama master a main en documentación
+
+     commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+     Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+     Date:   Mon Feb 17 23:17:02 2025 -0500
+
+     primer commit
+
+     Rta/Esta salida muestra el historial de los commits realizados en el repositorio en orden cronológico inverso, Se muestran detalles como el ID, mensaje, autor, fecha y mas del commit.
+     También se puede evidenciar que hay dos colaboradores, Jose Delgado trabajando en la rama Jose_Delgado y Franklin Jimenez trabajando en la rama principal o en la rama practica2025
+
+10.1 Ejecución del comando `git log --oneline`
+     Rta/La ejecución del comando nos muestra un resumen en una sola linea de los commits realizados del mas reciente al mas antiguo, 
+     En cada linea muestra los primeros 7 caracteres del ID del commit junto con el mensaje descriptivo.
+     
+
+10.2 Ejecución del comando `git log --stat`
+     Rta/La salida de este comando nos muestra el historial de los commits realizados en orden cronológico inverso pero a diferencia de git log y git log --oneline, este nos muestra mas detalles
+     como ID, autor, fecha, los archivos modificados y la cantidad de líneas agregadas y eliminadas.
+
+11.salida de comando git diff ea1d476 929b07b 
+     $ git diff ea1d476  929b07b
+     diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+     index 8185308..90a3979 100644
+     --- a/1.commit/sandwich.txt
+     +++ b/1.commit/sandwich.txt
+     @@ -2,9 +2,4 @@ Ingredientes
+          pan
+          queso
+          jamón
+     -     pollo
+     -
+     -Salsas:
+     -     mayonesa
+     -     mostasa
+     -     salsa BBQ
+     \ No newline at end of file
+     +     pollo
+     \ No newline at end of file
+     Rta//Esto muestra las diferencias entre los dos commits, incluyendo las líneas añadidas, eliminadas o modificadas.
+     En el commit ea1d476 con respecto al commit 929b07b, se agregaron nuevas líneas al archivo sandwich.txt.
+     se añadió una nueva sección llamada "Salsas" con tres tipos de salsas: mayonesa, mostasa y salsa BBQ.
+8.
+8.1 Ejecucion comando git status
+     Rta/Al ejecutar el comando la salida nos dice que hay un archivo nuevo llamado sandwich2_feo.txt en el área de staging, es decir que se agregará al repositorio 
+     en el siguiente commit que se realize.
+8.2 Ejecucion comando git --oneline
+     Rta/Al ejecutar el comando no hay cambios puesto que aun no se ha realizado el commit del archivo sandwich2_feo.txt y este está en el staging área. 
+
+15.
+15.1  
+     Rta/Al ejecutar el comando git status después de realizar los cambios, se puede evidenciar que el archivo sandwich2_feo.txt ya no está en el área de staging.
+15.2   
+     Rta/Al ejecutar el comando git log --oneline, se puede evidenciar que no se han realizado commits puesto que se eliminó el archivo sandwich2_feo.txt el cual estaba en el área de staging.
+
+16.
+     Rta/La salida muestra el historial de commits en la rama Jose_Delgado, ordenados del más reciente al más antiguo. 
+     El commit más reciente, hecho por Jose Delgado, tiene el mensaje "Agrego salsas" e incluye cambios en el archivo sandwich.txt (se añadieron 6 líneas y se eliminó 1). 
+     Justo antes, hay otro commit de Jose Delgado con el mensaje "Agrego mi sandwich.txt", donde también se modificó el archivo sandwich.txt (se añadieron 5 líneas y se eliminaron 4). El commit más antiguo, realizado por Franklin Jimenez el 17 de febrero de 2025, está vinculado a varias ramas cómo main y practica2025. 
+     Este historial permite ver cómo ha evolucionado el proyecto y quién ha realizado los cambios.
