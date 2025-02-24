@@ -1,0 +1,114 @@
+2.1
+¿Qué es un branch?
+Un branch (rama) es una línea de desarrollo independiente que permite trabajar en nuevas funcionalidades 
+o correcciones sin afectar la rama principal (main o master).
+
+2. ¿Por qué pueden ser útiles los branches?
+Permiten aislar cambios, facilitar la colaboración en equipo, probar nuevas funcionalidades 
+sin afectar el código principal y gestionar versiones de manera eficiente.
+
+3. ¿Cómo se crea una branch?
+un branch se crea usando el comando  ---> git branch nombre_de_la_rama
+
+4. ¿Cómo se cambia a una branch?
+se cambia una branch usadno el comando  -->git checkout nombre_de_la_rama
+
+5. ¿Cómo se elimina una branch?
+se elimnia una branch usando el comando --> git branch -d nombre_de_la_rama
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+se crea una branch y se cambia a ella en un solo paso ---> git checkout -b nombre_de_la_rama
+
+7. ¿Qué es un merge? 
+Es la acción de combinar los cambios de una rama con otra, 
+generalmente para integrar cambios de una rama secundaria a la rama principal.
+
+8. ¿Cómo se realiza un merge? 
+Primero, cambia a la rama destino (por ejemplo, main) y luego usa:
+-->git merge nombre_de_la_rama
+
+9. ¿Que es un tag? 
+Un tag es una marca o etiqueta que se usa para identificar un punto específico en la historia del repositorio,
+ generalmente para versiones (por ejemplo, v1.0.0).
+
+10. ¿Cómo se crea un tag?
+Usando el comando: -->git tag -a nombre_del_tag -m "Mensaje descriptivo"
+--------------------------------------------------------------------------------------------------------------------------------
+parte 2.2 
+--------------------------------------------------------------------------------------------------------------------------------
+
+6. observo que a la rama experimento se le agregaron dos nuevos commits 
+"agregando oregano "
+"agregando albahaca"
+
+------------------------------------------------------------------------------------
+10. observa que se agrega un commit a la rama ananan "agrenado ananan "
+-----------------------------------------------------------------------------------
+13. observa que se agrega un commit a la rama main "agregando cebolla"
+------------------------------------------------------------------------------------
+15. se observa que la rama main y la rama anana estan fucionadas 
+------------------------------------------------------------------------------------
+18. se observa que la rama main y la rama experimento estan fucionadas
+------------------------------------------------------------------------------------
+19. hice merge manual por que tuve un conflicto que que tenia una archivo que no estaba 
+seguido por git guarde temporalmente la informacion con este comando 
+Usa git stash para Guardar los cambios locales:
+luego  con el comando " git stash pop " para recuperar lo cambios 
+--------------------------------------------------------------------------------------
+20. las ramas que me salen margeadas son :
+anana
+experimento
+main
+-----------------------------------------------------------------------------------
+23. despues de eliminar las branch anana y experimento solo me sale margeada la branch main
+--------------------------------------------------------------------------------------------
+24. se observa esto 
+*   02c84d0 (HEAD -> main) Merge branch 'experimento'
+|\
+| * fa2b349 Agragando condimento oregano
+| * 48ccd39 Agragando condimento albahaca
+* |   af0a9d8 Merge branch 'anana'
+|\ \
+| * | 6454cd8 agregando condimento anana
+| |/
+* / 22da1d3 agregando cebolla
+|/
+
+* 02c84d0 (HEAD -> main) Merge branch 'experimento':
+
+Este es el último commit, que representa la fusión (merge) de la rama experimento en main.
+
+HEAD -> main indica que estás actualmente en la rama main.
+
+| * fa2b349 Agragando condimento oregano:
+
+Este commit pertenece a la rama experimento y agrega el condimento orégano.
+
+| * 48ccd39 Agragando condimento albahaca:
+
+Este commit también pertenece a la rama experimento y agrega el condimento albahaca.
+
+* | af0a9d8 Merge branch 'anana':
+
+Este commit representa la fusión (merge) de la rama anana en main.
+
+|\ \:
+
+Estas líneas indican que la rama anana se fusionó con main.
+
+| * | 6454cd8 agregando condimento anana:
+
+Este commit pertenece a la rama anana y agrega el condimento anana.
+
+| |/:
+
+Indica que la rama anana se fusionó con main.
+
+* / 22da1d3 agregando cebolla:
+
+Este commit pertenece a la rama main y agrega el condimento cebolla.
+
+|/:
+
+Indica que la rama anana se separó de main en este punto.
+--------------------------------------------------------------------------------------------------------------------------------

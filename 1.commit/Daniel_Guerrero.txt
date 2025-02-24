@@ -1,0 +1,282 @@
+1. Se inicializa un repositorio local con el comando:
+   git init
+
+2. Para dejar de controlar un directorio con Git, se usa:
+   rm -rf .git
+
+3. No, el archivo no está siendo controlado hasta que se agregue con `git add`.
+
+4. Para agregar un archivo al repositorio local se usa:
+   git add nombre_archivo
+
+5. Para ver qué archivos fueron modificados se usa:
+   git status
+
+6. Para hacer un commit se usa:
+   git commit -m "Mensaje del commit"
+
+7. Un commit es un registro de cambios en el repositorio. Permite guardar el estado actual del proyecto con un mensaje descriptivo.
+
+Salida de `git status`:
+On branch main
+Your branch is up to date with 'origin/main'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sandwich.txt
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explicación:
+- Estoy en la rama principal (`main`).
+- Mi repositorio local está sincronizado con el remoto (`origin/main`).
+- He modificado el archivo `sandwich.txt`, pero aún no lo he agregado al área de preparación (`staging`).
+- Git sugiere usar `git add sandwich.txt` para preparar los cambios o `git restore sandwich.txt` para deshacerlos.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Salida de `git status` después de ejecutar `git add sandwich.txt`:
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Daniel_Guerrero.txt
+
+Explicación:
+- `sandwich.txt` ha sido agregado al área de preparación y está listo para ser enviado en el próximo commit.
+- `Daniel_Guerrero.txt` ha sido modificado, pero aún no lo agregué con `git add`.
+- Para incluir `Daniel_Guerrero.txt` en el commit, debo ejecutar `git add Daniel_Guerrero.txt`.
+----------------------------------------------------------------------------------------------------------------
+9.Salida de git log 
+
+¿Qué significa cada línea?
+commit b7956e742ab4ebd07fbcc2c57c3e859f01a20be5 (HEAD -> main)
+→ Este es el commit más reciente.
+→ HEAD -> main indica que tu rama main apunta a este commit.
+→ Mensaje: "Agrego salsas".
+
+commit f42442fc1c45f1cf9f24faf975d7a86a83ef9b03
+→ Es el commit anterior, donde agregue sandwich.txt y actualice las respuestas.
+
+commit c797391dbe1ee45dd901f0962692fe62b55264d2 (origin/main, origin/HEAD)
+→ Este commit está en el repositorio remoto y contiene las respuestas teóricas del ejercicio.
+→ El indicador origin/main, origin/HEAD muestra que este es el último commit sincronizado con GitHub.
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+→ Un commit anterior hecho por otra persona (Franklin Jimenez), relacionado con un cambio en README.md.
+
+explicacion del orden en que aparecen los commits es del mas nuevo al mas antiguo el primero commit que muestra el la salida es
+el commit mas reciente y el ultimo es el mas antiguo 
+-------------------------------------------------------------------------------------------------------------------------------
+10.variaciones de git log 
+ ----> git log --oneline
+ $ git log --oneline
+b7956e7 (HEAD -> main) Agrego salsas
+f42442f Agrego mi sandwich.txt y actualizo respuestas
+c797391 (origin/main, origin/HEAD) Agrego respuestas teoricas del ejercicio1
+fafdc7f cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+el cual nos  Muestra los commits en un formato más corto y resumido
+
+ ----> gir log --stat
+commit b7956e742ab4ebd07fbcc2c57c3e859f01a20be5 (HEAD -> main)
+Author: Daniel Guerrero <daniguerrero012@gmail.com>
+Date:   Mon Feb 24 11:17:32 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit f42442fc1c45f1cf9f24faf975d7a86a83ef9b03
+Author: Daniel Guerrero <daniguerrero012@gmail.com>
+Date:   Mon Feb 24 11:14:15 2025 -0500
+
+    Agrego mi sandwich.txt y actualizo respuestas
+
+ 1.commit/Daniel_Guerrero.txt | 37 +++++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt        |  7 ++++++-
+ 2 files changed, 43 insertions(+), 1 deletion(-)
+
+commit c797391dbe1ee45dd901f0962692fe62b55264d2 (origin/main, origin/HEAD)
+Author: Daniel Guerrero <daniguerrero012@gmail.com>
+Date:   Mon Feb 24 10:37:50 2025 -0500
+
+:
+ el cual muesta  detalles sobre los archivos modificados en cada commit.
+ -------------------------------------------------------------------------------------------------------------------
+ 11. git diff 
+     uso el comando (git diff f42442f b7956e7)
+                
+    donde 
+    f42442f → Commit más antiguo (antes de agregar las salsas).
+    b7956e7 → Commit más reciente (después de agregar las salsas).
+    git diff te mostrará las diferencias entre estos dos commits.
+    
+Qué mostrara  en la salida:
+Líneas nuevas en verde con + (lo que se agrego).
+Líneas eliminadas en rojo con - (lo que se ha borrado).
+      
+--->salida al ejecutar git diff
+
+diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+index de6e453..6ef99a2 100644
+--- a/1.commit/sandwich.txt
++++ b/1.commit/sandwich.txt
+@@ -6,4 +6,6 @@ tomate
+ lechuga
+ pepiñillo
+ salsa de tomate
+-mayoneza
+\ No newline at end of file
++mayoneza
++miel mostaza
++bbq
+\ No newline at end of file  mira lo que sale 
+
+--->explicacion
+Las primeras líneas indican el archivo afectado:
+diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+
+a/1.commit/sandwich.txt → Estado del archivo en el commit f42442f (antes de los cambios).
+b/1.commit/sandwich.txt → Estado del archivo en el commit b7956e7 (después de los cambios).
+
+--->Las líneas con --- y +++ indican versiones del archivo antes y después del cambio:
+--- a/1.commit/sandwich.txt  # Antes del cambio
++++ b/1.commit/sandwich.txt  # Después del cambio
+
+--->El bloque @@ -6,4 +6,6 @@ indica en qué línea ocurre la diferencia:
+-6,4 → Antes del cambio, había 4 líneas a partir de la línea 6.
++6,6 → Ahora hay 6 líneas a partir de la línea 6.
+
+Líneas en rojo (-) fueron eliminadas o modificadas.
+Líneas en verde (+) fueron agregadas
+-mayoneza
+\ No newline at end of file
++mayoneza
++miel mostaza
++bbq
+\ No newline at end of file
+Antes: Solo estaba mayoneza.
+Después: Se agregaron miel mostaza y bbq.
+
+--->Conclusión:
+El commit b7956e7 agregó dos nuevas líneas (miel mostaza y bbq) al archivo sandwich.txt.
+
+11.1 git difftool --tool=meld <hash>
+      git difftool --tool=meld f42442f
+ 
+este comando nos mostrara
+Dos versiones del archivo sandwich.txt una al lado de la otra.
+Diferencias resaltadas entre el commit f42442f y la versión actual (HEAD).
+Opciones de navegación para ver qué cambió y fusionar archivos si es necesario.
+  
+--------------------------------------------------------------------------------------------------------------------------
+12. git status sin hacer commit 
+ $ git status
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    sandwich2.txt -> sandwich2_feo.txt
+
+--->explicacion 
+Después de ejecutar git mv sandwich2.txt sandwich2_feo.txt, Git muestra que el archivo ha sido 
+renombrado y está listo para ser confirmado (staged).
+El mensaje renamed: sandwich2.txt -> sandwich2_feo.txt indica que Git no lo trata como un archivo eliminado y otro nuevo agregado,
+sino que reconoce que es el mismo archivo con un nombre diferente.
+
+git status despues  hacer commit 
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+ quieres decir que se hizo commti correctamente y nos muesta que se ha hecho 5 commits 
+
+--->git log --oneline
+nos muesta 
+git mv sandwich2.txt sandwich2_feo.txt
+Este comando renombró el archivo sandwich2.txt a sandwich2_feo.txt y Git lo detectó como un cambio a rastrear.
+
+¿Qué cambió en git status?
+Antes del commit:
+Git te mostraba que sandwich2.txt había sido renombrado a sandwich2_feo.txt y estaba listo para ser commiteado.
+Después del commit:
+Git confirmó que el cambio fue guardado en un nuevo commit (898b4d0).
+git status ahora muestra "nothing to commit, working tree clean", lo que indica que no hay cambios pendientes en el directorio de trabajo.
+¿Qué cambió en git log --oneline?
+Nuevo commit agregado:
+898b4d0 (HEAD -> main) Renombro sandwich2.txt a sandwich2_feo.txt
+Esto significa que el renombramiento ya forma parte del historial de cambios.
+-------------------------------------------------------------------------------------------------------------------------------------------
+15 eliminar sandwich2_feo.txt
+
+        $ git commit -m "Elimino sandwich2_feo.txt"
+        [main 4ba840b] Elimino sandwich2_feo.txt
+        1 file changed, 11 deletions(-)
+        delete mode 100644 1.commit/sandwich2_feo.txt
+     
+     aqui  muestra que sandwich2_feo.txt fue eliminado 
+
+ejecutamos 
+$ git log --oneline 
+4ba840b (HEAD -> main) Elimino sandwich2_feo.txt
+898b4d0 Renombro sandwich2.txt a sandwich2_feo.txt
+c1c0183 Agrego sandwich2.txt
+3be77a3 Agrego sandwich2.txt
+b7956e7 Agrego salsas
+f42442f Agrego mi sandwich.txt y actualizo respuestas
+c797391 (origin/main, origin/HEAD) Agrego respuestas teoricas del ejercicio1
+fafdc7f cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+aqui nos muestra que se elimno sandwich2_feo.txt
+
+ejecutamos
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+ nos muestra que se han realizado 6 commits de forma correcta 
+ ---------------------------------------------------------------------------------------------------------------------------
+16 . ejecutar git log --stat 
+
+git log --stat
+Este comando muestra un resumen de los cambios realizados en cada commit.
+
+¿Qué observas en la salida?
+Último commit (4ba840b...)
+
+Mensaje: "Elimino sandwich2_feo.txt"
+Cambios: 1 archivo eliminado (sandwich2_feo.txt)
+Número de líneas eliminadas: 11
+Commit anterior (898b4d0...)
+
+Mensaje: "Renombro sandwich2.txt a sandwich2_feo.txt"
+Cambios: Solo se renombró el archivo.
+No hubo modificaciones en su contenido (0 inserciones, 0 eliminaciones).
+Commit anterior (c1c0183...)
+
+Mensaje: "Agrego sandwich2.txt"
+Cambios: Se creó el archivo sandwich2.txt.
+Número de líneas añadidas: 11
+
+este comando  permite ver rápidamente qué archivos fueron modificados en cada commit y cuántas líneas cambiaron.
+Si un commit agrega, modifica o elimina líneas, aquí se muestra el impacto en cada archivo.
+---------------------------------------------------------------------------------------------
+

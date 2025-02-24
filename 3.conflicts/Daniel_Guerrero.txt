@@ -1,0 +1,127 @@
+1. ¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos ramas han realizado cambios en la misma parte de un archivo y 
+Git no puede determinar automáticamente cuál versión debe conservar.
+
+Los conflictos pueden ocurrir en varias situaciones, pero las más comunes son:
+
+Cuando se hace un git merge: Si dos ramas han modificado la misma línea de un archivo de manera diferente,
+Git no puede decidir cuál versión elegir y genera un conflicto.
+Cuando se hace un git rebase: Al reorganizar los commits, pueden surgir conflictos si las modificaciones en la nueva base entran en conflicto
+con los cambios en la rama actual.
+Cuando se hace un git cherry-pick: Al aplicar commits específicos de una rama a otra, pueden aparecer conflictos 
+si las modificaciones no son compatibles.
+Cuando se hace un git pull: Si otro colaborador ha subido cambios que afectan las mismas líneas que tú has modificado, 
+Git puede generar un conflicto al intentar fusionarlos.
+
+¿Es bueno o malo?
+Los conflictos no son ni buenos ni malos, son simplemente parte del proceso de desarrollo colaborativo. 
+Indican que hay diferencias en el código que necesitan ser revisadas y resueltas manualmente.
+Un conflicto bien resuelto mejora la calidad del código, ya que permite combinar las mejores partes de cada contribución. 
+Sin embargo, si no se manejan correctamente, pueden generar errores y problemas en el proyecto.
+
+
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+Sí, aunque los conflictos son inevitables en proyectos colaborativos, se pueden minimizar siguiendo buenas prácticas:
+
+Mantén tu repositorio sincronizado
+
+Antes de hacer cambios en tu código, ejecuta:
+git pull origin main
+Esto traerá los últimos cambios del repositorio remoto y reducirá la posibilidad de conflictos.
+Trabaja en ramas separadas
+
+En lugar de modificar directamente la rama main, usa ramas para cada tarea:
+git checkout -b nueva_funcionalidad
+
+ Divide los cambios en commits pequeños y frecuentes
+
+Hacer commits con cambios pequeños y específicos facilita la resolución de conflictos si ocurren.
+Coordina con tu equipo
+
+Si varias personas trabajan en los mismos archivos, es importante comunicarse y dividir las 
+tareas para evitar editar las mismas líneas de código.
+Usa herramientas de comparación y resolución de conflictos
+
+Si se genera un conflicto, puedes usar git diff para comparar cambios o herramientas como:
+git mergetool (herramienta gráfica de Git)
+Extensiones en VS Code como "GitLens" para visualizar diferencias fácilmente.
+-------------------------------------------------------------------------------------------------------------------------
+10. con el comando git diff main suprema se obsrva 
+$ git diff main suprema
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+explicacion
+La línea con -lomo indica que antes decía "lomo".
+La línea con +pollo indica que en la rama suprema se cambió "lomo" por "pollo".
+El resto del archivo sigue igual.
+Esto significa que en la rama suprema se modificó el archivo milanesa.txt, reemplazando "lomo" por "pollo", 
+mientras que en main sigue con "lomo
+
+con el comando git diff bife se observa 
+$  git diff main bife
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..4313cdf 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+\ No newline at end of file
+
+ explicacion El resultado de git diff main bife muestra que en la rama bife, "lomo" se cambió por "bife",
+  mientras que en la rama main sigue estando "lomo".
+  --------------------------------------------------------------------------------------------------------------------
+  
+11.$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+se observa que esta correcto y hay un commit 
+--------------------------------------------------------------------------------------------------------------------
+12.$ git merge bife
+Updating ebd9368..7e25f7e
+Fast-forward
+ 3.conflicts/milanesa.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ El merge de bife en main se realizó sin problemas porque fue un Fast-forward, lo que significa que 
+ main simplemente avanzó a la versión de bife sin conflictos.
+-----------------------------------------------------------------------------------------
+13. no funciono genero un conflicto
+------------------------------------------------------------------------------
+14.muestra el git status que hay conflicto en milanes.txt
+-------------------------------------------------------
+15.
+pan rallado
+<<<<<<< HEAd
+bife
+=======
+pollo
+>>>>
+se observa este conflito en el contenido de milanesa.txt
+---------------------------------------------------------------------
+toca resolverlo manualmete asi 
+pan rallado
+pollo o bife
+
+luego hacemos git add
+y resolvemos el conflito 
+y hacemos commit de los cambios 
+y nos funciona correctamente
+---------------------------------------------------------------------
+
+
+
