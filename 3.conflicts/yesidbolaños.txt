@@ -1,0 +1,23 @@
+Preguntas
+1- Un conflicto ocurre cuando se intentan fusionar cambios de diferentes branchs pero git no
+puede hacerlo de forma automatica porque se han modificado los mismos archivos en las branch.
+Es bueno porque permite elegir que conservar y que no, sin embargo, puede ser tedioso cuando 
+no se usan buenas practicas con git
+
+2- Esencialmente cuando se quiere trabajar en un proyecto se fomenta el uso de las branch, 
+este uso debe tener el enfoque de que cada persona modifique archivos diferentes a la branch del 
+resto del equipo, de haber la necesidad, informar y buscar una alternativa.
+Por otro lado siempre que se suban cambios es immportante estar al dia con el repo, asi se evitan
+conflictos tambien.
+
+Practica
+10- En git diff main suprema se observa el cambio de la linea lomo por pollo
+en git diff bife main no muuestra nada, seguarmente porque aun no se ha hecho un commit
+
+11- Esta ahora el cambio de la branch bife en main aun sin agregar
+
+12- git merge bife dice que todo esta el dia
+
+13- git merge suprema dice que hay conflictos porque los cambios se sobreescriben
+
+15- Esta la linea bife pero no la linea lomo
