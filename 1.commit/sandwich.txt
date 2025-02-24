@@ -1,4 +1,8 @@
 pan
 queso
+mayonesa
+jamon
+aguacate
+tomate
 medallón
 pan
