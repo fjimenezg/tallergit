@@ -1,0 +1,170 @@
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+R/ Se usa el comando: git init 
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+R/ rm -rf .git
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+R/ No aun no del todo. ya que un archivo nuevo solo estará bajo control de git despues de ser agregado con git add y luego confirmado con git commit
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+R/ con el comando: git add nombre-del-archivo
+si se quiere agregar todos los archivos al directorio con : git add .
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+R/ con : git status
+6. ¿Qué comando se utiliza para hacer un commit? 
+R/ con: git commit -m "mensaje"
+7. En sus propias palabras, ¿qué es un commit?
+R/ Es cuando hacemos com un punto de control en lo que va de todo el repositorio así para guardar los 
+cambios que se confrimaron. Esto es util porque se puede ir moviendo de punto de control en punto de control por si 
+algo falla o por si se necesita saber que cambios se han hecho
+
+
+### 1.2. Ejercicio Práctico
+
+3. estado actual:
+ E:\Modelos\tallergit> git status 
+On branch nicolasmartinez_jerssontovar
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explicación:
+
+-On branch nicolasmartinez_jerssontovar: Indica que estás trabajando en la rama nicolasmartinez_jerssontovar.
+-Changes not staged for commit: Esta sección muestra los archivos que han sido modificados pero no están en 
+el área de preparación (staging area). En este caso, sandwich.txt ha sido modificado.
+- sugiere que use git add <file> para mover los cambios al área de preparación
+- git restore <fiel> para descartar los cambios en el directorio de trabajo 
+- no changes added to commit (use "git add" and/or "git commit -a"): Indica que no hay cambios listos para ser 
+confirmados (committed). Debes usar git add para mover los cambios al área de preparación y luego git commit 
+para confirmar los cambios.
+
+5. 
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+
+- Antes: sandwich.txt estaba modificado pero no en el área de preparación.
+- Después: sandwich.txt ha sido añadido al área de preparación y está listo para ser incluido en el próximo commit.
+
+7.
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ya no sale el estado de sandwich.txt porque ya se hizo el commit
+
+9.
+
+PS E:\Modelos\tallergit> git log        
+commit 5e9f7694e37a4177871a5e43db1bbe75ba3c2977 (HEAD -> nicolasmartinez_jerssontovar)
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 19:31:24 2025 -0500
+
+    agrego salsas
+
+commit 1ad067615c842bbfdbbee19e262aaddc96fced1c
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 19:28:24 2025 -0500
+
+    agrego mi sandwich.txt
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, practica2025, main)
+
+aparecen los commits que se han hecho y sale del más nuevo al más antiguo, con toda la info como el autor, la fecha, el mensaje
+
+10.
+PS E:\Modelos\tallergit> git log --oneline
+5e9f769 (HEAD -> nicolasmartinez_jerssontovar) agrego salsas
+1ad0676 agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+aparece más resumido, la id del commit solo los primeros 7 digitos, el nombre del commit, el mensaje
+
+git log --stat 
+commit 5e9f7694e37a4177871a5e43db1bbe75ba3c2977 (HEAD -> nicolasmartinez_jerssontovar)
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 19:31:24 2025 -0500
+
+    agrego salsas
+
+ 1.commit/sandwich.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 1ad067615c842bbfdbbee19e262aaddc96fced1c
+Author: DivergenteNM <nicolasmdivergent@gmail.com>
+Date:   Sun Feb 23 19:28:24 2025 -0500
+
+
+te da una explicación detallada del último commit que está
+
+
+11 Muestra las diferencias en la terminal en formato texto.
+11.1 Esto abrirá la herramienta meld para mostrar las diferencias de manera visual.
+
+14.
+ antes de hacer commit:
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   1.commit/sandwich2_feo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+luego de hacer commit
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+se agrego un nuevo archivo y luego se le hizo commit
+
+
+PS E:\Modelos\tallergit> git log --oneline
+0a85c93 (HEAD -> nicolasmartinez_jerssontovar) agrego sandwich2 feo
+5e9f769 agrego salsas
+1ad0676 agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+se agrego ahora el nuevo commit o punto 
+
+
+15. antes de hacer commit
+ git rm ./1.commit/sandwich2_feo.txt 
+rm '1.commit/sandwich2_feo.txt'
+PS E:\Modelos\tallergit> git status
+On branch nicolasmartinez_jerssontovar
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    1.commit/sandwich2_feo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/NicolasMartinez_JerssonTovar.txt
+
+se removio el archivo
