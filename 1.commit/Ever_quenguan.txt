@@ -389,5 +389,17 @@ Muestra el historial de commits con los archivos modificados en cada uno y cuán
 
 
 
+restauro sandwich
+
+
+git checkout 3f74d4d -- sandwich.txt 
+
+
+git /sandwich.txt
+git commit -m "Restauro sandwich.txt a su versión original"
+git push origin main
+
+
+
 
 
