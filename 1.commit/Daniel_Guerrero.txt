@@ -16,3 +16,40 @@
    git commit -m "Mensaje del commit"
 
 7. Un commit es un registro de cambios en el repositorio. Permite guardar el estado actual del proyecto con un mensaje descriptivo.
+
+Salida de `git status`:
+On branch main
+Your branch is up to date with 'origin/main'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   sandwich.txt
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explicación:
+- Estoy en la rama principal (`main`).
+- Mi repositorio local está sincronizado con el remoto (`origin/main`).
+- He modificado el archivo `sandwich.txt`, pero aún no lo he agregado al área de preparación (`staging`).
+- Git sugiere usar `git add sandwich.txt` para preparar los cambios o `git restore sandwich.txt` para deshacerlos.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Salida de `git status` después de ejecutar `git add sandwich.txt`:
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Daniel_Guerrero.txt
+
+Explicación:
+- `sandwich.txt` ha sido agregado al área de preparación y está listo para ser enviado en el próximo commit.
+- `Daniel_Guerrero.txt` ha sido modificado, pero aún no lo agregué con `git add`.
+- Para incluir `Daniel_Guerrero.txt` en el commit, debo ejecutar `git add Daniel_Guerrero.txt`.
+
