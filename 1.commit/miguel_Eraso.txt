@@ -1,0 +1,64 @@
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+commit 9eae706d883361c1b571ad9a9e91914d34c2b844
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:43:39 2025 -0500
+
+    Agrego salsas
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
