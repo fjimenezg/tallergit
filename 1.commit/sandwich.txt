@@ -1,3 +1,6 @@
 agrego pan
 agrego queso y jamon
 agrego salsa y ensalada
+agrego salsa de tomate
+agrego salsa rosada
+agrego salsa mayonesa
