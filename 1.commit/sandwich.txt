@@ -1,10 +1,4 @@
-Ingredientes
-     pan
-     queso
-     jamón
-     pollo
-     
-Salsas:
-     mayonesa
-     mostasa
-     salsa BBQ
+pan
+queso
+medallón
+pan
