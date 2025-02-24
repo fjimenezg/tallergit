@@ -1,0 +1,58 @@
+Preguntas
+1- Una rama es una caracteristica de git que nos permite trabajar en archivos de un entorno git
+donde podemos modificarlos y haer uso de ellos sin arriesgar un proyecto por completo, lo que permite
+tener un orden y evitar asi posibles perdidas de funcionalidades o informacion
+
+2- Por lo dicho arriba (no lei la pregunta antes)
+
+3- Para la creacion de branch se tiene git branch "nombre" o git checkout -b "nombre"
+
+4- Para movernos entre ramas se usa git switch "nombre" o git checkout "nombre"
+
+5- Para eliminar se usa git branch -d nombre
+
+6- Se usa el comando git checkout -b "nombre"
+
+7- Un merge permite unificar los cambios realizados en una branch hacia el archivo de donde 
+proviene dicha branch
+
+8- git merge "rama" 
+
+9- Un tag permite agregar informaciona un proyecto, generalemnte la version
+
+10- git tag mensaje Apunta a un commit actual
+git tag -a v1.0 -m "Versión 1.0 - Primera versión estable" tag con metadatos e informacion adicional
+
+Practica
+
+6- Al ejecutar el comando git graph muestra las ramas, ademas los commits hechos en las ramas con sus mensajes
+
+10- Se observa de nuevo las ramas y el commit con el mensaje, aunque ahora se nota un pipe "|" en color rojo
+seguramente por conflictos ya que estamos tocando el mismo archivo
+
+13- Se observan los nuevos cambios en el main, ademas hay (|/) en color rojo entre la branch anana y experimento
+
+15- Se tiene el mensaje merge branch "anana" y pipes | que concetan las branch anana y main
+
+16- Se tienen las branch anana, *main, practica2025
+
+18- Se observa un pipe (|) que conecta main con la branch experimento aunque aun hay pipes (|) en rojo
+
+19- En mi caso se hizo el merge automaticamente, porque los cambios no se sobreponen
+
+20- Ahora las branch merged son anana, experimento, *main, practica2025, yesidbolaños
+
+23- Una vez eliminada la branch experimento, solo aparecen las anteriores menos la eliminada
+
+24- Ahora no aparece una rama experimento, solo muestra la rama main, segun aqui estan todos los commits
+
+27- tag pizza
+Tagger: YKESHTFR <ykshtfr@gmail.com>
+Date:   Sun Feb 23 19:00:28 2025 -0500
+
+Receta de la pizza
+
+commit c7e651f5f22a0d2afbab40080c9945550beb3fa7 (HEAD -> main, tag: show, tag: pizza)
+Merge: 3e38314 4e90da8
+Author: YKESHTFR <ykshtfr@gmail.com>
+Date:   Sun Feb 23 18:51:47 2025 -0500
