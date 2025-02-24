@@ -1,0 +1,106 @@
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+R/: Un conflicto es cuando dos ramas han realizado cambios en la misma línea de un archivo
+y git no puede decidir automaticamente cuál se debe conservar. 
+Ocurre cuando cuando intentas fusionar una rama y hay modificaciones en la misma línea de un archivo.
+No es algo considerado como malo pero tampoco como bueno, solo es algo que ocurre cuando varias personas
+trabajan en el mismo código
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+R/: Se pueden evitar realizando actualizaciones de una rama antes de hacerle cambios, también se puede
+evitar haciendo commits pequeños y frecuentes y usar comandos como git diff para ver diferencias.
+
+### 3.2. Ejercicio Práctico
+
+10. salida git diff main suprema
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+Como se puede observar nos muestra que se hicieron cambios en el archivo milanesa.txt, donde se agregaron y quitaron lineas que se ven reflejadas luego con 
+simbolos de - (-lomo) cuando se quito una linea y de + (+pollo) cuando se agrega una linea
+
+# salida git diff main bife
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1712737 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+\ No newline at end of file
+
+Como se puede observar nos muestra que se hicieron cambios en el archivo milanesa.txt, donde se agregaron y quitaron lineas que se ven reflejadas luego con 
+simbolos de - (-lomo) cuando se quito una linea y de + (+bife) cuando se agrega una linea
+
+11. salida git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        edwin_munoz_daniel_tobar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+12. salida git merge bife
+Updating acc2d39..56cb2c3
+Fast-forward
+ 3.conflicts/milanesa.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Si funciona correctamente y muestra los insertion y deletion
+
+13. salida git merge suprema
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+No funciona, como podemos ver se muestra un error en el contenido de 3.conflicts/milanesa.txt
+
+14. salida git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        edwin_munoz_daniel_tobar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Se observa que se presente un conclicto de merge en milanesa.txt la razón es que tanto la rama local como la remota han modificado milanesa.txt 
+en las mismas líneas y Git no sabe cuál versión conservar.
+
+15.
+pan rallado
+<<<<<<< HEAD
+bife
+=======
+pollo
+>>>>>>> suprema
+
+
+
+
