@@ -1,0 +1,170 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+R/ Es una rama que se deriva de la rama principal (main) 
+2. ¿Por qué pueden ser útiles los branches?
+R/ Son útiles porque permiten trabajar diferentes partes de un proyecto sin afectar la rama principal
+3. ¿Cómo se crea una branch?
+R/ git branch nombre_de_la_rama
+4. ¿Cómo se cambia a una branch?
+R/ git switch nombre_de_la_rama
+5. ¿Cómo se elimina una branch?
+R/: git branch -d nombre_de_la_rama
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+R/: git checkout nombre_de_la_rama
+7. ¿Qué es un merge?
+R/: Merge me sirve para combinar los cambios de una rama a otra
+8. ¿Cómo se realiza un merge?
+R/: git merge nombre_de_la_rama
+9. ¿Que es un tag?
+R/: Es un marcador que se usa para identificar versiones especificas de un proyecto
+10. ¿Cómo se crea un tag?
+R/: git tag nombre-del-tag
+
+
+
+### Ejercicios
+6. salida git graph
+* a638e46 (HEAD -> experimento) agrego oregano
+* 225563b agrego albahaca
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+| * fea33a6 se agrega sandwich2_feo
+| * b833085 Agrego salsas
+| * dc8ad99 agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, main) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+
+Se observa con ayuda de asteriscos y guiones la rama en la que se encuentra el HEAD, en este caso experimento, y las ramas origin/edwinmunoz_danieltobar y edwinmunoz_danieltobar, que se encuentran en el mismo commit. También se observa la rama main, que es la rama principal del repositorio.
+Las figuras nos dan a entender que la nueva rama experimento está paralela a la rama edwinmunoz_danieltobar, pero no tiene los commits de esta rama.
+
+
+10. salida git graph
+* 663d007 (HEAD -> anana) agrego anana
+| * a638e46 (experimento) agrego oregano
+| * 225563b agrego albahaca
+|/
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+| * fea33a6 se agrega sandwich2_feo
+| * b833085 Agrego salsas
+| * dc8ad99 agrego mi sandwich.txt
+|/
+* fafdc7f (origin/practica2025, origin/main, origin/HEAD, main) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+:
+
+Se observa con ayuda de asteriscos y guiones la rama en la que se encuentra el HEAD, en este caso anana.
+También podemos observar que hay una nueva rama separada con uno / Donde sale el nombre (experimento) y los commits realizados en esta rama. 
+Se puede observar que desde la rama principal se crea una nueva rama que es anana (HEAD -> anana) y el commit que tiene que es "agrego anana"
+
+13. salida git graph
+* e4dc911 (HEAD -> main) agrego cebolla
+| * 663d007 (anana) agrego anana
+|/
+| * a638e46 (experimento) agrego oregano
+| * 225563b agrego albahaca
+|/
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+| * fea33a6 se agrega sandwich2_feo
+| * b833085 Agrego salsas
+| * dc8ad99 agrego mi sandwich.txt
+|/
+:
+
+Ahora muestra que desde la rama main se creo un commit de nombre agrego cebolla y se puede observar que ramas hay desde la rama main, todas separadas por un /
+
+
+15. salida git graph
+*   0d75110 (HEAD -> main) Merge branch 'anana'
+|\
+| * 663d007 (anana) agrego anana
+* | e4dc911 agrego cebolla
+|/
+| * a638e46 (experimento) agrego oregano
+| * 225563b agrego albahaca
+|/
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+| * fea33a6 se agrega sandwich2_feo
+| * b833085 Agrego salsas
+:
+
+Se puede observar que se hizo un merge de la rama anana "0d75110 (HEAD -> main) Merge branch 'anana'"
+y el commit de agrego anana aparece despues de agrego cebolla debido al merge 
+|\
+| * 663d007 (anana) agrego anana
+* | e4dc911 agrego cebolla
+|/
+Ya que el merge se realizo despues de agrego cebolla que fue realizado en l por ende los commits de la rama anana se ubicarán despues de 
+
+16.
+Las branches que se muestran mergeadas son anana y main que es en la que se encuentra el HEAD.
+
+18. salida git graph
+*   4417880 (HEAD -> main) Merge branch 'experimento'
+|\
+| * a638e46 (experimento) agrego oregano
+| * 225563b agrego albahaca
+* |   0d75110 Merge branch 'anana'
+|\ \
+| * | 663d007 (anana) agrego anana
+| |/
+* / e4dc911 agrego cebolla
+|/
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+:
+
+Se realizo un merge de la rama experimento "*   4417880 (HEAD -> main) Merge branch 'experimento'" 
+Se puede observar que se realizo correctamente porque los commits de la rama experimento aparecen despues del último commit realizado en la rama main
+*   4417880 (HEAD -> main) Merge branch 'experimento'
+|\
+| * a638e46 (experimento) agrego oregano
+| * 225563b agrego albahaca
+* |   0d75110 Merge branch 'anana'
+|\ \
+| * | 663d007 (anana) agrego anana
+| |/
+* / e4dc911 agrego cebolla
+
+En este caso el ultimo commit fue el de agrego anana por el merge de la branch anana
+
+
+19.
+El merge se hizo automáticamente, debido a que los cambios que se realizaron en la rama experimento no afectaban a los cambios de la rama anana, por lo que no hubo conflictos.
+
+20.
+las ramas que aparecen mergeadas son experimento y anana, además de la rama main que es en la que se encuentra el HEAD.experimento y anana, que son las que se encuentran en la rama main.
+
+23.
+No aparecen más ramas mergeadas a main, ya que las ramas experimento y anana se eliminaron.
+
+24.
+*   4417880 (HEAD -> main) Merge branch 'experimento'
+|\
+| * a638e46 agrego oregano
+| * 225563b agrego albahaca
+* |   0d75110 Merge branch 'anana'
+|\ \
+| * | 663d007 agrego anana
+| |/
+* / e4dc911 agrego cebolla
+|/
+| * 2344c19 (origin/edwinmunoz_danieltobar, edwinmunoz_danieltobar) se guarda sandwich.txt en su estado original
+| * b212590 resuelto ejercicio 1
+| * 124bd86 se elimina sandwich2_feo
+:
+
+Se puede observar en la salida una pequeña diferencia y es que ya no salen los nombres de las ramas donde se realizaron los commits debido a que ya fueron eliminadas.
+Sin embargo los commits y sus respectivos nombres siguen presentes gracias a los merch realizados.
