@@ -1,0 +1,75 @@
+## Ejercicio 2
+
+### 2.1. Solución Preguntas
+
+1.
+     Rta/Una rama es una version independiente del codigo principal de un repositorio 
+     y permite trabajar de forma aislada para agregar nuevas funcionalidades corregir bugs etc.,
+     todo esto sin afectar el codigo principal.
+2. 
+     Rta/Las ramas son útiles porque facilitan el trabajo colaborativo, 
+     permitiendo que los integrantes de un proyecto trabajen de manera independiente en diferentes funcionalidades o correcciones sin afectar el código principal. 
+     Además, ofrecen un espacio seguro para experimentar con nuevas ideas o cambios, 
+     lo que ayuda a mantener el código principal estable y bien organizado. 
+     Esto garantiza que el proyecto avance de manera controlada y eficiente, minimizando riesgos y conflictos.
+3.
+     Rta/Para crear una branch se puede utilizar el comando git branch "nombre de la rama".
+4. 
+     Rta/Para cambiar a una branch se utiliza el comando git checkout "nombre de la rama a la que se desea cambiar" 
+5. 
+     Rta/Para eliminar una rama se debe ejecutar el comando git branch -d "nombre de la rama a eliminar"
+6. 
+     Rta/Para crear una branch y se cambiarse a ella en un solo paso se usa el comando git checkout -b "nombre de la rama" 
+7. 
+     Rta/Un merge es la integración de los cambios realizados en dos ramas.  
+8. 
+     Rta/Un merge se puede usar con el comando git merge "nombre de la rama que se quiere integrar", para ejecutar este comando se debe asegurar de encontrarse en la rama destino
+     es decir en la rama a la cual se quiere integrar los cambios.
+9. 
+     Rta/Un tag es una marca estática a un punto del historial de los commits de un repositorio.
+     Usualmente se utilizan para identificar las versiones de un proyecto,
+     como lanzamientos de software por ejemplo, v1.0.0, v2.3.1, etc. 
+     los tags son inmutables,lo que los hace ideales para marcar etapas importantes en el desarrollo de un proyecto.
+10.
+     Rta/para crear un tag hay dos comandos que se pueden ejecutar git tag "nombre del tag" o git tag -a nombre-del-tag -m "Mensaje descriptivo".
+
+
+### 2.2. Solución respuestas ejercicio Práctico
+
+6.
+     Rta/Al correr el comando 'git graph' este nos muestra el flujo de trabajo del repositorio,
+      en el cual se puede ver de los commits realizados junto con su id y su mensaje descriptivo,
+      asi como las ramas creadas en este caso se puede observar la creación de la rama jose_Delgado y de experimento y otras más.
+
+10.
+     Rta/ al correr el comando 'git graph' la salida nos muestra un histortial de las ramas y de los commits
+     por ejemplo que la rama anana contiene un commit reciente sobre agregar anana debajo del queso,
+     además la rama experimento tiene dos commits, relacionados con agregar ingredientes al archivo pizza.txt y
+     que la rama Jose_Delgado tiene varios commits relacionados con otros cambios y tareas.
+
+13.
+     Rta/al correr el comando 'git graph' lo que se observa es que se encuentra trabajando en la rama main la cual tiene un commit,
+     la rama anana tiene un ciommit, la rama experimento dos y la rama jose_delgado dos comits
+
+15.
+     Rta/Al ejecutar el comando 'git graph' se observa que la rama anana se ha fusionado con main, pero experimento y Jose_Delgado están desactualizadas.
+
+16.
+     Rta/Las branches que están "mergeadas" a main son Practica2025 y anana.
+
+18.
+     Rta/Se observa que las ramas experimento y anana han sido mergeadas con main, integrando cambios que agregan diferentes ingredientes al archivo pizza.txt .
+     Además, las ramas más antiguas, como practica2025, ya fueron fusionadas con main previamente, y los cambios están reflejados en el historial de la rama principal.
+
+19.
+     Rta/El primer merge se realizó de forma manual puesto que hubo la necesidad de ir a vsc a realizar los ajustes comvenientes para realizar el merge,
+      en el segundo merge todo sucedió de forma automatica por que no hubieron conflictos.
+
+20.
+     Rta/Las branches que están "mergeadas" a  main son: anana, experimento y practica2025.
+23.
+     Rta/Las branches que están "mergeadas" a  main son: practica2025.
+
+24.
+     Rta/la salida nos muestra cómo las ramas experimento y anana han sido fusionadas con la rama principal main, mostrando los cambios en el archivo pizza.txt.
+      Los merges de ambas ramas son visibles en el historial, y las ramas Jose_Delgado y practica2025 también tienen sus respectivos commits, con cambios previos en el repositorio.
