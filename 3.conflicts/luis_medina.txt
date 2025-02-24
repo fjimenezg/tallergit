@@ -8,13 +8,11 @@
     eso le pide ayuda al usuario para que el pueda decidir que cambios adoptar y cuales descartar. En sí, los conflictos
     no son malos, ya que son situaciones que pueden ocurrir en el desarrollo colaborativo,pero si es mejor evitarlos. 
 
-
 2. ¿Se puede evitar un conflicto? ¿Cómo?
    Sí, es posible evitar conflictos, Para ello, es fundamental contar con una estructura de trabajo clara,
    en la que se asignen tareas específicas a cada miembro del equipo. Esto evita que varias personas modifiquen
    simultáneamente el mismo archivo o las mismas líneas de código, reduciendo así la posibilidad de que se produzcan
    conflictos al realizar un merge.
-
 
 ### 3.2. Ejercicio Práctico
 
