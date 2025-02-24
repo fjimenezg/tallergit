@@ -1,0 +1,119 @@
+1.1 respuestas
+
+1.  Se inicializa un repositorio local con el comando: git init
+
+2. Para que un directorio deje de ser controlado por git por medio de comando es: rm -rf .git
+
+3. No,primero debe ser agregado al staging con git add 
+
+4. El comando que se utiliza para agregar un archivo al repositorio local es: git add <nombre del archivo> 
+
+5. Para visualizar que comando fueron modificacdos es: git status
+
+6. Para realizar un commit se utiliza git commit -m "Comentario"
+
+7. Un commit es un conjunto de cambios que haces en tu proyecto. Es como guardar un punto de control, donde puedes registrar lo que has hecho hasta ese momento y ponerle un mensaje para explicar que modificacion se realizo.
+
+1.2 Ejercicio Práctico
+
+2. 
+On branch eliana_zambrano
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   eliana_zambrano.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Cuando ejecuto el comando git status. 
+Git esta trabajando en una rama llamada eliana_zambrano. 
+Además me indica que hay cambios en el archivo eliana_zambrano.txt pero esos cambios no están preparados para ser guardados en un commit. Esto significa que he modificado el archivo, pero aun no lo he agregado al staging.
+
+5. git status
+On branch eliana_zambrano
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   eliana_zambrano.txt
+
+Cuando ejecuto el comando git status cambia para reflejar que el archivo sandwich.txt ha sido agregado al staging y esta listo para ser confirmado en un commit mientras que eliana_zambrano.txt sigue en la sección working, lo que significa que aún no está listo para ser commit.
+
+7. Cuando ejecuto el comando git status cambia para reflejar que los cambios que estaban en el staging han sido confirmados en un commit.En este caso, el archivo sandwich.txt que estaba listo para ser commit, ya no aparece debido a que los cambios han sido registrados en el historial del repositorio.
+
+9. 
+$ git log
+commit 9849ce02fd7c9636ef6a611e28a420231528d1c2 (HEAD -> eliana_zambrano)
+Author: Jake <jakeclinne@gmail.com>
+Date:   Sat Feb 22 20:24:20 2025 -0500
+
+    Agrego salsas
+
+.
+.
+.
+.
+
+commit d68f5ef49d0de9fee802dd02c46617d186bc12dd (origin/eliana_zambrano)
+Author: Jake <jakeclinne@gmail.com>
+Date:   Tue Feb 18 10:43:47 2025 -0500
+
+    Primer punto
+
+La salida muestra el historial de commits, con el más reciente primero
+
+10. 
+    10.1. git log --oneline: Muestra cada commit en una sola línea
+
+    10.2. git log --stat: Muestra un resumen de los cambios en cada commi
+
+11. 
+    $ git diff 9849ce0 81b6ec5
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index 8b31213..a2c65b1 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -4,6 +4,5 @@ salsa de tomate
+     lechuga
+     tomate
+     papa frita
+    -salsa BBQ
+     salsa de mayonesa
+     pan
+    \ No newline at end of file
+    Al ejecutar el comando git diff 9849ce0 81b6ec5 se observo que se elimino la linea salsa BBQ del archivo 1.commit/sandwich.txt en el commit más reciente (81b6ec5)
+    Esto significa que comparando el commit antiguo (9849ce0) con el más reciente (81b6ec5), el archivo perdió esa línea específica
+
+    $ git diff 81b6ec5 9849ce0 
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index a2c65b1..8b31213 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -4,5 +4,6 @@ salsa de tomate
+     lechuga
+     tomate
+     papa frita
+    +salsa BBQ
+     salsa de mayonesa
+     pan
+    \ No newline at end of file
+
+    Al ejecutar git diff 81b6ec5 9849ce0 se visualiza que la linea salsa BBQ fue añadida en el commit mas reciente (9849ce0). Esto me dice que desde la perspectiva del commit 81b6ec5, el archivo gano esa linea en 9849ce0
+
+    11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+
+    $ git difftool --tool=meld 81b6ec5 9849ce0
+    Al ejecutra el comando se ejecuto la herramienta Meld en el cual se visualiza las diferencias entre los dos commits de manera gráfica
+
+14.  Al ejecutar git status la salida indica que no hay cambios pendientes en el area de trabajo
+    Al ejecutar git log --oneline se visualiza ell historial de commits en una linea en donde el commit mas reciente aparece de primero
+
+15. 
+    Al ejecutar git status despues de hacer el commit muestra que ya no hay cambios pendientes en el area de trabajo
+    Al ejecutar git log --oneline se visualiza el historial de commits en una linea en donde el commit mas reciente es el de eliminar
+
+16. 
+    Al ejecutar git log --stat se visualiza el historial de los commits en forma resumida y ordenada desde el mas reciente al mas antiguo. Tambien nos muestra los archivos modificados.
