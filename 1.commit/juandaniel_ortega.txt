@@ -1,0 +1,13 @@
+3. Conflictos en Git
+
+3.1. Preguntas
+
+¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos ramas han modificado la misma línea de un archivo o cuando un archivo ha sido eliminado en una rama pero modificado en otra. No es necesariamente malo; es una señal de que hay cambios concurrentes que necesitan ser resueltos manualmente para asegurar que los aportes de ambos lados se integren correctamente.
+
+¿Se puede evitar un conflicto? ¿Cómo?
+Aunque no siempre es posible evitarlos, se pueden reducir con buenas prácticas como:
+
+-Sincronizar frecuentemente con la rama principal (pull o fetch).
+-Dividir las tareas para que varios desarrolladores no trabajen sobre los mismos archivos.
+-Hacer commits pequeños y específicos para facilitar la resolución en caso de conflicto.
