@@ -1,0 +1,212 @@
+EJERCICIO 1
+
+1. git init
+2. git rm -r --cache nombre_directorio
+3. si, pero no esta siendo versionado aun, necesita un commit
+4. git add
+5. git status
+6. git commit -m 'mensaje'
+7. un commit es un punto de guardado de un proyecto que permite acceder al estado del proyecto en ese punto de guardado
+
+EJERCICIO 3
+
+3. para "git status"
+    On branch danielVallejosCristianPaz -> me dice en que rama estoy
+    Changes not staged for commit:  -> dice que los siguientes archivos ahn sufrido cambios  o son nuevos y no estan en staged para ser commiteados 
+      (use "git add <file>..." to update what will be committed) -> me describe el comando para pasar los cambios hechos a staged
+      (use "git restore <file>..." to discard changes in working directory) -> me dice el comando para revertir los cambios de un archivo al ultimo estado comiteado
+            modified:   1.commit/sandwich.txt -> archivos modificados
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            1.commit/daniel_vallejos_cristian_paz.txt - archivos nuevos
+
+    no changes added to commit (use "git add" and/or "git commit -a")  -> me dice que no hay cambios en staged
+
+5. para "git add 1.commit/sandwich.txt"
+    On branch danielVallejosCristianPaz
+    Your branch is up to date with 'origin/danielVallejosCristianPaz'.
+
+    Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+            modified:   1.commit/sandwich.txt
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/daniel_vallejos_cristian_paz.txt
+
+  este mensaje se altero respecto al anterios en que ahora me muesra los archivos en staged listos para ser commiteados
+
+6. se ejecuta git commit -m 'agrego mi sanwich.txt'
+
+7. Nueva salida: 
+    On branch danielVallejosCristianPaz
+    Your branch is ahead of 'origin/danielVallejosCristianPaz' by 1 commit.
+      (use "git push" to publish your local commits)
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/daniel_vallejos_cristian_paz.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    en este mensaje ya no me aparece el archivo que fue comiteado
+
+8. modifico el el archivo sanewich.txt y hago un commit
+
+9. resultado de git log
+
+    commit e6dae73a60998b1664c852bebe96362c3a7e4b55 (HEAD -> danielVallejosCristianPaz)
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 11:46:26 2025 -0500
+
+        agrego salsas
+
+    commit a14b576f4e890cf25f9ae839618a20060941405d
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 11:43:05 2025 -0500
+
+        agrego mi sandwich.txt
+
+    commit 7172bda241aa0be5e3c56970e8f1fc8a4371e31b (origin/danielVallejosCristianPaz)
+    Author: udenar <udenar>
+    Date:   Tue Feb 18 10:44:51 2025 -0500
+
+        primert punto parcialmente resuelto
+
+    commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD, main, all)
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+
+    se muestran por secciones los commits realizados del ultimo hecho al primero
+    en este caso el ultmo hecho es el de las salsas y el primero el del repositorio origen, 
+    en cada seccion se muestra un coigo identificador del commit, el  autor, la fecha, y el mensaje descriptivo
+
+  10.
+
+    10.1 para 'git log --oneline
+
+        e6dae73 (HEAD -> danielVallejosCristianPaz) agrego salsas
+        a14b576 agrego mi sandwich.txt
+        7172bda (origin/danielVallejosCristianPaz) primert punto parcialmente resuelto
+        fafdc7f (origin/practica2025, origin/main, origin/HEAD, main, all) cambio readme.md
+        5d6dc69 cambio de rama master a main en documentación
+        3f74d4d primer commit
+    
+    10.2 para 'git log --stat'
+
+        commit e6dae73a60998b1664c852bebe96362c3a7e4b55 (HEAD -> danielVallejosCristianPaz)
+        Author: Daniel_Vallejos <danielvallejo@gmail.com>
+        Date:   Mon Feb 24 11:46:26 2025 -0500
+
+            agrego salsas
+
+         1.commit/sandwich.txt | 2 ++
+         1 file changed, 2 insertions(+)
+
+        commit a14b576f4e890cf25f9ae839618a20060941405d
+        Author: Daniel_Vallejos <danielvallejo@gmail.com>
+        Date:   Mon Feb 24 11:43:05 2025 -0500
+
+            agrego mi sandwich.txt
+
+         1.commit/sandwich.txt | 1 +
+         1 file changed, 1 insertion(+)
+
+        commit 7172bda241aa0be5e3c56970e8f1fc8a4371e31b (origin/danielVallejosCristianPaz)
+        Author: udenar <udenar>
+        Date:   Tue Feb 18 10:44:51 2025 -0500
+
+  la diferencia entre 'git log --oneline' y 'git log --stat' es la cantidad de informacion que
+  muestra de cada commit, git log mustra en una linea cada commit con su cofigo simplificado, la rama, y el mensaje
+  mientras que 'git log --stat' mustra tambien informacion sobre los cambios hechos y la demas 
+  informacion completa sobre el commit
+
+  11.   para git diff 
+
+      -    On branch danielVallejosCristianPaz
+      -    Changes not staged for commit:
+      -      (use "git add <file>..." to update what will be committed)
+      -      (use "git restore <file>..." to discard changes in working directory)
+      -            modified:   1.commit/sandwich.txt
+      +    On branch danielVallejosCristianPaz -> me dice en que rama estoy
+      +    Changes not staged for commit:  -> dice que los siguientes archivos ahn sufrido cambios  o son nuevos y no estan en staged para ser commiteados
+      +      (use "git add <file>..." to update what will be committed) -> me describe el comando para pasar los cambios hechos a staged
+      +      (use "git restore <file>..." to discard changes in working directory) -> me dice el comando para revertir los cambios de un archivo al ultimo estado comiteado
+      +            modified:   1.commit/sandwich.txt -> archivos modificados
+
+           Untracked files:
+             (use "git add <file>..." to include in what will be committed)
+      -            1.commit/daniel_vallejos_cristian_paz.txt
+      +            1.commit/daniel_vallejos_cristian_paz.txt - archivos nuevos
+
+      -    no changes added to commit (use "git add" and/or "git commit -a")
+      +    no changes added to commit (use "git add" and/or "git commit -a")  -> me dice que no hay cambios en staged
+
+      -    primero dice
+      \ No newline at end of file
+      +
+      \ No newline at end of file
+      (END)
+
+      git diff mustra las diferencias en el archivo desde el ultimo commit y los nuevos cambios hechos
+
+    11.1 meld es una herramienta grafica que permite visualizar los cambios hechos en un archivo}
+    respecto a el ultimo commit
+
+12. se crea el archivo sandwich2.txt con sus ingredientes
+13. se hace un commit con el nuevo archivo
+14. se renombre y ejecuta git estatus
+
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    1.commit/sandwich2.txt -> 1.commit/sandwich2_feo.txt
+
+  me dice que un archivo a sido renombredo y que el archivo esta 
+  listo para un commit
+
+15. se borra el archivo sandwich2_feo.txt
+
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    1.commit/sandwich2.txt
+
+  ahora me dice que un archivo a sido eliminado
+
+  2748538 (HEAD -> danielVallejosCristianPaz) se elimino sandwich2_feo.txt
+  2a6e0cd agregamos sandwich 2
+  e6dae73 agrego salsas
+  a14b576 agrego mi sandwich.txt
+
+16.
+    commit 2748538f5b8968d15320292453c818ca7fc80513 (HEAD -> danielVallejosCristiaz)
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 14:18:23 2025 -0500
+
+        se elimino sandwich2_feo.txt
+
+     1.commit/daniel_vallejos_cristian_paz.txt | 146 ++++++++++++++++++++++++++++
+     1.commit/sandwich2.txt                    |   7 --
+     2 files changed, 140 insertions(+), 13 deletions(-)
+
+    commit 2a6e0cd00bd5d4728dba8695af1a539a99257b18
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 14:09:49 2025 -0500
+
+        agregamos sandwich 2
+
+     1.commit/sandwich2.txt | 7 +++++++
+     1 file changed, 7 insertions(+)
+
+    commit e6dae73a60998b1664c852bebe96362c3a7e4b55
+    Author: Daniel_Vallejos <danielvallejo@gmail.com>
+    Date:   Mon Feb 24 11:46:26 2025 -0500
+
+        agrego salsas
+
+     1.commit/sandwich.txt | 2 ++
+     1 file changed, 2 insertions(+) 
+
+  simplemete se agregaron los ultimos commit mostrando las lineas que se eliminaron
+  y las que se agregaron como toda la informacion del commit

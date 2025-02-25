@@ -1,0 +1,12 @@
+Ejercicio 3
+3.1
+    1.  Un conflicto en Git ocurre cuando dos ramas modifican la misma parte de un archivo y Git no puede fusionarlas automáticamente. Suele presentarse al hacer un merge, un pull o un rebase cuando hay cambios incompatibles entre la versión local y la remota. No es algo bueno ni malo, solo indica que se debe decidir qué cambios mantener.
+    2.  Sí, se pueden evitar conflictos manteniendo la rama actualizada con git pull, haciendo commits pequeños, coordinando con el equipo y revisando cambios antes de un merge. Estas prácticas reducen la probabilidad de conflictos, aunque no siempre se pueden evitar por completo.
+
+3.2
+    10. Cuando se ejecuta git diff main suprema y git diff main bife, se observan los cambios hechos en cada rama respecto a main. En suprema, "lomo" cambia a "pollo", y en bife, "lomo" cambia a "bife".
+    11. Al correr git status en main, no hay cambios pendientes, ya que las modificaciones están en las ramas separadas.
+    12. git merge bife funciona sin problemas, fusionando bife en main.
+    13. git merge suprema genera un conflicto, porque main ya tiene "bife" y suprema intenta cambiarlo a "pollo".
+    14. En el 14, git status muestra que hay un conflicto pendiente en 3.conflicts/milanesa.txt.
+    15. al ver el contenido de 3.conflicts/milanesa.txt, se observan los indicadores de conflicto (<<<<<<<, =======, >>>>>>>), mostrando las diferencias entre suprema y bife.

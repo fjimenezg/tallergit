@@ -1,0 +1,25 @@
+Ejercicio 2
+2.1
+    1.  Un branch es una rama independiente en un proyecto, donde se puede hacer cambios sin afectar la versión principal. Es útil para trabajar en nuevas funcionalidades o experimentar sin riesgos.
+    2.  Son útiles porque te permiten trabajar en varias cosas a la vez sin desordenar el código principal.
+    3.  git branch <nombre-de-la-rama>
+    4.  git checkout <nombre-de-la-rama> ó git switch <nombre-de-la-rama>
+    5.  git branch -d <nombre-de-la-rama>
+    6.  git checkout -b <nombre-de-la-rama>
+    7.  Es cuando se combina los cambios de una rama con otra.
+    8.  Primero se cambia a la rama en la que se quiere fusionar los cambios (git checkout <rama-destino>),
+        luego fusiona la otra rama ejecutando: git merge <rama-a-fusionar>
+    9.  Es una etiqueta fija en la historia del repositorio, usada para marcar versiones o hitos importantes.
+    10. git tag <nombre-del-tag> ó git tag -a <nombre-del-tag> -m "Mensaje del tag"
+
+2.2
+    6.  Se observa un gráfico del historial de commits, donde la rama experimento se desprende de main y tiene dos commits nuevos (uno para la albahaca y otro para el orégano). La rama main permanece sin cambios, mientras que experimento avanza con los nuevos cambios.
+    10. La rama anana se desprende de main y tiene un nuevo commit (ananá).
+    13. Las ramas experimento y anana siguen teniendo sus commits independientes (albahaca/orégano y ananá, respectivamente), pero ahora están "detrás" de main, ya que main avanzó con el nuevo commit.
+    15. la rama main ahora incluye el commit de anana, y ambas ramas están fusionadas.
+    16. anana y practica2025.
+    18. La rama main ahora incluye los cambios de experimento (albahaca y orégano).
+    19. Se tuvo que hacer un merge manual, hubo conflictos, git abrió el nano porque los cambios en las ramas main y experimento afectaron las mismas partes del archivo 2.branchs/pizza.txt, y git no pudo decidir automáticamente cómo combinar esos cambios
+    20. anana, experimento y practica2025.
+    23. La unica branch mergeada a main ahora es practica2025.
+    24. Las ramas anana y experimento ya no aparecen en el gráfico, ya que fueron eliminadas.
