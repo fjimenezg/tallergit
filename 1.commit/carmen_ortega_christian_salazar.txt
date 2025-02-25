@@ -199,3 +199,11 @@ index 5255304..7ed435b 100644
 \ No newline at end of file
 +bife
 // se evidencia las lineas modificada en la rama bife, eliminacion de lomo por bife
+
+
+-- punto 12 ---
+
+El merge se ejecuto, sin embargo existen conflictos en lineas cruzadas, esto se soluciono manualmente y otra con la opcion de both, donde se acoplan los conflictos y conserva los cambios si es necesario que esten los dos.
+
+
+
