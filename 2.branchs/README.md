@@ -42,7 +42,7 @@ git graph
 9. Agregarle el condimento `anana` **debajo del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
 10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
 11. Vuelva a la branch `main`.
-12. Agregue el condimento `cebolla` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+12. Agregue el condimento `z` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
 13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
 14. Haga un merge de la branch `anana` a la branch `main`. (Puede usar el comando `git merge anana`).
 15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?

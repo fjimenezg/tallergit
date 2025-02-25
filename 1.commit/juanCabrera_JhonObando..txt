@@ -101,7 +101,17 @@
     11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
         Desafortunadamente laopendiff no es una herramienta nativa
     
+    14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+        * Al realizar este comando `git mv sandwich2.txt sandwich2_feo.txt`, no sucedio nada relevante, solo cambio el nombre del archivo
     
+    15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+        Parecido al punto 14, en git status no ocurre nada, el arbol de trabajo esta limpi y con git log --oneline tampoco ouccure nada
+    
+    16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
+        Se observa mas información de los commits, como la fecha, el número de lineas agregadas, el número de archivos cambiados, el autor y el hash del commit.
+
+    
+
     
     
 
