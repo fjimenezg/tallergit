@@ -4,3 +4,4 @@ medallón
 pan
 salsa
 pollo
+salsa mayonesa
