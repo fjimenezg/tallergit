@@ -178,5 +178,109 @@ fafdc7f (origin/practica2025, origin/main, origin/HEAD) cambio readme.md
 
 se observa como muestra cada uno de los comits realizados
 ----------------------------------------------------------------------------------------------------------------
+13,14,15
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log --oneline
+cef6d88 (HEAD -> main) Elimino mi sandwich 2 feo.txt
+e00e9f8 Agrego mi sandwich 2 feo.txt
+6c008c9 Agrego mi sandwich 2.txt
+504601c Agrego salsas
+be7152d Agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log --stat
+commit cef6d8817a28a6b55db14fd7c0ed19d5bb1e1125 (HEAD -> main)
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:43:25 2025 -0500
+
+    Elimino mi sandwich 2 feo.txt
+
+ 1.commit/mauricio_tavera.txt | 182 +++++++++++++++++++++++++++++++++++++++++++
+ 1.commit/nombre_apellido.txt |  29 +++++++
+ 1.commit/sandwich2_feo.txt   |   4 -
+ 3 files changed, 211 insertions(+), 4 deletions(-)
+
+commit e00e9f8f486e99b64416059c838d0154f30e0bd9
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:41:05 2025 -0500
+
+    Agrego mi sandwich 2 feo.txt
+
+ 1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6c008c9946a32506f8a139ff9a65553a4c282bd6
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:39:42 2025 -0500
+
+    Agrego mi sandwich 2.txt
+
+ 1.commit/sandwich2.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 504601c12d1e03fd6c4b8f361fffff295d282e53
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:16:57 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit be7152d159f29d6c93a57dcfdedcd7e6c86aefea
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:11:55 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/sandwich.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+ 2.branchs/README.md   | 16 ++++++++--------
+ 3.conflicts/README.md | 10 +++++-----
+ README.md             |  7 +++++--
+ 3 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+ .gitignore               |  2 ++
+ 1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt    |  4 +++
+ 2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2.branchs/pizza.txt      |  3 ++
+ 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+ 3.conflicts/milanesa.txt |  2 ++
+ README.md                | 54 +++++++++++++++++++++++++++++++++
+ 8 files changed, 246 insertions(+)
 
 ----------------------------------------------------------------------------------------------------------------
