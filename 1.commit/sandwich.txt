@@ -1,4 +1,6 @@
 pan
+pollo
+lechuga
+carne
 queso
-medallón
 pan
