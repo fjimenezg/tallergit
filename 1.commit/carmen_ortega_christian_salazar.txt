@@ -205,5 +205,22 @@ index 5255304..7ed435b 100644
 
 El merge se ejecuto, sin embargo existen conflictos en lineas cruzadas, esto se soluciono manualmente y otra con la opcion de both, donde se acoplan los conflictos y conserva los cambios si es necesario que esten los dos.
 
+-- punto 13---
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 main ↑14 ✓)
+╰λ git merge suprema 
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
 
+// aunque el merge se ejecuta, el merge automatic no se ejecuta, siendo necesario que primero solucionemos los conflictos, para el caso aplicamos el both changes, conservando los cambios al mismo tiempo.
+lo mismo que se hizo con el merge con bife
+
+
+--- punto 15 ------
+
+se observa la mezcla de el archivo en conflicto, logrando un both changes exitoso
+
+-- punto 18 -------
+
+solucionamos el merge manualmente, esto seleccionando que consideramos esencial y necesario dejar, lo hicimos en cada merge, logrando llevar un control de los conflicts
 
