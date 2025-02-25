@@ -1,0 +1,222 @@
+1.¿Qué es un branch?
+Una rama (branch) es una línea independiente de desarrollo dentro de un repositorio Git.
+
+2.¿Por qué pueden ser útiles los branches?
+Permiten trabajar en nuevas características o correcciones sin afectar la rama principal (main), facilitando el desarrollo paralelo y la colaboración.
+
+3.¿Cómo se crea una branch?
+
+git branch nombre_rama
+
+4.¿Cómo se cambia a una branch?
+git checkout nombre_rama
+
+O con el nuevo comando:
+git switch nombre_rama
+
+5.¿Cómo se elimina una branch?
+
+
+git branch -d nombre_rama  # Si ya fue fusionada
+git branch -D nombre_rama  # Forzar eliminación
+
+6.¿Cómo se crea una branch y se cambia a ella en un solo paso?
+git checkout -b nombre_rama
+
+O con el nuevo comando
+git switch -c nombre_rama
+
+7.¿Qué es un merge?
+Es la acción de combinar los cambios de una rama en otra.
+
+8.¿Cómo se realiza un merge?
+
+git checkout main  # Cambias a la rama donde quieres fusionar
+git merge nombre_rama
+
+9.¿Qué es un tag?
+
+Un tag es una referencia que marca puntos específicos en la historia de un repositorio, comúnmente usado para versiones de lanzamientos.
+
+10.¿Cómo se crea un tag?
+
+Tag simple:
+
+git tag v1.0
+Tag anotado (recomendado):
+
+git tag -a v1.0 -m "Versión 1.0"
+Para subir el tag al repositorio remoto:
+git push origin v1.0
+
+//Practica 
+
+1. Creamos la branch experimento usando el comando git branch experimento main
+2. Cambiamos a la branch experimento con el comando git checkout experimento
+3. Verificamos que estamos en la branch experimento con el comando git branch
+o con el comando git status
+4. Agregamos albahaca al archivo pizza encima del queso para evitar conflictos 
+futuros y hacemos commit con el mensaje "pizza con albahaca"
+5. Agregamos oregano al archivo pizza encima de la albahaca para evitar conflictos
+futuros y hacemos commit con el mensaje "pizza con oregano"
+6. Git graph
+
+* 2dd034f (HEAD -> experimento) pizza con oregano
+* f430c74 pizza con albahaca
+| * 686972e (main) parte 2 branchs
+|/
+* bca656a sandwich en su estado original
+
+experimento avanzó con dos commits nuevos (albahaca y oregano) sobre main.
+Las ramas divergieron después de 686972e, creando dos líneas de desarrollo separadas.
+experimento tiene cambios que no están en main.
+
+7. Regresamos a la rama main con el comando git checkout main
+
+8. Creamos la rama anana con el comando git branch anana main
+
+9. Agregamos el ingrediente anana al archivo pizza debajo del queso para evitar conflictos futuros y hacemos commit con el mensaje "pizza con anana"
+
+10. Git graph en la rama anana
+* d8bfe7e (HEAD -> anana) pizza con anana
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+* 686972e (main) parte 2 branchs
+...
+
+Rama anana y rama experimento partieron desde main pero evolucionaron de forma separada.
+anana tiene el commit pizza con anana.
+experimento tiene los commits pizza con albahaca y pizza con oregano.
+No hay conexión entre anana y experimento; ambas ramas divergieron desde el commit 686972e.
+
+11. Regresamos a la rama main con el comando git checkout main
+
+12. Agregamos cebolla al archivo pizza debajo de la salsa para evitar conflictos futuros y hacemos commit con el mensaje "pizza con cebolla"
+
+13. Rama main
+* 72ce181 (HEAD -> main) pizza con cebolla
+| * d8bfe7e (anana) pizza con anana
+|/
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+* 686972e parte 2 branchs
+...
+
+Ahora main tiene un nuevo commit: pizza con cebolla.
+Las ramas anana y experimento siguen separadas y no han sido fusionadas a main.
+Tienes tres líneas de desarrollo paralelas:
+main con cebolla. 🧅
+anana con ananá. 🍍
+experimento con albahaca y orégano. 🌿
+Cada rama tiene modificaciones únicas sobre pizza.txt y aún no están combinadas.
+
+14. Hacemos merge de la rama anana a la rama main con el comando git merge anana
+
+15. Git merge anana
+
+*   ec6da57 (HEAD -> main) pizza con cebolla
+|\
+| * d8bfe7e (anana) pizza con anana
+* | 72ce181 pizza con cebolla
+|/
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+|/
+
+En el git graph se observa un merge con commit de fusión. Esto significa que no hubo conflictos y Git creó un commit especial para combinar ambas ramas.
+
+ec6da57 es el commit de merge en main.
+La estructura en forma de Y invertida muestra cómo main y anana se unieron en este punto.
+pizza con cebolla y pizza con anana ahora están integrados en la historia de main.
+
+16. 
+ git branch --merged
+  anana
+* main
+
+17. Merge de experimento
+
+➜  git graph
+*   37635a0 (HEAD -> main) pizza mixed anana main
+|\  
+| * 2dd034f (experimento) pizza con oregano
+| * f430c74 pizza con albahaca
+* |   ec6da57 pizza con cebolla
+|\ \  
+| * | d8bfe7e (anana) pizza con anana
+| |/  
+* / 72ce181 pizza con cebolla
+
+Merge de experimento a main:
+
+El commit 37635a0 representa el merge de la rama experimento a main.
+Los commits 2dd034f (pizza con orégano) y f430c74 (pizza con albahaca) de experimento se integran a main.
+Historial ramificado:
+
+Se ven múltiples líneas representando los merges desde las ramas anana y experimento.
+main tiene ahora todos los cambios combinados de anana, experimento y sus propios commits.
+Commit de merge:
+
+El commit 37635a0 tiene múltiples padres, lo que indica que se hizo un merge.
+
+18. El comando git graph muestra el historial de commits en forma de grafo.
+Muestra las ramas y cómo se han fusionado a lo largo del tiempo.
+Es útil para visualizar la historia del proyecto y cómo se relacionan las ramas.
+
+
+19. El merged fue automatico, no hubo conflictos ya que la rama experimento no tenia cambios en las mismas lineas que la rama main y la rama anana no tenia conflictos con la rama main.
+
+20. El comando git branch --merged lista todas las ramas cuyos cambios ya han sido fusionados (merged) en la rama actual (main en este caso).
+
+anana y experimento aparecen en la lista, lo que significa que ambas ramas ya fueron completamente fusionadas en la rama main.
+* main indica que actualmente estás en la rama main.
+
+21. Eliminamos la branch anana con el comando git branch -D anana , usamos la D mayuscula para forzar la eliminacion de la rama.
+
+22. Eliminamos la branch experimento con el comando git branch -D experimento , usamos la D mayuscula para forzar la eliminacion de la rama.
+
+
+23. Despues de eliminar ambas ramas y ejecutar el comando git branch --merged, solo se muestra la rama main, lo que indica que las ramas anana y experimento ya no existen y sus cambios fueron fusionados en main.
+
+24. Git graph después de eliminar las ramas anana y experimento:
+➜  git graph
+* 2d387b9 (HEAD -> main) pizza full merged
+*   37635a0 pizza mixed anana main
+|\
+| * 2dd034f pizza con oregano
+| * f430c74 pizza con albahaca
+* |   ec6da57 pizza con cebolla
+|\ \
+| * | d8bfe7e pizza con anana
+| |/
+* / 72ce181 pizza con cebolla
+|/
+* 686972e parte 2 branchs
+* bca656a sandwich en su estado original
+* 06c2252 primer punto listo
+* 005e79e sandwich feo ha abandonado el chat
+* 67efe0a el sandwich ahora se llama feo
+* 8a4888d sandwich feo se ha unido al chat
+* bffadf9 sandwich ahora tiene salsas
+* 9c504da agrego mi sandwich
+
+Las ramas han sido eliminadas y sus commits ahora están integrados en la rama main.
+El historial muestra los commits de anana y experimento fusionados en main.
+Main tiene todos los cambios de las ramas anana y experimento, además de sus propios commits.
+
+25. Creamos un tag anotado con el comando git tag -a pizza -m "Receta de la pizza."
+Esto crea un tag anotado llamado pizza con el mensaje "Receta de la pizza.".
+El tag se crea en el commit actual (HEAD).
+El tag se crea localmente, pero no se sube al repositorio remoto.
+
+26 .git tag -a pizza -m "Receta de la pizza."
+
+Este comando crea un tag anotado llamado pizza con el mensaje "Receta de la pizza.".
+El tag se crea en el commit actual (HEAD).
+El tag se crea localmente, pero no se sube al repositorio remoto.
+
+27. git tag solo muestra los tags locales.
+Para ver los tags remotos, se necesita el comando git ls-remote --tags origin.
+

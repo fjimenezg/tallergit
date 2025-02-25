@@ -1,0 +1,90 @@
+1.¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+
+Un conflicto en Git ocurre cuando dos ramas modifican la misma parte de un archivo y Git no puede decidir cuál cambio mantener durante un merge o rebase.
+Ocurre cuando:
+Dos ramas editan la misma línea de un archivo.
+Un archivo es editado en una rama y eliminado en otra.
+¿Es bueno o malo?
+No es malo, es parte natural del trabajo colaborativo. Significa que Git necesita ayuda para decidir qué cambios conservar.
+
+2.¿Se puede evitar un conflicto? ¿Cómo?
+
+No siempre se puede evitar, pero se pueden minimizar siguiendo buenas prácticas:
+Hacer commits y merges frecuentes para evitar acumulación de cambios.
+Dividir tareas de forma que varias personas no trabajen en las mismas secciones de código.
+Actualizar la rama frecuentemente usando git pull antes de realizar cambios importantes.
+Usar ramas pequeñas y enfocadas en una sola tarea o feature.
+
+//Taller practico 
+
+1. Creamos el archivo luis_lasso en la rama main y hacemos un commit
+
+2. Creamos la rama suprema usando el comando git checkout -b suprema 
+
+3. Nos movemos a la rama suprema usando el comando git checkout suprema
+
+4. Cambiamos la linea del archivo milanesa.txt de lomo a pollo 
+
+5. Hacemos un commit en la rama suprema despues de hacer el cambio
+
+6. Regresamos a la rama main usando el comando git checkout main
+
+7. Creamos la rama bife usando el comando git checkout -b bife 
+
+8. Nos movemos a la rama bife usando el comando git checkout bife
+
+9. Cambiamos la linea del archivo milanesa.txt de lomo a bife
+
+10. Al ejecutar los comandos git diff main suprema y git diff main bife, se observan las diferencias entre la rama main y las ramas suprema y bife, respectivamente.
+
+En git diff main suprema, se muestra que el archivo 3.conflicts/milanesa.txt tuvo un cambio en la línea donde decía "lomo", reemplazándola por "pollo" en la rama suprema.
+
+En git diff main bife, se observa que el mismo archivo también tuvo un cambio en la misma línea, reemplazando "lomo" por "bife" en la rama bife.
+
+
+Ambas ramas modifican la misma línea del archivo, pero con valores distintos. Este tipo de situación genera un conflicto al intentar hacer un merge, ya que Git no puede determinar cuál de los dos cambios debe conservarse de forma automática.
+
+11.
+Rama actual: Se está en la rama main.
+
+Commits locales: La rama main está adelantada respecto a origin/main por 18 commits que aún no se han enviado al repositorio remoto. Se sugiere usar git push para sincronizar los cambios.
+
+Cambios sin añadir:
+
+El archivo luis_lasso.txt fue modificado, pero esos cambios aún no están preparados para el commit.
+Se indica que se puede usar git add <file> para agregarlo al área de preparación (staging area) o git restore <file> para deshacer los cambios realizados en el archivo.
+Sin archivos preparados: No hay archivos actualmente en el área de preparación para realizar un commit.
+
+12. git merge bife funcionó:
+El merge de la rama bife a main fue exitoso porque bife y main no tenían cambios conflictivos. El archivo milanesa.txt en bife cambió "lomo" por "bife", mientras que main no tenía modificaciones en esa parte. Git pudo aplicar el cambio directamente.
+
+13. git merge suprema generó un conflicto:
+El merge falló porque tanto bife (ya fusionado) como suprema modificaron la misma línea en milanesa.txt pero de formas diferentes:
+
+bife cambió "lomo" por "bife".
+suprema cambió "lomo" por "pollo".
+Como Git no puede decidir cuál cambio es el correcto, genera un conflicto de fusión que debes resolver manualmente.
+
+14. git status muestra los archivos con conflictos:
+
+You have unmerged paths:
+Git detectó que el archivo milanesa.txt fue modificado en ambas ramas (main y suprema) y no pudo fusionarlas automáticamente.
+
+both modified:
+Indica que ambas ramas hicieron cambios en la misma parte del archivo milanesa.txt, generando el conflicto.
+
+15 .
+El contenido del archivo muestra un conflicto de fusión. Git utiliza estas marcas para señalar las diferencias entre las ramas al fusionar:
+
+<<<<<<< HEAD: indica el inicio de los cambios desde la rama actual (main), que tiene bife.
+=======: separa los cambios entre las ramas.
+>>>>>>> suprema: marca el final de los cambios provenientes de la rama suprema, que tiene pollo.
+¿Por qué ocurre esto?
+Ambas ramas modificaron la misma línea (lomo) en el archivo milanesa.txt, creando un conflicto que Git no puede resolver automáticamente.
+
+16. Abortamos el merge con git merge --abort para volver al estado anterior al intento de fusión.
+
+17. Volvemos a intentar el merge con git merge suprema para resolver manualmente el conflicto.
+
+18. Para resolver manualmente el conflicto, editamos el archivo de milanesa
+y dejamos al pan rallado al bife y al pollo siendo una milanesa mixta

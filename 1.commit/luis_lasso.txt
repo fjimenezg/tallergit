@@ -1,0 +1,221 @@
+1.Inicializar un repositorio local
+Se usa el comando: git init
+Esto crea un repositorio en la carpeta actual y permite que Git comience a rastrear cambios en los archivos.
+
+2.Eliminar el control de Git en un directorio
+Se usa el comando: rm -rf .git
+Esto borra la configuración y el historial de Git, haciendo que el directorio deje de estar bajo su control.
+
+3.Agregar un archivo a un directorio controlado por Git
+No, un archivo nuevo dentro de un directorio controlado por Git no es rastreado automáticamente. Para que Git lo controle, se usa el comando: git add nombre-del-archivo
+
+4.Agregar un archivo al repositorio local
+Se usa el comando: git add nombre-del-archivo
+Esto coloca el archivo en el área de preparación, indicando que debe incluirse en el próximo commit.
+
+5.Determinar qué archivos fueron modificados
+Se usa el comando: git status
+Esto muestra qué archivos han cambiado, cuáles están en el área de preparación y cuáles aún no han sido añadidos.
+
+6.Hacer un commit
+Se usa el comando: git commit -m "Descripción del cambio"
+Esto guarda los cambios en el historial con un mensaje que describe qué se modificó.
+
+7.¿Qué es un commit?
+Un commit es un punto de control en Git que registra cambios en los archivos, permitiendo volver a una versión específica del proyecto si es necesario.
+
+Ejercicio Practico
+
+1. Se crea el archivo luis_lasso.txt con el contenido de este taller 
+
+
+2. En el archivo sandwich.txt se agrega los ingredientes del sandwich
+y se hace un commit
+
+3.Agregamos el archivo luis_lasso.txt al repositorio local y hacemos un commit
+
+Resultado de ejecutar el comando git status
+
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        tallergit/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+El resultado indica lo siguiente:
+
+"On branch master" → Estoy en la rama principal del repositorio (master).
+
+"No commits yet" → Aún no se ha realizado ningún commit en este repositorio.
+
+"Untracked files" → Git detecta un directorio llamado tallergit/, pero no lo está rastreando todavía.
+
+"nothing added to commit but untracked files present" → No hay archivos en el área de preparación, solo archivos no rastreados.
+
+4. El sandwich ya tiene los ingredientes.
+
+5. El git status despues de ejecutar el comando git add sandwich.txt
+muestra que el archivo sandwich.txt fue agregado al área de preparación y está listo para ser confirmado en el próximo commit.
+
+6. Despues de ejecutar el comando git commit -m "agrego mi sandwich" hace que el archivo sandwich.txt sea confirmado en el historial de cambios con el mensaje "agrego mi sandwich".
+
+7. El comando git status muestra lo siguiente:
+
+git status          
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        lasso_luis&lopez_cristhian.txt
+
+Changes to be committed:" → Hay archivos en el área de preparación que están listos para ser confirmados en el próximo commit.
+
+"modified: sandwich.txt" → El archivo sandwich.txt fue modificado y ya fue agregado al área de preparación con git add.
+"Untracked files:" → Hay archivos que Git detectó pero aún no está rastreando.
+
+"lasso_luis&lopez_cristhian.txt" → Este archivo no ha sido agregado a Git, por lo que no será incluido en el próximo commit.
+
+8. Se agrega en sandwich.txt las salsas del sandwich y se hace un commit con el mensaje "agrego mi salsas".
+
+9.Salida del comando git log
+El comando git log muestra el historial de commits en el repositorio. Cada commit incluye información clave:
+
+commit <hash> → Un identificador único para cada commit.
+Author → La persona que hizo el commit.
+Date → Fecha y hora en que se hizo el commit.
+Mensaje → Una breve descripción de los cambios realizados.
+
+-¿Qué significa esta salida?
+El commit más reciente es "agrego mi salsas", hecho por Mi.
+(HEAD -> main) indica que este es el commit actual donde está posicionado el puntero HEAD en la rama main.
+El commit anterior es "agrego mi sandwich", también de Mi.
+El commit más antiguo listado es de Franklin Jimenez.
+
+-¿En qué orden aparecen los commits?
+Los commits aparecen en orden cronológico inverso:
+
+El commit más reciente aparece primero.
+Los commits más antiguos aparecen al final de la lista.
+
+10. 
+10.1. git log --oneline
+¿Qué muestra?
+Este comando resume el historial de commits en una sola línea por commit.
+
+Muestra el hash abreviado del commit.
+Incluye el mensaje del commit.
+Indica la posición actual del puntero HEAD y ramas asociadas.
+Es una vista simplificada que facilita revisar el historial rápidamente.
+El commit más reciente está en la parte superior.
+El hash abreviado es útil para referencia rápida en otros comandos (git checkout, git revert, etc.).
+
+10.2. git log --stat
+¿Qué muestra?
+Este comando despliega el historial de commits junto con estadísticas de los cambios.
+
+Muestra los archivos modificados en cada commit.
+Indica cuántas líneas fueron añadidas (+) y eliminadas (-).
+Resume el número total de archivos modificados y el total de inserciones/eliminaciones.
+Es útil para tener una visión general de los cambios realizados en cada commit.
+
+Se detalla que en el commit "agrego mi salsas" se modificó el archivo sandwich.txt con 2 líneas añadidas.
+En otros commits, se muestra tanto inserciones como eliminaciones:
+sql
+Copiar
+Editar
+
+11.1. git diff 7446598 95ccc5d
+¿Qué hace?
+Muestra las diferencias entre dos commits específicos.
+
+7446598: Commit de referencia (estado anterior).
+95ccc5d: Commit que se compara contra el primero (estado actual).
+¿Qué significa?
+
+--- indica la versión anterior del archivo.
++++ muestra la versión nueva.
+- (líneas eliminadas) y + (líneas añadidas) resaltan los cambios.
+En el ejemplo, se agregaron dos líneas al archivo sandwich.txt: "Salsa de tomate" y "Mostaza".
+
+12. El comando git mv sandwich2.txt sandwich2_feo.txt
+Este comando renombra el archivo y Git registra el cambio como una operación de "mover", no como una eliminación y creación por separado.
+
+salida de git status
+
+On branch main  
+Your branch is ahead of 'origin/main' by 3 commits.  
+  (use "git push" to publish your local commits)  
+
+Untracked files:  
+  (use "git add <file>..." to include in what will be committed)  
+        lasso_luis&lopez_cristhian.txt  
+        ../2.branchs/luis_lasso&cristhian_lopez.txt  
+
+nothing added to commit but untracked files present (use "git add" to track)  
+
+El archivo sandwich2.txt ya no aparece porque fue renombrado y confirmado como sandwich2_feo.txt.
+git status muestra archivos no rastreados (untracked) que aún no han sido añadidos al área de staging.
+También informa que la rama local está 3 commits adelante del repositorio remoto.
+
+- Salida de git log --oneline
+
+
+
+8770ba0 (HEAD -> main) sandwich feo agregado  
+95ccc5d agrego mi salsas  
+7446598 agrego mi sandwich  
+fafdc7f (origin/main, origin/HEAD) cambio readme.md  
+5d6dc69 cambio de rama master a main en documentación  
+3f74d4d primer commit  
+
+El nuevo commit 8770ba0 refleja el cambio con el mensaje "sandwich feo agregado".
+El commit aparece en la parte superior ya que git log muestra los commits en orden cronológico inverso (el más reciente primero).
+
+13. Creamos el archivo sandwich2.txt y hacemos un commit con el mensaje "agrego sandwich2"
+
+14. Reenombramos el archivo sandwich2.txt a sandwich2_feo.txt y hacemos un commit
+
+15. Explicacion despues de borrar el archivo sandwich2_feo.txt
+git status:
+
+El mensaje "deleted: sandwich2_feo.txt" ya no aparece porque el cambio fue confirmado con el commit.
+El repositorio está limpio respecto al archivo eliminado.
+Aún aparecen archivos no rastreados (Untracked files) que no han sido añadidos al control de versiones.
+git log --oneline:
+
+El commit más reciente (51dad15) muestra el mensaje "Elimino sandwich2_feo.txt", indicando que el archivo fue eliminado y ese cambio quedó registrado.
+El historial sigue un orden descendente, mostrando los commits más recientes primero.
+
+16. Commit ID y mensaje:
+commit 51dad1585508e8a36a119fd0a508d1268ad4b56a (HEAD -> main)  
+Author: ZKLUIS999 <lassoluis03@gmail.com>  
+Date:   Sat Feb 22 17:17:06 2025 -0500  
+
+Elimino sandwich2_feo.txt  
+
+Resumen de cambios por commit:
+
+1.commit/sandwich2_feo.txt | 8 --------  
+1 file changed, 8 deletions(-)  
+
+Muestra:
+El archivo afectado.
+Número de líneas añadidas o eliminadas.
++ indica líneas añadidas.
+- indica líneas eliminadas.
+Ejemplos específicos:
+
+Commit de eliminación (51dad158) eliminó 8 líneas de sandwich2_feo.txt.
+Commit de adición (8770ba0) agregó el archivo sandwich2_feo.txt con 8 líneas.
+Otros commits muestran adiciones y modificaciones en archivos como sandwich.txt y README.md.
+
+Uso el comando git checkout fafdc7f -- archivo  para regresar al sandwich sin cambios
