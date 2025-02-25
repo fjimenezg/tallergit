@@ -1,0 +1,144 @@
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+
+Para inicializar un repositorio local en Git, se debe ejecutar el siguiente comando en la terminal dentro del directorio del proyecto: git init
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+
+Para dejar de controlar un directorio con Git, se debe eliminar la carpeta oculta .git dentro del directorio con el siguiente comando:
+
+rm -rf .git
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+
+No, si se agrega un archivo a un directorio controlado por Git, el archivo no es automáticamente controlado. Para que Git lo rastree, se debe agregar manualmente con git add o incluirlo en un commit.
+
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+
+git add <nombre_del_archivo>
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+
+git status
+
+
+6. ¿Qué comando se utiliza para hacer un commit? 
+
+git commit -m "Mensaje descriptivo del cambio"
+
+
+7. En sus propias palabras, ¿qué es un commit?
+
+Un commit es como tomar una foto de los cambios que hice en mi proyecto hasta ese momento, para poder volver a ese punto si lo necesito. 
+------------------------------------------------------------------------------------------------------------------------------------------
+PS C:\Users\yefer\Desktop\tallergit\tallergit> git status
+On branch yeffer_gomez
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/yeffer_gomez
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\yefer\Desktop\tallergit\tallergit>
+
+1. Esta en la rama llamada yeffer_gomez
+On branch yeffer_gomez indica que actualmente estás trabajando en la rama yeffer_gomez.
+2. Hay un archivo modificado, pero no agregado para commit
+Changes not staged for commit: significa que hay cambios en algunos archivos, pero aún no están listos para ser confirmados (commiteados).
+modified: 1.commit/sandwich.txt indica que el archivo sandwich.txt dentro de la carpeta 1.commit/ ha sido modificado.
+3. Hay un archivo nuevo que Git no está rastreando
+Untracked files: indica que hay archivos que no están siendo seguidos por Git.
+1.commit/yeffer_gomez aparece en la lista, lo que significa que es un archivo nuevo que Git aún no está rastreando.
+-----------------------------------------------------------------------------------------------------------------------------------
+PS C:\Users\yefer\Desktop\tallergit\tallergit\1.commit> git status
+On branch yeffer_gomez
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+On branch yeffer_gomez
+→ Indica que actualmente estás en la rama llamada yeffer_gomez.
+
+Changes to be committed:
+→ Significa que hay cambios que ya han sido agregados al área de preparación (staging area) y están listos para ser confirmados (commit).
+
+modified: sandwich.txt
+→ Muestra que el archivo sandwich.txt ha sido modificado y agregado al área de preparación con git add.
+
+-----------------------------------------------------------------------------------------------------------------------------
+7)
+El archivo sandwich.txt ya no aparece en "Changes to be committed"
+Porque los cambios ya fueron confirmados (commit) y ahora forman parte del historial del repositorio.
+-----------------------------------------------------------------------------------------------------------------------------
+9)
+
+commit abc602c5085a68a252d2d1634528f31940b9335c (HEAD -> yeffer_gomez)
+Author: Yeffer Gomez <yegoalvear@gmail.com>
+Date:   Mon Feb 24 13:44:56 2025 -0500
+
+    Agrego salsas
+
+commit 801432bf64b4864075dfa30605e2b5399d04ab2d
+Author: Yeffer Gomez <yegoalvear@gmail.com>
+Date:   Mon Feb 24 13:37:51 2025 -0500
+
+Cada commit tiene un identificador único (hash) que lo distingue.
+HEAD indica el commit más reciente en la rama actual.
+Cada commit almacena un autor, fecha y mensaje.
+El commit más reciente es "Agrego salsas", el anterior tiene otro hash y mensaje.
+
+aparecen del mas reciente al mas antiguo
+
+------------------------------------------------------------------------------------------------------------------------
+10)
+
+git log --oneline	Hash corto + mensaje en una línea	Vista rápida del historial
+git log --stat	Detalles de archivos modificados y número de líneas cambiadas
+
+---------------------------------------------------------------------------------------------------------------------------
+11)
+
+git diff <hash1> <hash2>	Muestra diferencias en formato texto	Todos los sistemas	Rápido y detallado
+git difftool --tool=meld <hash>	Muestra diferencias en una interfaz gráfica con Meld	Windows/Linux	Comparación visual
+git difftool --tool=opendiff <hash>	Usa opendiff para comparar visualmente Linux	Integración con herramientas de comparación
+
+----------------------------------------------------------------------------------------------------------------------------
+14)
+Salida de git status antes del commit:
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    sandwich2.txt -> sandwich2_feo.txt
+Explicación: Git detecta que el archivo ha sido renombrado, no eliminado y creado nuevamente.
+
+Después del commit (git status):
+
+
+nothing to commit, working tree clean
+-----------------------------------------------------------------------------------------------------------------------
+15)
+PS C:\Users\yefer\Desktop\tallergit\tallergit\1.commit> git status
+On branch yeffer_gomez
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    sandwich2_feo.txt
+muestra que se a eliminado el archivo antes del commit
+
+---------------------------------------------------------------------------------------------------------------------
+16)
+El comando git log --stat muestra un historial de commits junto con estadísticas sobre los archivos modificados en cada commit.
+
+Cada commit incluye:
+
+Hash del commit (ejemplo: 8b6db06eb68adcea594e4d427e13b186130724d2).
+HEAD y la rama actual en la que te encuentras (HEAD -> yeffer_gomez).
+Autor del commit (Yeffer Gomez <yegoalvear@gmail.com>).
+Fecha del commit (Mon Feb 24 15:04:41 2025 -0500).
+Mensaje del commit (se elimino sandwich feo).
+Lista de archivos modificados, junto con la cantidad de líneas agregadas o eliminadas.
+
