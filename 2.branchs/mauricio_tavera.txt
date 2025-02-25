@@ -66,34 +66,227 @@ git push origin v1.0
 Practica:
 1. [] Crear una branch `experimento`. (Puede usar el comando `git branch experimento main`).
 ya
+
 2. Moverse a la branch `experimento`. (Puede usar el comando `git checkout`).
 ya
+
 3. Verificar que se encuentra en la branch `experimento`. (Puede usar el comando `git branch`). 
 ya
+
 4. Agregarle el condimento `albahaca` **arriba del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios. 
 ya
+
 5. Agregarle el condimento `oregano` **arriba de la albahaca** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+ya
 
 6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+se observan los 2 commits agregados recientemente
+
 7. Vuelva a la branch `main`.
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/2.branchs (main)
+$ git checkout main
+Already on 'main'
+M       2.branchs/pizza.txt
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+ 
+
 8. Crear una branch `anana`. (Puede usar el comando `git checkout -b anana`).
+ya
+
 9. Agregarle el condimento `anana` **debajo del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+ya
+
 10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+se observa que me encuentro en la rama creada y el nuevo commit registrado
+
 11. Vuelva a la branch `main`.
+git checkout main
+
 12. Agregue el condimento `cebolla` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+git add pizza.txt
+git commit -m "se agrego el condimento cebolla debajo de la salsa en pizza.txt"
+
 13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+git graph
+$ git graph
+* 19c9f41 (HEAD -> main) se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt
+| * c30f5a7 (anana) Se agrego condimendo anana debajo del queso en 2.branchs pizza.txt
+|/
+* 7109842 Se agrego condimendo oregano arriba de la albahaca en 2.branchs mauricio_tavera.txt
+* fe497ca Se agrego condimendo albahaca arriba del queso en 2.branchs mauricio_tavera.txt
+* 8a79e7e (experimento) Restauro sandwich.txt a la versión de fafdc7f
+* e96e0b6 (origin/main, origin/HEAD) Agrego resultado del ejercicio en mauricio_tavera.txt
+* cef6d88 Elimino mi sandwich 2 feo.txt
+* e00e9f8 Agrego mi sandwich 2 feo.txt
+* 6c008c9 Agrego mi sandwich 2.txt
+* 504601c Agrego salsas
+* be7152d Agrego mi sandwich.txt
+* fafdc7f (origin/practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+
+se observa que se ha agregado el nuevo commit
+
+
 14. Haga un merge de la branch `anana` a la branch `main`. (Puede usar el comando `git merge anana`).
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/2.branchs (main)
+$ git commit -m "se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt"
+[main 19c9f41] se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt
+Merge made by the 'ort' strategy.
+ 2.branchs/pizza.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+
 15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/2.branchs (main)
+$ git graph
+*   5bd22c0 (HEAD -> main) Merge branch 'anana' merge anana en la rama main
+|\
+| * c30f5a7 (anana) Se agrego condimendo anana debajo del queso en 2.branchs pizza.txt
+* | 19c9f41 se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt
+|/
+* 7109842 Se agrego condimendo oregano arriba de la albahaca en 2.branchs mauricio_tavera.txt
+* fe497ca Se agrego condimendo albahaca arriba del queso en 2.branchs mauricio_tavera.txt
+* 8a79e7e (experimento) Restauro sandwich.txt a la versión de fafdc7f
+* e96e0b6 (origin/main, origin/HEAD) Agrego resultado del ejercicio en mauricio_tavera.txt
+* cef6d88 Elimino mi sandwich 2 feo.txt
+* e00e9f8 Agrego mi sandwich 2 feo.txt
+* 6c008c9 Agrego mi sandwich 2.txt
+* 504601c Agrego salsas
+* be7152d Agrego mi sandwich.txt
+* fafdc7f (origin/practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+
+se agrego el commit del merge en main
+
+
 16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+$ git branch --merged
+  anana
+  experimento
+* main
+
+
 17. Haga un merge de la branch `experimento` a la branch `main`. (Puede usar el comando `git merge experimento`).
+$ git merge experimento
+Already up to date.
+
+
 18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+$ git graph
+*   5bd22c0 (HEAD -> main) Merge branch 'anana' merge anana en la rama main
+|\
+| * c30f5a7 (anana) Se agrego condimendo anana debajo del queso en 2.branchs pizza.txt
+* | 19c9f41 se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt
+|/
+* 7109842 Se agrego condimendo oregano arriba de la albahaca en 2.branchs mauricio_tavera.txt
+* fe497ca Se agrego condimendo albahaca arriba del queso en 2.branchs mauricio_tavera.txt
+* 8a79e7e (experimento) Restauro sandwich.txt a la versión de fafdc7f
+* e96e0b6 (origin/main, origin/HEAD) Agrego resultado del ejercicio en mauricio_tavera.txt
+* cef6d88 Elimino mi sandwich 2 feo.txt
+* e00e9f8 Agrego mi sandwich 2 feo.txt
+* 6c008c9 Agrego mi sandwich 2.txt
+* 504601c Agrego salsas
+* be7152d Agrego mi sandwich.txt
+* fafdc7f (origin/practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+
+
 19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+Cuando se ejecuta git merge experimento, Git responde con "Already up to date." Esto significa que la rama experimento no tiene cambios nuevos que no estén ya en main. En otras palabras, todo el historial de experimento ya está dentro de main, por lo que no hay nada que fusionar.
+
+Al correr git graph, se observa el historial de commits y el merge de la rama anana en main, pero no aparece un merge de experimento. Esto se debe a que experimento ya estaba en main, lo que confirma que el merge no era necesario. También se puede ver que experimento tenía un commit (8a79e7e), pero ese commit ya existía en la línea de main.
+
+No fue necesario hacer un merge manual porque Git detectó que experimento ya estaba completamente incluido en main. Esto sucede cuando:
+
+main ya tiene todos los commits de experimento.
+No hay cambios nuevos en experimento que necesiten fusión.
+Por eso, Git simplemente muestra "Already up to date" y no crea un nuevo commit de merge.
+
+
 20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+$ git branch --merged
+  anana
+  experimento
+* main
+
+
 21. Elimine la branch `anana`. (Puede usar el comando `git branch -d anana`).
+$ git branch -d anana
+Deleted branch anana (was c30f5a7).
+
+
 22. Elimine la branch `experimento`. (Puede usar el comando `git branch -d experimento`).
+$ git branch -d experimento
+Deleted branch experimento (was 8a79e7e).
+
+
 23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+ninguna
+$ git branch --merged
+* main
+
 24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/2.branchs (main)
+$ git graph
+*   5bd22c0 (HEAD -> main) Merge branch 'anana' merge anana en la rama main
+|\
+| * c30f5a7 Se agrego condimendo anana debajo del queso en 2.branchs pizza.txt
+* | 19c9f41 se agrego el condimento cebolla debajo de la salsa en 2.branchs pizza.txt
+|/
+* 7109842 Se agrego condimendo oregano arriba de la albahaca en 2.branchs mauricio_tavera.txt
+* fe497ca Se agrego condimendo albahaca arriba del queso en 2.branchs mauricio_tavera.txt
+* 8a79e7e Restauro sandwich.txt a la versión de fafdc7f
+* e96e0b6 (origin/main, origin/HEAD) Agrego resultado del ejercicio en mauricio_tavera.txt
+* cef6d88 Elimino mi sandwich 2 feo.txt
+* e00e9f8 Agrego mi sandwich 2 feo.txt
+* 6c008c9 Agrego mi sandwich 2.txt
+* 504601c Agrego salsas
+* be7152d Agrego mi sandwich.txt
+* fafdc7f (origin/practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+
+
 25. Crear un tag `pizza` en el último commit. (Puede usar el comando `git tag -a pizza -m "Receta de la pizza.""`).
+$ git tag -a pizza -m "Receta de la pizza."
+
+
 26. Ver los tags creados. (Puede usar el comando `git tag`).
+$ git tag
+pizza
+
+
 27. Ver el tag `pizza`. (Puede usar el comando `git show pizza`).
+$ git show pizza
+tag pizza
+Tagger: mao <mauriciotavera1998@gmail.com>
+Date:   Tue Feb 25 09:46:28 2025 -0500
+
+Receta de la pizza.
+
+commit 5bd22c03f216146621b8ba2328a1ca1b4977ba7f (HEAD -> main, tag: pizza)
+Merge: 19c9f41 c30f5a7
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Tue Feb 25 08:48:50 2025 -0500
+
+    Merge branch 'anana'
+    merge anana en la rama main
+
+diff --cc 2.branchs/pizza.txt
+index c24c128,a43b2d2..e605624
+--- a/2.branchs/pizza.txt
++++ b/2.branchs/pizza.txt
+@@@ -1,4 -1,6 +1,7 @@@
++ oregano
++ albahaca
+  queso
++ anana
+  salsa de tomate
+ +cebolla
+  masa de pizza
+(END)
 
