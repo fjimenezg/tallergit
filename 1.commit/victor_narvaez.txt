@@ -112,4 +112,6 @@ Date:   Mon Feb 24 21:31:02 2025 -0500
  Explicacion: sale una informacion mas detallada mostrando las lineas
  que se agregaron y las que se borraron
 
+ Ejercicio 1, Finalizado.
+
  
