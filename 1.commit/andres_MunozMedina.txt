@@ -1,0 +1,330 @@
+        Preguntas
+1.¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+R/: git init
+
+2.¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+R/:
+
+3.Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+R/: Git no controla el archivo hasta que no sea agregado con "git add" 
+
+4.¿Qué comando se utiliza para agregar un archivo al repositorio local?
+R/: git add <archivo>
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+R/: git status
+
+6. ¿Qué comando se utiliza para hacer un commit?
+R/: git commit -m "descripcion"
+
+7. En sus propias palabras, ¿qué es un commit?
+R/: Un commit guarda los cambios locales que se realizan y genera un historial
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+        
+        Ejercicio Práctico
+
+3. Al crear el archivo andres_MunozMedina.txt Y realizar cambios en el archivo sandwich.txt y ejecutar el comando
+en git "git status" se tiene la siguiente salida:
+
+                D:\universidad\2025A\modelos\taller 1 git\tallergit>git status
+                On branch main
+                Your branch is up to date with 'origin/main'.
+
+                Changes not staged for commit:
+                (use "git add <file>..." to update what will be committed)
+                (use "git restore <file>..." to discard changes in working directory)
+                        modified:   1.commit/sandwich.txt
+
+                Untracked files:
+                (use "git add <file>..." to include in what will be committed)
+                        1.commit/andres_MunozMedina.txt
+
+                no changes added to commit (use "git add" and/or "git commit -a")
+
+Esto nos dice que tenemos 2 cambios no realizados: el 1 es por el archivo modificado sandwich.txt
+                                                   el 2 es por un archivo nuevo que no esta incluido.
+nos dice que realicemos un git add y un git commit para realizar los cambios 
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+4.  cd 1.commit
+    git add sandwich.txt
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+5. Despues de ejecutar "git add sandwich.txt" realizamos "git status" y obtuvimos la siguiente salida:
+
+                On branch main
+                Your branch is up to date with 'origin/main'.
+
+                Changes to be committed:
+                (use "git restore --staged <file>..." to unstage)
+                        modified:   sandwich.txt
+
+                Untracked files:
+                (use "git add <file>..." to include in what will be committed)
+                        andres_MunozMedina.txt
+
+Nos dice que el archivo sandwich.txt ya tiene los cambios pero faltan confirmar con un "git commit" y "git push"
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+6. git commit -m "Agrego mi sandwich.txt"
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+7.  ejecutamos "git status" y obtenemos lo siguiente:
+
+                D:\universidad\2025A\modelos\taller 1 git\tallergit\1.commit>git status                            
+                On branch main
+                Your branch is ahead of 'origin/main' by 1 commit.
+                (use "git push" to publish your local commits)
+
+                Untracked files:
+                (use "git add <file>..." to include in what will be committed)
+                        andres_MunozMedina.txt
+
+                nothing added to commit but untracked files present (use "git add" to track)
+
+Aun aparece que no se ha agregado el archivo andres_MunozMedina.txt y que la rama local está 1 commit por delante de la rama remota, significa que ya esta un commit pero aún no se han subido los cambios al repositorio
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+9.  Aparecen los commit que se han realizado de forma ordenada, es decir de primeros en la parte superior son los ultimos commits realizados.
+Cada commit tiene su indicador, autor, y fecha como se puede ver:
+
+                commit 3138d670b6d0613a4dd84249fcda73e283434e8b (HEAD -> main)
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:42:21 2025 -0500
+
+                    Agrego salsas
+
+                commit d949c667811bb9e7a2ae868957d63f8c71bedd93
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:34:13 2025 -0500
+
+                    Agrego mi sandwich.txt
+
+                commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/main, origin/HEAD)
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:45:03 2025 -0500
+
+                    cambio readme.md
+
+                commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:39:56 2025 -0500
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+10.1 "git log --oneline"
+Este comando muestra un historial de commits en una sola línea por cada commit y indica en que rama estamos
+
+                3138d67 (HEAD -> main) Agrego salsas
+                d949c66 Agrego mi sandwich.txt
+                fafdc7f (origin/main, origin/HEAD) cambio readme.md
+                5d6dc69 cambio de rama master a main en documentación
+                3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+10.2 "git log --stat"
+Este comando muestra información detallada sobre los cambios realizados en cada commit como son (hash, author, fecha, mensaje, archivo modificado y lineas modificadas)
+
+
+                commit 3138d670b6d0613a4dd84249fcda73e283434e8b (HEAD -> main)
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:42:21 2025 -0500
+
+                    Agrego salsas
+
+                1.commit/sandwich.txt | 2 ++
+                1 file changed, 2 insertions(+)
+
+                commit d949c667811bb9e7a2ae868957d63f8c71bedd93
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:34:13 2025 -0500
+
+                    Agrego mi sandwich.txt
+
+                1.commit/sandwich.txt | 4 ++++
+                1 file changed, 4 insertions(+)
+
+                commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/main, origin/HEAD)
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:45:03 2025 -0500
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+11. Al usar "git diff" se muestra un resumen con todos los cambios realizados en los archivos con su nombre y cuantas lineas se agregaron o borraron.
+
+                .gitignore               |  2 ++
+                1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+                1.commit/sandwich.txt    |  4 +++
+                2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+                2.branchs/pizza.txt      |  3 ++
+                3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+                3.conflicts/milanesa.txt |  2 ++
+                README.md                | 54 +++++++++++++++++++++++++++++++++
+                8 files changed, 246 insertions(+)
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+13. "git add sandwich2.txt"
+    "git commit -m "Agrego sandwich2.txt""
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+14. Renombramos el archivo con el comando "git mv sandwich2.txt sandwich2_feo.txt" y 
+revisamos con "git status" donde nos sale que esta por confirmar el cambio de renombrar
+
+                On branch main
+                Your branch is ahead of 'origin/main' by 3 commits.
+                (use "git push" to publish your local commits)
+
+                Changes to be committed:
+                (use "git restore --staged <file>..." to unstage)
+                        renamed:    sandwich2.txt -> sandwich2_feo.txt
+
+                Untracked files:
+                (use "git add <file>..." to include in what will be committed)
+                        andres_MunozMedina.txt
+
+despues de hacer el commit usamos "git log --oneline" y obtenemos el resumen de todos los commits incluyendo el ultimo
+
+                01ff1a9 (HEAD -> main) Renombro sandwich2.txt a sandwich2_feo.txt
+                6ef9250 Agrego sandwich2.txt
+                3138d67 Agrego salsas
+                d949c66 Agrego mi sandwich.txt
+                fafdc7f (origin/main, origin/HEAD) cambio readme.md
+                5d6dc69 cambio de rama master a main en documentación
+                3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+15. borramos el archivo con "git rm sandwich2_feo.txt" y al utilizar "git status" obtenemos que el deleted falta por confirmar:
+
+                On branch main
+                Your branch is ahead of 'origin/main' by 4 commits.
+                (use "git push" to publish your local commits)
+
+                Changes to be committed:
+                (use "git restore --staged <file>..." to unstage)
+                        deleted:    sandwich2_feo.txt
+
+                Untracked files:
+                (use "git add <file>..." to include in what will be committed)
+                        andres_MunozMedina.txt
+
+
+despues realizamos el commit para confirmar que lo borrarmos "git commit -m "Elimino sandwich2_feo.txt""
+
+con el "git log --oneline" nos sale el resumen del ultimo commit y los demas
+
+                154dad9 (HEAD -> main) Elimino sandwich2_feo.txt
+                01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+                6ef9250 Agrego sandwich2.txt
+                3138d67 Agrego salsas
+                d949c66 Agrego mi sandwich.txt
+                fafdc7f (origin/main, origin/HEAD) cambio readme.md
+                5d6dc69 cambio de rama master a main en documentación
+                3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+16. el comando "git log --stat" brinda más detalles sobre qué archivos fueron modificados en cada commit,
+Cada operación (agregar, renombrar y eliminar) afecta la bitácora de Git. Obtuvimos la siguiente salida:
+
+                commit 154dad91ed5172167fc73413d0cfba0a4d537ee4 (HEAD -> main)
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Mon Feb 24 00:21:17 2025 -0500
+
+                    Elimino sandwich2_feo.txt
+
+                1.commit/sandwich2_feo.txt | 9 ---------
+                1 file changed, 9 deletions(-)
+
+                commit 01ff1a9a38f0cb066980e7567105c1a2fec4155f
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Mon Feb 24 00:18:15 2025 -0500
+
+                    Renombro sandwich2.txt a sandwich2_feo.txt
+
+                1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+                1 file changed, 0 insertions(+), 0 deletions(-)
+
+                commit 6ef925043eb199b8a4f2cc8927409904f9eba35b
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Mon Feb 24 00:14:34 2025 -0500
+
+                    Agrego sandwich2.txt
+
+                1.commit/sandwich2.txt | 9 +++++++++
+                1 file changed, 9 insertions(+)
+
+                commit 3138d670b6d0613a4dd84249fcda73e283434e8b
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:42:21 2025 -0500
+
+                    Agrego salsas
+
+                1.commit/sandwich.txt | 2 ++
+                1 file changed, 2 insertions(+)
+
+                commit d949c667811bb9e7a2ae868957d63f8c71bedd93
+                Author: Andres4104 <andreseste46810@gmail.com>
+                Date:   Sun Feb 23 23:34:13 2025 -0500
+
+                    Agrego mi sandwich.txt
+
+                1.commit/sandwich.txt | 4 ++++
+                1 file changed, 4 insertions(+)
+
+                commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/main, origin/HEAD)
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:45:03 2025 -0500
+
+                    cambio readme.md
+
+                README.md | 4 ++--
+                1 file changed, 2 insertions(+), 2 deletions(-)
+
+                commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:39:56 2025 -0500
+
+                    cambio de rama master a main en documentación
+
+                2.branchs/README.md   | 16 ++++++++--------
+                3.conflicts/README.md | 10 +++++-----
+                README.md             |  7 +++++--
+                3 files changed, 18 insertions(+), 15 deletions(-)
+
+                commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+                Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+                Date:   Mon Feb 17 23:17:02 2025 -0500
+
+                    primer commit
+
+                .gitignore               |  2 ++
+                1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+                1.commit/sandwich.txt    |  4 +++
+                2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+                2.branchs/pizza.txt      |  3 ++
+                3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+                3.conflicts/milanesa.txt |  2 ++
+                README.md                | 54 +++++++++++++++++++++++++++++++++
+                8 files changed, 246 insertions(+)
+
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+PARA VOLVER sandwich.txt A SU ESTADO ORIGINAL
+
+git log --oneline -- 1.commit/sandwich.txt
+git checkout 3f74d4d -- 1.commit/sandwich.txt
+git add 1.commit/sandwich.txt
+git commit -m "Restaurado sandwich.txt a su versión original"
+git push origin andres_MunozMedina
