@@ -1,0 +1,43 @@
+2.1. Preguntas
+¿Qué es un branch?
+Es una linea independiente de desarrollo que permite trabajar en cambios sin afectar la rama principal. 
+¿Por qué pueden ser útiles los branches?
+permiten desarrollar nuevas características sin afectar el código estable, facilitan la colaboración en equipo y ayudan a 
+probar y corregir errores sin modificar la versión principal del proyecto.
+¿Cómo se crea una branch?
+con el ocomando git branch nombre_de_la_rama
+¿Cómo se cambia a una branch?
+con el comando git checkout nombre_de_la_rama
+¿Cómo se elimina una branch?
+con el comando git branch -d nombre_de_la_rama
+¿Cómo se crea una branch y se cambia a ella en un solo paso?
+con el comando git ckeckout -b nombre_de_la_rama
+¿Qué es un merge?
+se combinan los cambios de una rama para juntarlos con la original 
+¿Cómo se realiza un merge?
+git merge nombre_rama_original
+¿Que es un tag?
+Un tag es una etiqueta que se usa para marcar versiones específicas en el historial del repositorio, generalmente para indicar versiones de lanzamiento (v1.0, v2.0, etc.).
+¿Cómo se crea un tag?
+git tag  -a nombre_etiqueta -m "mensaje"
+6.
+se observa que la nueva rama experimento tiene dos commits nuevos,el de agregar albahaca y agregar oregano 
+10.
+se puede observar dentro de la nueva ramma llamada anana y el commit realizado de agregar anana 
+13.
+Se puede observar la rama main y dentro de ella el commit agregar cebolla
+15.
+Se obseerva (main|MERGING) lo que significa que se generó un conflicto, por eso Git no ha completado el proceso automáticamente.
+16. ninguna debido al conflicto
+18.
+Obtuvimos un error ya que debiamos primero solucionar el conflicto que habia
+en el merge con anana.
+19.
+Si debimos solucionar el problema manualmente por que presento un conflicto y tuvimos que escoger entre los ingredientes que habia, decidimos dejar ambos.
+20.
+anana y experimento
+23.
+ninguna
+24.
+Se encuentra todo el contenido que teniamos en las ramas experimento, anana y main , a pesar de haber eliminado estas ramas.
+
