@@ -1,0 +1,90 @@
+## Ejercicio 3
+
+    ### 3.1. Preguntas
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+R/: Un conflicto en Git ocurre cuando dos ramas han modificado la misma línea de un archivo de manera diferente y luego se intenta fusionarlas (merge).
+No es necesariamente malo, pero requiere intervención manual para decidir qué cambios conservar.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+R/:Se puede evitar un conflicto con una buena organización del flujo de trabajo, 
+actualizando frecuentemente la rama local con git pull, dividiendo tareas en archivos separados y comunicándose con el equipo sobre cambios en archivos compartidos.
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+    ### 3.2. Ejercicio Práctico
+
+10.
+
+git diff main suprema
+diff --git a/1.commit/andres_MunozMedina.txt b/1.commit/andres_MunozMedina.txt
+index f6fef11..ef766b5 100644
+--- a/1.commit/andres_MunozMedina.txt
++++ b/1.commit/andres_MunozMedina.txt
+@@ -315,4 +315,16 @@ Cada operación (agregar, renombrar y eliminar) afecta la bitácora de Git. Obtu
+                 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+                 3.conflicts/milanesa.txt |  2 ++
+                 README.md                | 54 +++++++++++++++++++++++++++++++++
+-                8 files changed, 246 insertions(+)
+\ No newline at end of file
++                8 files changed, 246 insertions(+)
++
++
++
++_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
++
++PARA VOLVER sandwich.txt A SU ESTADO ORIGINAL
++
++git log --oneline -- 1.commit/sandwich.txt
++git checkout 3f74d4d -- 1.commit/sandwich.txt
++git add 1.commit/sandwich.txt
++git commit -m "Restaurado sandwich.txt a su versión original"
++git push origin andres_MunozMedina
+\ No newline at end of file
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+11.
+
+On branch main
+Your branch is ahead of 'origin/main' by 14 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   3.conflicts/milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.conflicts/andres_MunozMedina3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+12. Si funciono
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+13. No funcinot porque hay un coflicto porque GIT no sabe si mantener "pollo" o "bife"
+
+error: Your local changes to the following files would be overwritten by merge:
+        3.conflicts/milanesa.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Updating f9739db..1b49e6f
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+14 y 15.
+No se realiza el merge asi que no se puede abortar, se lo soluciona de manera manual editanto y eligiendo uno mismo en el archivo.
