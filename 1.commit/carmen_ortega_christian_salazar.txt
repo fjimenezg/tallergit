@@ -156,7 +156,9 @@ Date:   Mon Feb 24 20:29:57 2025 -0500
  1.commit/sandwich2_feo.txt | 13 -------------
  1 file changed, 13 deletions(-)
 
-// por ultimo en la bitacora se puede presenciar la eliminacion de un archivo y sus lineas.
+// por ultimo en la bitacora se puede presenciar la eliminacion de un archivo y sus lineas. 
+
+-------ANSWERS OF 3.CONFLICTS---------------
 
 
 
@@ -171,3 +173,29 @@ Your branch is ahead of 'origin/main' by 9 commits.
 nothing to commit, working tree clean
 // no se observa nada, puesto que, no se ha hecho un merge y los cambios estan en un commit para cada rama que se hizo, por ende la rama main se encuentra en desconocimiento de lo que paso en las demas ramas ajena a ella
  
+---------- punto 10 -----------
+-- branch Suprema
+
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1d61938 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+// se evidencia las lineas modificadas en la rama suprema, eliminacion de lomo por pollo
+
+-- branch bife
+
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..7ed435b 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+// se evidencia las lineas modificada en la rama bife, eliminacion de lomo por bife
