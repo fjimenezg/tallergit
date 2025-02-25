@@ -8,3 +8,13 @@
 8: (1: se verifica el status genereal  2: de ser necesario hacer los commits necesarios    3: moverse a la rama principa   4: ejecutar un git merge <name-branch>)
 9: es una etiqueta o referencia estatica
 10: git tag <name-tag>
+
+
+
+* 3255521 (HEAD -> anana1) add anana debajo de queso
+* ff9cea1 (main) feat=aguegue cebolla
+| * 0b1e6cd (origin/experimento, experimento) feat: add answers 6
+| * 199d657 feat: add oregano
+| * 09d5b70 feat: add albacha
+// se mira las ramas y sus cambios, en el esta el cambio de pizza.txt dentro de la rama anana1
+
