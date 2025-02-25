@@ -1,3 +1,6 @@
+-----2.BRANCHS---------
+
+
 1: Es una rama de trabajo
 2: Evita trabajar en un sola rama, logrando ramificar y independzar tareas
 3: git branch <name-branch>
@@ -9,24 +12,25 @@
 9: es una etiqueta o referencia estatica
 10: git tag <name-tag
 
-* eca5b69 (HEAD -> main) feat: add 1 cebolla in pizza.txt
-* d75e4f0 feat: add cebolla in pizza.txt
-| * c9cd209 (anana1) feat:add file carmen_chris answers
-| * 3255521 add anana debajo de queso
->
-// se agrego cebolla y esto fue un commit que se mira en que rama se hizo tal cambi
-// se agrego cebolla y esto fue un commit que se
-mira en que rama se hizo tal cambioo
-10: git tag <name-tag>
-
-
-
+---punto 9---
 * 3255521 (HEAD -> anana1) add anana debajo de queso
 * ff9cea1 (main) feat=aguegue cebolla
 | * 0b1e6cd (origin/experimento, experimento) feat: add answers 6
 | * 199d657 feat: add oregano
 | * 09d5b70 feat: add albacha
 // se mira las ramas y sus cambios, en el esta el cambio de pizza.txt dentro de la rama anana1
+
+
+
+----punto 12 ----
+
+* eca5b69 (HEAD -> main) feat: add 1 cebolla in pizza.txt
+* d75e4f0 feat: add cebolla in pizza.txt
+| * c9cd209 (anana1) feat:add file carmen_chris answers
+| * 3255521 add anana debajo de queso
+>
+// se agrego cebolla y esto fue un commit que se
+mira en que rama se hizo tal cambioo
 
 
 * 976eb0c (HEAD -> main) add file carmen in branch main
@@ -40,7 +44,8 @@ mira en que rama se hizo tal cambioo
 
 
 ---------answers----------
-6- el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
+----- punto 6 ----
+el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
 
 
 ----GIT GRAPH---	
