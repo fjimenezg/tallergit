@@ -1,0 +1,265 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+R/: Un branch (rama) en Git es una línea independiente de desarrollo dentro de un repositorio. 
+Permite trabajar en nuevas características o corregir errores sin afectar la versión principal del código.
+
+2. ¿Por qué pueden ser útiles los branches?
+R/: Son útiles porque permiten desarrollar nuevas funciones sin interferir con el código estable, 
+facilitan el trabajo en equipo y hacen más sencillo el manejo de versiones del proyecto.
+
+3. ¿Cómo se crea una branch?
+R/: "git branch nombre-de-la-rama"
+
+4. ¿Cómo se cambia a una branch?
+R/: "git checkout nombre-de-la-rama"
+
+5. ¿Cómo se elimina una branch?
+R/: "git branch -d nombre-de-la-rama"
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+R/: "git checkout -b nombre-de-la-rama"
+
+7. ¿Qué es un merge? 
+R/: Es la acción de combinar los cambios de una rama en otra. Generalmente, se usa para fusionar cambios en la rama principal (main).
+
+8. ¿Cómo se realiza un merge? 
+R/: Primero, nos movemos a la rama donde queremos fusionar los cambios con "git checkout main"
+Luego realizamos ya el merge con "git merge nombre-de-la-rama"
+
+9. ¿Que es un tag? 
+R/: Un tag (etiqueta) es una referencia a un punto específico en la historia de Git, generalmente utilizado para marcar versiones importantes del código.
+
+10. ¿Cómo se crea un tag?
+R/: "git tag -a nombre-del-tag -m "Mensaje del tag""
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## 2.2. Ejercicio Práctico
+
+6 
+        git graph
+        * 91591a0 (HEAD -> experimento) Añadir orégano arriba de la albahaca
+        * 7c9d8f8 Añadir albahaca arriba del queso
+        | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+        |/
+        * 510ea6c (main) Restaurado sandwich.txt a su versión original
+        * 7dff101 archivo respuestas Andres Muñoz
+        * 154dad9 Elimino sandwich2_feo.txt
+        * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+        * 6ef9250 Agrego sandwich2.txt
+        * 3138d67 Agrego salsas
+        * d949c66 Agrego mi sandwich.txt
+        * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+        * 5d6dc69 cambio de rama master a main en documentación
+        * 3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+10. 
+en el commit se crea la rama anana y se añade el commit Añadido anana debajo del queso, mientras que la rama experimento mantiene sus cambios.
+
+        git graph
+        * cc53f0f (HEAD -> anana) Añadido anana debajo del queso
+        | * 91591a0 (experimento) Añadir orégano arriba de la albahaca
+        | * 7c9d8f8 Añadir albahaca arriba del queso
+        |/
+        | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+        |/
+        * 510ea6c (main) Restaurado sandwich.txt a su versión original
+        * 7dff101 archivo respuestas Andres Muñoz
+        * 154dad9 Elimino sandwich2_feo.txt
+        * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+        * 6ef9250 Agrego sandwich2.txt
+        * 3138d67 Agrego salsas
+        * d949c66 Agrego mi sandwich.txt
+        * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+        * 5d6dc69 cambio de rama master a main en documentación
+        * 3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+13.
+En el commit se añade Añadida cebolla debajo de la salsa en main, conservando la estructura de ramas
+
+        "git graph"
+
+
+        * f6a07cc (HEAD -> main) Añadida cebolla debajo de la salsa
+        | * cc53f0f (anana) Añadido anana debajo del queso
+        |/
+        | * 91591a0 (experimento) Añadir orégano arriba de la albahaca
+        | * 7c9d8f8 Añadir albahaca arriba del queso
+        |/
+        | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+        |/
+        * 510ea6c Restaurado sandwich.txt a su versión original
+        * 7dff101 archivo respuestas Andres Muñoz
+        * 154dad9 Elimino sandwich2_feo.txt
+        * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+        * 6ef9250 Agrego sandwich2.txt
+        * 3138d67 Agrego salsas
+        * d949c66 Agrego mi sandwich.txt
+        * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+        * 5d6dc69 cambio de rama master a main en documentación
+        * 3f74d4d primer commit
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+15. 
+en el commit, se fusiona la rama anana en main de manera automática sin intervención manual
+
+        "git graph"
+
+
+        *   fddf3ae (HEAD -> main) Merge branch 'anana'
+        |\
+        | * cc53f0f (anana) Añadido anana debajo del queso
+        * | f6a07cc Añadida cebolla debajo de la salsa
+        |/
+        | * 91591a0 (experimento) Añadir orégano arriba de la albahaca
+        | * 7c9d8f8 Añadir albahaca arriba del queso
+        |/
+        | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+        |/
+        * 510ea6c Restaurado sandwich.txt a su versión original
+        * 7dff101 archivo respuestas Andres Muñoz
+        * 154dad9 Elimino sandwich2_feo.txt
+        * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+        * 6ef9250 Agrego sandwich2.txt
+        * 3138d67 Agrego salsas
+        * d949c66 Agrego mi sandwich.txt
+        * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+        * 5d6dc69 cambio de rama master a main en documentación
+        * 3f74d4d primer commit
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+18.
+se fusiona la rama experimento en main, combinando ambos historiales.
+
+"git graph"
+
+
+            *   d51680f (HEAD -> main) Merge branch 'experimento'
+            |\
+            | * 91591a0 (experimento) Añadir orégano arriba de la albahaca
+            | * 7c9d8f8 Añadir albahaca arriba del queso
+            * |   fddf3ae Merge branch 'anana'
+            |\ \
+            | * | cc53f0f (anana) Añadido anana debajo del queso
+            | |/
+            * / f6a07cc Añadida cebolla debajo de la salsa
+            |/
+            | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+            |/
+            * 510ea6c Restaurado sandwich.txt a su versión original
+            * 7dff101 archivo respuestas Andres Muñoz
+            * 154dad9 Elimino sandwich2_feo.txt
+            * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+            * 6ef9250 Agrego sandwich2.txt
+            * 3138d67 Agrego salsas
+            * d949c66 Agrego mi sandwich.txt
+            * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+            * 5d6dc69 cambio de rama master a main en documentación
+            * 3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+19.
+Se pudo fusionar los cambios automáticamente, el merge fue sin intervención.
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+20.
+Muestra las ramas que han sido fusionadas en la rama actual. En este caso, aparecen anana y experimento, lo que indica que sus cambios ya han sido incorporados en main
+
+git branch --merged
+  anana
+  experimento
+* main
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+23. 
+Despues de eliminar las demas branck con el comando "git branch -d " estos son los que quedaron
+al hacer "git branch --merged" no sale que solo esta main
+
+* main
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+24.
+Se observa la evolución del proyecto desde el primer commit 3f74d4d, ademas de los merges de anana en main (fddf3ae) y experimento en main (d51680f), 
+así como la incorporación de ingredientes como cebolla, albahaca y orégano en diferentes commits.
+
+
+git graph
+            *   d51680f (HEAD -> main) Merge branch 'experimento'
+            |\
+            | * 91591a0 Añadir orégano arriba de la albahaca
+            | * 7c9d8f8 Añadir albahaca arriba del queso
+            * |   fddf3ae Merge branch 'anana'
+            |\ \
+            | * | cc53f0f Añadido anana debajo del queso
+            | |/
+            * / f6a07cc Añadida cebolla debajo de la salsa
+            |/
+            | * cac607c (origin/andres_MunozMedina, andres_MunozMedina) documento final
+            |/
+            * 510ea6c Restaurado sandwich.txt a su versión original
+            * 7dff101 archivo respuestas Andres Muñoz
+            * 154dad9 Elimino sandwich2_feo.txt
+            * 01ff1a9 Renombro sandwich2.txt a sandwich2_feo.txt
+            * 6ef9250 Agrego sandwich2.txt
+            * 3138d67 Agrego salsas
+            * d949c66 Agrego mi sandwich.txt
+            * fafdc7f (origin/main, origin/HEAD) cambio readme.md
+            * 5d6dc69 cambio de rama master a main en documentación
+            * 3f74d4d primer commit
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+26.
+Se observa con "git tag" que hay un tag para identificar un punto especifico en los commits el cual es:
+
+pizza
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+27.
+El comando "git show pizza" muestra detalles sobre la etiqueta pizza, incluyendo el commit al que está asociada, su hash, el autor, la fecha y el mensaje del commit. 
+En este caso, el resultado indica que la etiqueta pizza está vinculada al commit d51680f, que representa la fusión de la rama experimento en main. Este commit agrupa todos los cambios realizados en el historial del repositorio, consolidando la receta final con todos los ingredientes agregados en los commits previos
+
+
+            tag pizza
+            Tagger: Andres4104 <andreseste46810@gmail.com>
+            Date:   Mon Feb 24 21:47:38 2025 -0500
+
+            Receta de la pizza.
+
+            commit d51680fd045d4381cc81aee027340ba0bcc08976 (HEAD -> main, tag: pizza)
+            Merge: fddf3ae 91591a0
+            Author: Andres4104 <andreseste46810@gmail.com>
+            Date:   Mon Feb 24 21:41:29 2025 -0500
+
+                Merge branch 'experimento'
+
+            diff --cc 2.branchs/pizza.txt
+            index 961bd26,b523cb9..e605624
+            --- a/2.branchs/pizza.txt
+            +++ b/2.branchs/pizza.txt
+            @@@ -1,5 -1,5 +1,7 @@@
+            + oregano
+            + albahaca
+            queso
+            +anana
+            salsa de tomate
+            +cebolla
+            masa de pizza
