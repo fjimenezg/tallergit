@@ -42,29 +42,85 @@ Crear una branch experimento. (Puede usar el comando git branch experimento main
 --git branch experimento main
 
 Moverse a la branch experimento. (Puede usar el comando git checkout).
---
+-- git checkout experimento
 Verificar que se encuentra en la branch experimento. (Puede usar el comando git branch).
+-- git branch
 Agregarle el condimento albahaca arriba del queso al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+--git add 2.branchs/pizza.txt
+git commit -m "Agrego albahaca a la pizza"
+
 Agregarle el condimento oregano arriba de la albahaca al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+
+git add 2.branchs/pizza.txt
+git commit -m "Agrego orégano a la pizza"
+
 Correr el comando git graph y observar el resultado. ¿Qué observa?
+--una línea de commits en la branch experimento
+
 Vuelva a la branch main.
 Crear una branch anana. (Puede usar el comando git checkout -b anana).
+--git checkout -b anana
+
 Agregarle el condimento anana debajo del queso al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+--git add 2.branchs/pizza.txt
+git commit -m "Agrego anana a la pizza"
+
 Correr el comando git graph y observar el resultado. ¿Qué observa?
+--dos ramas (experimento y anana) divergiendo desde main
 Vuelva a la branch main.
 Agregue el condimento cebolla debajo de la salsa al archivo 2.branchs/pizza.txt y "commitee" los cambios.
+--git add 2.branchs/pizza.txt
+git commit -m "Agrego cebolla a la pizza"
+
 Correr el comando git graph y observar el resultado. ¿Qué observa?
+
+migueleraso@Miguels-MacBook-Pro 2.branchs % git graph
+* f6ce4cf (HEAD -> main) actualizacion
+*   81d5265 Actualizo miguel_Eraso.txt
+|\  
+| * 6698c05 (anana) agregacion de oregano
+* | 916db87 agregacion de cebolla
+|/  
+| * 033df25 (experimento) agregacion de  albahaca
+|/  
+
 Haga un merge de la branch anana a la branch main. (Puede usar el comando git merge anana).
 Correr el comando git graph y observar el resultado. ¿Qué observa?
 ¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
 Haga un merge de la branch experimento a la branch main. (Puede usar el comando git merge experimento).
+--migueleraso@Miguels-MacBook-Pro 2.branchs % git branch --merged
+  anana
+  experimento
+* main
+
+migueleraso@Miguels-MacBook-Pro 2.branchs % git branch -d anana
+Eliminada la rama anana (era 6698c05).
+migueleraso@Miguels-MacBook-Pro 2.branchs % git branch -d experimento
+Eliminada la rama experimento (era 033df25).
+migueleraso@Miguels-MacBook-Pro 2.branchs % git branch --merged      
+* main
+
 Correr el comando git graph y observar el resultado. ¿Qué observa?
 ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
 ¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
 Elimine la branch anana. (Puede usar el comando git branch -d anana).
 Elimine la branch experimento. (Puede usar el comando git branch -d experimento).
+--git branch -d anana
+git branch -d experimento
+
 ¿Qué branches están "mergeadas" a main? (Puede usar el comando git branch --merged).
+--
 Correr el comando git graph y observar el resultado. ¿Qué observa?
 Crear un tag pizza en el último commit. (Puede usar el comando git tag -a pizza -m "Receta de la pizza."").
 Ver los tags creados. (Puede usar el comando git tag).
 Ver el tag pizza. (Puede usar el comando git show pizza).
+--migueleraso@Miguels-MacBook-Pro 2.branchs % git tag -a pizza -m "Receta de la pizza"
+migueleraso@Miguels-MacBook-Pro 2.branchs % git tag
+pizza
+migueleraso@Miguels-MacBook-Pro 2.branchs % git show pizza
+tag pizza
+--
+commit a85ffa7077689e32590fc83dc62f79db5ca925c6 (HEAD -> main, tag: pizza)
+Merge: f6ce4cf 033df25
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 11:58:35 2025 -0500
