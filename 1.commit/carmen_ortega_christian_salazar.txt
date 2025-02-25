@@ -1,0 +1,226 @@
+-----------1-COMMMIT------------------------
+
+1: use git init
+2: rm -rf .git // eliminacion del control de versiones
+3: No, se debe de usar git.add para entrar en el a partado de rastreo 
+4: git add (name-file) // se puede usar git add . para agregar todo sin excepciones
+5: git status // muestra el estado del proyecto, entre files modificados y no rastreados, hace uso del color verde y rojo
+6: git commit -m "<pequeña descripcion de los cambios encapsulados>"//dentro de el se usa los convetional commit
+7: un encapsulamiento de cambios, volviendose un punto de rastreo que permite el paso entre versiones,un commit sera la version que se le asigno un identificador unico
+
+--------punto 3 --------
+
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 anana •1 ⌀1 ✗)
+╰λ git status
+On branch anana
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	carmen_ortega_christian_salazar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+// el anterior resultado expresa que hay dos archivos que presentan cambios y no se encuentra en el area de rastreo de versiones, por ende, se debe hacer primero un git add -A y posteriormente lograr un commit exitosamente.
+
+
+---- punto 4 ---------
+
+/1.commit on (🌿 anana +1 ⌀1 ✗)
+╰λ git status
+On branch anana
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	carmen_ortega_christian_salazar.txt
+
+//para este apartado, se empezo el rastreo de sandwi... sin embargo, no es el mismo caso del archivo carmen.....
+
+
+----- Punto 7 ---------
+
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 anana ⌀1 ✗)
+╰λ git status
+On branch anana
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	carmen_ortega_christian_salazar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+// se logro un commit con el rastreo de version con el archivo sand... por ende, al no tener cambios actuales, este archivo no aparece en git status, porque solo aparecen los archivos modificados o nuevos, es decir desactializados.
+
+
+-----punto 7 -------
+
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 anana ⌀1 ✗)
+╰λ git status
+On branch anana
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	carmen_ortega_christian_salazar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+// se logro un commit con el rastreo de version con el archivo sand... por ende, al no tener cambios actuales, este archivo no aparece en git status, porque solo aparecen los archivos modificados o nuevos, es decir desactializados.
+
+
+------punto 9 -------
+
+commit 86c5c725fee2b69758e0cbd6471cda829b8c02b5 (HE
+AD -> anana)
+Author: christian <cristianyamith@hotmail.com>
+Date:   Mon Feb 24 19:33:12 2025 -0500
+
+    feat: add salsas
+
+commit 9a4e4b4600e54210c96b508c473fea1fdd38f0c4
+Author: christian <cristianyamith@hotmail.com>
+Date:   Mon Feb 24 19:24:40 2025 -0500
+
+    feat: add my sandwich.txt
+
+commit 49e24b9901c12312db5d7d26f5d4bafb0b032b26
+Author: christian <cristianyamith@hotmail.com>
+Date:   Tue Feb 18 10:40:04 2025 -0500
+
+    feat:agregue anana
+
+commit 52f229dcbb36c7502c2a76216ad39c5fb1876fff
+Author: christian <cristianyamith@hotmail.com>
+Date:   Tue Feb 18 10:27:26 2025 -0500
+
+    feat: section answers  branch
+
+
+// con git log veremos el historias de commits, cada uno de ellos con un identificador unico que nos permite viajar entre estar versiones. el orden mostrado corresponde del ultimo, o mas actual seguido de los anteriores a el, ademas se puede presenciar donde se encuentra nuestra head, la cabeza de nuestro rastreo de versiones y es donde nos encontramos.
+
+
+---GIT LOG --ONLINE: muestra los commits realizados con el -m"" y su identificador, util cuando se tiene muchos commits.
+
+
+---GIT LOG --STAT: muestra los commit realizados igualemente, sin embargo, es mas explicito y muestra mas estadisticas por commit, como los cambios realizados y fecha de modificacion.
+
+
+--GIT DIFF: este comando nos permite ver las diferecias o las cambios por linea que se realizaron en cada commit, en su extension para linux se usa opendiff para ver graficamente los cambios, esto actualmente se ve mejor en herramienta como visual studio code que nos muestra los cambios comparando linea a linea de codigo, sin embargo, para el programa git difftool --tool=opendiff <hash> recomiendo instalar meld (herramienta grafica)
+
+
+-----punto 
+
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 anana +1 ⌀1 ✗)
+╰λ git status
+On branch anana
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   sandwich2_feo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committe
+	carmen_ortega_christian_salazar.txt
+
+// miramos que existe un rastreo del archivo, sin embargo, al ocurrir un cambio con este, se necesita de un commit para generar el ultimo versionanmient
+
+ que existe un rastreo del archivo, sin embargo, al ocurrir un cambio con este, se necesita de un commit para generar el ultimo versionanmiento
+
+---- punto 14 -------------
+
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 anana +1 ⌀1 ✗)
+╰λ git status 
+On branch anana
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    sandwich2_feo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	carmen_ortega_christian_salazar.txt
+//existe un cambio en rastreo, nos muestra que tipo de cambio sucedio, es un deleted para este caso.
+
+-------punto 16----------
+
+
+commit af13f339cb978616e6be40644185def8ba78e690 (HE
+AD -> anana)
+Author: christian <cristianyamith@hotmail.com>
+Date:   Mon Feb 24 20:29:57 2025 -0500
+
+    feat: delete of sandwich2
+
+ 1.commit/sandwich2_feo.txt | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+// por ultimo en la bitacora se puede presenciar la eliminacion de un archivo y sus lineas. 
+
+-------ANSWERS OF 3.CONFLICTS---------------
+
+
+
+
+----punto 11---------
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 main ↑9 ✓)
+╰λ git status
+On branch main
+Your branch is ahead of 'origin/main' by 9 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+// no se observa nada, puesto que, no se ha hecho un merge y los cambios estan en un commit para cada rama que se hizo, por ende la rama main se encuentra en desconocimiento de lo que paso en las demas ramas ajena a ella
+ 
+---------- punto 10 -----------
+-- branch Suprema
+
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1d61938 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+// se evidencia las lineas modificadas en la rama suprema, eliminacion de lomo por pollo
+
+-- branch bife
+
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..7ed435b 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+// se evidencia las lineas modificada en la rama bife, eliminacion de lomo por bife
+
+
+-- punto 12 ---
+
+El merge se ejecuto, sin embargo existen conflictos en lineas cruzadas, esto se soluciono manualmente y otra con la opcion de both, donde se acoplan los conflictos y conserva los cambios si es necesario que esten los dos.
+
+-- punto 13---
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 main ↑14 ✓)
+╰λ git merge suprema 
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+// aunque el merge se ejecuta, el merge automatic no se ejecuta, siendo necesario que primero solucionemos los conflictos, para el caso aplicamos el both changes, conservando los cambios al mismo tiempo.
+lo mismo que se hizo con el merge con bife
+
+
+--- punto 15 ------
+
+se observa la mezcla de el archivo en conflicto, logrando un both changes exitoso
+
+-- punto 18 -------
+
+solucionamos el merge manualmente, esto seleccionando que consideramos esencial y necesario dejar, lo hicimos en cada merge, logrando llevar un control de los conflicts
+

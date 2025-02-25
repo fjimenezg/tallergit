@@ -1,0 +1,74 @@
+-----2.BRANCHS---------
+
+
+1: Es una rama de trabajo
+2: Evita trabajar en un sola rama, logrando ramificar y independzar tareas
+3: git branch <name-branch>
+4: git checkout <namebranch> or git switch <namebranch>
+5: git branch -d <namebranch>
+6: git checkout -b <namebranch>
+7: La fucion de dos ramas y todos sus commits
+8: (1: se verifica el status genereal  2: de ser necesario hacer los commits necesarios    3: moverse a la rama principa   4: ejecutar un git merge <name-branch>)
+9: es una etiqueta o referencia estatica
+10: git tag <name-tag
+
+---punto 9---
+* 3255521 (HEAD -> anana1) add anana debajo de queso
+* ff9cea1 (main) feat=aguegue cebolla
+| * 0b1e6cd (origin/experimento, experimento) feat: add answers 6
+| * 199d657 feat: add oregano
+| * 09d5b70 feat: add albacha
+// se mira las ramas y sus cambios, en el esta el cambio de pizza.txt dentro de la rama anana1
+
+
+
+----punto 12 ----
+
+* eca5b69 (HEAD -> main) feat: add 1 cebolla in pizza.txt
+* d75e4f0 feat: add cebolla in pizza.txt
+| * c9cd209 (anana1) feat:add file carmen_chris answers
+| * 3255521 add anana debajo de queso
+>
+// se agrego cebolla y esto fue un commit que se
+mira en que rama se hizo tal cambioo
+
+
+* 976eb0c (HEAD -> main) add file carmen in branch main
+* eca5b69 feat: add 1 cebolla in pizza.txt
+* d75e4f0 feat: add cebolla in pizza.txt
+| * c9cd209 (anana1) feat:add file carmen_chris answers
+// al aplicar el merge en anana1 y main, se encuentran conflictos de lineas, por lo cual se acepta un both changes, lo que me permitio conservar los dos cambios de las ramas dentro del archivo en conflicto, por ende el archivo carme.... se encuentra nuevamente para que se realize un seguimiento y un commit con la solucion dada
+
+19// el merge se realizo normalmente, debido a que uso Vim, sin embargo mando los archivos a nuevo seguimiento, haciendose necesario de un editor de codigo para visualizar mejor la solucion que dio el merge.
+
+
+
+---------answers----------
+----- punto 6 ----
+el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
+
+
+----GIT GRAPH---	
+
+* c8ce756 (HEAD -> main) feat: add carmen... with m
+erge solution
+*   d2e2afe feat: add pizza.txt with merge
+|\  
+| * 0b1e6cd (origin/experimento, experimento) feat:
+ add answers 6
+| * 199d657 feat: add oregano
+| * 09d5b70 feat: add albacha
+* | 422f42b feat: add answer 19
+* |   97e5ae0 feat: add file carme... solucionado los conflictos del merge
+|\ \  
+| * | c9cd209 feat:add file carmen_chris answers
+| * | 3255521 add anana debajo de queso
+* | | 976eb0c add file carmen in branch main
+* | | eca5b69 feat: add 1 cebolla in pizza.txt
+* | | d75e4f0 feat: add cebolla in pizza.txt
+|/ /  
+* / ff9cea1 feat=aguegue cebolla
+|/  
+
+
+/se evidencia el merge de la rama experimento y que la head se encuentra en Main, lugar donde se realizo el merge y nos encontramos.
