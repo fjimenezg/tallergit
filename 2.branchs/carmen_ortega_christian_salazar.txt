@@ -42,3 +42,28 @@ mira en que rama se hizo tal cambioo
 ---------answers----------
 6- el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
 
+
+----GIT GRAPH---	
+
+* c8ce756 (HEAD -> main) feat: add carmen... with m
+erge solution
+*   d2e2afe feat: add pizza.txt with merge
+|\  
+| * 0b1e6cd (origin/experimento, experimento) feat:
+ add answers 6
+| * 199d657 feat: add oregano
+| * 09d5b70 feat: add albacha
+* | 422f42b feat: add answer 19
+* |   97e5ae0 feat: add file carme... solucionado los conflictos del merge
+|\ \  
+| * | c9cd209 feat:add file carmen_chris answers
+| * | 3255521 add anana debajo de queso
+* | | 976eb0c add file carmen in branch main
+* | | eca5b69 feat: add 1 cebolla in pizza.txt
+* | | d75e4f0 feat: add cebolla in pizza.txt
+|/ /  
+* / ff9cea1 feat=aguegue cebolla
+|/  
+
+
+/se evidencia el merge de la rama experimento y que la head se encuentra en Main, lugar donde se realizo el merge y nos encontramos.
