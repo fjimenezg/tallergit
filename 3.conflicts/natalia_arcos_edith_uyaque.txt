@@ -1,0 +1,24 @@
+Ejercicio 3
+3.1. Preguntas
+¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos ramas tienen cambios en la misma parte de un archivo 
+y Git no puede decidir automáticamente cuál mantener. Esto suele suceder al hacer un merge.
+Los conflictos no son ni buenos ni malos, simplemente son parte del proceso colaborativo en el control de versiones.
+Sin embargo, pueden ser problemáticos si no se resuelven correctamente.
+¿Se puede evitar un conflicto? ¿Cómo? 
+Sí, los conflictos pueden minimizarse con buenas prácticas, como:
+Hacer pull regularmente para mantener el repositorio local actualizado.
+Dividir el trabajo de manera que varias personas no editen la misma parte de un archivo.
+Comentar y coordinar con los compañeros antes de hacer cambios grandes.
+10.
+se observa el cambio echo en la  rama suprema pero no en la rama bife
+11.
+se observa que no tenemos el cambio del archivo milanesa.txt en la rama main , asi que no esta en staging area ni en repositorio
+12.
+Si funcionó
+13.
+No funcionó 
+14.
+que faltaba agregar a staging area el cambio de lomo a bife, ni al repositorio
+15.
+el conflicto era que estaban en la misma linea los cambios . 
