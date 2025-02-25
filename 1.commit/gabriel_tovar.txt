@@ -1,0 +1,447 @@
+## Ejercicio 1
+
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+
+    Se debe utilizar el comando "git init"
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+
+    Puede utilizarse el comando "rm -rf git"
+    Lo cual elimina el directorio .git dentro del directorio raíz.
+    
+    O también el comando "git rm -r --cached <directorio>"
+    Esto quita el directorio del control de versiones de Git, pero no lo borra del sistema de archivos.
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+
+    No necesariamente, no hasta añadirlo al repositorio.
+
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+
+    Se utiliza "git add <archivo>"
+    Para agregar un archivo específico.
+
+    O también "git add ."
+    Para agregar todos los archivos modificados.
+
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+
+    Para ello se ejecuta el comando "git status"
+
+6. ¿Qué comando se utiliza para hacer un commit?
+
+    git commit -m "Mensaje referente al commit"
+
+7. En sus propias palabras, ¿qué es un commit?
+
+    Un commit es un estado que se guarda del proyecto en el que se está trabajando en un momento específico, cada vez
+    que se realiza un commit significa que en el repositorio se almacena una versión del proyecto en el estado que se encontraba
+    justo antes de hacerlo y de esta forma permite que sea posible volver a dichos estados en caso de ser necesario.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+1.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` si no estaba creado previamente.
+
+2. Agregar a `sandwich.txt` condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`.
+    Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`.
+    Explique que significa la salida del comando.
+
+    Cabe mencionar que con anterioridad el archivo gabriel_tovar.txt ya había sido añadido al repositorio.
+    El anterior status al que se presento en este punto fue:
+
+    On branch gabriel_tovar
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+            1.commit/gabriel_tovar.txt
+
+    nothing added to commit but untracked files present (use "git add" to track)
+
+    Esto significa que dicho archivo no estaba siendo seguido por Git
+    y se utilizaron los comandos git add . y git commit -m "Mensaje" para agregarlo al repositorio.
+
+    Tiempo después se hicieron los cambios solicitados en este punto y el resultado del git status ahora es:
+
+    On branch gabriel_tovar
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/gabriel_tovar.txt
+            modified:   1.commit/sandwich.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    Este resultado significa que los archivos gabriel_tovar.txt y sandwich.txt han sido modificados y dichos cambios aún no han
+    sido agregados al repositorio local.
+
+4. Agregar el archivo `sandwich.txt` al repositorio local. Para esto, se debe ejecutar el comando `git add sandwich.txt`.
+
+    El comando para agregar sandwich.txt al repositorio fue:
+
+    git add 1.commit/sandwich.txt
+
+5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+
+    Luego de agregar sandwich.txt al repositorio, el comando git status muestra lo siguiente:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            modified:   1.commit/sandwich.txt
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   1.commit/gabriel_tovar.txt
+    
+    El archivo sandwich.txt está listo para ser agregado a un nuevo estado/versión del proyecto, pero el archivo presente que
+    también está siendo modificado, no lo está ya que el comando solo añadió el archivo especificado
+
+    Para ello se añadirán ambos archivos con el comando git add .
+
+    Al darle git status de nuevo, el resultado es:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            modified:   1.commit/gabriel_tovar.txt
+            modified:   1.commit/sandwich.txt
+
+6. Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+    El resultado es:
+
+    [gabriel_tovar f81910e] Agrego mi sandwich.txt
+    2 files changed, 106 insertions(+), 1 deletion(-)
+
+7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+    La salida es:
+    
+    On branch gabriel_tovar
+    nothing to commit, working tree clean
+
+    Esto significa que no hay cambios nuevos en ningún archivo, por lo tanto de momento no existe la necesidad
+    de añadir nada al repositorio ni realizar commits.
+
+8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
+
+    [gabriel_tovar b60c4be] Agrego salsas
+    2 files changed, 17 insertions(+), 1 deletion(-)
+
+9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+
+    commit b60c4be0bf3068b3624afcb459797fb368d98f1e (HEAD -> gabriel_tovar)
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 10:44:00 2025 -0500
+
+        Agrego salsas
+
+    commit f81910e81c8ae7788fbd2a8925c4f7002ba05965
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Fri Feb 21 04:59:29 2025 -0500
+
+        Agrego mi sandwich.txt
+
+    commit beca42b16b46df865081fbab3199bf52a65a5116
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Fri Feb 21 04:28:08 2025 -0500
+
+        Añade gabriel_tovar.txt con punto teórico 1.1
+
+    commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main)
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:45:03 2025 -0500
+
+        cambio readme.md
+
+    commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:39:56 2025 -0500
+
+        cambio de rama master a main en documentación
+
+    commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+    Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+    Date:   Mon Feb 17 23:17:02 2025 -0500
+
+        primer commit
+
+    Este comando presenta el registro de commits realizados en el proyecto, estos se muestran en orden descendente,
+    es decir desde el último commit hacia el primero.
+
+10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+
+    10.1. `git log --oneline`
+
+        La salida es:
+
+        b60c4be (HEAD -> gabriel_tovar) Agrego salsas
+        f81910e Agrego mi sandwich.txt
+        beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+        fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+        5d6dc69 cambio de rama master a main en documentación
+        3f74d4d primer commit
+
+        Esta variación del comando git log, muestra los commits realizados en una sola línea,
+        incluyendo el hash, en que parte del proyecto se encuentra cada rama y el mensaje de cada commit
+
+    10.2. `git log --stat`
+
+        La salida es:
+
+        commit b60c4be0bf3068b3624afcb459797fb368d98f1e (HEAD -> gabriel_tovar)
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Sun Feb 23 10:44:00 2025 -0500
+
+            Agrego salsas
+
+        1.commit/gabriel_tovar.txt | 17 ++++++++++++++++-
+        1.commit/sandwich.txt      |  1 +
+        2 files changed, 17 insertions(+), 1 deletion(-)
+
+        commit f81910e81c8ae7788fbd2a8925c4f7002ba05965
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Fri Feb 21 04:59:29 2025 -0500
+
+            Agrego mi sandwich.txt
+
+        1.commit/gabriel_tovar.txt | 103 ++++++++++++++++++++++++++++++++++++++++++++-
+        1.commit/sandwich.txt      |   4 ++
+        2 files changed, 106 insertions(+), 1 deletion(-)
+
+        commit beca42b16b46df865081fbab3199bf52a65a5116
+        Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+        Date:   Fri Feb 21 04:28:08 2025 -0500
+
+            Añade gabriel_tovar.txt con punto teórico 1.1
+
+        1.commit/gabriel_tovar.txt | 41 +++++++++++++++++++++++++++++++++++++++++
+        1 file changed, 41 insertions(+)
+
+        commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main)
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:45:03 2025 -0500
+
+            cambio readme.md
+
+        README.md | 4 ++--
+        1 file changed, 2 insertions(+), 2 deletions(-)
+
+        commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:39:56 2025 -0500
+
+            cambio de rama master a main en documentación
+
+        2.branchs/README.md   | 16 ++++++++--------
+        3.conflicts/README.md | 10 +++++-----
+        README.md             |  7 +++++--
+        3 files changed, 18 insertions(+), 15 deletions(-)
+
+        commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:17:02 2025 -0500
+
+            primer commit
+
+        .gitignore               |  2 ++
+        1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+        1.commit/sandwich.txt    |  4 +++
+        2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+        2.branchs/pizza.txt      |  3 ++
+        3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+        3.conflicts/milanesa.txt |  2 ++
+        README.md                | 54 +++++++++++++++++++++++++++++++++
+        8 files changed, 246 insertions(+)
+
+        Esta variación del comando git log, indica de manera más detallada, la información de cada uno de los commits realizados,
+        pues incluye información acerca de cuantas líneas se han insertado y eliminado en cada uno de los archivos que se hayan editado
+        además de cuantos archivos se han editado en el periodo que abarca dicho commit.
+
+11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+
+    Al usar el comando:
+
+    git diff b60c4be f81910e
+
+    La salida es:
+
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index fa3daf0..5ede0c4 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -1,7 +1,6 @@
+    pan
+    salsa de tomate
+    salsa de ajo
+    -mostaza
+    queso
+    jamón
+    lechuga
+
+    Esto quiere decir que entre el último y el penúltimo commit la diferencia es que se ha agregado una salsa (mostaza),
+    es decir que el penúltimo commit no se contaba con esto y por eso se marca con el signo negativo (-).
+
+    si en el comando se invierten el orden de los hash (ahora el penúltimo de primero):
+
+    git diff f81910e b60c4be
+
+    La salida muestra lo siguiente:
+
+    diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+    index 5ede0c4..fa3daf0 100644
+    --- a/1.commit/sandwich.txt
+    +++ b/1.commit/sandwich.txt
+    @@ -1,6 +1,7 @@
+    pan
+    salsa de tomate
+    salsa de ajo
+    +mostaza
+    queso
+    jamón
+    lechuga
+
+    Lo cual indica la misma información (que se ha agregado la mostaza en el último commit), pero visto desde el punto de vista
+    del último commit, por eso se marca con el signo positivo (+).
+
+    11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+
+        Muestra y resalta en una ventana de un programa llamado meld, las diferencias entre el último commit y el seleccionado en el hash
+
+    11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
+
+12. Crear un nuevo archivo dentro de la carpeta `1.commit`, llamado `sandwich2.txt`, y agregarle los ingredientes de su sandwich.
+13. Agregar el archivo `sandwich2.txt` al repositorio local.
+14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+
+    Comando utilizado:
+
+    git mv 1.commit/sandwich2.txt 1.commit/sandwich2_feo.txt
+
+    Salida al usar git status:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            renamed:    1.commit/sandwich2.txt -> 1.commit/sandwich2_feo.txt
+
+    En esta salida el cambio es la palabra rename, pues esto indica que se ha cambiado de nombre un archivo
+
+    Se hace el commit:
+
+    git commit -m "Cambia sandwich2.txt a sandwich2_feo.txt"
+
+    Salida obtenida:
+
+    [gabriel_tovar cea9dc1] Cambia sandwich2.txt a sandwich2_feo.txt
+    1 file changed, 0 insertions(+), 0 deletions(-)
+    rename 1.commit/{sandwich2.txt => sandwich2_feo.txt} (100%)
+
+    Salida con git status luego del commit:
+
+    On branch gabriel_tovar
+    nothing to commit, working tree clean
+
+    Salida con git log --oneline:
+
+    cea9dc1 (HEAD -> gabriel_tovar) Cambia sandwich2.txt a sandwich2_feo.txt
+    92845d4 Agregado sandwich 2.0
+    b60c4be Agrego salsas
+    f81910e Agrego mi sandwich.txt
+    beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+    Y en git log muestra el mensaje del commit respectivo
+
+15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+
+    Comando utilizado:
+
+    git rm sandwich2_feo.txt
+
+    Salida:
+
+    rm '1.commit/sandwich2_feo.txt'
+
+    Resultado del git status:
+
+    On branch gabriel_tovar
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+            deleted:    sandwich2_feo.txt
+    
+    La palabra clave en este caso es "deleted", indica que se ha eliminado un archivo
+
+    Luego de hacer commit:
+
+    [gabriel_tovar bc7ee7a] Se elimina sandwich2_feo.txt
+    2 files changed, 39 insertions(+), 9 deletions(-)
+    delete mode 100644 1.commit/sandwich2_feo.txt
+
+    Y al utilizar git log --oneline:
+
+    bc7ee7a (HEAD -> gabriel_tovar) Se elimina sandwich2_feo.txt
+    cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    92845d4 Agregado sandwich 2.0
+    b60c4be Agrego salsas
+    f81910e Agrego mi sandwich.txt
+    beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    5d6dc69 cambio de rama master a main en documentación
+    3f74d4d primer commit
+
+16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve.
+
+    Los últimos 2 commits que se observan son:
+
+    commit bc7ee7acc26fdaa8ee7c4fb4d425f139b3d33874 (HEAD -> gabriel_tovar)
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 12:30:47 2025 -0500
+
+        Se elimina sandwich2_feo.txt
+
+    1.commit/gabriel_tovar.txt | 39 +++++++++++++++++++++++++++++++++++++++
+    1.commit/sandwich2_feo.txt |  9 ---------
+    2 files changed, 39 insertions(+), 9 deletions(-)
+
+    commit cea9dc14ed48aab84eb306f2ece6b23643d0d295
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Sun Feb 23 12:21:41 2025 -0500
+
+        Cambia sandwich2.txt a sandwich2_feo.txt
+
+    1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+    1 file changed, 0 insertions(+), 0 deletions(-)
+
+    Se pueden observar los cambios ocurridos al archivo sandwich2.txt:
+
+    Primero su cambio de nombre en la siguiente línea
+
+    1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+
+    Y posteriormente su eliminación en el último commit
+
+    1.commit/sandwich2_feo.txt |  9 ---------
+
+
+## Finalizado
+
+Una vez finalizado el ejercicio, recuerde guardar sus cambios en `nombre_apellido.txt` y subirlos a **su** repositorio remoto. Este archivo (`README.md`) y `sandwitch.txt` tienen que mantenerse sin ningún cambio.
+
+Para volver a `sandwich.txt` a su estado original, debe buscar el commit que lo contiene y correr el comando:
+```bash
+git checkout [commit ID] -- 1.commit/sandwich.txt
+
+# ó
+
+git checkout [commit ID] -- sandwich.txt
+
+# dependiendo de donde esté ubicado

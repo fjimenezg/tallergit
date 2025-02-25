@@ -1,0 +1,374 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+
+    También conocida como rama, es una versión separada del proyecto,
+    cuyo objetivo es permitir realizar cambios sin afectar al trabajo
+    original, funcionando como una copia del proyecto que puede 
+    fusionarse con la rama principal una vez el trabajo en la misma
+    haya concluido.
+
+2. ¿Por qué pueden ser útiles los branches?
+
+    Permiten el trabajo simultaneo de varios usuarios en diferentes áreas
+    de un mismo proyecto sin necesidad de interrumpir o dañar el trabajo de
+    otros, pues cada usuario puede y debería trabajar en una rama distinta.
+
+3. ¿Cómo se crea una branch?
+
+    Para crear una rama en git se usa el comando: git branch <nombre_de_la_branch>
+    O también con: git checkout -b <nombre_de_la_branch>
+
+4. ¿Cómo se cambia a una branch?
+
+    Puede usarse el comando: git switch <nombre_de_la_branch>
+    O también: git checkout <nombre_de_la_branch>
+
+5. ¿Cómo se elimina una branch?
+
+    Utilizando el comando: git branch -d <nombre-de-la-branch> (Cuando la rama ya se ha fusionado)
+    O también: git branch -D <nombre-de-la-branch> (Cuando la rama aún no se ha fusionado)
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+
+    Se usa el comando: git checkout -b <nombre_de_la_branch>
+
+7. ¿Qué es un merge?
+
+    Es una función de git que permite fusionar el contenido de la branch en la que nos encontremos con otra branch deseada
+
+8. ¿Cómo se realiza un merge?
+
+    Primero hay que dirigirse a la rama con la que se quiere fusionar el contenido,
+    por ejemplo si se quiere agregar los cambios hechos en la rama1 con la rama main entonces:
+
+    git branch main (Se cambia a la rama main)
+
+    git merge rama1 (Se fusiona el contenido)
+
+9. ¿Que es un tag?
+
+    Es una referencia que marca puntos específicos de la historia del proyecto, como una versión o un commit importante.
+
+10. ¿Cómo se crea un tag?
+
+    Se utiliza el comando: git tag <nombre-del-tag> (Crea un tag en el commit actual)
+    O también: git tag -a <nombre-del-tag> -m "Mensaje descriptivo" (Para añadir un tag con mensaje)
+
+
+### 2.2. Ejercicio Práctico
+
+Antes de continuar con el ejercicio, se debe agregar un alias para facilitar la visualización de los branches.
+
+```bash
+git config --global alias.graph "log --all --graph --decorate --oneline"
+
+# Pruebe el comando
+git graph
+```
+
+
+1. [] Crear una branch `experimento`. (Puede usar el comando `git branch experimento main`).
+
+2. Moverse a la branch `experimento`. (Puede usar el comando `git checkout`).
+
+3. Verificar que se encuentra en la branch `experimento`. (Puede usar el comando `git branch`).
+
+    La salida que muestra:
+    
+    * experimento
+    gabriel_tovar
+    main
+    practica2025
+
+4. Agregarle el condimento `albahaca` **arriba del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+
+    Salida:
+
+    [experimento 1fcdcda] Añade albahaca a la pizza
+    1 file changed, 1 insertion(+)
+
+5. Agregarle el condimento `oregano` **arriba de la albahaca** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+
+    Salida:
+
+    [experimento d1b3f82] Añade oregano a la pizza
+    1 file changed, 1 insertion(+)
+
+6. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    Salida:
+
+    * d1b3f82 (HEAD -> experimento) Añade oregano a la pizza
+    * 1fcdcda Añade albahaca a la pizza
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    En el gráfico puede observarse como las ramas "experimento" y "gabriel_tovar" parten de "main" y los asteriscos (*) representan los commits
+    con cambios que se han realizado y en qué parte se encuentra cada rama, además la palabra HEAD demuestra en que rama nos encontramos actualmente.
+
+7. Vuelva a la branch `main`.
+8. Crear una branch `anana`. (Puede usar el comando `git checkout -b anana`).
+9. Agregarle el condimento `anana` **debajo del queso** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+
+    Salida:
+
+    [anana 1abd8ba] Añade anana a la pizza
+    1 file changed, 1 insertion(+)
+
+10. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    * 1abd8ba (HEAD -> anana) Añade anana a la pizza
+    | * d1b3f82 (experimento) Añade oregano a la pizza
+    | * 1fcdcda Añade albahaca a la pizza
+    |/
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Este gráfico nos indica las ramificaciones que parten de main, ahora agregando la rama anana con el último cambio realizado.
+
+11. Vuelva a la branch `main`.
+
+    Salida:
+
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+
+12. Agregue el condimento `cebolla` **debajo de la salsa** al archivo `2.branchs/pizza.txt` y "commitee" los cambios.
+
+    Salida:
+
+    [main 96677a0] Añade cebolla  a la pizza
+    1 file changed, 1 insertion(+)
+
+13. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    * 96677a0 (HEAD -> main) Añade cebolla  a la pizza
+    | * 1abd8ba (anana) Añade anana a la pizza
+    |/
+    | * d1b3f82 (experimento) Añade oregano a la pizza
+    | * 1fcdcda Añade albahaca a la pizza
+    |/
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Ahora puede observarse que la rama main se ha actualizado con un commit (*), por lo cual dicha rama ha avanzado en su camino.
+
+14. Haga un merge de la branch `anana` a la branch `main`. (Puede usar el comando `git merge anana`).
+
+    Salida con git log --oneline:
+
+    7adb312 (HEAD -> main) Merge branch 'anana' Merge de anana y main
+
+15. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    *   7adb312 (HEAD -> main) Merge branch 'anana' Merge de anana y main
+    |\
+    | * 1abd8ba (anana) Añade anana a la pizza
+    * | 96677a0 Añade cebolla  a la pizza
+    |/
+    | * d1b3f82 (experimento) Añade oregano a la pizza
+    | * 1fcdcda Añade albahaca a la pizza
+    |/
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/  
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Puede observarse como la branch anana se fusionó con la branch main.
+
+16. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    Salida:
+
+    anana
+    * main
+    practica2025
+
+17. Haga un merge de la branch `experimento` a la branch `main`. (Puede usar el comando `git merge experimento`).
+
+    Salida:
+
+    Auto-merging 2.branchs/pizza.txt
+    Merge made by the 'ort' strategy.
+    2.branchs/pizza.txt | 2 ++
+    1 file changed, 2 insertions(+)
+
+18. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    *   cc0c6ec (HEAD -> main) Merge branch 'experimento' Merge de experimento con main
+    |\
+    | * d1b3f82 (experimento) Añade oregano a la pizza
+    | * 1fcdcda Añade albahaca a la pizza
+    * |   7adb312 Merge branch 'anana' Merge de anana y main
+    |\ \
+    | * | 1abd8ba (anana) Añade anana a la pizza
+    | |/
+    * / 96677a0 Añade cebolla  a la pizza
+    |/
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Ahora puede observarse que la rama "experimento" se ha fusionado con "main".
+
+19. ¿Tuvo que hacer un merge manual, o git lo hizo automáticamente? ¿Por qué?
+
+    Se hizo automáticamente porque no hubo conflictos, pues no se cambiaron las mismas líneas en el documento.
+
+20. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    Salida:
+
+    anana
+    experimento
+    * main
+    practica2025
+
+21. Elimine la branch `anana`. (Puede usar el comando `git branch -d anana`).
+
+    Salida: Deleted branch anana (was 1abd8ba).
+
+22. Elimine la branch `experimento`. (Puede usar el comando `git branch -d experimento`).
+
+    Deleted branch experimento (was d1b3f82).
+
+23. ¿Qué branches están "mergeadas" a main? (Puede usar el comando `git branch --merged`).
+
+    Salida:
+   
+    * main
+    practica2025
+
+24. Correr el comando `git graph` y observar el resultado. ¿Qué observa?
+
+    *   cc0c6ec (HEAD -> main) Merge branch 'experimento' Merge de experimento con main
+    |\
+    | * d1b3f82 Añade oregano a la pizza
+    | * 1fcdcda Añade albahaca a la pizza
+    * |   7adb312 Merge branch 'anana' Merge de anana y main
+    |\ \
+    | * | 1abd8ba Añade anana a la pizza
+    | |/
+    * / 96677a0 Añade cebolla  a la pizza
+    |/
+    | * de07007 (gabriel_tovar) gabriel_tovar.txt creado y punto teórico 2.1 finalizado
+    | * bceae80 (origin/gabriel_tovar) sandwich.txt vuelve a estado original
+    | * 34b13e5 Finalizado el primer punto del taller
+    | * bc7ee7a Se elimina sandwich2_feo.txt
+    | * cea9dc1 Cambia sandwich2.txt a sandwich2_feo.txt
+    | * 92845d4 Agregado sandwich 2.0
+    | * b60c4be Agrego salsas
+    | * f81910e Agrego mi sandwich.txt
+    | * beca42b Añade gabriel_tovar.txt con punto teórico 1.1
+    |/
+    * fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025) cambio readme.md
+    * 5d6dc69 cambio de rama master a main en documentación
+    * 3f74d4d primer commit
+
+    Puede observarse que las branch anana y experimento ya no existen.
+
+25. Crear un tag `pizza` en el último commit. (Puede usar el comando `git tag -a pizza -m "Receta de la pizza.""`).
+26. Ver los tags creados. (Puede usar el comando `git tag`).
+
+    Salida: pizza
+
+27. Ver el tag `pizza`. (Puede usar el comando `git show pizza`).
+
+    Salida:
+
+    tag pizza
+    Tagger: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Mon Feb 24 08:42:14 2025 -0500
+
+    Receta de la pizza
+
+    commit cc0c6ecbebc9f87d5d13265c6d75db83e3eac2cb (HEAD -> main, tag: pizza)
+    Merge: 7adb312 d1b3f82
+    Author: Gabriel Tovar <tovargabriel1886@gmail.com>
+    Date:   Mon Feb 24 08:20:19 2025 -0500
+
+        Merge branch 'experimento'
+        Merge de experimento con main
+
+    diff --cc 2.branchs/pizza.txt
+    index 961bd26,b523cb9..e605624
+    --- a/2.branchs/pizza.txt
+    +++ b/2.branchs/pizza.txt
+    @@@ -1,5 -1,5 +1,7 @@@
+    + oregano
+    + albahaca
+    queso
+    +anana
+    salsa de tomate
+    +cebolla
+    masa de pizza
+
+
+## Finalizado
+
+Una vez finalizado el ejercicio, recuerde guardar sus cambios en `nombre_apellido.txt` y subirlos a **su** repositorio remoto. Este archivo (`README.md`) y `pizza.txt` tienen que mantenerse sin ningún cambio.
+
+Para volver a `sandwich.txt` a su estado original, debe buscar el commit que lo contiene y correr el comando:
+```bash
+git checkout [commit ID] -- 2.branchs/pizza.txt
+
+# ó
+
+git checkout [commit ID] -- pizza.txt
+
+# dependiendo de donde esté ubicado
