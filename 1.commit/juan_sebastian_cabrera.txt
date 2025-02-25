@@ -1,0 +1,43 @@
+### 1.1. Preguntas
+
+    1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+        Un repositorio local de git se inicializa con el comando git init
+
+    2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+    Para que un directorio deje de ser controlado por git se debe eliminar la carpeta .git del directorio controlado por git. Para ver la carpeta .git en la terminal de linux agregamos estando en el directorio de trabajo ls -a y para eliminarlo agregamos rm -r .git
+
+    3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+    SI, ya que al agregar un archivo al directorio controlado por git este, a pesar de que no se enuentra rastreado por git este sabe que el    archivo existe y que no se encuentra en la staging area.
+
+    4. ¿qué comando se utiliza para agregar un archivo al repositorio local?
+    git add nombre_archivo
+
+    5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+        git status
+
+    6. ¿Qué comando se utiliza para hacer un commit?
+        git commit -m "mensaje"
+
+    7. En sus propias palabras, ¿qué es un commit?
+        Un commit es una version de una rama en un punto de tiempo
+
+
+### 1.2. Ejercicio Práctico
+
+    3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.txt`. Para esto, se debe ejecutar el comando `git status` y copiar el resultado en el archivo `nombre_apellido.txt`. Explique que significa la salida del comando.
+        git status juan_sebastian_cabrera.txt                                                        
+        En la rama juan_cabrera
+        Archivos sin seguimiento:
+        (usa "git add <archivo>..." para incluirlo a lo que será confirmado)
+            juan_sebastian_cabrera.txt
+
+        no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+        R// Según la salida nos indica que nos encontramos en la rama juan_cabrera y que el archivo juan_sebastian_cabrera.txt no se encuentra en seguimiento, lo que significa que no esta siendo rastreado por git y por ende no se encuentra en la staging area. Finalmente el porpio gut recomienda incluir el archivo al staging area con el comando git add <archivo>, donde <archivo> es el nombre del archivo que queremos agregar.
+    
+    5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+        En la salida se muestra que el archivo sandwich.txt ya se encuentra en la staging area y nos indica que también podemos removerlo de ahi con el comando restore --staged <archivo>, pero el archivo juan_sebastian_cabrera.txt sigue sin seguimiento y tiene la misma salida del punto 3.
+    
+    
+    
+    
+
