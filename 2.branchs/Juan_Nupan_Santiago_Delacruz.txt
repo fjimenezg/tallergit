@@ -1,0 +1,72 @@
+2.1. Preguntas
+¿Qué es un branch?
+Un branch es una línea de desarrollo independiente que permite aislar cambios sin afectar la rama principal.
+
+¿Por qué pueden ser útiles los branches?
+Para trabajar en paralelo en diferentes características, experimentar sin riesgo, y facilitar la colaboración.
+
+¿Cómo se crea una branch?
+git branch nombre_branch
+
+¿Cómo se cambia a una branch?
+git swtich nombre_branch
+
+¿Cómo se elimina una branch?
+git branch -d nombre_branch  # Si está mergeada.
+git branch -D nombre_branch  # Si no está mergeada.
+
+¿Cómo se crea y cambia a una branch en un paso?
+git checkout -b nombre_branch
+
+¿Qué es un merge?
+Es la acción de combinar los cambios de una rama en otra.
+
+¿Cómo se realiza un merge?
+Desde la rama destino:
+git merge nombre_branch
+
+Qué es un tag?
+Un tag es una referencia estática a un commit específico, usado para marcar versiones.
+
+¿Cómo se crea un tag?
+git tag -a nombre_tag -m "Mensaje descriptivo"
+
+2.2. Ejercicio Práctico
+
+-git graph
+Se observa una línea de commits en la rama experimento que diverge de main. Verás los commits correspondientes a las modificaciones de “albahaca” y “oregano”.
+
+-git graph
+Se mira la rama anana divergente de main, con su respectivo commit que agrega “anana” en pizza.txt.
+
+-git graph
+ahora en la rama main verás el nuevo commit de “cebolla”, mientras que las ramas anana y experimento siguen mostrando sus cambios de forma separada.
+
+-git graph
+Se mira que la rama main ahora incluye un merge commit que integra los cambios de anana, representando la unión de ambas historias.
+
+-git branch --merged
+Este comando muestra las ramas cuyos cambios ya han sido incorporados en main, aparece anan.
+
+-git merge experimento
+Se integra el contenido de la rama experimento (los condimentos “albahaca” y “oregano”) a main.
+
+-git graph
+Se mira un nuevo merge commit en main que incorpora los cambios de experimento.
+
+-Git realizó el merge automáticamente (merge fast-forward o automático) porque los cambios en cada rama se hicieron en partes diferentes del archivo y no hubo conflictos.
+
+-git branch --merged
+Aparecen ambas ramas (anana y experimento) como mergeadas en main.
+
+-git branch --merged
+Aparecen main confirmando que las ramas de trabajo fueron eliminadas tras el merge.
+
+-git graph
+Ahora se muestra un historial lineal en main con los merge commits que incorporaron los cambios de las ramas eliminadas.
+
+-git tag -a pizza -m "Receta de la pizza."
+Se crea un tag anotado llamado pizza para marcar el commit actual (último commit de main).
+
+-git show pizza
+Este comando muestra los detalles del commit etiquetado, incluyendo el mensaje, la fecha y los cambios asociados.
