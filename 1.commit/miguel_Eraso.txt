@@ -1,0 +1,364 @@
+¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+--con el comando git init
+¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se 
+debe ejecutar?)
+--se elimina  la carpeta oculta .git con el comando rm -rf .git
+Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está 
+siendo controlado por git?
+--Para que git lo controle se debe agregar con git add y luego confirmar los 
+cambios con git commit.
+¿Qué comando se utiliza para agregar un archivo al repositorio local?
+--con el comando git add <archivo>
+¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+--con el comando git status
+¿Qué comando se utiliza para hacer un commit?
+--git commit -m "mensaje"
+En sus propias palabras, ¿qué es un commit?
+--Es un registro de los cambios realizados en los archivos que se han agregado
+---------------------------------------------------------------------------------------
+1.2. Ejercicio Práctico
+
+Crear un archivo nombre_apellido.txt si no estaba creado previamente.
+--touch miguel_Eraso.txt
+Agregar a sandwich.txt condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+--se agregan ingredientes a sandwich.txt nano sandwich.txt
+Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo nombre_apellido.txt. Para esto, se debe ejecutar el comando git status y copiar el resultado en el archivo nombre_apellido.txt. Explique que significa la salida del comando.
+-- La salida de git status muestra los archivos sin seguimiento y los cambios pendientes de ser agregados.
+
+migueleraso@Miguels-MacBook-Pro 1.commit % nano sandwich.txt      
+migueleraso@Miguels-MacBook-Pro 1.commit % git status
+En la rama main
+Tu rama está actualizada con 'origin/main'.
+
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	modificados:     sandwich.txt
+
+
+Agregar el archivo sandwich.txt al repositorio local. Para esto, se debe ejecutar el comando git add sandwich.txt.
+Explique que cambio en la salida del comando git status luego de ejecutar el comando git add sandwich.txt.
+-- git status ahora muestra el archivo como preparado para commit (staged).
+
+Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando git commit -m "Agrego mi sandwich.txt".
+Explique que cambio en la salida del comando git status luego de ejecutar el comando git commit -m "Agrego mi sandwich.txt".
+-- git status indica que el working directory está limpio.
+
+Agregar salsas de su preferencia a sandwich.txt y realizar un commit con el mensaje "Agrego salsas".
+Escriba la salida del comando git log en el archivo nombre_apellido.txt. Y explique que significa. ¿En qué orden aparecen los commits?
+--Los commits aparecen en orden cronológico inverso.
+Pruebe las variaciones del comando git log y explique que observa en cada una de ellas. 
+10.1. git log --oneline 
+
+
+migueleraso@Miguels-MacBook-Pro 1.commit % git log --oneline
+4c515fe (HEAD -> main) Agrego cambios a miguel_Eraso.txt
+a882db2 Guardo cambios del archivo miguel_Eraso.txt
+439835d Restauro sandwich.txt al estado del commit [3f74d4d]
+d80e9fe Elimino sandwich2_feo.txt
+a8b928d Renombro sandwich2.txt a sandwich2_feo.txt
+c1e6653 Agrego salsas
+9eae706 Agrego salsas
+9fccb27 Agrego salsas
+447206d Actualizo sandwich.txt con nuevos ingredientes
+fafdc7f (origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+Muestra los commits con su ID
+
+
+
+10.2. git log --stat
+
+
+migueleraso@Miguels-MacBook-Pro 1.commit % git log --stat
+commit 4c515fe2d012b0befc50273fbe20d4073cc4500c (HEAD -> main)
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:46:06 2025 -0500
+
+    Agrego cambios a miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit a882db26e94b8f9e69732d7603a841ff478b0a2f
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:38:09 2025 -0500
+
+    Guardo cambios del archivo miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 117 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 117 insertions(+)
+
+commit 439835dab254d2bb6ee8ebaacea28b8dee9eb0f6
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:21:29 2025 -0500
+
+    Restauro sandwich.txt al estado del commit [3f74d4d]
+
+--Muestra qué archivos cambiaron y cuántas líneas se modificaron.
+
+
+Inspeccione diferencias entre los commits, use el comando git diff y explique que significa cada uno de los resultados. 11.1. En Windows, pruebe git difftool --tool=meld <hash> 11.2. En Linux, pruebe git difftool --tool=opendiff <hash>
+Crear un nuevo archivo dentro de la carpeta 1.commit, llamado sandwich2.txt, y agregarle los ingredientes de su sandwich.
+--touch sandwich2.txt
+Agregar el archivo sandwich2.txt al repositorio local.
+--git add sandwich2.txt
+Renombrar el archivo sandwich2.txt a sandwich2_feo.txt. Para esto, se debe ejecutar el comando git mv sandwich2.txt sandwich2_feo.txt. Explique que cambio en la salida del comando git status luego de hacer un commit con esos cambios y de git log --oneline.
+-- git mv sandwich2.txt sandwich2_feo.txt 
+
+Borre el archivo sandwich2_feo.txt. Para esto, se debe ejecutar el comando git rm sandwich2_feo.txt.
+--git rm sandwich2_feo.txt
+ Explique que cambio en la salida del comando git status luego de hacer un commit con esos cambios y de git log --oneline.
+--
+migueleraso@Miguels-MacBook-Pro 1.commit % git log --oneline
+4c515fe (HEAD -> main) Agrego cambios a miguel_Eraso.txt
+a882db2 Guardo cambios del archivo miguel_Eraso.txt
+439835d Restauro sandwich.txt al estado del commit [3f74d4d]
+d80e9fe Elimino sandwich2_feo.txt
+a8b928d Renombro sandwich2.txt a sandwich2_feo.txt
+c1e6653 Agrego salsas
+9eae706 Agrego salsas
+9fccb27 Agrego salsas
+447206d Actualizo sandwich.txt con nuevos ingredientes
+fafdc7f (origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+migueleraso@Miguels-MacBook-Pro 1.commit % 
+
+Inspeccione la bitácora usando git log --stat y explique lo que ve.
+
+migueleraso@Miguels-MacBook-Pro 1.commit % git log --stat
+commit 4c515fe2d012b0befc50273fbe20d4073cc4500c (HEAD -> main)
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:46:06 2025 -0500
+
+    Agrego cambios a miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit a882db26e94b8f9e69732d7603a841ff478b0a2f
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:38:09 2025 -0500
+
+    Guardo cambios del archivo miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 117 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 117 insertions(+)
+
+commit 439835dab254d2bb6ee8ebaacea28b8dee9eb0f6
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:21:29 2025 -0500
+
+    Restauro sandwich.txt al estado del commit [3f74d4d]
+migueleraso@Miguels-MacBook-Pro 1.commit % 
+migueleraso@Miguels-MacBook-Pro 1.commit % git log --stat
+commit 4c515fe2d012b0befc50273fbe20d4073cc4500c (HEAD -> main)
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:46:06 2025 -0500
+
+    Agrego cambios a miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit a882db26e94b8f9e69732d7603a841ff478b0a2f
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:38:09 2025 -0500
+
+    Guardo cambios del archivo miguel_Eraso.txt
+
+ 1.commit/miguel_Eraso.txt | 117 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 117 insertions(+)
+
+commit 439835dab254d2bb6ee8ebaacea28b8dee9eb0f6
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 07:21:29 2025 -0500
+
+    Restauro sandwich.txt al estado del commit [3f74d4d]
+-- nos indica todos los commits con su fecha, quien realizo el commit y las lineas afectadas
+---------------------------------------------------------------------------------------
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+commit 9eae706d883361c1b571ad9a9e91914d34c2b844
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:43:39 2025 -0500
+
+    Agrego salsas
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+commit 9eae706d883361c1b571ad9a9e91914d34c2b844
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:43:39 2025 -0500
+
+    Agrego salsas
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+commit c1e66533ff06ee482f60b79f3b335545d1788588
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:48:39 2025 -0500
+
+    Agrego salsas
+
+commit 9eae706d883361c1b571ad9a9e91914d34c2b844
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:43:39 2025 -0500
+
+    Agrego salsas
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+commit c1e66533ff06ee482f60b79f3b335545d1788588
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:48:39 2025 -0500
+
+    Agrego salsas
+
+commit 9eae706d883361c1b571ad9a9e91914d34c2b844
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:43:39 2025 -0500
+
+    Agrego salsas
+
+commit 9fccb278b1979b5ff5497c54cfc478ff1d84e65c
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:39:36 2025 -0500
+
+    Agrego salsas
+
+commit 447206d3aea9d6a4ac92d171477a974bcab0aab1
+Author: migueleraso <miaelo749@gmail.com>
+Date:   Mon Feb 24 00:34:29 2025 -0500
+
+    Actualizo sandwich.txt con nuevos ingredientes
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit

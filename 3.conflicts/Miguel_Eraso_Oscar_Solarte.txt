@@ -1,0 +1,88 @@
+3.1. Preguntas
+
+¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+¿Se puede evitar un conflicto? ¿Cómo?
+
+3.2. Ejercicio Práctico
+
+Crear un archivo nombre_apellido.txt dentro de la carpeta 3.conflicts.
+--touch 3.conflicts/nombre_apellido.txt
+Crear una nueva branch suprema a partir de la branch main. (Puede usar el comando git checkout -b suprema).
+--touch 3.conflicts/nombre_apellido.txt
+
+Moverse a la branch suprema. (Puede usar el comando git checkout).
+Cambiar el contenido del archivo 3.conflicts/milanesa.txt donde dice lomo por pollo.
+"Commitear" los cambios. (Puede usar el comando git commit -am "Cambio de lomo a pollo").
+--git add 3.conflicts/milanesa.txt
+git commit -m "Cambio de lomo a pollo"
+
+Moverse a la branch main. (Puede usar el comando git checkout).
+Crear una nueva branch bife a partir de la branch main. (Puede usar el comando git checkout -b bife).
+Movere a la branch bife. (Puede usar el comando git checkout).
+Cambiar el contenido del archivo 3.conflicts/milanesa.txt donde dice lomo por bife.
+----git add 3.conflicts/milanesa.txt
+git commit -m "Cambio de lomo a bife"
+
+Haga un git diff main suprema y un git diff main bife. ¿Qué observa?
+--migueleraso@Miguels-MacBook-Pro 3.conflicts % git diff main suprema
+diff --git a/3.conflicts/Miguel_Eraso_Oscar_Solarte.txt b/3.conflicts/Miguel_Eraso_Oscar_Solarte.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1d61938 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+
+--migueleraso@Miguels-MacBook-Pro 3.conflicts % git diff main bife
+diff --git a/3.conflicts/Miguel_Eraso_Oscar_Solarte.txt b/3.conflicts/Miguel_Eraso_Oscar_Solarte.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..7ed435b 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+
+
+Moverse a la branch main. Corra un git status, ¿qué observa?
+migueleraso@Miguels-MacBook-Pro 3.conflicts % git checkout main
+git status
+Cambiado a rama 'main'
+Tu rama está adelantada a 'origin/main' por 17 commits.
+  (usa "git push" para publicar tus commits locales)
+En la rama main
+Tu rama está adelantada a 'origin/main' por 17 commits.
+  (usa "git push" para publicar tus commits locales)
+
+
+Ejecute git merge bife. ¿Funcionó?
+Ejecute git merge suprema. ¿Funcionó?
+Ejecute git status. ¿Qué observa?
+
+migueleraso@Miguels-MacBook-Pro 3.conflicts % git merge bife
+Actualizando a152d8a..0172a52
+Fast-forward
+ 3.conflicts/Miguel_Eraso_Oscar_Solarte.txt | 0
+ 3.conflicts/milanesa.txt                   | 2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 3.conflicts/Miguel_Eraso_Oscar_Solarte.txt
+migueleraso@Miguels-MacBook-Pro 3.conflicts % git merge suprema
+Ya está actualizado.
+migueleraso@Miguels-MacBook-Pro 3.conflicts % git status
+En la rama main
+Tu rama está adelantada a 'origin/main' por 20 commits.
+  (usa "git push" para publicar tus commits locales)
+
+Vea el contenido del archivo 3.conflicts/milanesa.txt. ¿Qué observa?
+Aborte el merge. (Puede usar el comando git merge --abort).
+Vuelva a ejecutar git merge suprema.
+Resuelva el conflicto manualmente.
