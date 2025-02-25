@@ -1,0 +1,129 @@
+Ejercicio 2
+
+2.1. Preguntas
+
+1. ¿Qué es un branch?
+
+Un branch (rama) en Git es una línea independiente de desarrollo. Permite trabajar en cambios sin afectar la rama principal del proyecto.
+
+2. ¿Por qué pueden ser útiles los branches?
+
+Facilitan el desarrollo simultáneo de nuevas características, corrección de errores y experimentación sin alterar el código estable.
+
+3. ¿Cómo se crea una branch?
+
+Se usa el comando: git branch nombre_de_la_rama
+
+4. ¿Cómo se cambia a una branch?
+
+Se usa el comando: git checkout nombre_de_la_rama o git switch nombre_de_la_rama
+
+5. ¿Cómo se elimina una branch?
+
+Se usa el comando: git branch -d nombre_de_la_rama (si ya fue fusionada) o git branch -D nombre_de_la_rama (para forzar su eliminación).
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso?
+
+Se usa el comando: git checkout -b nombre_de_la_rama o git switch -c nombre_de_la_rama
+
+7. ¿Qué es un merge?
+
+Es el proceso de combinar los cambios de una rama en otra, generalmente integrando una rama de desarrollo en main.
+
+8. ¿Cómo se realiza un merge?
+
+Primero se cambia a la rama destino con git checkout main, luego se ejecuta git merge nombre_de_la_rama.
+
+9. ¿Qué es un tag?
+
+Un tag (etiqueta) es una referencia fija a un commit específico, usado comúnmente para marcar versiones importantes del proyecto.
+
+10. ¿Cómo se crea un tag?
+
+Se usa el comando: git tag -a nombre_del_tag -m "Mensaje del tag"
+
+Practica.
+
+6. Rama actual (HEAD -> experimento)
+
+La rama activa es experimento, como se indica por HEAD -> experimento.
+Se realizaron dos commits recientes en esta rama:
+Uno agregando "orégano" a pizza.txt.
+Otro agregando "albahaca" a pizza.txt.
+Rama luz_ortega y main
+
+Hay un commit (a20f610) en el que luz_ortega y main están en el mismo punto de la historia.
+Indica que ambas ramas compartían un estado común antes de que experimento se separara.
+Divergencia en la historia
+
+experimento ha avanzado con cambios en pizza.txt, pero main y practica2025 están en otra línea de desarrollo.
+No se ha hecho un merge entre experimento y main.
+Commits históricos
+
+Se ven commits previos relacionados con la eliminación y restauración de sandwich.txt.
+main y practica2025 están alineadas en el commit fadc7f, donde se cambió README.md.
+
+15.Se observa el historial de commits del repositorio
+
+   1. Ramas activas:
+      - `HEAD -> anana`: Indica que la rama actual es `anana`.
+      - `experimento`: Es otra rama creada a partir de `luz_ortega`.
+      - `luz_ortega`: Es una rama que tiene un origen remoto (`origin/luz_ortega`).
+
+   2. Commits recientes:
+      - El commit `aa192ad` en la rama `anana` agrega "anana" a `pizza.txt`.
+      - El commit `82514d9` en la rama `experimento` agrega "orégano" a `pizza.txt`.
+      - El commit `22dc446` agrega "albahaca" a `pizza.txt`.
+
+   3. Divergencia de ramas:
+      - `experimento` y `anana` se bifurcaron desde `luz_ortega`, lo que indica que ambas ramas contienen cambios distintos.
+
+   4. Commits en `luz_ortega`:
+      - `a20f610` es el commit más reciente en `luz_ortega`, con el mensaje "se resuelve taller".
+      - Hay commits más antiguos relacionados con la edición de `sandwich.txt` y `sandwich2.txt`.
+
+Esto indica que el usuario ha estado trabajando en múltiples ramas, realizando cambios en distintos archivos (`pizza.txt`, `sandwich.txt`, etc.) y ahora está comparando la evolución del historial de commits.
+
+13--
+La rama main está en 5c348fb, lo que indica que el último commit en main agregó cebolla a pizza.txt.
+La rama anana está en aa192ad, lo que muestra que en esa rama se agregó ananá a pizza.txt.
+La rama experimento está en 82514d9, donde se agregó orégano a pizza.txt. Esto sugiere que experimento no está fusionada con main, ya que su historial se separa desde 22dc446 (donde se agregó albahaca).
+Las ramas luz_ortega y origin/luz_ortega tienen su propia línea de commits, que no parece estar relacionada con main, anana o experimento.
+
+15--
+Indica que la rama anana fue fusionada en main.
+El mensaje de commit dice "Merge branch 'anana' merge anana con main", lo que confirma la fusión.
+Ahora main incluye los cambios de anana.
+
+16--
+El resultado de git branch --merged muestra que las ramas anana y practica2025 y main están fusionadas
+
+18--
+Último commit en main (c5eccc5):
+
+Merge branch 'experimento' → Se fusionó la rama experimento con main.
+Commits en experimento:
+
+82514d9 (rama experimento) → Se agregó orégano a pizza.txt.
+22dc446 → Se agregó albahaca a pizza.txt.
+Commit anterior en main (d36ee6b):
+
+Merge branch 'anana' → Se fusionó la rama anana con main.
+Commits en anana:
+
+aa192ad (rama anana) → Se agregó ananá a pizza.txt.
+Commit anterior en main (5c348fb):
+
+Se agregó cebolla a pizza.txt.
+Commit más antiguo mostrado (a20f610 en luz_ortega):
+
+Se resolvió un taller.
+
+19. Git realizó la fusión de manera automática, no se presentaron conflictos.
+
+20.El resultado de git branch --merged muestra que las ramas anana, experimento practica2025 y main están fusionadas
+23. La rama practica2025
+24. Se observa  que las ramas experimento y anana han sido eliminadas
+
+
+
