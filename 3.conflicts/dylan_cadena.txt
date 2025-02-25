@@ -104,4 +104,7 @@ Hay un conflicto en milanesa.txt y Git está esperando que se resuelva antes de 
 
 15. Se puede apreciar que se nos da a elegir que cambio conservar antes de realizar el merge
 
-
+17.  git merge suprema
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
