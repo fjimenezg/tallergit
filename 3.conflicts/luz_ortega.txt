@@ -1,0 +1,65 @@
+1. ¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+Un conflicto en Git ocurre cuando dos o más cambios afectan la misma línea de un archivo y Git no puede resolver automáticamente cuál de ellos debe mantenerse.
+
+-¿Cuándo ocurre?
+
+Cuando dos personas editan la misma línea de un archivo y luego intentan fusionar (merge).
+Al hacer git pull si hay cambios en el remoto que entran en conflicto con los locales.
+En un git rebase si hay modificaciones incompatibles entre ramas.
+-¿Es bueno o malo?
+No es malo por sí mismo, solo indica que Git necesita ayuda para decidir qué cambios conservar. De hecho, los conflictos pueden ser una señal de que varias personas están colaborando activamente en un proyecto.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+Sí, se pueden minimizar o evitar los conflictos con buenas prácticas:
+
+-Mantén tu repositorio actualizado
+Antes de hacer cambios, usa:
+
+bash
+Copiar
+Editar
+git pull origin main  # (o la rama en la que estés trabajando)
+-Divide tu código en tareas pequeñas
+Evita trabajar mucho tiempo sin hacer commits y subiendo cambios regularmente.
+
+-Coordina con tu equipo
+Si varios están editando el mismo archivo, dividan el trabajo o avisen antes de hacer cambios grandes.
+
+-Usa git fetch antes de git merge
+Esto te permite ver los cambios antes de fusionarlos y resolver conflictos de manera controlada.
+
+-Edita archivos diferentes
+Si es posible, trabaja en archivos distintos a los que otras personas están modificando.
+
+Respuestas prácticas.
+
+10--
+
+Muestra las diferencias entre las ramas main y suprema en el archivo 3.conflicts/milanesa.txt.
+
+El archivo milanesa.txt ha sido modificado en la rama o commit actual en comparación con otra versión.
+Se cambió una línea de texto:
+La línea -lomo (en rojo) indica que se eliminó "lomo" en la nueva versión del archivo.
+La línea +pollo (en verde) indica que se agregó "pollo" en su lugar.
+
+Muestra las diferencias entre las ramas main y bife en el archivo 3.conflicts/milanesa.txt.
+
+La línea que tenía lomo fue reemplazada por bife.
+La línea pan rallado se mantiene sin cambios.
+No hay una nueva línea al final del archivo en ambas versiones.
+Explicación del output:
+-lomo (en rojo): Esto indica que en la versión de main, la línea tenía lomo.
++bife (en verde): En la versión de bife, esta línea fue modificada a bife.
+
+11.El archivo luz_ortega.txt a uno no ha sido versionado.
+
+12. Sí, el merge funcionó correctamente. La salida muestra que Git realizó un fast-forward merge, lo que significa que la rama main avanzó directamente al estado de la rama bife sin necesidad de combinar cambios manualmente.
+
+13. Git intentó fusionar la rama suprema con la rama actual.
+Durante la fusión, encontró que el archivo 3.conflicts/milanesa.txt tenía cambios distintos en ambas ramas, por lo que no pudo decidir automáticamente qué versión conservar.
+Como resultado, Git marcó el archivo como en estado de conflicto y detuvo el merge
+
+14."You have unmerged paths" Se observa que se intentó hacer un merge , pero hubo un conflicto , que el archivo en conflicto es milanesa.txt
+"both modified:   milanesa.txt" Esto indica que tanto la rama actual como la rama que intenté fusionar hicieron cambios en milanesa.txt y Git no pudo resolver el conflicto automáticamente.
+
+15.Git no puede decidir automáticamente si debe mantener "bife" o "pollo", así que muestra ambas versiones con las marcas de conflicto
