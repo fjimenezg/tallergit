@@ -1,0 +1,32 @@
+1. ¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo? 
+   Un conflicto en Git ocurre cuando dos ramas han modificado la misma línea de un archivo o han editado archivos de formas incompatibles. Sucede generalmente al hacer un `merge` o `rebase`. No es necesariamente malo, pero requiere intervención manual para resolver las diferencias.
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+   Sí, se puede minimizar siguiendo buenas prácticas como:  
+   - Hacer `pull` antes de empezar a trabajar (`git pull origin <branch>`).  
+   - Dividir el trabajo en diferentes archivos o secciones para evitar modificaciones en la misma línea.  
+   - Realizar `merge` o `rebase` frecuentemente para mantener el código actualizado.  
+   - Comunicarse con el equipo para evitar ediciones simultáneas en la misma parte del código.
+
+------------------------------------------------------------------------------------------------------------------------------
+10. **`git diff main suprema` y `git diff main bife`**  
+   - `git diff main suprema` muestra que hay cambios en `milanesa.txt`, específicamente se cambió "lomo" por "pollo".  
+   - `git diff main bife` no muestra diferencias, lo que indica que no hubo cambios en `bife` respecto a `main`.  
+
+11. **Ejecutar `git status` en `main`**  
+   - Se observan archivos sin seguimiento (`untracked files`): `yeffer_gomez.txt` y `../h\357\200\276`.  
+   - No hay cambios listos para ser confirmados en `main`.  
+
+12. **Ejecutar `git merge bife`**  
+   - Funcionó sin problemas porque `bife` no tenía cambios respecto a `main`.  
+
+13. **Ejecutar `git merge suprema`**  
+   - Falló debido a un problema con el editor `vi`, lo que impidió que el `merge` se completara automáticamente.  
+
+14. **Ejecutar `git status` después del `merge suprema`**  
+   - Se observa que todos los conflictos fueron resueltos, pero el `merge` aún no ha sido confirmado (`use "git commit" to conclude merge`).  
+
+15. **Ver el contenido de `3.conflicts/milanesa.txt`**  
+   - Se ve el contenido con los cambios de la rama `suprema` (donde se cambió "lomo" por "pollo").  
+
+1  

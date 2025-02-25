@@ -1,0 +1,80 @@
+1. ¿Qué es un branch?
+
+Un branch (rama) es una versión separada del código dentro del repositorio que permite hacer cambios sin afectar la versión principal.
+
+2. ¿Por qué pueden ser útiles los branches?
+Permiten trabajar en nuevas funciones sin afectar el código principal, probar cambios sin riesgos y colaborar con otros desarrolladores sin conflictos.
+
+3. ¿Cómo se crea una branch?
+
+git branch nombre_de_la_rama
+
+4. ¿Cómo se cambia a una branch?
+git switch nombre_de_la_rama
+
+5. ¿Cómo se elimina una branch?
+git branch -D nombre_de_la_rama
+
+6. ¿Cómo se crea una branch y se cambia a ella en un solo paso? 
+git switch -c nombre_de_la_rama
+
+7. ¿Qué es un merge? 
+Es la acción de combinar los cambios de una rama con otra, generalmente con la rama principal (main o master).
+
+
+8. ¿Cómo se realiza un merge? 
+git switch main
+
+9. ¿Que es un tag? 
+Un tag (etiqueta) es una marca en un commit específico, generalmente para versiones importantes (v1.0, v2.0, etc.).
+10. ¿Cómo se crea un tag?
+git tag -a nombre_del_tag -m "Mensaje opcional"
+
+------------------------------------------------------------------------------------------------------------------------------
+6)
+PS C:\Users\yefer\Desktop\tallergit\tallergit\2.branchs> git graph        
+* 65213a4 (HEAD -> experimento) se agrego oregano
+* 8e67fc8 se agrego albhaca
+| * 44d1b4b (origin/yeffer_gomez, yeffer_gomez) resuelto ejercicio 1
+| * 8b6db06 se elimino sandwich feo
+| * 9fa4b2a Agrego sandiwch feo
+| * abc602c Agrego salsas
+| * 801432b Agrego mi sandwich.txt
+
+El resultado del comando git graph muestra el historial de commits en forma de árbol
+-------------------------------------------------------------------------------------------------------------
+10)
+ PS C:\Users\yefer\Desktop\tallergit\tallergit\2.branchs> git graph
+* b64fa23 (HEAD -> anana) se agrego enana
+Actualmente, estás la rama `anana`, y el último commit en esa rama tiene el mensaje **"se agrego enana"**.  
+----------------------------------------------------------------------------------------------------------------
+¿Qué observas en git graph después de agregar anana debajo del queso?
+Se ve un nuevo commit en la branch anana con el cambio.
+
+
+¿Qué observas en git graph después de agregar cebolla debajo de la salsa?
+Un nuevo commit en main con el cambio de la cebolla.
+
+¿Qué observas en git graph después del merge de anana?
+main ahora incluye los cambios de anana.
+
+¿Qué branches están mergeadas en main?
+Se usa git branch --merged, y anana debe aparecer.
+
+
+¿Qué observas en git graph después del merge de experimento?
+main ahora contiene los cambios de experimento.
+
+¿El merge fue manual o automático?
+Si hubo conflictos, fue manual
+
+¿Qué branches están mergeadas en main ahora?
+anana y experimento.
+
+
+¿Qué branches están mergeadas en main después de eliminar anana y experimento?
+Se usa git branch --merged, solo deberían quedar las branches fusionadas.
+
+¿Qué observas en git graph después de eliminar anana y experimento?
+No aparecen las branches eliminadas, pero sus commits siguen en main.
+
