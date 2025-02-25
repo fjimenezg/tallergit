@@ -37,6 +37,70 @@
     5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
         En la salida se muestra que el archivo sandwich.txt ya se encuentra en la staging area y nos indica que también podemos removerlo de ahi con el comando restore --staged <archivo>, pero el archivo juan_sebastian_cabrera.txt sigue sin seguimiento y tiene la misma salida del punto 3.
     
+    7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+        El comando git status dice que se puede hacer un commit en el archivo nombre_apellido.txt. Y si el directorio esta limpio, significa que en la rama no se puede hacer un commit.
+
+    9. Escriba la salida del comando `git log` en el archivo `sandwich.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+        git log sandwich.txt                                                                              
+        commit 01713ad8d8cb70789780791a92bdd4cca4684698
+        Author: Juan Sebastián Cabrera Bolaños <juansabas2021@udenar.edu.co>
+        Date:   Mon Feb 24 17:30:22 2025 -0500
+
+            Agrego salsas
+
+        commit 17d477e436afe0d6c1bec2bc918f5ddf701821c4
+        Author: Juan Sebastián Cabrera Bolaños <juansabas2021@udenar.edu.co>
+        Date:   Mon Feb 24 17:26:31 2025 -0500
+
+            Agrego mi sandwich.txt
+
+        commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+        Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+        Date:   Mon Feb 17 23:17:02 2025 -0500
+
+            primer commit
+        R//El orden en que aparecen los commits son desde el último commit hecho hasta el primer commit.
+
+    10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+    10.1. `git log --oneline`
+        Este comando muestra una versión simplificada del historial de commits, donde cada commit se representa en una sola línea.
+    10.2. `git log --stat`
+        Este comando muestra el historial de commits junto con estadísticas de los archivos modificados en cada commit.
+
+    11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+        Para el desarrollo del ejemplo se usara los commits del archivo sandwich.txt. Primeramente miramos los hash de los diferentes commits
+            git log --oneline                                                                               
+            18d74f8 (HEAD -> juan_cabrera) Agrego mi_nombre.txt
+            01713ad Agrego salsas
+            17d477e Agrego mi sandwich.txt
+            fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, ma
+            in) cambio readme.md
+            5d6dc69 cambio de rama master a main en documentación
+            3f74d4d primer commit
+        Después comparamos:
+            git diff 01713ad 17d477e                                                                       
+            diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+            index 2d580d4..87d8a4d 100644
+            --- a/1.commit/sandwich.txt
+            +++ b/1.commit/sandwich.txt
+            @@ -4,6 +4,4 @@ medallón
+            pan
+            mortadela
+            atún
+            -lechuga
+            -salsa de tomate
+            -salsa rosada
+            \ No newline at end of file
+            +lechuga
+            \ No newline at end of file
+        Según la salida nos dice que lechuga, salsa de tomatey salsa de tomate rosada fueron añadidas y que medallón pan,  mortadela, atún no cambiaron
+
+   11.1. En Windows, pruebe `git difftool --tool=meld <hash>`
+        En una herramienta que nos ayuda ver las diferencias entre commits de forma visual
+    
+    11.2. En Linux, pruebe `git difftool --tool=opendiff <hash>`
+        Desafortunadamente laopendiff no es una herramienta nativa
+    
     
     
     
