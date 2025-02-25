@@ -1,6 +1,14 @@
-pan
-pollo
-lechuga
-carne
-queso
-pan
+<h1>-------Ingredientes-----------</h1>
+<lu>
+<li>pan</li>
+<li>pollo</li>
+<li>lechuga</li>
+<li>carne</li>
+<li>queso</li>
+</ul>
+<h1>---------salsas--------------</h1>
+<ul>
+<li>Salsa de tomate</li>
+<li>Salsa de piña</li>
+<li>Salsa picante</li>
+</ul>
