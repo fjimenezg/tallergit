@@ -1,0 +1,117 @@
+## Ejercicio 1
+
+### 1.1. Preguntas
+
+1. Se usa el comando git init y permite inicializar un repositorio local en un directorio, 
+creando la carpeta .git donde se almacenará el historial de versiones.
+
+2. Se usa el comando rm -rf .git y elimina la carpeta .git, dejando de rastrear el directorio con Git.
+
+3. Si se agrega un archivo a un directorio controlado por Git, no está siendo rastreado automáticamente. 
+Se debe agregarlo con git add para que Git lo registre en el próximo commit.
+
+4. Se usa el comando git add archivo y agrega el archivo al área de preparación para que sea incluido en el próximo commit.
+
+5. Se usa el comando git status para mostar los archivos modificados, nuevos o eliminados en el repositorio.
+
+6. Se usa el comando git commit -m "Mensaje del commit" y guarda los cambios en el historial del repositorio 
+con una descripción de lo que se ha modificado.
+
+7.Se poria decir que un commit es una captura del estado del proyecto en un momento específico. Permite registrar los cambios 
+realizados en los archivos para poder volver a versiones anteriores si es necesario.
+
+### 1.2. Ejercicio Práctico
+
+3. Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/victor_narvaez.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Explicacion: Este mensaje nos dice que se creo un archivo llamado 'victor_narvaez' 
+el cual no tiene seguimiento 
+
+5. 
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        victor_narvaez.txt
+
+Explicacion: Nos dice que el archivo se ha modificado y no se hecho
+commit de e l cambio
+
+7. On branch victor_narvaez
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        victor_narvaez.txt
+
+Explicacion: Esto nos dice que ya estan guardados los cambios de sandwich.txt
+pero los de victor_narvaez siguen sin hacerle commit
+
+9.   
+commit 074160267eeadaa9fd944680a565ecdce4386632 (HEAD -> victor_narvaez)
+Author: Víctor Narváez <vicboss402018@gmail.com>
+Date:   Mon Feb 24 21:31:02 2025 -0500
+
+    Agrego salsas
+commit 29a032c88f23b5d340037f52c8dc6c3a6f52f7bc
+Author: Víctor Narváez <vicboss402018@gmail.com>
+Date:   Mon Feb 24 21:27:29 2025 -0500
+
+    Agrego mi sandwich
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+Explicacion: aparecenen del commit mas reciente al mas antiguo 
+
+10.
+
+10.1 git log --oneline
+0741602 (HEAD -> victor_narvaez) Agrego salsas
+29a032c Agrego mi sandwich
+fafdc7f (upstream/practica2025, upstream/main, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+Explicacion: Sale una informacion mas resumida de los commits que se han hecho
+
+10.2. `git log --stat
+ git log --stat       
+commit 074160267eeadaa9fd944680a565ecdce4386632 (HEAD -> victor_narvaez)
+Author: Víctor Narváez <vicboss402018@gmail.com>
+Date:   Mon Feb 24 21:31:02 2025 -0500
+
+commit 074160267eeadaa9fd944680a565ecdce4386632 (HEAD -> victor_narvaez)
+Author: Víctor Narváez <vicboss402018@gmail.com>
+Date:   Mon Feb 24 21:31:02 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 5 ++++-
+
+ Explicacion: sale una informacion mas detallada mostrando las lineas
+ que se agregaron y las que se borraron
+
+ Ejercicio 1, Finalizado.
+
+ 

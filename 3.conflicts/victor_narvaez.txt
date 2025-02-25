@@ -1,0 +1,26 @@
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. Un conflicto en este contexto ocurre cuando un archivo en especifico
+tiene elementos modificados en los mismos lugares o lineas, ocurre
+ocasionalmente cuando se hace un pull. No es algo malo en verdad solo hay que manejarlo de 
+una manera prudente.
+
+2. No siempre se podra evitar pero se pueden hacer varias cosas 
+para evitarlo como hacer pulls seguidos y dividir bien el trabajo
+
+10.  git diff main suprema              
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+(END)
+
+Explicacion: Vemos que se borra la linea lomo y se agrega pollo

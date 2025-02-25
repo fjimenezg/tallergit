@@ -1,0 +1,137 @@
+2.1. Preguntas
+1. Un branch o rama es una línea de desarrollo independiente dentro de un repositorio de Git. Permite trabajar en nuevas funcionalidades o correcciones sin afectar la rama principal (main).
+
+2. Los branches permiten trabajar en nuevas características sin afectar el código estable, local
+que facilita la colaboración entre desarrolladores.
+
+3.Para crear una nueva rama, usa el comando "git branch nombre-de-la-rama"
+
+4. Para cambiar a una rama existente se usa git checkout nombre-de-la-rama
+O git switch nombre-de-la-rama
+
+5. Para eliminar una rama local se usa git branch -d nombre-de-la-rama
+Si la rama aún no se ha fusionado y quieres forzar la eliminación:
+
+6.Con git checkout -b nombre-de-la-rama
+O con git switch -c nombre-de-la-rama
+
+7. Un merge es la acción de combinar los cambios de una rama con otra. Generalmente, se usa para fusionar una rama de desarrollo con main una vez que los cambios están listos.
+
+8. Se debe estar en  la rama main od o donde queremos fusionar la otra rama 
+luego se usa git merge nombre-de-la-rama
+
+9. Un tag es una etiqueta que se usa para marcar versiones importantes en el historial de 
+commits, como lanzamientos de software.
+
+10. Se usa git tag -a v1.0 -m "Mensaje del tag"
+Para subirlo a GitHub:
+
+Ejercicio 2.
+
+6.git graph
+* e388e89 (HEAD -> experimento) Se agrega Oregano
+* a304b15 (origin/main, origin/HEAD, main) Ejercicio 1 finalizado
+* 11e446a (victor_narvaez) Se devuelve al archivo sandwich.txt a su version original
+* 13acfba Se guarda el archivo victor_narvaez.txt
+* eaa35fb Se borro el archivo sandwich2_feo.txt
+* aa8098c CAMBIO DE NOMBRE SANDWICH 2
+* e2a3839 Agrego sandwich2.txt
+* 0741602 Agrego salsas
+* 29a032c Agrego mi sandwich
+* fafdc7f (upstream/practica2025, upstream/main, origin/practica2025, practica2025) cambio readme.md
+* 5d6dc69 cambio de rama master a main en documentación
+* 3f74d4d primer commit
+(END)
+
+Explicacion: Vemos los commits realizados pero mo sale el commit de albahaca por alguna razon
+(cabe aclarar que si se hizo el add y commit)ademas vemos que no esta unida a la rama principal
+
+10. git graph
+* 24acbed (HEAD -> anana) Se agrega Anana
+| * e388e89 (experimento) Se agrega Oregano
+|/
+* a304b15 (origin/main, origin/HEAD, main) Ejercicio 1 finalizado
+* 11e446a (victor_narvaez) Se devuelve al archivo sandwich.txt a su version original
+* 13acfba Se guarda el archivo victor_narvaez.txt
+:
+
+Explicacion: Podemos ver el ultimo cambio realizado en el archivo y tambien
+el antepenultimo cambio, algo que no paso anteriormente, ademas vemos que no esta unida a la rama principal
+
+13.  git graph          
+* 5b939ca (HEAD -> main) Se agrega Cebolla
+| * 24acbed (anana) Se agrega Anana
+|/
+| * e388e89 (experimento) Se agrega Oregano
+|/
+* a304b15 (origin/main, origin/HEAD) Ejercicio 1 finalizado
+:
+
+Explicacion: Vemos que se agrega el commit en la linea principal del 
+proyecto lo que quiere decir que este cambio ya esta implementado en el proyecto
+mientras que las dos ramas creadas anteriormente no
+
+15. *   fb78b7c (HEAD -> main) Se hace merge e guarda
+|\
+| * 24acbed (anana) Se agrega Anana
+* | 5b939ca Se agrega Cebolla
+|/
+| * e388e89 (experimento) Se agrega Oregano
+
+Explicacion: se puede ver que la rama ya se unio a la rama principal
+haciendo que se guarde y acople su informacion a la rama main
+
+16. > git branch --merged
+  anana
+* main
+  practica2025
+  victor_narvaez
+
+18. 
+   aa74f29 (HEAD -> main) Merge branch 'experimento'
+|\
+| * e388e89 (experimento) Se agrega Oregano
+* |   fb78b7c Se hace merge e guarda
+|\ \
+| * | 24acbed (anana) Se agrega Anana
+
+Explicacion: Ahora la rama experimentose unio a main y se puso por 
+encima de la rama anana.
+
+19. Al poner los comandos se desplego el nano que permitia poner un mensaje de resto 
+todo lo hizo automaticamente
+
+20.   
+  anana
+  experimento
+* main
+  practica2025
+  victor_narvaez
+
+23. 
+  * main
+  practica2025
+  victor_narvaez
+
+24. it graph                
+*   aa74f29 (HEAD -> main) Merge branch 'experimento'
+|\
+| * e388e89 Se agrega Oregano
+* |   fb78b7c Se hace merge e guarda
+|\ \
+| * | 24acbed Se agrega Anana
+| |/
+* / 5b939ca Se agrega Cebolla
+|/
+:
+
+Explicacion: vemos que las ramas ya no estan mas sus cambios si estan reflejados en el main
+
+26, 27.  git tag
+pizza
+PS C:\Users\Vic Boss\Documents\PracticaGit\tallergit\2.branchs> git show pizza
+tag pizza
+Tagger: Víctor Narváez <vicboss402018@gmail.com>
+Date:   Mon Feb 24 23:37:35 2025 -0500
+
+Receta de la pizza.
