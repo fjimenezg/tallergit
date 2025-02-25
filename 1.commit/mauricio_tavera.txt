@@ -1,0 +1,286 @@
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+6. ¿Qué comando se utiliza para hacer un commit? 
+7. En sus propias palabras, ¿qué es un commit?
+
+Respuestas:
+1. Para inicializar un repositorio local, se ejecuta el comando git init en el directorio que se quiere convertir en un repositorio Git.
+2. Para dejar de controlar un directorio con Git, se ejecuta rm -rf .git/. Esto elimina la configuración de Git en ese directorio.
+3. Si se agrega un archivo a un directorio ya controlado por Git, el archivo no estará bajo control de Git automáticamente. Es necesario agregarlo explícitamente con git add nombre_del_archivo o git add . para incluir todos los cambios en el área de preparación.
+4. Para agregar un archivo al repositorio local, se usa el comando git add nombre_del_archivo.
+5. Para ver qué archivos han sido modificados, se ejecuta git status. Este comando muestra los cambios en relación con el último commit.
+6. Para hacer un commit, se usa git commit -m "Mensaje del commit".
+7. Un commit es un registro de cambios en el repositorio. Sirve para guardar el estado actual de los archivos y ayuda a mantener un historial del proyecto.
+
+
+----------------------------Salida de git status ------------------------------------------------
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/mauricio_tavera.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Que significa? 
+
+Estado de la rama:
+On branch main
+Your branch is up to date with 'origin/main'.
+-> Esto significa que esta en la rama main y que está sincronizada con la versión más reciente en el repositorio remoto (origin/main).
+
+Cambios modificados pero no preparados (staged):
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+-> El archivo 1.commit/sandwich.txt fue modificado, pero los cambios aún no han sido agregados al área de preparación (staging).
+
+Archivos no rastreados (untracked files):
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/mauricio_tavera.txt
+El archivo 1.commit/mauricio_tavera.txt es nuevo y Git aún no lo está rastreando.
+
+No hay cambios listos para commit:
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+--------------------------Salida de git status luego de hacer git add sandwich.txt------------------------------------
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/mauricio_tavera.txt
+
+que significa?
+Un archivo listo para commit: 1.commit/sandwich.txt ha sido modificado y agregado al área de preparación.
+Un archivo no rastreado: 1.commit/mauricio_tavera.txt es nuevo y aún no está bajo control de Git.
+No hay commits pendientes aún, pero hay cambios preparados para el próximo commit.
+
+
+-------------------------luego de aplicar el commit git commit -m "Agrego mi sandwich.txt"------------------------------
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/mauricio_tavera.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+que significa?
+La rama está adelantada por 1 commit, lo que significa que hiciste un commit localmente, pero no lo has subido al servidor.
+Hay un archivo no rastreado: 1.commit/mauricio_tavera.txt aún no está bajo control de Git.
+No hay cambios en el área de preparación, solo un archivo nuevo sin seguimiento.
+
+--------------------------------------------------------------------------------------------------------------------
+9. 
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log
+commit 504601c12d1e03fd6c4b8f361fffff295d282e53 (HEAD -> main)
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:16:57 2025 -0500
+
+    Agrego salsas
+
+commit be7152d159f29d6c93a57dcfdedcd7e6c86aefea
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:11:55 2025 -0500
+
+    Agrego mi sandwich.txt
+
+aparecen en orden, ultimo en agregarse ultimo en aparecer en la pila
+
+-----------------------------------------------------------------------------------------------
+10. 
+El comando git log --oneline muestra el historial de commits de manera compacta,
+donde cada commit aparece en una sola línea con su identificador corto y el mensaje asociado.
+Esta vista es útil para revisar rápidamente el historial sin detalles adicionales. 
+Por otro lado, git log --stat ofrece un resumen más detallado, incluyendo qué archivos fueron modificados en cada commit y cuántas líneas fueron agregadas o eliminadas. 
+Esta opción es útil cuando se quiere entender el impacto de cada cambio sin necesidad de ver el contenido exacto de los archivos modificados.
+
+-------------------------------------------------------------------------------------------------
+11. 
+git diff <hash1> <hash2> muestra los cambios en formato de texto.
+git difftool --tool=meld <hash1> <hash2> (en Windows) permiten ver los cambios de manera visual y más fácil de analizar.
+
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao (main)
+$ git diff 504601c be7152d
+diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+index 6a85d70..61db9d8 100644
+--- a/1.commit/sandwich.txt
++++ b/1.commit/sandwich.txt
+@@ -3,5 +3,4 @@ queso
+ medallón
+ pan
+ salsa
+-pollo
+-salsa mayonesa
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+Respuesta:
+Indica que el archivo 1.commit/sandwich.txt fue modificado.
+index 6a85d70..61db9d8 muestra los identificadores internos de las versiones del archivo en ambos commits.
+
+--- a/... representa la versión anterior del archivo (commit 504601c).
++++ b/... representa la versión nueva del archivo (commit be7152d).
+
+@@ -3,5 +3,4 @@ queso
+@@ -3,5 +3,4 @@ indica que la diferencia ocurre a partir de la línea 3.
+La versión anterior (-3,5) tenía 5 líneas en esta sección, mientras que la nueva (+3,4) tiene solo 4.
+
+-salsa mayonesa
+El commit 504601c tenía la línea "salsa mayonesa", pero en be7152d fue eliminada. Todos los demás ingredientes del archivo sandwich.txt permanecieron igual.
+
+
+..............................
+al usar difftool se abre una interfaz grafica en la cual se puede observar de manera organizada las lineas que se diferencian con el otro comit
+git difftool 504601c be7152d
+
+-----------------------------------------------------------------------------------------------------------
+14.
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log --oneline
+e00e9f8 (HEAD -> main) Agrego mi sandwich 2 feo.txt
+6c008c9 Agrego mi sandwich 2.txt
+504601c Agrego salsas
+be7152d Agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+se observa como muestra cada uno de los comits realizados
+----------------------------------------------------------------------------------------------------------------
+13,14,15
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log --oneline
+cef6d88 (HEAD -> main) Elimino mi sandwich 2 feo.txt
+e00e9f8 Agrego mi sandwich 2 feo.txt
+6c008c9 Agrego mi sandwich 2.txt
+504601c Agrego salsas
+be7152d Agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+taver@Mao MINGW64 ~/Documents/Universidad/Semestre A 2025 IX/modelos de computacion/tallergit1_bifurcado/tallergit_mao/1.commit (main)
+$ git log --stat
+commit cef6d8817a28a6b55db14fd7c0ed19d5bb1e1125 (HEAD -> main)
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:43:25 2025 -0500
+
+    Elimino mi sandwich 2 feo.txt
+
+ 1.commit/mauricio_tavera.txt | 182 +++++++++++++++++++++++++++++++++++++++++++
+ 1.commit/nombre_apellido.txt |  29 +++++++
+ 1.commit/sandwich2_feo.txt   |   4 -
+ 3 files changed, 211 insertions(+), 4 deletions(-)
+
+commit e00e9f8f486e99b64416059c838d0154f30e0bd9
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:41:05 2025 -0500
+
+    Agrego mi sandwich 2 feo.txt
+
+ 1.commit/{sandwich2.txt => sandwich2_feo.txt} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6c008c9946a32506f8a139ff9a65553a4c282bd6
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:39:42 2025 -0500
+
+    Agrego mi sandwich 2.txt
+
+ 1.commit/sandwich2.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 504601c12d1e03fd6c4b8f361fffff295d282e53
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:16:57 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit be7152d159f29d6c93a57dcfdedcd7e6c86aefea
+Author: mao <mauriciotavera1998@gmail.com>
+Date:   Mon Feb 24 23:11:55 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/sandwich.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+ 2.branchs/README.md   | 16 ++++++++--------
+ 3.conflicts/README.md | 10 +++++-----
+ README.md             |  7 +++++--
+ 3 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+ .gitignore               |  2 ++
+ 1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt    |  4 +++
+ 2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2.branchs/pizza.txt      |  3 ++
+ 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+ 3.conflicts/milanesa.txt |  2 ++
+ README.md                | 54 +++++++++++++++++++++++++++++++++
+ 8 files changed, 246 insertions(+)
+
+----------------------------------------------------------------------------------------------------------------
