@@ -7,4 +7,13 @@
 7: La fucion de dos ramas y todos sus commits
 8: (1: se verifica el status genereal  2: de ser necesario hacer los commits necesarios    3: moverse a la rama principa   4: ejecutar un git merge <name-branch>)
 9: es una etiqueta o referencia estatica
-10: git tag <name-tag>
+10: git tag <name-tag
+
+* eca5b69 (HEAD -> main) feat: add 1 cebolla in pizza.txt
+* d75e4f0 feat: add cebolla in pizza.txt
+| * c9cd209 (anana1) feat:add file carmen_chris answers
+| * 3255521 add anana debajo de queso
+>
+// se agrego cebolla y esto fue un commit que se mira en que rama se hizo tal cambi
+// se agrego cebolla y esto fue un commit que se
+mira en que rama se hizo tal cambioo
