@@ -1,0 +1,214 @@
+3.1. Preguntas y Respuestas
+
+1. ¿Qué es un conflicto? ¿Cuándo ocurre? ¿Es bueno o malo?
+
+Un conflicto en Git ocurre cuando dos ramas han realizado modificaciones en la misma línea de un archivo y Git no puede determinar cuál versión es la correcta. 
+Se produce generalmente cuando se intenta fusionar ramas con cambios contradictorios. No es necesariamente malo, sino una parte normal del desarrollo colaborativo. Sin embargo, requiere intervención manual para ser resuelto.
+
+2.¿Se puede evitar un conflicto? ¿Cómo?
+
+Sí, los conflictos pueden minimizarse mediante buenas prácticas como:
+
+Mantener las ramas actualizadas con git pull antes de realizar cambios.
+
+Dividir el trabajo de manera que varios desarrolladores no editen la misma línea de un archivo.
+
+Realizar commits pequeños y frecuentes.
+
+Usar git rebase en lugar de git merge en ciertas situaciones para aplicar cambios de manera más limpia.
+
+
+
+
+
+
+### 3.2. Ejercicio Práctico
+
+
+
+
+
+
+
+1.Crear el archivo nombre_apellido.txt dentro de la carpeta 3.conflicts:
+
+
+2.Crear una nueva rama suprema a partir de main:
+
+		git checkout -b suprema
+
+
+3. Moverse a la branch `suprema`. (Puede usar el comando `git checkout`).
+
+		git checkout suprema
+
+
+
+4. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `pollo`.
+
+
+5. "Commitear" los cambios. (Puede usar el comando `git commit -am "Cambio de lomo a pollo"`).
+
+		git commit -am "Cambio de lomo a pollo"
+
+
+	
+		[suprema dd9cf02 ] Cambio de lomo a pollo
+		1 file changed, 1 insertion(+), 1 deletion(-)
+
+		git status
+
+		git status
+On branch suprema
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Ever_Quenguan.txt
+nothing added to commit but untracked files present (use "git add" to track)
+Explicación: Aquí se muestra que estoy en la rama suprema y tengo archivos no rastreados, como Ever_Quenguan.txt, que no han sido añadidos al control de versiones.
+
+6. Moverse a la branch `main`. (Puede usar el comando `git checkout`).
+
+		git checkout main
+
+7. Crear una nueva branch `bife` a partir de la branch `main`. (Puede usar el comando `git checkout -b bife`).
+
+			git checkout -b bife
+
+
+8. Moverse a la branch `bife`. (Puede usar el comando `git checkout`).
+
+		git checkout bife
+
+9. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `bife`. 
+
+		git commit -am "Cambio de pollo a bife"
+		[bife c6d420c] Cambio de pollo a bife
+		1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+		
+		git status
+			On branch bife
+			Untracked files:
+			  (use "git add <file>..." to include in what will be committed)
+       				 Ever_Quenguan.txt
+			nothing added to commit but untracked files present (use "git add" to track)
+
+Explicación: Aquí se muestra que estoy en la rama bife y tengo archivos no rastreados, como Ever_Quenguan.txt, que no han sido añadidos al control de versiones.
+
+10. Haga un `git diff main suprema` y un `git diff main bife`. ¿Qué observa? 
+		git diff main suprema
+		git diff main bife
+
+		Observación: Se verá que ambas ramas modifican la misma línea de forma distinta.
+
+git diff main bife
+index 1c57c4d..1712737 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-pollo
+\ No newline at end of file
++bife
+\ No newline at end of file
+
+Explicación: Se muestra la diferencia entre las ramas main y bife en el archivo milanesa.txt. 
+El cambio realizado en la rama bife fue reemplazar "pollo" por "bife".
+
+
+
+
+
+
+11. Moverse a la branch `main`. Corra un `git status`, ¿qué observa?
+
+		git checkout main
+		git status
+
+Observación: main está limpia porque aún no hemos hecho merges.
+
+12. Ejecute `git merge bife`. Funcionó?
+
+	git merge bife
+
+Observación: Se produce un conflicto en 3.conflicts/milanesa.txt debido a que bife y suprema modificaron la misma línea de forma diferente.
+
+
+
+git merge bife
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+Explicación: Se intentó hacer un merge entre la rama main y la rama bife, 
+		pero ocurrió un conflicto en milanesa.txt debido a que ambas ramas tienen cambios diferentes en el mismo contenido. 
+		Git no pudo resolverlo automáticamente.
+
+13. Ejecute `git merge suprema`. Funcionó?
+
+		git merge suprema
+
+		Observación: El conflicto sigue presente en milanesa.txt.
+
+git merge suprema
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+fatal: Exiting because of an unresolved conflict.
+
+Explicación:  Git detectó que hay archivos sin resolver (por el conflicto anterior con milanesa.txt). Esto bloqueó el merge.
+
+
+
+
+14. Ejecute `git status`. Que observa?
+
+		git status
+
+		Observación: Git indicará que hay un conflicto en milanesa.txt.
+
+15. Vea el contenido del archivo `3.conflicts/milanesa.txt`. ¿Qué observa?
+
+		cat 3.conflicts/milanesa.txt
+
+	Observación: Se verán marcas de conflicto <<<<<<<, ======= y >>>>>>>.
+
+16. Aborte el merge. (Puede usar el comando `git merge --abort`).
+
+
+
+		git merge --abort
+
+17. Vuelva a ejecutar `git merge suprema`.
+
+		git merge suprema
+
+Resolver el conflicto manualmente:
+
+
+		notepad 3.conflicts/milanesa.txt
+
+		Ubicar las marcas de conflicto:
+
+			<<<<<<< HEAD
+				bife
+				=======
+				pollo
+			>>>>>>> suprema
+
+		Debo decidir qué versión dejar.
+
+		En este caso, se opta por una combinación de ambas versiones:
+
+		milanesa de pollo y bife
+
+		Eliminar las marcas de conflicto y guardar el archivo.
+
+
+18. Resuelva el conflicto manualmente.
+
+		git add 3.conflicts/milanesa.txt
+
+		Finalizar el merge:
+
+		git commit -m "Resuelto conflicto en milanesa.txt con combinación de versiones"
+

@@ -1,0 +1,238 @@
+## Ejercicio 2
+
+### 2.1. Preguntas
+
+1. ¿Qué es un branch?
+Un branch (rama) en Git es una línea de desarrollo independiente dentro del repositorio. Permite trabajar en cambios sin afectar la versión principal del proyecto.
+
+
+2.¿Por qué pueden ser útiles los branches?
+Los branches permiten desarrollar nuevas funciones, corregir errores o experimentar sin alterar la rama principal. También facilitan el trabajo en equipo.
+
+
+3.¿Cómo se crea una branch?
+Se puede crear con el comando:
+
+git branch nombre_de_la_rama
+
+
+4.¿Cómo se cambia a una branch?Se usa el comando:
+
+git checkout nombre_de_la_rama
+
+o también
+
+git switch nombre_de_la_rama
+
+
+5.¿Cómo se elimina una branch?Se usa el comando:
+
+git branch -d nombre_de_la_rama
+
+Si la rama no ha sido mergeada, se puede forzar con -D en lugar de -d.
+
+
+
+6.¿Cómo se crea una branch y se cambia a ella en un solo paso?Se usa:
+
+git checkout -b nombre_de_la_rama
+
+o también
+
+git switch -c nombre_de_la_rama
+
+
+
+
+7¿Qué es un merge?
+
+Es la acción de unir los cambios de una rama a otra, generalmente a la rama principal (main).
+
+
+
+8¿Cómo se realiza un merge?
+Primero, nos aseguramos de estar en la rama destino (main por ejemplo):
+
+git checkout main
+git merge nombre_de_la_rama
+
+
+9¿Qué es un tag?
+Un tag es una etiqueta en un commit específico, útil para marcar versiones importantes del proyecto.
+
+10¿Cómo se crea un tag?Se usa el comando:
+
+git tag -a nombre_del_tag -m "Mensaje opcional"
+
+
+
+
+
+
+## Ejercicio Práctico
+
+### 1. Crear una branch `experimento`.
+Ejecuté el comando:
+```bash
+git branch experimento
+```
+Esto creó una nueva rama llamada `experimento` sin cambiar de rama aún.
+
+### 2. Moverse a la branch `experimento`.
+Usé el comando:
+```bash
+git checkout experimento
+```
+Ahora estoy en la rama `experimento`.
+
+### 3. Verificar que se encuentra en la branch `experimento`.
+Ejecuté:
+```bash
+git branch
+```
+Aparece la lista de branches, y la rama `experimento` está resaltada con un `*`, indicando que estoy en ella.
+
+### 4. Agregar `albahaca` arriba del queso en `pizza.txt` y commitear.
+Edité el archivo `2.branchs/pizza.txt`, agregué `albahaca` arriba del queso y luego ejecuté:
+```bash
+git add 2.branchs/pizza.txt
+git commit -m "Agrego albahaca arriba del queso"
+```
+
+### 5. Agregar `oregano` arriba de la albahaca en `pizza.txt` y commitear.
+Edité `pizza.txt`, agregué `oregano` arriba de la albahaca y ejecuté:
+```bash
+git add 2.branchs/pizza.txt
+git commit -m "Agrego oregano arriba de la albahaca"
+```
+
+### 6. Correr `git graph` y observar el resultado.
+Ejecuté:
+```bash
+git graph
+```
+Observo que la rama `experimento` tiene dos nuevos commits en su historial, los cuales no están en `main`.
+
+### 7. Volver a la branch `main`.
+Usé el comando:
+```bash
+git checkout main
+```
+Ahora estoy en la rama `main`.
+
+### 8. Crear una branch `anana`.
+Ejecuté:
+```bash
+git checkout -b anana
+```
+Esto creó la rama `anana` y automáticamente me cambió a ella.
+
+### 9. Agregar `anana` debajo del queso en `pizza.txt` y commitear.
+Edité `pizza.txt`, agregué `anana` debajo del queso y ejecuté:
+```bash
+git add 2.branchs/pizza.txt
+git commit -m "Agrego anana debajo del queso"
+```
+
+### 10. Correr `git graph` y observar el resultado.
+Ejecuté `git graph` y veo que la rama `anana` tiene un commit nuevo que no está en `main`.
+
+### 11. Volver a la branch `main`.
+Usé:
+```bash
+git checkout main
+```
+Ahora estoy en la rama `main`.
+
+### 12. Agregar `cebolla` debajo de la salsa en `pizza.txt` y commitear.
+Edité `pizza.txt`, agregué `cebolla` debajo de la salsa y ejecuté:
+```bash
+git add 2.branchs/pizza.txt
+git commit -m "Agrego cebolla debajo de la salsa"
+```
+
+### 13. Correr `git graph` y observar el resultado.
+Ejecuté `git graph` y veo que `main`, `anana` y `experimento` tienen cambios distintos.
+
+### 14. Hacer un merge de `anana` en `main`.
+Ejecuté:
+```bash
+git merge anana
+```
+La rama `anana` se fusionó con `main` y sus cambios ahora están en `main`.
+
+### 15. Correr `git graph` y observar el resultado.
+Ejecuté `git graph` y veo que ahora `main` tiene los cambios de `anana`, con un commit de merge.
+
+### 16. ¿Qué branches están mergeadas a `main`?
+Ejecuté:
+```bash
+git branch --merged
+```
+Y vi que `anana` ya está fusionada en `main`.
+
+### 17. Hacer un merge de `experimento` en `main`.
+Ejecuté:
+```bash
+git merge experimento
+```
+La rama `experimento` se fusionó con `main` y sus cambios ahora están en `main`.
+
+### 18. Correr `git graph` y observar el resultado.
+Ejecuté `git graph` y vi que `main` ahora tiene todos los cambios de `experimento` y `anana`, con dos commits de merge.
+
+### 19. ¿Tuvo que hacer un merge manual o Git lo hizo automáticamente? ¿Por qué?
+Git hizo el merge automáticamente porque no hubo conflictos en las líneas editadas en `pizza.txt`.
+
+### 20. ¿Qué branches están mergeadas a `main`?
+Ejecuté:
+```bash
+git branch --merged
+```
+Y vi que tanto `anana` como `experimento` están fusionadas en `main`.
+
+### 21. Eliminar la branch `anana`.
+Ejecuté:
+```bash
+git branch -d anana
+```
+Esto eliminó la rama `anana` porque ya está mergeada.
+
+### 22. Eliminar la branch `experimento`.
+Ejecuté:
+```bash
+git branch -d experimento
+```
+Esto eliminó la rama `experimento` porque ya está mergeada.
+
+### 23. ¿Qué branches están mergeadas a `main`?
+Ejecuté:
+```bash
+git branch --merged
+```
+Solo queda `main`.
+
+### 24. Correr `git graph` y observar el resultado.
+Ejecuté `git graph` y veo que las ramas `anana` y `experimento` ya no están, pero sus cambios siguen en `main`.
+
+### 25. Crear un tag `pizza` en el último commit.
+Ejecuté:
+```bash
+git tag -a pizza -m "Receta de la pizza."
+```
+Esto creó un tag anotado llamado `pizza`.
+
+### 26. Ver los tags creados.
+Ejecuté:
+```bash
+git tag
+```
+Veo el tag `pizza` en la lista.
+
+### 27. Ver el tag `pizza`.
+Ejecuté:
+```bash
+git show pizza
+```
+Y veo la información del tag, incluyendo el commit asociado y el mensaje.
+

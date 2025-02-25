@@ -1,0 +1,405 @@
+## Ejercicio 1
+
+### 1.1. Preguntas
+
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+6. ¿Qué comando se utiliza para hacer un commit? 
+7. En sus propias palabras, ¿qué es un commit?
+
+	Rta/ 
+	1. git init
+	2. git rm -r --cached nombre_del_directorio
+	3. git add nombre_archivo
+	4. git add nombre_archivo
+	5. git status
+	6. git commit -m "Mensaje descriptivo del cambio"
+	7. Un commit es como una vista previa del proyecto en un momento específico es decir guarda los cambios hechos hasta ese punto, 
+	   lo que permite ver el historial, saber quién hizo qué y volver atrás si es necesario.
+
+### 1.2. Ejercicio Práctico
+
+1. Crear un archivo `nombre_apellido.txt` si no estaba creado previamente.
+2. Agregar a `sandwich.txt` condimentos e ingredientes que le gusten, simulando que es un sandwich que se va a comer.
+3. Antes de realizar cualquier acción con git, guarde el estado actual del directorio en el archivo `nombre_apellido.
+		
+  - EL primer ingrediente que agregue fue pan.
+		git status
+			Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+
+		Explicacion:  - se esta trabajando en la rama MAIN tiene un commit que hice un cambio local y lo guardé con git commit (ever_quenguan,txt), 
+	      pero todavía no lo subí con git push. Hay archivos modificados que Git detecta, pero que aún no están listos para ser guardados en el próximo commit.
+	      - Para agregar esos cambios al próximo commit, debo usar git add <nombre del archivo>
+	      - Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <nombre del archivo>.
+	      - "modified: 1.commit/sandwich.txt" Este es el archivo que tiene cambios sin agregar al commit.
+	      - "no changes added to commit (use 'git add' and/or 'git commit -a')"→ No he agregado ningún cambio al próximo commit. S
+	         Si quiero incluirlos, debo usar git add
+
+       - despues de darle git add -a y commit -m 
+									
+		On branch main
+		Your branch is ahead of 'origin/main' by 2 commits.
+ 		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+		Explicacion: Estoy en la rama main y tengo dos commits nuevos que aún no he subido al repositorio remoto, por lo que mi rama local está adelantada en 
+		comparación con origin/main. Git me sugiere usar git push para subir esos commits. Además, no hay cambios pendientes en los archivos, es decir, 
+		el directorio de trabajo está limpio y todo lo que hice ya está guardado en commits.
+
+
+
+
+	- EL segundo ingrediente que agregue fue jamon y queso:
+		git status
+			Changes not staged for commit:
+  		(use "git add <file>..." to update what will be committed)
+		  (use "git restore <file>..." to discard changes in working directory)
+        		modified:   1.commit/sandwich.txt
+		
+
+
+		- Hay cambios en el archivo 1.commit/sandwich.txt, pero aún no están preparados para ser guardados en el próximo commit.
+		- Si quiero incluir estos cambios en el próximo commit, debo usar git add <archivo>.
+		- Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <archivo>.
+
+
+
+	- despues de darle git add -a y commit -m
+		
+		On branch main
+		Your branch is ahead of 'origin/main' by 3 commits.
+  		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+	Explicacion: Estoy en la rama main y tengo tres commits nuevos que aún no he subido al repositorio remoto. Git me indica que use git push para publicarlos.
+	 No hay cambios pendientes en los archivos, todo está guardado y el directorio de trabajo está limpio.
+
+
+
+	- EL tercer ingrediente que agregue fue salsas y ensalada:
+		git status
+			Changes not staged for commit:
+  		(use "git add <file>..." to update what will be committed)
+		  (use "git restore <file>..." to discard changes in working directory)
+        		modified:   1.commit/sandwich.txt
+		
+
+
+		- Hay cambios en el archivo 1.commit/sandwich.txt, pero aún no están preparados para ser guardados en el próximo commit.
+		- Si quiero incluir estos cambios en el próximo commit, debo usar git add <archivo>.
+		- Si quiero descartar los cambios y volver al estado anterior del archivo, puedo usar git restore <archivo>.
+
+
+
+	- despues de darle git add -a y commit -m
+		
+		On branch main
+		Your branch is ahead of 'origin/main' by 4 commits.
+  		 (use "git push" to publish your local commits)
+
+		nothing to commit, working tree clean
+
+
+	Explicacion: Estoy en la rama main y tengo cuatro commits nuevos que aún no he subido al repositorio remoto. Git me indica que use git push para publicarlos.
+	 No hay cambios pendientes en los archivos, todo está guardado y el directorio de trabajo está limpio.
+
+
+
+
+4. Agregar el archivo `sandwich.txt` al repositorio local. Para esto, se debe ejecutar el comando `git add sandwich.txt`.
+5. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git add sandwich.txt`.
+
+
+		Your branch is ahead of 'origin/main' by 5 commits.
+ 		 (use "git push" to publish your local commits)
+
+		Untracked files:
+  		(use "git add <file>..." to include in what will be committed)
+       		 ever_quenguan.txt
+       		 sandwich.txt
+
+		Estoy trabajando en la rama main y me dice que mi rama local tiene 5 commits más que la versión remota (origin/main),
+		 lo que significa que he hecho cambios y los guardé, pero aún no los subí al repositorio remoto. 
+		También me muestra que hay dos archivos nuevos (ever_quenguan.txt y sandwich.txt) que Git no está siguiendo, o sea, 
+		no sabe que existen en el proyecto. Para incluir estos archivos en el próximo commit, tengo que usar git add <archivo>.
+
+6. Realizar un commit con el mensaje "Agrego mi sandwich.txt". Para esto, se debe ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+7. Explique que cambio en la salida del comando `git status` luego de ejecutar el comando `git commit -m "Agrego mi sandwich.txt"`.
+
+		Estoy en la rama main, y mi versión local tiene 6 commits más que la versión en el repositorio remoto (origin/main). 
+	Eso significa que he hecho cambios y los he guardado en mi historial local, pero aún no los he subido al servidor. 
+	Además, mi área de trabajo está limpia, lo que significa que no hay archivos modificados pendientes por agregar o hacer commit. 
+	Si quiero que estos cambios también estén en el repositorio remoto, necesito hacer un git push.
+
+
+8. Agregar salsas de su preferencia a `sandwich.txt` y realizar un commit con el mensaje "Agrego salsas".
+9. Escriba la salida del comando `git log` en el archivo `nombre_apellido.txt`. Y explique que significa. ¿En qué orden aparecen los commits?
+
+		commit 685da9950d9c6148243efc5a718bcc8b1ab10934 (HEAD -> main)
+		Author: Ever Quenguan <hevershtp@gmail.com>
+		Date:   Mon Feb 24 12:35:55 2025 -0500
+
+    		Agrego salsas
+
+		commit 1ac6becbe4612e9ff0bd321ee43ceaaaf4e6d427
+		Author: Ever Quenguan <hevershtp@gmail.com>
+		Date:   Mon Feb 24 12:28:39 2025 -0500
+
+  		  Agrego mi sandwich.txt
+
+
+	Explicación: git log muestra el historial de commits en orden cronológico inverso (el más reciente aparece primero).
+
+10. Pruebe las variaciones del comando `git log` y explique que observa en cada una de ellas.
+    10.1. `git log --oneline`
+
+			685da99 (HEAD -> main) Agrego salsas
+			1ac6bec Agrego mi sandwich.txt
+			acceecd agrego mi sandwich.txt
+			b7749c7 agregue salsa y ensaladas  a mi sandwich.txt
+			745df98 agregue queso y jamon a mi sandwich.txt
+			c18888b agregue pan a mi archivo sandwich.txt
+			d05b905 se creo el archivo Ever_quenguan.txt
+			fafdc7f (origin/main, origin/HEAD) cambio readme.md
+			5d6dc69 cambio de rama master a main en documentación
+			3f74d4d primer commit
+
+
+					Este es el historial de los commits que he hecho en mi proyecto. Cada uno de ellos es un cambio que he realizado en el código o en los archivos:
+
+					Agregué salsas: Este es el commit más reciente. Simplemente actualicé el archivo para agregar las salsas a mi proyecto.
+
+					Agregué mi sandwich.txt: En este commit, añadi el archivo sandwich.txt y lo subí al proyecto.
+
+
+					Agregué salsa y ensaladas a mi sandwich.txt: Aquí actualicé el archivo sandwich.txt para incluir más ingredientes, como las salsas y las ensaladas.
+
+					Agregué queso y jamón a mi sandwich.txt: En este commit, seguí añadiendo más ingredientes a mi archivo, en este caso, queso y jamón.
+
+					Agregué pan a mi sandwich.txt: Otro ajuste en el archivo donde agregué pan como uno de los ingredientes.
+	
+					Se creó el archivo Ever_quenguan.txt: Este commit fue para crear un nuevo archivo llamado Ever_quenguan.txt, que no tiene relación con el archivo de sándwich, que es el archivo donde agrego las explicaciones del taller
+
+					Cambio de rama master a main en la documentación: Como muchos proyectos hoy en día, cambié el nombre de la rama principal de master a main y actualicé la documentación para reflejar ese cambio.
+
+					
+
+    10.2. `git log --stat`
+
+				commit 685da9950d9c6148243efc5a718bcc8b1ab10934 (HEAD -> main)
+				Author: Ever Quenguan <hevershtp@gmail.com>
+				Date:   Mon Feb 24 12:35:55 2025 -0500
+
+ 					   Agrego salsas
+
+				 1.commit/sandwich.txt | 5 ++++-
+				 1 file changed, 4 insertions(+), 1 deletion(-)
+
+				commit 1ac6becbe4612e9ff0bd321ee43ceaaaf4e6d427
+				Author: Ever Quenguan <hevershtp@gmail.com>
+				Date:   Mon Feb 24 12:28:39 2025 -0500
+
+  				  Agrego mi sandwich.txt
+
+		Al usar git log --stat, me muestra el historial de commits junto con un resumen de los cambios:
+
+		'Agrego salsas': En este commit actualicé el archivo sandwich.txt, agregando información sobre las salsas. Se modificaron 5 líneas, de las cuales 4 son nuevas y 1 fue eliminada.
+
+		'Agrego mi sandwich.txt': Este es el commit donde creé y subí el archivo sandwich.txt por primera vez al proyecto.
+		
+		Lo que puedo sacar de todo esto es que cada vez que modifico un archivo, Git me muestra un resumen con las líneas que se agregaron o eliminaron,
+		 lo que me ayuda a entender rápidamente qué cambios se hicieron."
+
+11. Inspeccione diferencias entre los commits, use el comando git diff <hash> <hash> y explique que significa cada uno de los resultados.
+ 
+
+			1.Comparar el último commit con el anterior (agregar salsas vs agregar sandwich.txt):
+
+				git diff 1ac6bec 685da99
+
+
+
+					diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+					index c6ed807..cb0eb22 100644
+					--- a/1.commit/sandwich.txt
+					+++ b/1.commit/sandwich.txt
+					@@ -1,3 +1,6 @@
+					 agrego pan
+					 agrego queso y jamon
+					-agrego salsa y ensalada
+					\ No newline at end of file
+					+agrego salsa y ensalada
+					+agrego salsa de tomate
+					+agrego salsa rosada
+					+agrego salsa mayonesa
+					\ No newline at end of file
+					:
+	
+
+				Este es el git diff que muestra los cambios que hice en el archivo sandwich.txt en el último commit. Básicamente, aquí lo que pasó fue lo siguiente:
+
+				Antes del cambio:
+
+				Ya tenía en el archivo las líneas donde agregué pan, queso y jamón.
+				También tenía una línea donde decía que agregaba salsa y ensalada.
+				Después del cambio:
+
+				Repetí la línea de 'agrego salsa y ensalada' (posiblemente para reorganizarlo).
+				Luego agregué tres nuevas líneas con diferentes tipos de salsas:
+				agrego salsa de tomate
+				agrego salsa rosada
+				agrego salsa mayonesa
+
+				También hay un detalle al final: \ No newline at end of file, lo que significa que el archivo no tiene una línea en blanco al final.
+
+
+
+12. Crear un nuevo archivo dentro de la carpeta `1.commit`, llamado `sandwich2.txt`, y agregarle los ingredientes de su sandwich.
+13. Agregar el archivo `sandwich2.txt` al repositorio local.
+14. Renombrar el archivo `sandwich2.txt` a `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git mv sandwich2.txt sandwich2_feo.txt`. 
+     Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`
+
+
+
+		git mv sandwich2.txt sandwich2_feo.txt
+
+		git mv sandwich2.txt sandwich2_feo.txt
+	
+		git status
+
+			On branch main
+			Your branch is ahead of 'origin/main' by 8 commits.
+ 			 (use "git push" to publish your local commits)
+
+			Changes to be committed:
+			  (use "git restore --staged <file>..." to unstage)
+    			    renamed:    sandwich2.txt -> sandwich2_feo.txt
+
+
+
+			git mv mueve y renombra el archivo en una sola acción.
+			git status mostrará que sandwich2.txt ha sido renombrado.
+
+
+
+
+		git log --oneline
+
+
+			d04866a (HEAD -> main) Renombro sandwich2.txt a sandwich2_feo.txt
+			e584d94 Agrego sandwich2.txt con ingredientes
+			685da99 Agrego salsas
+			1ac6bec Agrego mi sandwich.txt
+			acceecd agrego mi sandwich.txt
+			b7749c7 agregue salsa y ensaladas  a mi sandwich.txt
+			745df98 agregue queso y jamon a mi sandwich.txt
+			c18888b agregue pan a mi archivo sandwich.txt
+			d05b905 se creo el archivo Ever_quenguan.txt
+
+
+			Ahora git log --oneline muestra el nuevo commit con este cambio.
+
+
+15. Borre el archivo `sandwich2_feo.txt`. Para esto, se debe ejecutar el comando `git rm sandwich2_feo.txt`. 
+Explique que cambio en la salida del comando `git status` luego de hacer un commit con esos cambios y de `git log --oneline`.
+
+
+		git rm sandwich2_feo.txt
+
+		git status
+
+
+				On branch main
+				Your branch is ahead of 'origin/main' by 9 commits.
+  				(use "git push" to publish your local commits)
+
+				Changes to be committed:
+				  (use "git restore --staged <file>..." to unstage)
+    				    deleted:    sandwich2_feo.txt
+
+
+		Estoy trabajando en la rama main y mi rama está 9 commits por delante de la rama origin/main (la remota), lo que significa que tengo cambios locales que aún no he subido al repositorio remoto. 
+		Además, uno de los cambios que está listo para ser confirmado es la eliminación del archivo sandwich2_feo.txt. Si me arrepiento de esta eliminación, 
+		puedo usar el comando git restore --staged para deshacerlo antes de confirmar el cambio.
+
+
+	git commit -m "Borro sandwich2_feo.txt" (SOLO MOSTRARE LOS ULTIMOS 3 commits)
+
+
+		8990fb1 (HEAD -> main) Borro sandwich2_feo.txt
+		d04866a Renombro sandwich2.txt a sandwich2_feo.txt
+		e584d94 Agrego sandwich2.txt con ingredientes
+
+
+16. Inspeccione la bitácora usando `git log --stat` y explique lo que ve. (SOLO VOY A MOSTRAR LOS 3 ultimos  CAMBIOS)
+
+
+git log --stat
+commit 8990fb170d4bbdc524098243f04f789edd4479f5 (HEAD -> main)
+Author: Ever Quenguan <hevershtp@gmail.com>
+Date:   Mon Feb 24 17:35:50 2025 -0500
+
+    Borro sandwich2_feo.txt
+
+ 1.commit/sandwich2_feo.txt | Bin 94 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d04866a64c8ceed3372c4a36f419799430d38947
+Author: Ever Quenguan <hevershtp@gmail.com>
+Date:   Mon Feb 24 17:28:17 2025 -0500
+
+    Renombro sandwich2.txt a sandwich2_feo.txt
+
+ 1.commit/{sandwich2.txt => sandwich2_feo.txt} | Bin
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit e584d942ce6d7403e77e6bf54dcd260775530d40
+Author: Ever Quenguan <hevershtp@gmail.com>
+Date:   Mon Feb 24 17:22:52 2025 -0500
+
+    Agrego sandwich2.txt con ingredientes
+
+ 1.commit/sandwich2.txt | Bin 0 -> 94 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 685da9950d9c6148243efc5a718bcc8b1ab10934
+Author: Ever Quenguan <hevershtp@gmail.com>
+Date:   Mon Feb 24 12:35:55 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+
+
+Muestra el historial de commits con los archivos modificados en cada uno y cuántas líneas cambiaron.
+
+
+
+
+restauro sandwich
+
+
+git checkout 3f74d4d -- sandwich.txt 
+
+
+git /sandwich.txt
+git commit -m "Restauro sandwich.txt a su versión original"
+git push origin main
+
+
+
+
+
