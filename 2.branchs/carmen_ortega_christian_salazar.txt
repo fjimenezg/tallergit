@@ -20,7 +20,6 @@ mira en que rama se hizo tal cambioo
 10: git tag <name-tag>
 
 
-<<<<<<< HEAD
 
 * 3255521 (HEAD -> anana1) add anana debajo de queso
 * ff9cea1 (main) feat=aguegue cebolla
@@ -40,8 +39,6 @@ mira en que rama se hizo tal cambioo
 
 
 
-=======
 ---------answers----------
 6- el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
->>>>>>> experimento
 
