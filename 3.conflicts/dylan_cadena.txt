@@ -1,0 +1,110 @@
+## Ejercicio 3
+
+### 3.1. Respuestas
+
+1. Un conflicto en Git ocurre cuando dos ramas han modificado la misma parte de un archivo de forma diferente, y Git no puede decidir automáticamente cuál versión mantener.
+    No es ni bueno ni malo, es simplemente una situación que requiere intervención manual.
+2. Para minimizar conflictos en Git, sse puede sincronizar el código con `git pull` antes de hacer cambios, dividir el trabajo en archivos distintos, realizar commits pequeños y usar `git rebase` en lugar de `merge`.
+
+
+### 3.2. Ejercicio Práctico
+
+3. $ git branch 
+  dylan_cadena
+  main
+  practica2025
+* suprema
+
+
+7. $ git branch 
+* bife
+  dylan_cadena
+  main
+  practica2025
+  suprema
+
+
+10. $ git diff main suprema
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+$ git diff main bife
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1712737 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++bife
+\ No newline at end of file
+
+Se puede observar que ambas ramas presentan diferencias con respecto a la rama main
+
+
+
+11. $ git status 
+On branch main
+Your branch is ahead of 'origin/main' by 7 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.conflicts/dylan_cadena.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+no se observan cambios en la rama, solamente que esta sin añadir el archivo con las Respuestas
+
+12. $ git merge bife
+Updating 908d6aa..035f2aa
+Fast-forward
+ 3.conflicts/milanesa.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ La rama bife tenía commits nuevos, pero la rama actual no tenía cambios adicionales desde su punto de separación.
+En este caso, Git pudo simplemente avanzar (fast-forward) sin necesidad de un commit de merge.
+
+13. git merge suprema
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Esto significa que Git no pudo fusionar automáticamente los cambios porque hay modificaciones en la misma parte del archivo en ambas ramas.
+
+14.  git status 
+On branch main
+Your branch is ahead of 'origin/main' by 7 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        dylan_cadena.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Hay un conflicto en milanesa.txt y Git está esperando que se resuelva antes de completar el merge.
+
+15. Se puede apreciar que se nos da a elegir que cambio conservar antes de realizar el merge
+
+17.  git merge suprema
+Auto-merging 3.conflicts/milanesa.txt
+CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+Automatic merge failed; fix conflicts and then commit the result.

@@ -1,0 +1,193 @@
+## Ejercicio 2
+
+### 2.1. Respuestas
+1.  Un branch (rama) en Git es una línea de desarrollo separada de la rama principaly permite trabajar en nuevas características o corregir errores sin afectar el código principal.
+
+2. Los branches permiten desarrollar nuevas funciones, corregir errores o probar cambios sin afectar el código estable. Facilitan el trabajo en equipo, ya que diferentes desarrolladores pueden trabajar en distintas características de manera independiente.
+
+3. Se utiliza el siguiente codigo git branch nombre_de_la_rama
+   
+4. Se pueden usar los codigos git checkout nombre_de_la_rama o git switch nombre_de_la_rama
+ 
+5. Se pueden usar los codigos: 
+   Si la rama no está fusionada:  git branch -D nombre_de_la_rama
+   Si la rama ya fue fusionada o deseas eliminarla de manera segura: git branch -d nombre_de_la_rama
+ 
+6. Se utiliza el codigo  git checkout -b nombre_de_la_rama
+
+7.  Un merge (fusión) es el proceso de combinar cambios de una rama en otra. Generalmente, se usa para fusionar cambios de una rama de desarrollo con la rama principal (`main` o `master`).
+
+8.  Primero, cambia a la rama en la que deseas fusionar los cambios: git checkout main  # O "git switch main"
+   Luego, realiza el merge:  git merge nombre_de_la_rama
+ 
+9. Un tag (etiqueta) es un marcador en la historia de Git que se usa comúnmente para identificar versiones específicas del código, como versiones de lanzamiento.
+
+10. Se utiliza el siguiente codigo: git tag -a nombre_del_tag -m "Mensaje del tag"
+
+
+
+### 2.2. Ejercicio Práctico
+
+3. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit (experimento)
+$ git branch 
+  dylan_cadena
+* experimento
+  main
+  practica2025
+
+
+4. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit/2.branchs (experimento)
+$ git commit -m "se añade albahaca"
+[experimento 227091e] se añade albahaca
+ 1 file changed, 1 insertion(+)
+
+ 5. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit/2.branchs (experimento)
+$ git commit -m "se añade oregano"
+[experimento 4ae945f] se añade oregano
+ 1 file changed, 1 insertion(+)
+
+6. $ git graph
+* 4ae945f (HEAD -> experimento) se añade oregano
+* 227091e se añade albahaca
+| * 958abeb (origin/dylan_cadena, dylan_cadena) Resuelto ejercicio 1
+| * 775eccd sandwich regreso al estado inicial
+
+El resultado que observo es que se indica que estoy trabajando en la rama experimento y se muestran los cambios hechos al archivo de pizza.txt
+
+
+9. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit/2.branchs (anana)
+$ git commit -m "se añade anana"
+[anana da475d6] se añade anana
+ 1 file changed, 1 insertion(+)
+
+10. $ git graph 
+* da475d6 (HEAD -> anana) se añade anana
+| * 4ae945f (experimento) se añade oregano
+| * 227091e se añade albahaca
+|/
+| * 958abeb (origin/dylan_cadena, dylan_cadena) Resuelto ejercicio 1
+
+
+Puedo mirar que estoy trabajando en el mismo archivo desde otra rama el cual estaba sin cambios y posteriormente le añadi el ingrediente anana
+
+
+12. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit/2.branchs (main)
+$ git commit -m "se añade cebolla"
+[main 760b628] se añade cebolla
+ 1 file changed, 1 insertion(+)
+
+
+13. $ git graph 
+* 760b628 (HEAD -> main) se añade cebolla
+| * da475d6 (anana) se añade anana
+|/
+| * 4ae945f (experimento) se añade oregano
+| * 227091e se añade albahaca
+|/
+
+puedo observar que estoy añadiendo cambios al archivo pizza.txt directamente en la rama main, tambien puedo ver las demas ramas y los cambios que se efectuaron en estas
+
+
+14. dilan@DESKTOP-KPK1AU9 MINGW64 ~/Desktop/Taller1/tallergit/2.branchs (main)
+$ git merge anana
+Auto-merging 2.branchs/pizza.txt
+Merge made by the 'ort' strategy.
+ 2.branchs/pizza.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+15. $ git graph
+*   9dd2f52 (HEAD -> main) Merge branch 'anana' - Fusionando cambios de la rama 'anana' en main
+|\
+| * da475d6 (anana) se añade anana
+* | 760b628 se añade cebolla
+|/
+
+puedo observar que las rama anana se unio a la main, tambien los cambios al no tener conflicto se añadieron correctamente al archivo pizza.txt
+
+16.  git branch --merged
+  anana
+* main
+  practica2025
+
+las ramas mergeadas son anana y practica2025
+
+
+17. git merge experimento
+Auto-merging 2.branchs/pizza.txt
+Merge made by the 'ort' strategy.
+ 2.branchs/pizza.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+
+18. *   908d6aa (HEAD -> main) Merge branch 'experimento' - Fusionando cambios de la rama 'experimento' en main
+|\
+| * 4ae945f (experimento) se añade oregano
+| * 227091e se añade albahaca
+* |   9dd2f52 Merge branch 'anana' - Fusionando cambios de la rama 'anana' en main
+|\ \
+| * | da475d6 (anana) se añade anana
+| |/
+* / 760b628 se añade cebolla
+|/
+| * 958abeb (origin/dylan_cadena, dylan_cadena) Resuelto ejercicio 1
+| * 775eccd sandwich regreso al estado inicial
+
+Puedo observar que la rama experimento se fusiono a la main de manera correcta ya que los cambios en el archivo pizza.txt se ven reflejados 
+
+19. Se realizo un merge manual ya que habia un commit d eun merge y las ramas tenian historial de cambia diferentes
+
+20. $ git branch --merged
+  anana
+  experimento
+* main
+  practica2025
+
+  Las ramas mergeadas son anana,experimento y practica2025
+
+23. $ git branch --merged
+* main
+  practica2025
+
+  solamente practica2025esta mergeada a la rama main
+
+24.  $ git graph
+*   908d6aa (HEAD -> main) Merge branch 'experimento' - Fusionando cambios de la rama 'experimento' en main
+|\
+| * 4ae945f se añade oregano
+| * 227091e se añade albahaca
+* |   9dd2f52 Merge branch 'anana' - Fusionando cambios de la rama 'anana' en main
+|\ \
+| * | da475d6 se añade anana
+| |/
+* / 760b628 se añade cebolla
+|/
+
+Puedo observar el recorrido de las ramas trabajadas hasta que se fusionaron en la main
+
+
+27.   git show pizza
+tag pizza
+Tagger: Dylan Cadena <dylancv@udenar.edu.co>
+Date:   Mon Feb 24 19:29:51 2025 -0500      
+
+Receta de la pizza.
+
+commit 908d6aa7de063c848df4c04cf7ea25cca650c027 (HEAD -> main, tag: pizza)
+Merge: 9dd2f52 4ae945f
+Author: Dylan Cadena <dylancv@udenar.edu.co>
+Date:   Mon Feb 24 19:19:25 2025 -0500
+
+    Merge branch 'experimento' - Fusionando cambios de la rama 'experimento' en main
+
+diff --cc 2.branchs/pizza.txt
+index 961bd26,b523cb9..e605624
+--- a/2.branchs/pizza.txt
++++ b/2.branchs/pizza.txt
+@@@ -1,5 -1,5 +1,7 @@@
++ oregano
++ albahaca
+  queso
+ +anana
+  salsa de tomate
+ +cebolla
+  masa de pizza 
