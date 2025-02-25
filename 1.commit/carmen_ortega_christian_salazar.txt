@@ -156,4 +156,18 @@ Date:   Mon Feb 24 20:29:57 2025 -0500
  1.commit/sandwich2_feo.txt | 13 -------------
  1 file changed, 13 deletions(-)
 
-// por ultimo en la bitacora se puede presenciar la eliminacion de un archivo y sus lineas. 
+// por ultimo en la bitacora se puede presenciar la eliminacion de un archivo y sus lineas.
+
+
+
+
+----punto 11---------
+╭─ 💁 christian at 💻 udenar in 📁 ~/.../tallergitc/1.commit on (🌿 main ↑9 ✓)
+╰λ git status
+On branch main
+Your branch is ahead of 'origin/main' by 9 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+// no se observa nada, puesto que, no se ha hecho un merge y los cambios estan en un commit para cada rama que se hizo, por ende la rama main se encuentra en desconocimiento de lo que paso en las demas ramas ajena a ella
+ 
