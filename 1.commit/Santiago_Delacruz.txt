@@ -1,0 +1,205 @@
+1. ¿Cómo se inicializa un repositorio local?: Se debe ejecutar el comando "git init" en la terminal dentro del directorio que se quiere convertir en un repositorio Git.
+
+2. ¿Cómo hago para que un directorio deje de ser controlado por Git?: Se elimina la carpeta ".git" con el comando "rm -rf .git"
+
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?: No de inmediato. Aunque el directorio esté bajo control de Git, los archivos nuevos no son rastreados automáticamente. Es necesario agregarlos manualmente con git add para que pasen a formar parte del seguimiento de cambios.
+
+4.¿Qué comando se utiliza para agregar un archivo al repositorio local?: git add <nombre_del_archivo>
+
+5. ¿Cómo determino que archivos fueron modificados?: Se usa el comando "git status"
+
+6. ¿Qué comando se utiliza para hacer un commit?: Se usa el comando "git commit -m 'Mensaje del commit'"
+
+7. En sus propias palabras, ¿qué es un commit?: Un commit es un mensaje que se deja para tener un registro de los cambios que se hacen dentro de un archivo de trabajo para poder tener un registro de cada cambio y poder evaluar los cambios con versiones anteriores.
+
+--------------------Primer git status---------------------------
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Santiago_Delacruz.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+ -------------------"git add sandwich.txt"-----------------------------
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Santiago_Delacruz.txt
+
+--------------------"git commit -m "Agrego mi sandwich.txt"-------------------
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Santiago_Delacruz.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Existe un cambio ya que se marca que en la rama "origin/main" existe un commit
+
+--------------------"git log"--------------------
+$ git log
+commit 1d63580b2c192eb745a7712a67a6f55733dcd9e7 (HEAD -> main)
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:19:17 2025 -0500
+
+    Agrego salsas
+
+commit 38caa4ac7fa9e359e5a3c35d98f41221241f3d29
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:11:22 2025 -0500
+
+    Agrego mi sandwich.txt
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+:
+commit 1d63580b2c192eb745a7712a67a6f55733dcd9e7 (HEAD -> main)
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:19:17 2025 -0500
+
+    Agrego salsas
+
+commit 38caa4ac7fa9e359e5a3c35d98f41221241f3d29
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:11:22 2025 -0500
+
+    Agrego mi sandwich.txt
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+(END)
+
+--------------------Variaciones "git log"--------------------
+$ git log --oneline
+1d63580 (HEAD -> main) Agrego salsas
+38caa4a Agrego mi sandwich.txt
+fafdc7f (origin/practica2025, origin/main, origin/HEAD) cambio readme.md
+5d6dc69 cambio de rama master a main en documentación
+3f74d4d primer commit
+
+## Esta linea de comandos se usa cuando se necesita un vistazo rápido al historial de commits sin detalles adicionales.
+
+$ git log --stat
+commit 1d63580b2c192eb745a7712a67a6f55733dcd9e7 (HEAD -> main)
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:19:17 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit 38caa4ac7fa9e359e5a3c35d98f41221241f3d29
+Author: Santiago Delacruz <santiagod@udenar.edu.co>
+Date:   Mon Feb 24 22:11:22 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/sandwich.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit fafdc7f0bd9a9a556a616c14ff783605909f3803 (origin/practica2025, origin/main, origin/HEAD)
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:45:03 2025 -0500
+
+    cambio readme.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 5d6dc694d95afb33114a820339acfeeab38cc42a
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:39:56 2025 -0500
+
+    cambio de rama master a main en documentación
+
+ 2.branchs/README.md   | 16 ++++++++--------
+ 3.conflicts/README.md | 10 +++++-----
+ README.md             |  7 +++++--
+ 3 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 3f74d4d0db34f6f6fbcd9f8cfa4b157dccdd48d7
+Author: Franklin Jimenez <f.jimenezg@hotmail.com>
+Date:   Mon Feb 17 23:17:02 2025 -0500
+
+    primer commit
+
+ .gitignore               |  2 ++
+ 1.commit/README.md       | 55 ++++++++++++++++++++++++++++++++++
+ 1.commit/sandwich.txt    |  4 +++
+ 2.branchs/README.md      | 78 ++++++++++++++++++++++++++++++++++++++++++++++++
+ 2.branchs/pizza.txt      |  3 ++
+ 3.conflicts/README.md    | 48 +++++++++++++++++++++++++++++
+ 3.conflicts/milanesa.txt |  2 ++
+ README.md                | 54 +++++++++++++++++++++++++++++++++
+ 8 files changed, 246 insertions(+)
+
+## Esta linea de comandos se usa cuando se necesita más información sobre qué archivos cambiaron y la cantidad de modificaciones realizadas en cada commit.
+
+--------------------Agregar sandwich2_feo.txt y hacer el git status--------------------
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Santiago_Delacruz.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+## Existe el cambio de la cantidad de los commits presentados en la rama "origin/main"
+
+--------------------Eliminar sandwich2_feo.txt y salida de git status--------------------
+
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 4 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Santiago_Delacruz.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+--------------------Inspección de la bitácora--------------------
+
+La bitácora muestra el historial de cambios en el repositorio, donde se observa la adición y eliminación de archivos, modificaciones en documentos existentes y ajustes en la documentación. Se destaca que el archivo sandwich2_feo.txt fue agregado y eliminado en commits consecutivos, lo que indica que se descartó tras una revisión. También se realizaron cambios en sandwich.txt, agregando contenido relacionado con salsas. Además, se hicieron modificaciones en README.md, incluyendo ajustes en la nomenclatura de master a main. Finalmente, el commit inicial contiene la mayor cantidad de archivos y líneas insertadas, estableciendo la estructura base del proyecto.	
