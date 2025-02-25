@@ -24,19 +24,124 @@
 3. Moverse a la branch `suprema`. (Puede usar el comando `git checkout`).
 4. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `pollo`.
 5. "Commitear" los cambios. (Puede usar el comando `git commit -am "Cambio de lomo a pollo"`).
+
+    Salida:
+
+    [suprema 01188db] Cambio de lomo a pollo
+    1 file changed, 1 insertion(+), 1 deletion(-)
+
 6. Moverse a la branch `main`. (Puede usar el comando `git checkout`).
 7. Crear una nueva branch `bife` a partir de la branch `main`. (Puede usar el comando `git checkout -b bife`).
 8. Moverse a la branch `bife`. (Puede usar el comando `git checkout`).
 9. Cambiar el contenido del archivo `3.conflicts/milanesa.txt` donde dice lomo por `bife`. 
 10. Haga un `git diff main suprema` y un `git diff main bife`. ¿Qué observa? 
+
+    Salida 1:
+
+    diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+    index 5255304..1c57c4d 100644
+    --- a/3.conflicts/milanesa.txt
+    +++ b/3.conflicts/milanesa.txt
+    @@ -1,2 +1,2 @@
+    pan rallado
+    -lomo
+    \ No newline at end of file
+    +pollo
+    \ No newline at end of file
+
+    Muestra que el lomo ha sido cambiado por pollo
+
+    Salida 2:
+
+    Ninguna
+
+    El comando git diff main bife no muestra nada porque no se ha realizado un commit del cambio en la branch bife.
+
 11. Moverse a la branch `main`. Corra un `git status`, ¿qué observa?
+
+    On branch main
+    Your branch is ahead of 'origin/main' by 6 commits.
+    (use "git push" to publish your local commits)
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+            modified:   3.conflicts/milanesa.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+NOTA: Antes de continuar se realiza el commit del cambio en la branch "bife"
+
+    [bife d44f24f] Cambia a bife
+    1 file changed, 1 insertion(+), 1 deletion(-)
+
 12. Ejecute `git merge bife`. Funcionó?
+
+    Salida:
+
+    Updating cc0c6ec..d44f24f
+    Fast-forward
+    3.conflicts/milanesa.txt | 2 +-
+    1 file changed, 1 insertion(+), 1 deletion(-)
+
 13. Ejecute `git merge suprema`. Funcionó?
+
+    Salida:
+
+    Auto-merging 3.conflicts/milanesa.txt
+    CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+
+    En este caso tuvo problemas con el merge debido a que existe un conflicto, pues se ha editado la misma linea del archivo en ambas ramas.
+
 14. Ejecute `git status`. Que observa?
+
+    Salida:
+
+    On branch main
+    Your branch is ahead of 'origin/main' by 7 commits.
+    (use "git push" to publish your local commits)
+
+    You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
+
+    Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+            both modified:   3.conflicts/milanesa.txt
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+    Significa que un merge no ha podido realizarse debido a que hay un conflicto, en este caso se menciona las palabras "both modified"
+    Lo cual da a entender que se ha cambiado el mismo archivo en diferentes ramas.
+
 15. Vea el contenido del archivo `3.conflicts/milanesa.txt`. ¿Qué observa?
+
+    pan rallado
+    <<<<<<< HEAD (Current Change)
+    bife
+    =======
+    pollo
+    >>>>>>> suprema (Incoming Change)
+
+    "main" se había fusionado con "bife" y ahora busca fusionarse con "suprema", entonces git da a decidir cuál de los cambios se quiere aceptar
+    en el archivo milanesa.txt
+
 16. Aborte el merge. (Puede usar el comando `git merge --abort`).
 17. Vuelva a ejecutar `git merge suprema`.
+
+    Salida:
+
+    Auto-merging 3.conflicts/milanesa.txt
+    CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+
 18. Resuelva el conflicto manualmente.
+
+    Se ha aceptado el cambio de la rama "suprema" y se realizó el commit respectivo
+
+    git commit -m "Se cambia bife a pollo"
+    [main c7baeac] Se cambia bife a pollo
 
 ## Finalizado
 
@@ -51,4 +156,3 @@ git checkout [commit ID] -- 3.conflicts/milanesa.txt
 git checkout [commit ID] -- milanesa.txt
 
 # dependiendo de donde esté ubicado
-```
