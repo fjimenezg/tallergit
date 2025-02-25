@@ -8,3 +8,8 @@
 8: (1: se verifica el status genereal  2: de ser necesario hacer los commits necesarios    3: moverse a la rama principa   4: ejecutar un git merge <name-branch>)
 9: es una etiqueta o referencia estatica
 10: git tag <name-tag>
+
+
+---------answers----------
+6- el historial de commits, este comando nos pertime tambien ver en que rama son los cambios, mostrando los commits realizados por rama.
+
