@@ -1,0 +1,120 @@
+## Ejercicio 3
+
+### 3.1. Preguntas
+
+1. ¿Qué es un conflicto? Cuando ocurre? ¿Es bueno o malo?
+R/ Un conflicto en Git ocurre cuando dos o más cambios entran en conflicto porque afectan la misma línea de un archivo y Git no puede determinar automáticamente cuál debe conservarse.
+
+Los conflictos suelen ocurrir en las siguientes situaciones:
+
+Cuando dos personas modifican la misma línea de un archivo y luego intentan fusionar sus cambios.
+Cuando se realiza un merge (git merge) o un rebase (git rebase) y Git no puede combinar los cambios automáticamente.
+Al aplicar cambios desde una rama que tiene modificaciones incompatibles con la rama actual.
+¿Es bueno o malo?
+
+No es necesariamente malo, ya que es una parte normal del desarrollo colaborativo en Git.
+Puede ser problemático si no se resuelve correctamente, pero Git proporciona herramientas para solucionarlo.
+
+
+2. ¿Se puede evitar un conflicto? ¿Cómo?
+Se puede evitar tenienod buenas practicas como por ejemplo:
+- actualizando con frecuencia. antes de realizar cambios ejecutamos: git pull origin rama-principal
+- Dividir las tareas adecuadamente. si los colaboradores trabajan en diferentes partes del código, hay menos riesgo
+ de modificar las mismas líneas
+- Hacer commits pequeños y frecuentes. commits más pequeños hacen que sea más fácil resolver conflictos si ocurren
+- Evitar cambios innecesarios. modificar solo lo necesario y no formatear archivos enteros sin motivo reduce la posibilidad de conflictos
+- Usar ramas para nuevas características (Feature Branching). Trabajar en ramas separadas y fusionarlas con cuidado usando git merge o git rebase
+
+
+### 3.2. Ejercicio Práctico
+
+10. 
+git diff main suprema
+diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+index 5255304..1c57c4d 100644
+--- a/3.conflicts/milanesa.txt
++++ b/3.conflicts/milanesa.txt
+@@ -1,2 +1,2 @@
+ pan rallado
+-lomo
+\ No newline at end of file
++pollo
+\ No newline at end of file
+
+vemos que se cambió la parte de lomo por pollo
+
+11.
+PS E:\Modelos\tallergit> git status
+On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   3.conflicts/milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.conflicts/NicolasMartinez_JerssonTovar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+vemos que tenemos modificado el milanesa.txt y un nuevo archivo NicolasMartinez_JerssonTovar.txt
+
+12.
+PS E:\Modelos\tallergit> git merge bife
+Already up to date.
+
+si funcionó
+
+13.
+PS E:\Modelos\tallergit> git merge suprema
+error: Your local changes to the following files would be overwritten by merge:
+        3.conflicts/milanesa.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 7c66c0f..0d2a826
+
+No funcionó
+
+
+14.
+PS E:\Modelos\tallergit> git status
+On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   3.conflicts/milanesa.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        3.conflicts/NicolasMartinez_JerssonTovar.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+sigue igual
+
+
+16.
+está bife en vez de pollo o lomo
+
+17.
+PS E:\Modelos\tallergit> git merge suprema
+error: Your local changes to the following files would be overwritten by merge:
+        3.conflicts/milanesa.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Updating 7c66c0f..0d2a826
+PS E:\Modelos\tallergit> git add 3.conflicts/milanesa.txt
+PS E:\Modelos\tallergit> git commit -m "Guardo cambios locales en milanesa.txt"
+[main 88e9af0] Guardo cambios locales en milanesa.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+PS E:\Modelos\tallergit> git merge suprema
+Merge made by the 'ort' strategy.
+
+
